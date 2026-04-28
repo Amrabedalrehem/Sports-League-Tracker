@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		091CC8492FA0EFF7004415AE /* FavoriteLeague+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091CC8472FA0EFF7004415AE /* FavoriteLeague+CoreDataClass.swift */; };
 		091CC84A2FA0EFF7004415AE /* FavoriteLeague+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091CC8482FA0EFF7004415AE /* FavoriteLeague+CoreDataProperties.swift */; };
-		68E154942FA0F45B00C886DF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 68E154932FA0F45B00C886DF /* Alamofire */; };
+		091CC8582FA10195004415AE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 091CC8572FA10195004415AE /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,7 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68E154942FA0F45B00C886DF /* Alamofire in Frameworks */,
+				091CC8582FA10195004415AE /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,7 +136,7 @@
 			);
 			name = SportFolio;
 			packageProductDependencies = (
-				68E154932FA0F45B00C886DF /* Alamofire */,
+				091CC8572FA10195004415AE /* Alamofire */,
 			);
 			productName = SportFolio;
 			productReference = 68E153B32FA098CE00C886DF /* SportFolio.app */;
@@ -223,7 +223,7 @@
 			packageReferences = (
 				091CC8162FA0B104004415AE /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				091CC8372FA0B32D004415AE /* XCRemoteSwiftPackageReference "Reachability" */,
-				68E154922FA0F45B00C886DF /* XCRemoteSwiftPackageReference "Alamofire" */,
+				091CC8562FA10195004415AE /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 68E153B42FA098CE00C886DF /* Products */;
@@ -600,7 +600,7 @@
 				kind = branch;
 			};
 		};
-		68E154922FA0F45B00C886DF /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		091CC8562FA10195004415AE /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -611,9 +611,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		68E154932FA0F45B00C886DF /* Alamofire */ = {
+		091CC8572FA10195004415AE /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 68E154922FA0F45B00C886DF /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = 091CC8562FA10195004415AE /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
