@@ -7,13 +7,60 @@
 
 
 import Foundation
-
-class NetworkManager {
+protocol NetworkService {
     
-    static let shared = NetworkManager()
+    func getLeagues(
+        baseURL: String,
+        completion: @escaping (Result<LeaguesResponse, Error>) -> Void
+    )
+    
+    func getEvents(
+        baseURL: String,
+        leagueId: Int,
+        from: String,
+        to: String,
+        completion: @escaping (Result<EventsResponse, Error>) -> Void
+    )
+    
+    func getTeams(
+        baseURL: String,
+        leagueId: Int,
+        completion: @escaping (Result<TeamsResponse, Error>) -> Void
+    )
+    
+    func getTeamDetails(
+        baseURL: String,
+        teamId: Int,
+        completion: @escaping (Result<TeamsResponse, Error>) -> Void
+    )
+}
+class NetworkServiceImpl : NetworkService{
+    
+    static let shared = NetworkServiceImpl()
     private init() {}
     
+     
+    func getEvents(
+        baseURL: String,
+        leagueId: Int,
+        from: String,
+        to: String,
+        completion: @escaping (Result<EventsResponse, Error>) -> Void
+    ) {
+        APIClient.shared.request(
+            baseURL: baseURL,
+            params: [
+                "met": "Fixtures",
+                "leagueId": leagueId,
+                "from": from,
+                "to": to
+            ],
+            responseType: EventsResponse.self,
+            completion: completion
+        )
+    }
     
+   
     func getLeagues(
         baseURL: String,
         completion: @escaping (Result<LeaguesResponse, Error>) -> Void
@@ -26,48 +73,8 @@ class NetworkManager {
         )
     }
     
-    
-    func getUpcomingEvents(
-        baseURL: String,
-        leagueId: Int,
-        from: String,
-        to: String,
-        completion: @escaping (Result<EventsResponse, Error>) -> Void
-    ) {
-        APIClient.shared.request(
-            baseURL: baseURL,
-            params: [
-                "met" : "Fixtures",
-                "leagueId" : leagueId,
-                "from" : from,
-                "to" : to
-            ],
-            responseType: EventsResponse.self,
-            completion: completion
-        )
-    }
-    
-   
-    func getLatestEvents(
-        baseURL: String,
-        leagueId: Int,
-        from: String,
-        to: String,
-        completion: @escaping (Result<EventsResponse, Error>) -> Void
-    ) {
-        APIClient.shared.request(
-            baseURL: baseURL,
-            params: [
-                "met" : "Fixtures",
-                "leagueId" : leagueId,
-                "from" : from,
-                "to" : to
-            ],
-            responseType: EventsResponse.self,
-            completion: completion
-        )
-    }
-    
+
+
    
     func getTeams(
         baseURL: String,
