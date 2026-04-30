@@ -1,6 +1,2 @@
-*.xcuserstate
-xcuserdata/
-*.xcuserstate
-xcuserdata/
-*.xcuserstate
-xcuserdata/
+.DS_Store
+SportFolio.xcodeproj/project.xcworkspace/xcshareddata/
