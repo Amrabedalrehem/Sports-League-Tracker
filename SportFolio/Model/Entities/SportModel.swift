@@ -10,6 +10,6 @@ import Foundation
 
 struct SportModel {
     let name:    String
-    let image:   String  // system image name
+    let image:   String   
     let baseURL: String
 }

@@ -92,3 +92,4 @@ class CoreDataManager {
         }
     }
 }
+extension CoreDataManager: FavoritesDataSource {}
