@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina6_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,27 +14,125 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SportFolio" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRQ-mx-MY7">
-                                <rect key="frame" x="191" y="333" width="30" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bannerCollectionView">
+                                <rect key="frame" x="22" y="140" width="396" height="180"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="bannerLayout">
+                                    <size key="itemSize" width="396" height="180"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="bannerCell" id="bannerCellId" customClass="BannerCell" customModule="SportFolio" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="396" height="180"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="bannerCellContent">
+                                            <rect key="frame" x="0.0" y="0.0" width="396" height="180"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="banner1" translatesAutoresizingMaskIntoConstraints="NO" id="bannerImage">
+                                                    <rect key="frame" x="0.0" y="0.0" width="396" height="180"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="bannerImage" firstAttribute="top" secondItem="bannerCellContent" secondAttribute="top" id="b1"/>
+                                                <constraint firstItem="bannerImage" firstAttribute="bottom" secondItem="bannerCellContent" secondAttribute="bottom" id="b2"/>
+                                                <constraint firstItem="bannerImage" firstAttribute="leading" secondItem="bannerCellContent" secondAttribute="leading" id="b3"/>
+                                                <constraint firstAttribute="trailing" secondItem="bannerImage" secondAttribute="trailing" id="b4"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="bannerImageView" destination="bannerImage" id="bannerImageOutlet"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="bannerDataSourceOutlet"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="bannerDelegateOutlet"/>
+                                </connections>
+                            </collectionView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sportsCollectionView">
+                                <rect key="frame" x="55" y="344" width="330" height="382.33333333333326"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="20" sectionInsetReference="safeArea" id="sportsLayout">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="sportCell" id="sportCellId" customClass="SportCell" customModule="SportFolio" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="sportCellContent">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Basketball" translatesAutoresizingMaskIntoConstraints="NO" id="sportImage">
+                                                    <rect key="frame" x="28" y="14" width="72" height="72"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="72" id="imgH"/>
+                                                        <constraint firstAttribute="width" constant="72" id="imgW"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sportName">
+                                                    <rect key="frame" x="43.666666666666657" y="93" width="41" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="sportImage" firstAttribute="centerX" secondItem="sportCellContent" secondAttribute="centerX" id="c1"/>
+                                                <constraint firstItem="sportName" firstAttribute="centerX" secondItem="sportCellContent" secondAttribute="centerX" id="c2"/>
+                                                <constraint firstItem="sportName" firstAttribute="top" secondItem="sportImage" secondAttribute="bottom" constant="7" id="c3"/>
+                                                <constraint firstAttribute="bottom" secondItem="sportName" secondAttribute="bottom" constant="14" id="c4"/>
+                                                <constraint firstItem="sportImage" firstAttribute="top" secondItem="sportCellContent" secondAttribute="top" constant="14" id="c5"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="sportImage" destination="sportImage" id="outletImage"/>
+                                            <outlet property="sportName" destination="sportName" id="outletName"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="dataSourceOutlet"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="delegateOutlet"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bannerCollectionView" firstAttribute="height" constant="180" id="bannerHeight"/>
+                            <constraint firstItem="bannerCollectionView" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="22" id="bannerLeading"/>
+                            <constraint firstItem="bannerCollectionView" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="bannerTop"/>
+                            <constraint firstAttribute="trailing" secondItem="bannerCollectionView" secondAttribute="trailing" constant="22" id="bannerTrailing"/>
+                            <constraint firstItem="sportsCollectionView" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="cv1"/>
+                            <constraint firstItem="sportsCollectionView" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.75" id="cv3"/>
+                            <constraint firstItem="sportsCollectionView" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.4" id="cv4"/>
+                            <constraint firstItem="sportsCollectionView" firstAttribute="top" secondItem="bannerCollectionView" secondAttribute="bottom" constant="24" id="sportsTop"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="aNk-GO-cKJ"/>
+                    <connections>
+                        <outlet property="bannerCollectionView" destination="bannerCollectionView" id="mainBannerOutlet"/>
+                        <outlet property="sportsCollectionView" destination="sportsCollectionView" id="mainCollectionOutlet"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-50" y="5"/>
+            <point key="canvasLocation" x="342.74809160305341" y="-185.21126760563382"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Basketball" width="500" height="500"/>
+        <image name="banner1" width="1600" height="800"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
