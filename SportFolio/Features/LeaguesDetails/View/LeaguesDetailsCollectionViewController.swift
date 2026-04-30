@@ -18,8 +18,8 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
         detailsLeaguePresenter = DetailsLeaguePresenter()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
         // Register cell classes
+        detailsLeaguePresenter.f
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
@@ -45,14 +45,15 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return detailsLeaguePresenter.getNumberOfUpcomingEvents()
+        print( detailsLeaguePresenter.getNumberOfTeams())
+        return detailsLeaguePresenter.getNumberOfTeams()
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
     
-       as! UpcomingEventCollectionViewCell
-        cell.myLabel.text = detailsLeaguePresenter.getUpcomingEvent(at: indexPath.row)?.leagueName
+       as! TeamCollectionViewCell
+        cell.teamLabel.text = detailsLeaguePresenter.getUpcomingEvent(at: indexPath.row)?.leagueName
     
         return cell
     }
