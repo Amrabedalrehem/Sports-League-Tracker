@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="dark"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TeamViewCell" rowHeight="104" id="KGk-i7-Jjw" customClass="TeamViewCell" customModule="SportsApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="104"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="393" height="104"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kj6-Wm-card">
+                        <rect key="frame" x="12" y="8" width="369" height="88"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g8J-number">
+                                <rect key="frame" x="14" y="28" width="32" height="32"/>
+                                <fontDescription key="fontDescription" type="system" weight="bold" pointSize="16"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d3L-avatar">
+                                <rect key="frame" x="60" y="24" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="avatar-width"/>
+                                    <constraint firstAttribute="height" constant="40" id="avatar-height"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="a1M-stack">
+                                <rect key="frame" x="114" y="21.666666666666671" width="198.33333333333331" height="44.666666666666657"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="David Raya" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2S-name">
+                                        <rect key="frame" x="0.0" y="0.0" width="198.33333333333334" height="26.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Age: 29" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1W-subtitle">
+                                        <rect key="frame" x="0.0" y="30.333333333333332" width="198.33333333333334" height="20.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="GK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7K-role">
+                                <rect key="frame" x="324.33333333333331" y="35" width="30.666666666666686" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="role-height"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="role-width"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="bold" pointSize="14"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="g8J-number" firstAttribute="leading" secondItem="Kj6-Wm-card" secondAttribute="leading" constant="14" id="number-leading"/>
+                            <constraint firstItem="g8J-number" firstAttribute="centerY" secondItem="Kj6-Wm-card" secondAttribute="centerY" id="number-center-y"/>
+                            <constraint firstItem="g8J-number" firstAttribute="width" constant="32" id="number-width"/>
+                            <constraint firstItem="g8J-number" firstAttribute="height" constant="32" id="number-height"/>
+                            <constraint firstItem="d3L-avatar" firstAttribute="leading" secondItem="g8J-number" secondAttribute="trailing" constant="14" id="avatar-leading"/>
+                            <constraint firstItem="d3L-avatar" firstAttribute="centerY" secondItem="Kj6-Wm-card" secondAttribute="centerY" id="avatar-center-y"/>
+                            <constraint firstItem="a1M-stack" firstAttribute="leading" secondItem="d3L-avatar" secondAttribute="trailing" constant="14" id="stack-leading"/>
+                            <constraint firstItem="a1M-stack" firstAttribute="centerY" secondItem="Kj6-Wm-card" secondAttribute="centerY" id="stack-center-y"/>
+                            <constraint firstItem="s7K-role" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="a1M-stack" secondAttribute="trailing" constant="12" id="role-spacing"/>
+                            <constraint firstItem="s7K-role" firstAttribute="trailing" secondItem="Kj6-Wm-card" secondAttribute="trailing" constant="-14" id="role-trailing"/>
+                            <constraint firstItem="s7K-role" firstAttribute="centerY" secondItem="Kj6-Wm-card" secondAttribute="centerY" id="role-center-y"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Kj6-Wm-card" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="card-leading"/>
+                    <constraint firstAttribute="trailing" secondItem="Kj6-Wm-card" secondAttribute="trailing" constant="12" id="card-trailing"/>
+                    <constraint firstItem="Kj6-Wm-card" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="card-top"/>
+                    <constraint firstAttribute="bottom" secondItem="Kj6-Wm-card" secondAttribute="bottom" constant="8" id="card-bottom"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="avatarImageView" destination="d3L-avatar" id="outlet-avatar"/>
+                <outlet property="cardView" destination="Kj6-Wm-card" id="outlet-card"/>
+                <outlet property="nameLabel" destination="f2S-name" id="outlet-name"/>
+                <outlet property="numberLabel" destination="g8J-number" id="outlet-number"/>
+                <outlet property="roleBadgeLabel" destination="s7K-role" id="outlet-role"/>
+                <outlet property="subtitleLabel" destination="e1W-subtitle" id="outlet-subtitle"/>
+            </connections>
+            <point key="canvasLocation" x="38.167938931297712" y="38.732394366197184"/>
+        </tableViewCell>
+    </objects>
+</document>
