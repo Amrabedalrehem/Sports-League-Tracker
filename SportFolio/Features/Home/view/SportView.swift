@@ -69,6 +69,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             if collectionView == sportsCollectionView {
                 let selectedSport = presenter.didSelectSport(at: indexPath.row)
                 print("Selected sport: \(selectedSport.name)")
+                let leaguesVC = self.storyboard?.instantiateViewController(withIdentifier: "LeaguesViewTable") as! LeaguesViewTable
+                leaguesVC.presenter = LeaguesPresenter(sportType: presenter.getSport(at: indexPath.row).sportType)
+                 
+                self.navigationController?.pushViewController(leaguesVC, animated: true)
             }
         }
 

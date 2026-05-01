@@ -12,4 +12,5 @@ struct SportModel {
     let name:    String
     let image:   String   
     let baseURL: String
+    let sportType : SportType?
 }

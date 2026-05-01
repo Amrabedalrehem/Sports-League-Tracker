@@ -8,22 +8,18 @@
 import Foundation
  
  
-protocol LeaguesView: AnyObject {
-    func reloadData()
-    func startAnimating()
-    func stopAnimating()
-    func showError(message: String)
-}
-
- 
 class LeaguesPresenter {
     
  
     weak var view: LeaguesView?
     private var leagues: [LeagueModel] = []
-    var baseURL: String = ""
-    
+
+    var sportType :SportType?
  
+    init( sportType: SportType? = nil) {
+    
+        self.sportType = sportType
+    }
     func attachView(_ view: LeaguesView) {
         self.view = view
     }
@@ -31,7 +27,10 @@ class LeaguesPresenter {
     func fetchLeagues() {
         view?.startAnimating()
         
-              NetworkServiceImpl.shared.getLeagues(baseURL: baseURL) { [weak self] result in
+        NetworkServiceImpl.shared.getLeagues(
+            baseURL: sportType!.baseURL
+        ) { [weak self] result in
+            
             guard let self = self else { return }
             
             DispatchQueue.main.async {

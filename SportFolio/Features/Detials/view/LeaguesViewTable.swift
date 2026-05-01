@@ -7,10 +7,17 @@
 
 import UIKit
 import SDWebImage
+protocol LeaguesView: AnyObject {
+    func reloadData()
+    func startAnimating()
+    func stopAnimating()
+    func showError(message: String)
+}
 
 class LeaguesViewTable: UITableViewController, LeaguesView {
     
-    private let presenter = LeaguesPresenter()
+    var sportType :SportType?
+    var presenter = LeaguesPresenter()
     private let activityIndicator = UIActivityIndicatorView(style: .large)
     
     override func viewDidLoad() {
@@ -21,7 +28,7 @@ class LeaguesViewTable: UITableViewController, LeaguesView {
         setupActivityIndicator()
         
         presenter.attachView(self)
-                presenter.baseURL = APIConstants.BaseURL.football
+               
         presenter.fetchLeagues()
     }
     private func setupTableView() {
