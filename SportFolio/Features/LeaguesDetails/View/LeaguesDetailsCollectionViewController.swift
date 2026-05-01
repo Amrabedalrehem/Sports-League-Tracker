@@ -254,7 +254,10 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
 
             let team = leaguesDetailsPresenter.getTeam(at: indexPath.row)
             cell.teamLabel.text = team.teamName
-
+            cell.teamImageView.sd_setImage(
+                with: URL(string: team.teamLogo ?? ""),
+                placeholderImage: UIImage(named: "placeholder"))
+           
             return cell
 
         default:
