@@ -10,6 +10,7 @@ class LeaguesDetailsPresenter {
     
     private let network: NetworkService = NetworkServiceImpl.shared
     private let coreData: CoreDataManager = CoreDataManager.shared
+    weak var view: LeaguesDetailsView?
     var leagueId: Int?
     private let sportType: SportType
     private var allEvents: [EventModel] = []
@@ -24,28 +25,43 @@ class LeaguesDetailsPresenter {
 
 
 extension LeaguesDetailsPresenter {
-
-    func getTeams(completion: @escaping ([TeamModel]) -> Void) {
+    
+    
+    
+    func getTeams() {
 
         guard let leagueId = leagueId else {
-            completion([])
+            view?.showEmptyState()
             return
         }
 
-        network.getTeams(baseURL: sportType.baseURL,leagueId: leagueId) { [weak self] result in
+        view?.showLoading()
 
-            switch result {
-            case .success(let response):
-                let data = response.result ?? []
-                self?.teams = data
-                completion(data)
+        network.getTeams(baseURL: sportType.baseURL, leagueId: leagueId) { [weak self] result in
+            guard let self = self else { return }
 
-            case .failure(let error):
-                print("Teams Error:", error.localizedDescription)
-                completion([])
+            DispatchQueue.main.async {
+                self.view?.hideLoading()
+
+                switch result {
+
+                case .success(let response):
+                    let data = response.result ?? []
+                    self.teams = data
+
+                    if data.isEmpty {
+                        self.view?.showEmptyState()
+                    } else {
+                        self.view?.showData()
+                    }
+
+                case .failure(let error):
+                    self.view?.showError(message: error.localizedDescription)
+                }
             }
         }
     }
+
 
     func getNumberOfTeams() -> Int {
         return teams.count
@@ -57,63 +73,79 @@ extension LeaguesDetailsPresenter {
 }
 
 extension LeaguesDetailsPresenter {
-
+    
     private func parseDate(_ string: String?) -> Date? {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         return string.flatMap { formatter.date(from: $0) }
     }
-
+    
     private func isTodayOrFuture(_ date: Date, now: Date, calendar: Calendar) -> Bool {
         return calendar.isDate(date, inSameDayAs: now) || date > now
     }
-
+    
     private func getDateRange() -> (from: String, to: String) {
-
+        
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
-
+        
         let calendar = Calendar.current
         let today = Date()
-
+        
         let fromDate = calendar.date(byAdding: .month, value: -6, to: today)!
         let toDate = calendar.date(byAdding: .month, value: 6, to: today)!
-
+        
         return (formatter.string(from: fromDate),
                 formatter.string(from: toDate))
     }
     
-        func getEvents(completion: @escaping ([EventModel]) -> Void) {
-
-            guard let leagueId = leagueId else {
-                completion([])
-                return
-            }
-
-            let range = getDateRange()
-
-            network.getEvents(
-                baseURL: sportType.baseURL,
-                leagueId: leagueId,
-                from: range.from,
-                to: range.to
-            ) { [weak self] result in
-
+    func getEvents() {
+        
+        guard let leagueId = leagueId else {
+            view?.showEmptyState()
+            return
+        }
+        
+        let range = getDateRange()
+        
+        view?.showLoading()
+        
+        network.getEvents(
+            baseURL: sportType.baseURL,
+            leagueId: leagueId,
+            from: range.from,
+            to: range.to
+        ) { [weak self] result in
+            
+            guard let self = self else { return }
+            
+            DispatchQueue.main.async {
+                
+                self.view?.hideLoading()
+                
                 switch result {
-
+                    
                 case .success(let response):
                     let events = response.result ?? []
-                    self?.allEvents = events
-                    completion(events)
-
+                    self.allEvents = events
+                    
+                    print("Events count:", events.count)
+                    
+                    if events.isEmpty {
+                        self.view?.showEmptyState()
+                    } else {
+                        self.view?.showData()
+                    }
+                    
                 case .failure(let error):
-                    print("Events Error:", error.localizedDescription)
-                    completion([])
+                    self.view?.showError(message: error.localizedDescription)
                 }
             }
         }
+    }
+    
+    
 
-   
 
     func getUpcomingEvents() -> [EventModel] {
 

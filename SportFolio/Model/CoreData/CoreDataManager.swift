@@ -19,7 +19,7 @@ class CoreDataManager {
     
     
     lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "SportsApp")
+        let container = NSPersistentContainer(name: "SportFolio")
         container.loadPersistentStores { _, error in
             if let error = error {
                 fatalError("CoreData error: \(error)")
