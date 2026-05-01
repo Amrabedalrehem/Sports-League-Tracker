@@ -9,7 +9,8 @@
 import UIKit
 
 private let teamCellId = "TeamCollectionViewCell"
-
+private let upComingCellId = "UpcomingEventCollectionViewCell"
+private let latestCellId = "TeamCollectionViewCell"
 class LeaguesDetailsCollectionViewController: UICollectionViewController {
 
     var leaguesDetailsPresenter: LeaguesDetailsPresenter!
@@ -28,6 +29,16 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
             UINib(nibName: "TeamCollectionViewCell", bundle: nil),
             forCellWithReuseIdentifier: teamCellId
         )
+        
+        collectionView.register(
+            UINib(nibName: "UpcomingEventCollectionViewCell", bundle: nil),
+            forCellWithReuseIdentifier: upComingCellId
+        )
+        
+        collectionView.register(
+            UINib(nibName: "LatestEventCollectionViewCell", bundle: nil),
+            forCellWithReuseIdentifier: latestCellId
+        )
     }
 
    
@@ -41,7 +52,6 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
             }
         }
 
-       
         leaguesDetailsPresenter.getEvents { _ in
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
@@ -52,20 +62,22 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
     
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return 3
     }
 
     
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("teams->\(leaguesDetailsPresenter.getNumberOfTeams())")
-        print("up->\(leaguesDetailsPresenter.getNumberOfUpcomingEvents())")
-        print("teams->\(leaguesDetailsPresenter.getNumberOfLatestEvents())")
        
         if section == 0 {
-            return leaguesDetailsPresenter.getNumberOfTeams()
-        } else {
             return leaguesDetailsPresenter.getNumberOfUpcomingEvents()
+        }
+        else if section == 1
+            {
+            return leaguesDetailsPresenter.getNumberOfLatestEvents()
+        
+        } else {
+            return leaguesDetailsPresenter.getNumberOfTeams()
         }
     }
 

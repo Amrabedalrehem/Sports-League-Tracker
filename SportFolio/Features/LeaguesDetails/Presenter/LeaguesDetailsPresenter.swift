@@ -124,7 +124,7 @@ extension LeaguesDetailsPresenter {
 
             let status = event.eventStatus?.lowercased() ?? ""
 
-          
+           
             if status == "finished" {
                 return false
             }
@@ -133,14 +133,10 @@ extension LeaguesDetailsPresenter {
                 return true
             }
 
-            if sportType == .football {
-                return isTodayOrFuture(date, now: now, calendar: calendar)
-            }
-
-            return true
+           
+            return calendar.isDate(date, inSameDayAs: now) || date > now
         }
     }
-
 
     func getLatestEvents() -> [EventModel] {
 
@@ -151,7 +147,7 @@ extension LeaguesDetailsPresenter {
 
             let status = event.eventStatus?.lowercased() ?? ""
 
-          
+         
             if status == "finished" {
                 return true
             }
@@ -160,11 +156,8 @@ extension LeaguesDetailsPresenter {
                 return false
             }
 
-            if sportType == .football {
-                return date < now && !calendar.isDate(date, inSameDayAs: now)
-            }
-
-            return false
+            
+            return date < now && !calendar.isDate(date, inSameDayAs: now)
         }
     }
 
