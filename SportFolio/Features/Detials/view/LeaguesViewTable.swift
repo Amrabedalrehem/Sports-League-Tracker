@@ -12,9 +12,11 @@ protocol LeaguesView: AnyObject {
     func startAnimating()
     func stopAnimating()
     func showError(message: String)
+   
 }
 
 class LeaguesViewTable: UITableViewController, LeaguesView {
+   
     
     var sportType :SportType?
     var presenter = LeaguesPresenter()
@@ -52,9 +54,13 @@ class LeaguesViewTable: UITableViewController, LeaguesView {
         return presenter.getLeaguesCount()
     }
 
+   
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedLeague = presenter.didSelectLeague(at: indexPath.row)
-        print(selectedLeague)
+        let league = presenter.getLeague(at: indexPath.row)
+        let detailsVC = self.storyboard?.instantiateViewController(withIdentifier: "LeaguesDetailsCollectionViewController") as! LeaguesDetailsCollectionViewController
+        detailsVC.leaguesDetailsPresenter = LeaguesDetailsPresenter(sportType:presenter.sportType! , leagueId: league.leagueKey  )
+        
+        navigationController?.pushViewController(detailsVC, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -94,6 +100,10 @@ extension LeaguesViewTable {
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
     }
+    
+    
+    
+    
 }
 
 

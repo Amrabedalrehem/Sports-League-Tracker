@@ -168,7 +168,7 @@
         <!--Leagues Details Collection View Controller-->
         <scene sceneID="qLf-8E-sdc">
             <objects>
-                <collectionViewController id="dva-qi-raZ" customClass="LeaguesDetailsCollectionViewController" customModule="SportFolio" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="LeaguesDetailsCollectionViewController" id="dva-qi-raZ" customClass="LeaguesDetailsCollectionViewController" customModule="SportFolio" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="fbE-8x-8ZH">
                         <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

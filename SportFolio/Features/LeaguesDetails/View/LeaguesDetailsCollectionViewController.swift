@@ -2,91 +2,94 @@
 //  LeaguesDetailsCollectionViewController.swift
 //  SportFolio
 //
-//  Created by ITI_JETS on 30/04/2026.
+//  Created by shahudaa 
 //
+
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+private let teamCellId = "TeamCollectionViewCell"
 
 class LeaguesDetailsCollectionViewController: UICollectionViewController {
 
-    var detailsLeaguePresenter: DetailsLeaguePresenter!
+    var leaguesDetailsPresenter: LeaguesDetailsPresenter!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        detailsLeaguePresenter = DetailsLeaguePresenter()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        // Register cell classes
-        //detailsLeaguePresenter.f
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
-        // Do any additional setup after loading the view.
+        setupCollectionView()
+        fetchData()
     }
 
-    /*
-    // MARK: - Navigation
+    
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+    private func setupCollectionView() {
+        collectionView.register(
+            UINib(nibName: "TeamCollectionViewCell", bundle: nil),
+            forCellWithReuseIdentifier: teamCellId
+        )
     }
-    */
 
-    // MARK: UICollectionViewDataSource
+   
+
+    private func fetchData() {
+
+       
+        leaguesDetailsPresenter.getTeams { [weak self] _ in
+            DispatchQueue.main.async {
+                self?.collectionView.reloadData()
+            }
+        }
+
+       
+        leaguesDetailsPresenter.getEvents { _ in
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
+
+    
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 3
+        return 2
     }
 
+    
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        print( detailsLeaguePresenter.getNumberOfTeams())
-        return detailsLeaguePresenter.getNumberOfTeams()
+        print("teams->\(leaguesDetailsPresenter.getNumberOfTeams())")
+        print("up->\(leaguesDetailsPresenter.getNumberOfUpcomingEvents())")
+        print("teams->\(leaguesDetailsPresenter.getNumberOfLatestEvents())")
+       
+        if section == 0 {
+            return leaguesDetailsPresenter.getNumberOfTeams()
+        } else {
+            return leaguesDetailsPresenter.getNumberOfUpcomingEvents()
+        }
     }
 
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
     
-       as! TeamCollectionViewCell
-        cell.teamLabel.text = detailsLeaguePresenter.getUpcomingEvent(at: indexPath.row)?.leagueName
-    
+
+    override func collectionView(_ collectionView: UICollectionView,
+                                  cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: teamCellId,
+            for: indexPath
+        ) as! TeamCollectionViewCell
+
+        if indexPath.section == 0 {
+
+            let team = leaguesDetailsPresenter.getTeam(at: indexPath.row)
+            cell.teamLabel.text = team.teamName
+
+        } else {
+
+            let event = leaguesDetailsPresenter.getUpcomingEvent(at: indexPath.row)
+            cell.teamLabel.text = event.eventAwayTeam
+        }
+
         return cell
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
-
 }

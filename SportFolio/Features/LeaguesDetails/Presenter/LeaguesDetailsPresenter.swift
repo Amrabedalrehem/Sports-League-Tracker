@@ -1,159 +1,214 @@
 //
 //  LeaguesDetailsPresenter.swift
 //  SportFolio
-//
-//  Created by ITI_JETS on 30/04/2026.
-//
+// created by Shahudaaa
 
 import Foundation
 
-class DetailsLeaguePresenter {
+class LeaguesDetailsPresenter {
+
     
     private let network: NetworkService = NetworkServiceImpl.shared
-    
     private let coreData: CoreDataManager = CoreDataManager.shared
+    var leagueId: Int?
+    private let sportType: SportType
+    private var allEvents: [EventModel] = []
+    private var teams: [TeamModel] = []
     
     
-    var teams: [TeamModel] = []
-    var upcomingEvents: [EventModel] = []
-    var lastEvents: [EventModel] = []
-    var sportType: SportType = .football
-     
-  
-            func getTeams(
-            leagueId: Int,
-            completion: @escaping ([TeamModel]) -> Void
-        ) {
-            network.getTeams(
+    init(sportType: SportType, leagueId: Int? = nil) {
+        self.sportType = sportType
+        self.leagueId = leagueId
+    }
+}
+
+
+extension LeaguesDetailsPresenter {
+
+    func getTeams(completion: @escaping ([TeamModel]) -> Void) {
+
+        guard let leagueId = leagueId else {
+            completion([])
+            return
+        }
+
+        network.getTeams(baseURL: sportType.baseURL,leagueId: leagueId) { [weak self] result in
+
+            switch result {
+            case .success(let response):
+                let data = response.result ?? []
+                self?.teams = data
+                completion(data)
+
+            case .failure(let error):
+                print("Teams Error:", error.localizedDescription)
+                completion([])
+            }
+        }
+    }
+
+    func getNumberOfTeams() -> Int {
+        return teams.count
+    }
+
+    func getTeam(at index: Int) -> TeamModel {
+        return teams[index]
+    }
+}
+
+extension LeaguesDetailsPresenter {
+
+    private func parseDate(_ string: String?) -> Date? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return string.flatMap { formatter.date(from: $0) }
+    }
+
+    private func isTodayOrFuture(_ date: Date, now: Date, calendar: Calendar) -> Bool {
+        return calendar.isDate(date, inSameDayAs: now) || date > now
+    }
+
+    private func getDateRange() -> (from: String, to: String) {
+
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+
+        let calendar = Calendar.current
+        let today = Date()
+
+        let fromDate = calendar.date(byAdding: .month, value: -6, to: today)!
+        let toDate = calendar.date(byAdding: .month, value: 6, to: today)!
+
+        return (formatter.string(from: fromDate),
+                formatter.string(from: toDate))
+    }
+    
+        func getEvents(completion: @escaping ([EventModel]) -> Void) {
+
+            guard let leagueId = leagueId else {
+                completion([])
+                return
+            }
+
+            let range = getDateRange()
+
+            network.getEvents(
                 baseURL: sportType.baseURL,
-                leagueId: leagueId
+                leagueId: leagueId,
+                from: range.from,
+                to: range.to
             ) { [weak self] result in
+
                 switch result {
+
                 case .success(let response):
-                    let data = response.result ?? []
-                    self?.teams = data
-                    completion(data)
+                    let events = response.result ?? []
+                    self?.allEvents = events
+                    completion(events)
+
                 case .failure(let error):
-                    print("Teams Error:", error.localizedDescription)
+                    print("Events Error:", error.localizedDescription)
                     completion([])
                 }
             }
         }
-    
-    func getNumberOfTeams() -> Int {
-        return teams.count
-    }
-     func getTeam(at index: Int) -> TeamModel {
-        return teams[index]
-    }
-    func getEvents(
-        leagueId: Int,
-        from: String,
-        to: String,
-        completion: @escaping (_ upcoming: [EventModel], _ last: [EventModel]) -> Void
-    ) {
-        network.getEvents(
-            baseURL: sportType.baseURL,
-            leagueId: leagueId,
-            from: from,
-            to: to
-        ) { [weak self] result in
-            
-            guard let self = self else { return }
-            
-            switch result {
-            case .success(let response):
-                
-                let events = response.result ?? []
-                
-                let formatter = DateFormatter()
-                formatter.dateFormat = "yyyy-MM-dd"
-                
-                let now = Date()
-                let calendar = Calendar.current
-                
-                var upcoming: [EventModel] = []
-                var last: [EventModel] = []
-                
-                for event in events {
-                    
-                    let status = event.eventStatus?.lowercased() ?? ""
-                    
-                    if status == "finished" {
-                        last.append(event)
-                        continue
-                    }
-                    
-                    if let dateStr = event.eventDate,
-                       let eventDate = formatter.date(from: dateStr) {
-                        
-                        switch self.sportType {
-                            
-                        case .football:
-                            if calendar.isDate(eventDate, inSameDayAs: now) || eventDate > now {
-                                upcoming.append(event)
-                            } else {
-                                last.append(event)
-                            }
-                            
-                        case .basketball, .tennis, .cricket:
-                            upcoming.append(event)
-                        }
-                        
-                    } else {
-                    
-                        upcoming.append(event)
-                    }
-                }
-                
-                self.upcomingEvents = upcoming
-                self.lastEvents = last
-                
-                print("Upcoming:", upcoming.count)
-                print("Last:", last.count)
-                
-                completion(upcoming, last)
-                
-            case .failure(let error):
-                print("Events Error:", error.localizedDescription)
-                completion([], [])
+
+   
+
+    func getUpcomingEvents() -> [EventModel] {
+
+        let now = Date()
+        let calendar = Calendar.current
+
+        return allEvents.filter { event in
+
+            let status = event.eventStatus?.lowercased() ?? ""
+
+          
+            if status == "finished" {
+                return false
             }
+
+            guard let date = parseDate(event.eventDate) else {
+                return true
+            }
+
+            if sportType == .football {
+                return isTodayOrFuture(date, now: now, calendar: calendar)
+            }
+
+            return true
         }
     }
-    func getNumberOfUpcomingEvents ()  -> Int {
-        return upcomingEvents.count
+
+
+    func getLatestEvents() -> [EventModel] {
+
+        let now = Date()
+        let calendar = Calendar.current
+
+        return allEvents.filter { event in
+
+            let status = event.eventStatus?.lowercased() ?? ""
+
+          
+            if status == "finished" {
+                return true
+            }
+
+            guard let date = parseDate(event.eventDate) else {
+                return false
+            }
+
+            if sportType == .football {
+                return date < now && !calendar.isDate(date, inSameDayAs: now)
+            }
+
+            return false
+        }
     }
-    
+
+
+    func getNumberOfUpcomingEvents() -> Int {
+        return getUpcomingEvents().count
+    }
+
     func getNumberOfLatestEvents() -> Int {
-        return lastEvents.count
+        return getLatestEvents().count
     }
-        
-    func getUpcomingEvent(at index: Int) -> EventModel? {
-        return upcomingEvents[index]
+
+
+    func getUpcomingEvent(at index: Int) -> EventModel {
+        return getUpcomingEvents()[index]
     }
-    
-    func getLatestEvent(at index: Int) -> EventModel? {
-        return lastEvents[index]
+
+    func getLatestEvent(at index: Int) -> EventModel {
+        return getLatestEvents()[index]
     }
-        func addToFavorites(team: TeamModel) {
-            guard let key = team.teamKey else { return }
-            
-            coreData.addFavorite(
-                leagueKey: key,
-                leagueName: team.teamName ?? "",
-                leagueLogo: team.teamLogo ?? "",
-                sportType: sportType.baseURL
-            )
-        }
-        
-        func removeFromFavorites(team: TeamModel) {
-            guard let key = team.teamKey else { return }
-            coreData.removeFavorite(leagueKey: key)
-        }
-        
-        func isFavorite(team: TeamModel) -> Bool {
-            guard let key = team.teamKey else { return false }
-            return coreData.isFavorite(leagueKey: key)
-        }
-    
 }
+
+
+extension LeaguesDetailsPresenter {
+
+    func addToFavorites(team: TeamModel) {
+        guard let key = team.teamKey else { return }
+
+        coreData.addFavorite(
+            leagueKey: key,
+            leagueName: team.teamName ?? "",
+            leagueLogo: team.teamLogo ?? "",
+            sportType: sportType.baseURL
+        )
+    }
+
+    func removeFromFavorites(team: TeamModel) {
+        guard let key = team.teamKey else { return }
+        coreData.removeFavorite(leagueKey: key)
+    }
+
+    func isFavorite(team: TeamModel) -> Bool {
+        guard let key = team.teamKey else { return false }
+        return coreData.isFavorite(leagueKey: key)
+    }
+}
+

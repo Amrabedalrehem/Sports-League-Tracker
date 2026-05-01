@@ -13,7 +13,7 @@ class LeaguesPresenter {
  
     weak var view: LeaguesView?
     private var leagues: [LeagueModel] = []
-
+    
     var sportType :SportType?
  
     init( sportType: SportType? = nil) {
@@ -56,8 +56,8 @@ class LeaguesPresenter {
         return leagues[index]
     }
     
+    
+    
  
-    func didSelectLeague(at index: Int) -> LeagueModel {
-        return leagues[index]
-    }
+    
 }
