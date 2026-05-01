@@ -31,6 +31,20 @@ class LeaguesViewTable: UITableViewController, LeaguesView {
         tableView.backgroundColor = .black
     }
     
+    override func tableView(_ tableView: UITableView,
+                            didSelectRowAt indexPath: IndexPath) {
+        let selectedLeague = presenter.didSelectLeague(at: indexPath.row)
+        
+           CoreDataManager.shared.addFavorite(
+            leagueKey:  selectedLeague.leagueKey ?? 0,
+            leagueName: selectedLeague.leagueName ?? "",
+            leagueLogo: selectedLeague.leagueLogo ?? "",
+            sportType:  selectedLeague.countryName ?? " " 
+        )
+        
+        print("✅ Added: \(selectedLeague.leagueName ?? "")")
+    }
+    
     private func setupActivityIndicator() {
         activityIndicator.center = view.center
         activityIndicator.hidesWhenStopped = true
@@ -45,10 +59,7 @@ class LeaguesViewTable: UITableViewController, LeaguesView {
         return presenter.getLeaguesCount()
     }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedLeague = presenter.didSelectLeague(at: indexPath.row)
-        print(selectedLeague)
-    }
+  
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "LeagueCell", for: indexPath) as? cellDetialsTableViewCell else {

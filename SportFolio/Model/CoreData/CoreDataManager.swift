@@ -19,7 +19,7 @@ class CoreDataManager {
     
     
     lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "SportsApp")
+        let container = NSPersistentContainer(name: "SportFolio")
         container.loadPersistentStores { _, error in
             if let error = error {
                 fatalError("CoreData error: \(error)")
@@ -91,5 +91,13 @@ class CoreDataManager {
             return false
         }
     }
+    
+    func getFavoriteGroupedBySport() -> [String: [FavoriteLeague]] {
+        let all = getAllFavorites()
+        return Dictionary(grouping: all) { $0.sportType ?? "" }
+    }
+    
 }
 extension CoreDataManager: FavoritesDataSource {}
+
+

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8CW-ck-DtJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5F4-3Q-L5I">
     <device id="retina6_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
@@ -9,11 +9,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Leagues View Table-->
+        <!--Leagues-->
         <scene sceneID="1v1-p7-OtX">
             <objects>
                 <tableViewController id="8CW-ck-DtJ" customClass="LeaguesViewTable" customModule="SportFolio" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="90" estimatedRowHeight="90" sectionHeaderHeight="0.0" estimatedSectionHeaderHeight="0.0" sectionFooterHeight="0.0" estimatedSectionFooterHeight="0.0" id="iS8-Pm-jMy">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="90" estimatedRowHeight="90" sectionHeaderHeight="0.0" sectionFooterHeight="0.0" id="iS8-Pm-jMy">
                         <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.1215686275" green="0.1215686275" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -22,13 +22,29 @@
                             <outlet property="delegate" destination="8CW-ck-DtJ" id="YVS-fn-dMN"/>
                         </connections>
                     </tableView>
-
                     <navigationItem key="navigationItem" title="Leagues" id="nav-leagues-item"/>
                 </tableViewController>
-
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mu6-s3-LnY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-590" y="-296"/>
+        </scene>
+        <!--favorites-->
+        <scene sceneID="WZx-ql-GhX">
+            <objects>
+                <tableViewController id="5F4-3Q-L5I" userLabel="favorites" customClass="FavoritesTableView" customModule="SportFolio" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="1fs-JG-fTu" userLabel="favorites Table View">
+                        <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="5F4-3Q-L5I" id="Cwi-iy-PPW"/>
+                            <outlet property="delegate" destination="5F4-3Q-L5I" id="IfB-Ad-ii8"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EvV-GZ-AOv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11" y="-839"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">

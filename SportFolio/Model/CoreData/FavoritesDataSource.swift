@@ -11,4 +11,5 @@ protocol FavoritesDataSource {
     func removeFavorite(leagueKey: Int)
     func getAllFavorites() -> [FavoriteLeague]
     func isFavorite(leagueKey: Int) -> Bool
+    func getFavoriteGroupedBySport() -> [String: [FavoriteLeague]]
 }
