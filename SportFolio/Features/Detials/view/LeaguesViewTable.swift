@@ -35,9 +35,22 @@ class LeaguesViewTable: UITableViewController, LeaguesView {
     }
     private func setupTableView() {
         tableView.register(UINib(nibName: "cellDetials", bundle: nil), forCellReuseIdentifier: "LeagueCell")
-        tableView.rowHeight = 90
-        tableView.separatorStyle = .none
-        tableView.backgroundColor = .black
+        tableView.rowHeight       = 90
+        tableView.separatorStyle  = .none
+        tableView.backgroundColor = UIColor(red: 0.95, green: 0.96, blue: 0.98, alpha: 1)
+
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .white
+        appearance.shadowColor = UIColor.black.withAlphaComponent(0.06)
+        appearance.titleTextAttributes = [
+            .foregroundColor: UIColor(red: 0.07, green: 0.09, blue: 0.20, alpha: 1),
+            .font: UIFont.systemFont(ofSize: 17, weight: .bold)
+        ]
+        navigationController?.navigationBar.standardAppearance   = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.compactAppearance    = appearance
+        navigationController?.navigationBar.tintColor = UIColor(red: 0.18, green: 0.42, blue: 0.92, alpha: 1)
     }
     
 
@@ -79,14 +92,25 @@ class LeaguesViewTable: UITableViewController, LeaguesView {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "LeagueCell", for: indexPath) as? cellDetialsTableViewCell else {
             return UITableViewCell()
         }
-        
+
         let league = presenter.getLeague(at: indexPath.row)
-        
-        cell.leagueNameLabel.text = league.leagueName
+
+        cell.leagueNameLabel.text  = league.leagueName
         cell.countryNameLabel.text = league.countryName
+
+        let placeholderName: String
+        switch presenter.sportType {
+        case .football:   placeholderName = "footballPlaceholder"
+        case .basketball: placeholderName = "basketPlaceholder"
+        case .cricket:    placeholderName = "ckrichetPlaceholder"
+        case .tennis:     placeholderName = "tennisPlaceholder"
+        case .none:       placeholderName = "footballPlaceholder"
+        }
+        let placeholder = UIImage(named: placeholderName)
+
         cell.leagueImageView.sd_setImage(
             with: URL(string: league.leagueLogo ?? ""),
-            placeholderImage: UIImage(named: "placeholder")
+            placeholderImage: placeholder
         )
 
         cell.selectionStyle = .none
@@ -108,8 +132,28 @@ extension LeaguesViewTable {
     }
     
     func showError(message: String) {
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        let alert = UIAlertController(
+            title: "⚠️  Something Went Wrong",
+            message: "\n" + message,
+            preferredStyle: .actionSheet
+        )
+        let titleAttr = NSAttributedString(
+            string: "⚠️  Something Went Wrong",
+            attributes: [
+                .font: UIFont.systemFont(ofSize: 17, weight: .bold),
+                .foregroundColor: UIColor.systemOrange
+            ]
+        )
+        let msgAttr = NSAttributedString(
+            string: "\n" + message,
+            attributes: [
+                .font: UIFont.systemFont(ofSize: 14),
+                .foregroundColor: UIColor.secondaryLabel
+            ]
+        )
+        alert.setValue(titleAttr, forKey: "attributedTitle")
+        alert.setValue(msgAttr,   forKey: "attributedMessage")
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
         present(alert, animated: true)
     }
     
