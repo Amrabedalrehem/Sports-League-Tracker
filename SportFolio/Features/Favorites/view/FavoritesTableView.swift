@@ -93,11 +93,30 @@ extension FavoritesTableView: FavoritesView {
     
     func showNoInternet() {
         let alert = UIAlertController(
-            title: "No Internet Connection",
-            message: "Please check your connection and try again",
-            preferredStyle: .alert
+            title: "📡  No Internet Connection",
+            message: "\nIt looks like you're offline.\nPlease check your Wi-Fi or mobile data and try again.",
+            preferredStyle: .actionSheet
         )
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+
+    
+        let titleFont = UIFont.systemFont(ofSize: 17, weight: .bold)
+        let msgFont   = UIFont.systemFont(ofSize: 14, weight: .regular)
+        let titleAttr = NSAttributedString(
+            string: "📡  No Internet Connection",
+            attributes: [.font: titleFont,
+                         .foregroundColor: UIColor.systemRed]
+        )
+        let msgAttr = NSAttributedString(
+            string: "\nIt looks like you're offline.\nPlease check your Wi-Fi or mobile data and try again.",
+            attributes: [.font: msgFont,
+                         .foregroundColor: UIColor.secondaryLabel]
+        )
+        alert.setValue(titleAttr, forKey: "attributedTitle")
+        alert.setValue(msgAttr,   forKey: "attributedMessage")
+ 
+        let okAction = UIAlertAction(title: "OK", style: .cancel)
+        alert.addAction(okAction)
+
         present(alert, animated: true)
     }
 }

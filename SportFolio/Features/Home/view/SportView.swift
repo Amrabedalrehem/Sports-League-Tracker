@@ -38,11 +38,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         presenter.attachView(self)
         startBannerTimer()
 
-        // ── Attractive UI (visual only) ─────────────────────────────
         polishBackground()
+
         polishNavigationBar()
         polishBanner()
-        // ────────────────────────────────────────────────────────────
+      
     }
         func reloadData() {
             sportsCollectionView.reloadData()
@@ -122,7 +122,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             bannerTimer?.invalidate()
         }
 
-    // MARK: - Visual Helpers (appearance only, no logic)
 
     private func polishBackground() {
         view.backgroundColor = UIColor(red: 0.95, green: 0.96, blue: 0.98, alpha: 1)
@@ -145,30 +144,48 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
 
     private func polishBanner() {
-        // Rounded banner container
+        
         bannerCollectionView.layer.cornerRadius = 20
         bannerCollectionView.layer.masksToBounds = true
         bannerCollectionView.showsHorizontalScrollIndicator = false
 
-        // Soft shadow on the container
+       
         bannerCollectionView.layer.shadowColor = UIColor(red: 0.1, green: 0.1, blue: 0.3, alpha: 1).cgColor
         bannerCollectionView.layer.shadowOpacity = 0.14
         bannerCollectionView.layer.shadowOffset = CGSize(width: 0, height: 5)
         bannerCollectionView.layer.shadowRadius = 12
         bannerCollectionView.layer.masksToBounds = false
 
-        // Clip the inner cells to respect the radius
+     
         bannerCollectionView.clipsToBounds = true
     }
     
     
     func showNoInternet() {
         let alert = UIAlertController(
-            title: "No Internet Connection",
-            message: "Please check your connection and try again",
-            preferredStyle: .alert
+            title: "📡  No Internet Connection",
+            message: "\nIt looks like you're offline.\nPlease check your Wi-Fi or mobile data and try again.",
+            preferredStyle: .actionSheet
         )
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+
+        let titleAttr = NSAttributedString(
+            string: "📡  No Internet Connection",
+            attributes: [
+                .font: UIFont.systemFont(ofSize: 17, weight: .bold),
+                .foregroundColor: UIColor.systemRed
+            ]
+        )
+        let msgAttr = NSAttributedString(
+            string: "\nIt looks like you're offline.\nPlease check your Wi-Fi or mobile data and try again.",
+            attributes: [
+                .font: UIFont.systemFont(ofSize: 14, weight: .regular),
+                .foregroundColor: UIColor.secondaryLabel
+            ]
+        )
+        alert.setValue(titleAttr, forKey: "attributedTitle")
+        alert.setValue(msgAttr,   forKey: "attributedMessage")
+
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
         present(alert, animated: true)
     }
     }

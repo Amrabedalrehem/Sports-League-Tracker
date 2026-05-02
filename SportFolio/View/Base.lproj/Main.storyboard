@@ -41,7 +41,7 @@
                             <outlet property="delegate" destination="5F4-3Q-L5I" id="IfB-Ad-ii8"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="zje-ip-GMo"/>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="zje-ip-GMo"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EvV-GZ-AOv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -65,7 +65,7 @@
             </objects>
             <point key="canvasLocation" x="3641" y="-308"/>
         </scene>
-        <!--Item-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SportFolio" customModuleProvider="target" sceneMemberID="viewController">
@@ -175,7 +175,7 @@
                             <constraint firstItem="sportsCollectionView" firstAttribute="top" secondItem="bannerCollectionView" secondAttribute="bottom" constant="24" id="sportsTop"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="zOe-so-7dh"/>
+                    <tabBarItem key="tabBarItem" systemItem="history" id="zOe-so-7dh"/>
                     <navigationItem key="navigationItem" id="aNk-GO-cKJ"/>
                     <connections>
                         <outlet property="bannerCollectionView" destination="bannerCollectionView" id="mainBannerOutlet"/>
