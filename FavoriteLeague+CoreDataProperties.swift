@@ -2,7 +2,7 @@
 //  FavoriteLeague+CoreDataProperties.swift
 //  SportFolio
 //
-//  Created by ITI_JETS on 02/05/2026.
+//  Created by JETSMobileLabMini2 on 02/05/2026.
 //
 //
 
@@ -20,6 +20,7 @@ extension FavoriteLeague {
     @NSManaged public var leagueLogo: String?
     @NSManaged public var leagueName: String?
     @NSManaged public var sportType: String?
+    @NSManaged public var leagueCountry: String?
 
 }
 

@@ -8,8 +8,11 @@
 import UIKit
 
 import UIKit
-
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+protocol  SportViewProtocol: AnyObject {
+    func showNoInternet()
+}
+class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout , SportViewProtocol {
+    
 
     @IBOutlet weak var sportsCollectionView: UICollectionView!
     @IBOutlet weak var bannerCollectionView: UICollectionView!
@@ -66,6 +69,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         }
 
         func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            guard presenter.isOnline() else {
+                showNoInternet()
+                return
+            }
             if collectionView == sportsCollectionView {
                 let selectedSport = presenter.didSelectSport(at: indexPath.row)
                 print("Selected sport: \(selectedSport.name)")
@@ -108,4 +115,15 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         deinit {
             bannerTimer?.invalidate()
         }
+    
+    
+    func showNoInternet() {
+        let alert = UIAlertController(
+            title: "No Internet Connection",
+            message: "Please check your connection and try again",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
+    }
     }

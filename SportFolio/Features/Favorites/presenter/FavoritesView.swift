@@ -10,10 +10,7 @@ import Foundation
 import Alamofire
 
  
-protocol FavoritesView: AnyObject {
-    func reloadData()
-    func showNoInternet()
-}
+
 
  
 class FavoritesPresenter {

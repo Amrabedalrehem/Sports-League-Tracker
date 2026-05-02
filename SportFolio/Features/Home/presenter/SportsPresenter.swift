@@ -4,7 +4,7 @@
 //
 //  Created by JETSMobileLabMini2 on 29/04/2026.
 //
-
+import Alamofire
 
 class SportsPresenter {
 
@@ -33,4 +33,9 @@ class SportsPresenter {
     func didSelectSport(at index: Int) -> SportModel {
         sports[index]
     }
+    func isOnline() -> Bool {
+        return NetworkReachabilityManager()?.isReachable ?? false
+    }
+    
+    
 }

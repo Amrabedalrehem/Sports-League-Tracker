@@ -7,13 +7,19 @@
 
 import UIKit
 import SDWebImage
+protocol TeamView: AnyObject {
+    func reloadData()
+    func startAnimating()
+    func stopAnimating()
+    func showError(message: String)
+}
 
 final class TeamTableViewController: UITableViewController, TeamView {
 
     private let teamLogoImageView = UIImageView()
     private let teamNameLabel = UILabel()
 
-    private let presenter = TeamPresenter()
+    var presenter : TeamPresenter!
     private let sections = TeamSection.allCases
 
     override func viewDidLoad() {
@@ -22,11 +28,9 @@ final class TeamTableViewController: UITableViewController, TeamView {
         presenter.attachView(self)
         configureTableView()
         setupTableHeader()
-        presenter.baseURL = "https://apiv2.allsportsapi.com/football/"
-            presenter.teamId = 4280
-
         presenter.fetchTeamDetails()
     }
+    
     private func setupTableHeader() {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 220))
         headerView.backgroundColor = UIColor(red: 0.20, green: 0.22, blue: 0.25, alpha: 1.0)
@@ -151,6 +155,7 @@ final class TeamTableViewController: UITableViewController, TeamView {
 
         return cell
     }
+    
 
     func reloadData() {
         teamNameLabel.text = presenter.getTeamName()

@@ -295,6 +295,38 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
             return UICollectionViewCell()
         }
     }
+    
+    
+        override func collectionView(_ collectionView: UICollectionView,
+                                      didSelectItemAt indexPath: IndexPath) {
+            switch indexPath.section {
+            case 2:
+                let team = leaguesDetailsPresenter.getTeam(at: indexPath.row)
+                
+                guard let teamId = team.teamKey else { return }
+                
+                let teamDetailsVC = storyboard?
+                    .instantiateViewController(withIdentifier: "TeamTableViewController")
+                    as! TeamTableViewController
+                
+                
+                let teamDetailsPresenter = TeamPresenter(
+                    baseURL: leaguesDetailsPresenter.getBaseURL(),
+                    teamId: teamId
+                )
+                
+                teamDetailsVC.presenter = teamDetailsPresenter
+                navigationController?.pushViewController(teamDetailsVC, animated: true)
+                
+            default:
+                break
+            }
+        }
+            
+        
+            
+       
+    
 }
 extension LeaguesDetailsCollectionViewController : LeaguesDetailsView{
     func showLoading() {

@@ -11,7 +11,10 @@ import UIKit
 import SDWebImage
 import UIKit
 import SDWebImage
-
+protocol FavoritesView: AnyObject {
+    func reloadData()
+    func showNoInternet()
+}
 class FavoritesTableView: UITableViewController {
  
     private let presenter = FavoritesPresenter()
@@ -163,7 +166,8 @@ extension FavoritesTableView {
                     leagueKey:  favorite.leagueKey,
                     leagueName: favorite.leagueName ?? "",
                     leagueLogo: image,
-                    sportType:  favorite.sportType ?? ""
+                    
+                    sportType:  favorite.leagueCountry ?? ""
                 )
             }
         } else {
@@ -171,7 +175,7 @@ extension FavoritesTableView {
                 leagueKey:  favorite.leagueKey,
                 leagueName: favorite.leagueName ?? "",
                 leagueLogo: nil,
-                sportType:  favorite.sportType ?? ""
+                sportType:  favorite.leagueCountry ?? ""
             )
         }
         
@@ -181,13 +185,12 @@ extension FavoritesTableView {
 
 
 extension FavoritesTableView {
+   
     
     override func tableView(_ tableView: UITableView,
                             didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
-
-        guard presenter.isOnline() else {
+          guard presenter.isOnline() else {
             showNoInternet()
             return
         }
@@ -197,25 +200,33 @@ extension FavoritesTableView {
             row: indexPath.row
         ) else { return }
         
-/*
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let detailsVC = storyboard.instantiateViewController(
-            withIdentifier: "LeagueDetailsViewController"
-        ) as? LeagueDetailsViewController else { return }
+              guard let sportType = SportType(rawValue: favorite.sportType ?? "") else {
+                return
+        }
         
-        detailsVC.baseURL = favorite.sportType ?? ""
-        detailsVC.league  = LeagueModel(
+          let leagueModel = LeagueModel(
             leagueKey:   Int(favorite.leagueKey),
             leagueName:  favorite.leagueName,
             leagueLogo:  favorite.leagueLogo,
             countryKey:  nil,
-            countryName: nil,
+            countryName: favorite.leagueCountry,
             countryLogo: nil
         )
+        
+           guard let detailsVC = storyboard?.instantiateViewController(
+            withIdentifier: "LeaguesDetailsCollectionViewController"
+        ) as? LeaguesDetailsCollectionViewController else { return }
+        
+        let detailsPresenter = LeaguesDetailsPresenter(
+            sportType: sportType,
+            league: leagueModel
+        )
+        detailsPresenter.view = detailsVC
+        detailsVC.leaguesDetailsPresenter = detailsPresenter
+        
         navigationController?.pushViewController(detailsVC, animated: true)
- */
     }
-    
+   
 
     override func tableView(_ tableView: UITableView,
                             commit editingStyle: UITableViewCell.EditingStyle,

@@ -5,7 +5,7 @@
 //  Created by ITI_JETS on 30/04/2026.
 //
 
-enum SportType {
+enum SportType :String{
     case football
     case basketball
     case cricket

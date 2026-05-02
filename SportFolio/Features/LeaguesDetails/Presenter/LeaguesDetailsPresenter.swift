@@ -20,6 +20,7 @@ protocol LeaguesDetailsPresenterProtocol {
     func removeFromFavorites()
     func isFavorite() -> Bool
     func toggleFavorite() -> Bool
+    func getBaseURL() -> String 
 }
 class LeaguesDetailsPresenter :LeaguesDetailsPresenterProtocol{
 
@@ -85,6 +86,9 @@ extension LeaguesDetailsPresenter {
 
     func getTeam(at index: Int) -> TeamModel {
         return teams[index]
+    }
+    func getBaseURL() -> String {
+        return sportType.baseURL
     }
 }
 
@@ -238,10 +242,7 @@ extension LeaguesDetailsPresenter {
         guard let league = league else { return }
 
         coreData.addFavorite(
-            leagueKey: Int64(league.leagueKey!),
-            leagueName: league.leagueName ?? "",
-            leagueLogo: league.leagueLogo ?? "",
-            sportType: sportType.baseURL
+            leagueModel: league, sportsType: sportType.rawValue
         )
     }
     func removeFromFavorites() {

@@ -6,12 +6,6 @@
 //
 import Foundation
 
-protocol TeamView: AnyObject {
-    func reloadData()
-    func startAnimating()
-    func stopAnimating()
-    func showError(message: String)
-}
 
 final class TeamPresenter {
 
@@ -23,6 +17,10 @@ final class TeamPresenter {
     var baseURL: String = ""
     var teamId: Int = 0
 
+    init( baseURL: String, teamId: Int) {
+        self.baseURL = baseURL
+        self.teamId = teamId
+    }
     func attachView(_ view: TeamView) {
         self.view = view
     }
@@ -79,4 +77,6 @@ final class TeamPresenter {
     func getForwards() -> [PlayerModel] {
         normalizedPlayers(for: "Forwards")
     }
+    
+    
 }

@@ -7,7 +7,7 @@
 
 
 protocol FavoritesDataSource {
-    func addFavorite(leagueKey: Int64, leagueName: String, leagueLogo: String, sportType: String)
+    func addFavorite(leagueModel: LeagueModel, sportsType: String)
     func removeFavorite(leagueKey: Int64)
     func getAllFavorites() -> [FavoriteLeague]
     func isFavorite(leagueKey: Int64) -> Bool

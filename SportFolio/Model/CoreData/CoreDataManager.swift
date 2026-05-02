@@ -40,15 +40,16 @@ class CoreDataManager {
     }
     
     
-    func addFavorite(leagueKey: Int64, leagueName: String, leagueLogo: String, sportType: String) {
+    func addFavorite(leagueModel: LeagueModel,sportsType: String) {
      
-        guard !isFavorite(leagueKey: leagueKey) else { return }
+        guard !isFavorite(leagueKey: leagueModel.leagueKey.toInt64()) else { return }
         
         let favorite = FavoriteLeague(context: context)
-        favorite.leagueKey  = leagueKey
-        favorite.leagueName = leagueName
-        favorite.leagueLogo = leagueLogo
-        favorite.sportType  = sportType
+        favorite.leagueKey  = leagueModel.leagueKey.toInt64()
+        favorite.leagueName = leagueModel.leagueName
+        favorite.leagueLogo = leagueModel.leagueLogo
+        favorite.sportType  = sportsType
+        favorite.leagueCountry = leagueModel.countryName
         
         saveContext()
     }
@@ -104,3 +105,13 @@ extension CoreDataManager: FavoritesDataSource {
    
 }
  
+extension Int? {
+    func toInt64() -> Int64 {
+        return Int64(self ?? 0)
+    }
+}
+extension Int64{
+    func toInt() -> Int {
+        Int(self)
+    }
+}
