@@ -124,15 +124,17 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
                     layoutSize: .init(widthDimension: .fractionalWidth(1),
                                       heightDimension: .fractionalHeight(1))
                 )
-
+               
+                item.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
                 let group = NSCollectionLayoutGroup.horizontal(
-                    layoutSize: .init(widthDimension: .fractionalWidth(1),
-                                      heightDimension: .fractionalHeight(0.33)),
+                    layoutSize: .init(widthDimension: .fractionalWidth(0.9),
+                                      heightDimension: .absolute(210)),
                     subitems: [item]
                 )
 
                 let section = NSCollectionLayoutSection(group: group)
-                section.orthogonalScrollingBehavior = .continuous
+                section.orthogonalScrollingBehavior = .groupPaging
+                section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 16, trailing: 8)
                 section.boundarySupplementaryItems = [self.createHeader()]
 
                 return section
@@ -142,30 +144,35 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
                     layoutSize: .init(widthDimension: .fractionalWidth(1),
                                       heightDimension: .fractionalHeight(1))
                 )
+                item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
 
                 let group = NSCollectionLayoutGroup.horizontal(
                     layoutSize: .init(widthDimension: .fractionalWidth(1),
-                                      heightDimension: .absolute(300))
-                , subitems: [item])
+                                      heightDimension: .absolute(360)),
+                    subitems: [item]
+                )
 
                 let section = NSCollectionLayoutSection(group: group)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 0, bottom: 16, trailing: 0)
                 section.boundarySupplementaryItems = [self.createHeader()]
 
                 return section
             case 2:
                 let item = NSCollectionLayoutItem(
-                    layoutSize: .init(widthDimension: .absolute(120),
-                                      heightDimension: .absolute(120))
+                    layoutSize: .init(widthDimension: .absolute(130),
+                                      heightDimension: .absolute(130))
                 )
+                item.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
 
                 let group = NSCollectionLayoutGroup.horizontal(
-                    layoutSize: .init(widthDimension: .absolute(120),
-                                      heightDimension: .absolute(120)),
+                    layoutSize: .init(widthDimension: .absolute(130),
+                                      heightDimension: .absolute(130)),
                     subitems: [item]
                 )
 
                 let section = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .continuous
+                section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 16, trailing: 8)
                 section.boundarySupplementaryItems = [self.createHeader()]
 
                 return section
@@ -251,11 +258,11 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
           
             cell.homeTeamImageView.sd_setImage(
                 with: URL(string: event.homeTeamLogo ?? ""),
-                placeholderImage: UIImage(named: "placeholder"))
+                placeholderImage: UIImage(named: "clubPlaceholder"))
 
             cell.awayTeamImageView.sd_setImage(
                 with: URL(string: event.awayTeamLogo ?? ""),
-                placeholderImage: UIImage(named: "placeholder"))
+                placeholderImage: UIImage(named: "clubPlaceholder"))
 
             cell.homeTeamNameLabel.text = event.eventHomeTeam
             cell.awayTeamNameLabel.text = event.eventAwayTeam
@@ -287,7 +294,7 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
             cell.teamLabel.text = team.teamName
             cell.teamImageView.sd_setImage(
                 with: URL(string: team.teamLogo ?? ""),
-                placeholderImage: UIImage(named: "placeholder"))
+                placeholderImage: UIImage(named: "clubPlaceholder"))
            
             return cell
 

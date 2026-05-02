@@ -175,7 +175,7 @@
                             <constraint firstItem="sportsCollectionView" firstAttribute="top" secondItem="bannerCollectionView" secondAttribute="bottom" constant="24" id="sportsTop"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="history" id="zOe-so-7dh"/>
+                    <tabBarItem key="tabBarItem" id="zOe-so-7dh"/>
                     <navigationItem key="navigationItem" id="aNk-GO-cKJ"/>
                     <connections>
                         <outlet property="bannerCollectionView" destination="bannerCollectionView" id="mainBannerOutlet"/>

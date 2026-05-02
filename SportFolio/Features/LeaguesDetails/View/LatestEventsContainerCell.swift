@@ -27,7 +27,8 @@ class LatestEventsContainerCell: UICollectionViewCell {
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 12
+        layout.minimumLineSpacing = 16
+        collectionView.contentInset = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
 
         collectionView.collectionViewLayout = layout
 
@@ -64,11 +65,11 @@ extension LatestEventsContainerCell: UICollectionViewDataSource, UICollectionVie
 
         cell.homeTeamImageView.sd_setImage(
             with: URL(string: event.homeTeamLogo ?? ""),
-            placeholderImage: UIImage(named: "placeholder"))
+            placeholderImage: UIImage(named: "clubPlaceholder"))
 
         cell.awayTeamImageView.sd_setImage(
             with: URL(string: event.awayTeamLogo ?? ""),
-            placeholderImage: UIImage(named: "placeholder"))
+            placeholderImage: UIImage(named: "clubPlaceholder"))
 
         return cell
     }
@@ -78,6 +79,7 @@ extension LatestEventsContainerCell: UICollectionViewDataSource, UICollectionVie
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        return CGSize(width: collectionView.frame.width, height: 180)
+        let safeWidth = collectionView.frame.width - collectionView.contentInset.left - collectionView.contentInset.right
+        return CGSize(width: safeWidth, height: 160)
     }
 }
