@@ -33,8 +33,16 @@ protocol NetworkService {
         teamId: Int,
         completion: @escaping (Result<TeamsResponse, Error>) -> Void
     )
+    
+    func getPlayers(
+        baseURL: String,
+        leagueId: Int,
+        completion: @escaping (Result<PlayerResponse, Error>) -> Void
+    )
 }
 class NetworkServiceImpl : NetworkService{
+   
+    
     
     static let shared = NetworkServiceImpl()
     private init() {}
@@ -92,7 +100,7 @@ class NetworkServiceImpl : NetworkService{
         )
     }
     
-   
+
     func getTeamDetails(
         baseURL: String,
         teamId: Int,
@@ -105,6 +113,23 @@ class NetworkServiceImpl : NetworkService{
                 "teamId" : teamId
             ],
             responseType: TeamsResponse.self,
+            completion: completion
+        )
+    }
+    
+    
+    func getPlayers(
+        baseURL: String,
+        leagueId: Int,
+        completion: @escaping (Result<PlayerResponse, Error>) -> Void
+    ) {
+        APIClient.shared.request(
+            baseURL: baseURL,
+            params: [
+                "met": "Players",
+                "leagueId": leagueId
+            ],
+            responseType: PlayerResponse.self,
             completion: completion
         )
     }

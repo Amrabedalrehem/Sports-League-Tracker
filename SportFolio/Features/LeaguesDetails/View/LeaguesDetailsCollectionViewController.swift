@@ -31,7 +31,7 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
         setupCollectionView()
         collectionView.setCollectionViewLayout(createLayout(), animated: false)
 
-        leaguesDetailsPresenter.getTeams()
+        leaguesDetailsPresenter.getItems()
         leaguesDetailsPresenter.getEvents ()
     }
     private func setupNavigationBar() {
@@ -236,7 +236,7 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
             return 1
 
         case 2:
-            return leaguesDetailsPresenter.getNumberOfTeams()
+            return leaguesDetailsPresenter.getNumberOfItems()
 
         default:
             return 0
@@ -285,17 +285,31 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
 
             return cell
         case 2:
+    
             let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: teamCellId,
                 for: indexPath
             ) as! TeamCollectionViewCell
 
-            let team = leaguesDetailsPresenter.getTeam(at: indexPath.row)
-            cell.teamLabel.text = team.teamName
-            cell.teamImageView.sd_setImage(
-                with: URL(string: team.teamLogo ?? ""),
-                placeholderImage: UIImage(named: "clubPlaceholder"))
-           
+            let item = leaguesDetailsPresenter.getItem(at: indexPath.row)
+
+            switch item {
+
+            case .team(let team):
+                cell.teamLabel.text = team.teamName
+                cell.teamImageView.sd_setImage(
+                    with: URL(string: team.teamLogo ?? ""),
+                    placeholderImage: UIImage(named: "clubPlaceholder")
+                )
+
+            case .player(let player):
+                cell.teamLabel.text = player.playerName
+                cell.teamImageView.sd_setImage(
+                    with: URL(string: player.playerLogo ?? ""),
+                    placeholderImage: UIImage(named: "playerPlaceholder")
+                )
+            }
+
             return cell
 
         default:
@@ -308,23 +322,29 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
                                       didSelectItemAt indexPath: IndexPath) {
             switch indexPath.section {
             case 2:
-                let team = leaguesDetailsPresenter.getTeam(at: indexPath.row)
-                
-                guard let teamId = team.teamKey else { return }
-                
-                let teamDetailsVC = storyboard?
-                    .instantiateViewController(withIdentifier: "TeamTableViewController")
-                    as! TeamTableViewController
-                
-                
-                let teamDetailsPresenter = TeamPresenter(
-                    baseURL: leaguesDetailsPresenter.getBaseURL(),
-                    teamId: teamId
-                )
-                
-                teamDetailsVC.presenter = teamDetailsPresenter
-                navigationController?.pushViewController(teamDetailsVC, animated: true)
-                
+                let item = leaguesDetailsPresenter.getItem(at: indexPath.row)
+
+                switch item {
+
+                case .team(let team):
+                    guard let teamId = team.teamKey else { return }
+
+                    let vc = storyboard?
+                        .instantiateViewController(withIdentifier: "TeamTableViewController")
+                        as! TeamTableViewController
+
+                    let presenter = TeamPresenter(
+                        baseURL: leaguesDetailsPresenter.getBaseURL(),
+                        teamId: teamId
+                    )
+
+                    vc.presenter = presenter
+                    navigationController?.pushViewController(vc, animated: true)
+
+                case .player:
+                   
+                    break
+                }
             default:
                 break
             }

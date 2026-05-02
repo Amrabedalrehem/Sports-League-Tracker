@@ -4,7 +4,10 @@
 //
 //  Created by JETSMobileLabMini2 on 28/04/2026.
 //
-
+struct PlayerResponse: Codable {
+    let success: Int?
+    let result: [PlayerModel]?
+}
 
 struct PlayerModel: Codable {
     let playerKey:       Int?
@@ -14,6 +17,7 @@ struct PlayerModel: Codable {
     let playerType:      String?
     let playerAge:       String?
     let playerImage:     String?
+    let playerLogo :     String?
     let teamName:        String?
     let teamKey:         Int?
     let playerMinutes:   String?
@@ -28,6 +32,7 @@ struct PlayerModel: Codable {
         case playerType      = "player_type"
         case playerAge       = "player_age"
         case playerImage     = "player_image"
+        case playerLogo      = "player_logo"
         case teamName        = "team_name"
         case teamKey         = "team_key"
         case playerMinutes   = "player_minutes"
