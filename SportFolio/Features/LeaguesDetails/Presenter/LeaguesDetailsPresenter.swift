@@ -4,8 +4,23 @@
 // created by Shahudaaa
 
 import Foundation
-
-class LeaguesDetailsPresenter {
+protocol LeaguesDetailsPresenterProtocol {
+    
+ 
+    func getTeams()
+    func getEvents()
+    func getNumberOfTeams() -> Int
+    func getTeam(at index: Int) -> TeamModel
+    func getNumberOfUpcomingEvents() -> Int
+    func getNumberOfLatestEvents() -> Int
+    func getUpcomingEvent(at index: Int) -> EventModel
+    func getLatestEvent(at index: Int) -> EventModel
+    func getLatestEvents() -> [EventModel]
+    func addToFavorites(league: FavoriteLeague)
+    func removeFromFavorites(league: FavoriteLeague)
+    func isFavorite(league: FavoriteLeague) -> Bool
+}
+class LeaguesDetailsPresenter :LeaguesDetailsPresenterProtocol{
 
     
     private let network: NetworkService = NetworkServiceImpl.shared
@@ -215,25 +230,25 @@ extension LeaguesDetailsPresenter {
 
 extension LeaguesDetailsPresenter {
 
-    func addToFavorites(team: TeamModel) {
-        guard let key = team.teamKey else { return }
+    func addToFavorites(league: FavoriteLeague) {
+      
 
         coreData.addFavorite(
-            leagueKey: key,
-            leagueName: team.teamName ?? "",
-            leagueLogo: team.teamLogo ?? "",
+            leagueKey: league.leagueKey,
+            leagueName: league.leagueName ?? "",
+            leagueLogo: league.leagueLogo ?? "",
             sportType: sportType.baseURL
         )
     }
 
-    func removeFromFavorites(team: TeamModel) {
-        guard let key = team.teamKey else { return }
-        coreData.removeFavorite(leagueKey: key)
+    func removeFromFavorites(league: FavoriteLeague) {
+       
+        coreData.removeFavorite(leagueKey: league.leagueKey)
     }
 
-    func isFavorite(team: TeamModel) -> Bool {
-        guard let key = team.teamKey else { return false }
-        return coreData.isFavorite(leagueKey: key)
+    func isFavorite(league: FavoriteLeague) -> Bool {
+      
+        return coreData.isFavorite(leagueKey: league.leagueKey)
     }
 }
 

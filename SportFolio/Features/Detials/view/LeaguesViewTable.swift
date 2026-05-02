@@ -56,10 +56,20 @@ class LeaguesViewTable: UITableViewController, LeaguesView {
 
    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
         let league = presenter.getLeague(at: indexPath.row)
-        let detailsVC = self.storyboard?.instantiateViewController(withIdentifier: "LeaguesDetailsCollectionViewController") as! LeaguesDetailsCollectionViewController
-        detailsVC.leaguesDetailsPresenter = LeaguesDetailsPresenter(sportType:presenter.sportType! , leagueId: league.leagueKey  )
-        
+
+        let detailsVC = storyboard?
+            .instantiateViewController(withIdentifier: "LeaguesDetailsCollectionViewController")
+            as! LeaguesDetailsCollectionViewController
+
+   
+        let detailsPresenter = LeaguesDetailsPresenter(
+            sportType: presenter.sportType!,
+            leagueId: league.leagueKey
+        )
+        detailsPresenter.view = detailsVC
+        detailsVC.leaguesDetailsPresenter = detailsPresenter
         navigationController?.pushViewController(detailsVC, animated: true)
     }
     

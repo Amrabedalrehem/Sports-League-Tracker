@@ -22,20 +22,36 @@ protocol LeaguesDetailsView: AnyObject {
 
 class LeaguesDetailsCollectionViewController: UICollectionViewController {
 
-    var leaguesDetailsPresenter: LeaguesDetailsPresenter!
+    var leaguesDetailsPresenter: LeaguesDetailsPresenterProtocol!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        leaguesDetailsPresenter.view = self
-
+        setupNavBar()
         setupCollectionView()
         collectionView.setCollectionViewLayout(createLayout(), animated: false)
 
         leaguesDetailsPresenter.getTeams()
         leaguesDetailsPresenter.getEvents ()
     }
+    private func setupNavBar() {
+        let imageName = leaguesDetailsPresenter.isFavorite(league: ) ? "heart.fill" : "heart"
+        
+        let button = UIBarButtonItem(
+            image: UIImage(systemName: imageName),
+            style: .plain,
+            target: self,
+            action: #selector(didTapFav)
+        )
+        
+        button.tintColor = presnter.i ? .red : .gray
+        
+        navigationItem.rightBarButtonItem = button
+    }
     
+    @objc private func didTapFav() {
+        isFavorite.toggle()
+        updateFavButton()
+    }
     private func setupCollectionView() {
         collectionView.register(
             UINib(nibName: "TeamCollectionViewCell", bundle: nil),
@@ -55,6 +71,10 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
             UINib(nibName: "SectionHeaderView", bundle: nil),
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
             withReuseIdentifier: "header"
+        )
+        collectionView.register(
+            UINib(nibName: "LatestEventsContainerCell", bundle: nil),
+            forCellWithReuseIdentifier: "LatestEventsContainerCell"
         )
     }
 
@@ -87,26 +107,20 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
                 return section
 
             case 1:
-                
                 let item = NSCollectionLayoutItem(
                     layoutSize: .init(widthDimension: .fractionalWidth(1),
-                                     heightDimension: .fractionalHeight(1))
+                                      heightDimension: .fractionalHeight(1))
                 )
-                
-                let group = NSCollectionLayoutGroup.vertical(
-                    layoutSize: .init(widthDimension: .fractionalWidth(1),
-                                     heightDimension: .absolute(189)),
-                    subitems: [item]
-                )
-                
-                let section = NSCollectionLayoutSection(group: group)
-                section.orthogonalScrollingBehavior = .none
-                section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16)
-                section.interGroupSpacing = 12
-                section.boundarySupplementaryItems = [self.createHeader()]
-                
-                return section
 
+                let group = NSCollectionLayoutGroup.horizontal(
+                    layoutSize: .init(widthDimension: .fractionalWidth(1),
+                                      heightDimension: .absolute(300))
+                , subitems: [item])
+
+                let section = NSCollectionLayoutSection(group: group)
+                section.boundarySupplementaryItems = [self.createHeader()]
+
+                return section
             case 2:
                 let item = NSCollectionLayoutItem(
                     layoutSize: .init(widthDimension: .absolute(120),
@@ -181,7 +195,7 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
             return leaguesDetailsPresenter.getNumberOfUpcomingEvents()
 
         case 1:
-            return leaguesDetailsPresenter.getNumberOfLatestEvents()
+            return 1
 
         case 2:
             return leaguesDetailsPresenter.getNumberOfTeams()
@@ -224,28 +238,14 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
 
         case 1:
             let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: latestCellId,
+                withReuseIdentifier: "LatestEventsContainerCell",
                 for: indexPath
-            ) as! LatestEventCollectionViewCell
-            
-            let event = leaguesDetailsPresenter.getLatestEvent(at: indexPath.row)
-            
-            cell.homeTeamNameLabel.text = event.eventHomeTeam
-            cell.homeTeamImageView.sd_setImage(
-                with: URL(string: event.homeTeamLogo ?? ""),
-                placeholderImage: UIImage(named: "placeholder"))
-        
-            cell.awayTeamNameLabel.text = event.eventAwayTeam
-            cell.awayTeamImageView.sd_setImage(
-                with: URL(string: event.awayTeamLogo ?? ""),
-                placeholderImage: UIImage(named: "placeholder"))
-           
-            cell.scoreLabel.text =  event.eventFinalResult
-        
-            cell.dateLabel.text = event.eventDate
-          
+            ) as! LatestEventsContainerCell
+
+            cell.events = leaguesDetailsPresenter.getLatestEvents()
+            cell.collectionView.reloadData()
+
             return cell
-            
         case 2:
             let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: teamCellId,

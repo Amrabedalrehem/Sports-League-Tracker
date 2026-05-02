@@ -40,12 +40,12 @@ class CoreDataManager {
     }
     
     
-    func addFavorite(leagueKey: Int, leagueName: String, leagueLogo: String, sportType: String) {
+    func addFavorite(leagueKey: Int64, leagueName: String, leagueLogo: String, sportType: String) {
      
         guard !isFavorite(leagueKey: leagueKey) else { return }
         
         let favorite = FavoriteLeague(context: context)
-        favorite.leagueKey  = Int64(leagueKey)
+        favorite.leagueKey  = leagueKey
         favorite.leagueName = leagueName
         favorite.leagueLogo = leagueLogo
         favorite.sportType  = sportType
@@ -54,7 +54,7 @@ class CoreDataManager {
     }
     
      
-    func removeFavorite(leagueKey: Int) {
+    func removeFavorite(leagueKey: Int64) {
         let request: NSFetchRequest<FavoriteLeague> = FavoriteLeague.fetchRequest()
         request.predicate = NSPredicate(format: "leagueKey == %d", leagueKey)
         
@@ -80,7 +80,7 @@ class CoreDataManager {
     }
     
     
-    func isFavorite(leagueKey: Int) -> Bool {
+    func isFavorite(leagueKey: Int64) -> Bool {
         let request: NSFetchRequest<FavoriteLeague> = FavoriteLeague.fetchRequest()
         request.predicate = NSPredicate(format: "leagueKey == %d", leagueKey)
         
@@ -92,4 +92,8 @@ class CoreDataManager {
         }
     }
 }
-extension CoreDataManager: FavoritesDataSource {}
+extension CoreDataManager: FavoritesDataSource {
+   
+    
+   
+}
