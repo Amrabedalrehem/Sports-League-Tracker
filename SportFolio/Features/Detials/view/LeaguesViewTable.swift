@@ -66,7 +66,7 @@ class LeaguesViewTable: UITableViewController, LeaguesView {
    
         let detailsPresenter = LeaguesDetailsPresenter(
             sportType: presenter.sportType!,
-            leagueId: league.leagueKey
+            league: league
         )
         detailsPresenter.view = detailsVC
         detailsVC.leaguesDetailsPresenter = detailsPresenter

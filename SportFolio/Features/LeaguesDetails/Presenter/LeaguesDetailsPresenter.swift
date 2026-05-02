@@ -16,9 +16,10 @@ protocol LeaguesDetailsPresenterProtocol {
     func getUpcomingEvent(at index: Int) -> EventModel
     func getLatestEvent(at index: Int) -> EventModel
     func getLatestEvents() -> [EventModel]
-    func addToFavorites(league: FavoriteLeague)
-    func removeFromFavorites(league: FavoriteLeague)
-    func isFavorite(league: FavoriteLeague) -> Bool
+    func addToFavorites()
+    func removeFromFavorites()
+    func isFavorite() -> Bool
+    func toggleFavorite() -> Bool
 }
 class LeaguesDetailsPresenter :LeaguesDetailsPresenterProtocol{
 
@@ -26,15 +27,15 @@ class LeaguesDetailsPresenter :LeaguesDetailsPresenterProtocol{
     private let network: NetworkService = NetworkServiceImpl.shared
     private let coreData: CoreDataManager = CoreDataManager.shared
     weak var view: LeaguesDetailsView?
-    var leagueId: Int?
+    var league: LeagueModel?
     private let sportType: SportType
     private var allEvents: [EventModel] = []
     private var teams: [TeamModel] = []
     
     
-    init(sportType: SportType, leagueId: Int? = nil) {
+    init(sportType: SportType, league: LeagueModel? = nil) {
         self.sportType = sportType
-        self.leagueId = leagueId
+        self.league = league
     }
 }
 
@@ -45,7 +46,7 @@ extension LeaguesDetailsPresenter {
     
     func getTeams() {
 
-        guard let leagueId = leagueId else {
+        guard let leagueId = league?.leagueKey else {
             view?.showEmptyState()
             return
         }
@@ -116,7 +117,7 @@ extension LeaguesDetailsPresenter {
     
     func getEvents() {
         
-        guard let leagueId = leagueId else {
+        guard let leagueId = league?.leagueKey else {
             view?.showEmptyState()
             return
         }
@@ -229,26 +230,45 @@ extension LeaguesDetailsPresenter {
 
 
 extension LeaguesDetailsPresenter {
+    
+   
 
-    func addToFavorites(league: FavoriteLeague) {
-      
+    func addToFavorites() {
+
+        guard let league = league else { return }
 
         coreData.addFavorite(
-            leagueKey: league.leagueKey,
+            leagueKey: Int64(league.leagueKey!),
             leagueName: league.leagueName ?? "",
             leagueLogo: league.leagueLogo ?? "",
             sportType: sportType.baseURL
         )
     }
+    func removeFromFavorites() {
 
-    func removeFromFavorites(league: FavoriteLeague) {
-       
-        coreData.removeFavorite(leagueKey: league.leagueKey)
+        guard let leagueKey = league?.leagueKey else { return }
+
+        coreData.removeFavorite(leagueKey: Int64(leagueKey))
     }
 
-    func isFavorite(league: FavoriteLeague) -> Bool {
-      
-        return coreData.isFavorite(leagueKey: league.leagueKey)
+    func isFavorite() -> Bool {
+
+        guard let leagueKey = league?.leagueKey else { return false }
+
+        return coreData.isFavorite(leagueKey:  Int64(leagueKey))
+    }
+    
+    
+
+    func toggleFavorite() -> Bool {
+        
+        if isFavorite() {
+            removeFromFavorites()
+            return false
+        } else {
+            addToFavorites()
+            return true
+        }
     }
 }
 

@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09CBCCF82FA5EBDA00D2531D /* FavoriteLeague+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CBCCF72FA5EBDA00D2531D /* FavoriteLeague+CoreDataProperties.swift */; };
+		09CBCCF92FA5EBDA00D2531D /* FavoriteLeague+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CBCCF62FA5EBDA00D2531D /* FavoriteLeague+CoreDataClass.swift */; };
 		6DB9DC052FA156BE00EC05A2 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 6DB9DC042FA156BE00EC05A2 /* Reachability */; };
 		6DB9DC082FA156E000EC05A2 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 6DB9DC072FA156E000EC05A2 /* SDWebImageSwiftUI */; };
 		6DB9DC0B2FA158A200EC05A2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 6DB9DC0A2FA158A200EC05A2 /* Alamofire */; };
-		6DB9DC102FA1595200EC05A2 /* FavoriteLeague+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB9DC0F2FA1595200EC05A2 /* FavoriteLeague+CoreDataProperties.swift */; };
-		6DB9DC112FA1595200EC05A2 /* FavoriteLeague+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB9DC0E2FA1595200EC05A2 /* FavoriteLeague+CoreDataClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,11 +32,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		09CBCCF62FA5EBDA00D2531D /* FavoriteLeague+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteLeague+CoreDataClass.swift"; sourceTree = "<group>"; };
+		09CBCCF72FA5EBDA00D2531D /* FavoriteLeague+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteLeague+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		68E153B32FA098CE00C886DF /* SportFolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportFolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68E153CC2FA098CF00C886DF /* SportFolioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SportFolioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		68E153D62FA098CF00C886DF /* SportFolioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SportFolioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6DB9DC0E2FA1595200EC05A2 /* FavoriteLeague+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteLeague+CoreDataClass.swift"; sourceTree = "<group>"; };
-		6DB9DC0F2FA1595200EC05A2 /* FavoriteLeague+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteLeague+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -101,8 +101,8 @@
 		68E153AA2FA098CE00C886DF = {
 			isa = PBXGroup;
 			children = (
-				6DB9DC0E2FA1595200EC05A2 /* FavoriteLeague+CoreDataClass.swift */,
-				6DB9DC0F2FA1595200EC05A2 /* FavoriteLeague+CoreDataProperties.swift */,
+				09CBCCF62FA5EBDA00D2531D /* FavoriteLeague+CoreDataClass.swift */,
+				09CBCCF72FA5EBDA00D2531D /* FavoriteLeague+CoreDataProperties.swift */,
 				68E153B52FA098CE00C886DF /* SportFolio */,
 				68E153CF2FA098CF00C886DF /* SportFolioTests */,
 				68E153D92FA098CF00C886DF /* SportFolioUITests */,
@@ -272,8 +272,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6DB9DC102FA1595200EC05A2 /* FavoriteLeague+CoreDataProperties.swift in Sources */,
-				6DB9DC112FA1595200EC05A2 /* FavoriteLeague+CoreDataClass.swift in Sources */,
+				09CBCCF82FA5EBDA00D2531D /* FavoriteLeague+CoreDataProperties.swift in Sources */,
+				09CBCCF92FA5EBDA00D2531D /* FavoriteLeague+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

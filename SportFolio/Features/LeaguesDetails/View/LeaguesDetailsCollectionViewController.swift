@@ -18,40 +18,71 @@ protocol LeaguesDetailsView: AnyObject {
     func showData()
     func showEmptyState()
     func showError(message: String)
+    func updateFavoriteButton(isFavorite: Bool)
 }
 
 class LeaguesDetailsCollectionViewController: UICollectionViewController {
 
     var leaguesDetailsPresenter: LeaguesDetailsPresenterProtocol!
-
+    private var favoriteButton: UIBarButtonItem?
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavBar()
+        setupNavigationBar()
         setupCollectionView()
         collectionView.setCollectionViewLayout(createLayout(), animated: false)
 
         leaguesDetailsPresenter.getTeams()
         leaguesDetailsPresenter.getEvents ()
     }
-    private func setupNavBar() {
-        let imageName = leaguesDetailsPresenter.isFavorite(league: ) ? "heart.fill" : "heart"
+    private func setupNavigationBar() {
+         
+        let button = UIButton(type: .system)
+          button.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+          button.tintColor = .systemRed
+          button.addTarget(self, action: #selector(favoriteButtonTapped), for: .touchUpInside)
+          
+       
+          let isFavorite = leaguesDetailsPresenter.isFavorite()
+          updateFavoriteButtonIcon(button, isFavorite: isFavorite)
+          
+          favoriteButton = UIBarButtonItem(customView: button)
+          navigationItem.rightBarButtonItem = favoriteButton
+      }
+      
+      @objc private func favoriteButtonTapped() {
+          guard let button = favoriteButton?.customView as? UIButton else { return }
+          
+          
+          UIView.animate(withDuration: 0.2, animations: {
+              button.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
+          }) { _ in
+              UIView.animate(withDuration: 0.2) {
+                  button.transform = .identity
+              }
+          }
+          
+          
+          let isFavorite = leaguesDetailsPresenter.toggleFavorite()
+          updateFavoriteButtonIcon(button, isFavorite: isFavorite)
+          
         
-        let button = UIBarButtonItem(
-            image: UIImage(systemName: imageName),
-            style: .plain,
-            target: self,
-            action: #selector(didTapFav)
-        )
-        
-        button.tintColor = presnter.i ? .red : .gray
-        
-        navigationItem.rightBarButtonItem = button
+          let generator = UIImpactFeedbackGenerator(style: .light)
+          generator.impactOccurred()
+          
+          
+          
+      }
+      
+    private func updateFavoriteButtonIcon(_ button: UIButton, isFavorite: Bool) {
+        let configuration = UIImage.SymbolConfiguration(pointSize: 16, weight: .medium)
+        let imageName = isFavorite ? "heart.fill" : "heart"
+        let image = UIImage(systemName: imageName, withConfiguration: configuration)
+        button.setImage(image, for: .normal)
+        button.tintColor = isFavorite ? .systemRed : .systemGray
     }
+      
     
-    @objc private func didTapFav() {
-        isFavorite.toggle()
-        updateFavButton()
-    }
+  
     private func setupCollectionView() {
         collectionView.register(
             UINib(nibName: "TeamCollectionViewCell", bundle: nil),
@@ -287,6 +318,9 @@ extension LeaguesDetailsCollectionViewController : LeaguesDetailsView{
     func showError(message: String) {
         print("Error:", message)
     }
-    
+    func updateFavoriteButton(isFavorite: Bool) {
+           guard let button = favoriteButton?.customView as? UIButton else { return }
+           updateFavoriteButtonIcon(button, isFavorite: isFavorite)
+       }
     
 }
