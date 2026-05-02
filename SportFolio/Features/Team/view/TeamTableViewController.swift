@@ -33,19 +33,20 @@ final class TeamTableViewController: UITableViewController, TeamView {
     
     private func setupTableHeader() {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 220))
-        headerView.backgroundColor = UIColor(red: 0.20, green: 0.22, blue: 0.25, alpha: 1.0)
+        headerView.backgroundColor = .clear
 
         teamLogoImageView.translatesAutoresizingMaskIntoConstraints = false
         teamNameLabel.translatesAutoresizingMaskIntoConstraints = false
 
-        teamLogoImageView.contentMode = .scaleAspectFill
+        teamLogoImageView.contentMode = .scaleAspectFit
         teamLogoImageView.clipsToBounds = true
         teamLogoImageView.layer.cornerRadius = 48
         teamLogoImageView.layer.borderWidth = 1
-        teamLogoImageView.layer.borderColor = UIColor(white: 1, alpha: 0.12).cgColor
+        teamLogoImageView.layer.borderColor = UIColor(white: 0, alpha: 0.1).cgColor
+        teamLogoImageView.backgroundColor = .white
 
         teamNameLabel.textAlignment = .center
-        teamNameLabel.textColor = .white
+        teamNameLabel.textColor = UIColor(red: 0.07, green: 0.09, blue: 0.20, alpha: 1)
         teamNameLabel.font = .systemFont(ofSize: 28, weight: .bold)
         teamNameLabel.numberOfLines = 2
 
@@ -68,7 +69,7 @@ final class TeamTableViewController: UITableViewController, TeamView {
 
     private func configureTableView() {
         tableView.separatorStyle = .none
-        tableView.backgroundColor = UIColor(red: 0.15, green: 0.15, blue: 0.16, alpha: 1.0)
+        tableView.backgroundColor = UIColor(red: 0.95, green: 0.96, blue: 0.98, alpha: 1)
         tableView.showsVerticalScrollIndicator = false
 
         tableView.register(
@@ -113,8 +114,8 @@ final class TeamTableViewController: UITableViewController, TeamView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "\(sectionType.icon)  \(sectionType.title)"
-        label.textColor = UIColor(white: 1, alpha: 0.72)
-        label.font = .systemFont(ofSize: 18, weight: .heavy)
+        label.textColor = UIColor(red: 0.07, green: 0.09, blue: 0.20, alpha: 1)
+        label.font = .systemFont(ofSize: 18, weight: .bold)
 
         container.addSubview(label)
 
@@ -141,16 +142,24 @@ final class TeamTableViewController: UITableViewController, TeamView {
         let sectionType = visibleSections()[indexPath.section]
         let player = players(for: sectionType)[indexPath.row]
 
-        cell.numberLabel.text = player.playerNumber?.isEmpty == false ? player.playerNumber : "-"
-        cell.nameLabel.text = player.playerName
-        cell.subtitleLabel.text = player.playerAge?.isEmpty == false ? "Age: \(player.playerAge!)" : "Age: --"
+        let placeholder = UIImage(named: "playerPlaceholder")
+
+        let playerName = player.playerName?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        cell.nameLabel.text = playerName.isEmpty ? "Unknown Player" : playerName
+
+        let playerNumber = player.playerNumber?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        cell.numberLabel.text = playerNumber.isEmpty ? "-" : playerNumber
+
+        let playerAge = player.playerAge?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        cell.subtitleLabel.text = playerAge.isEmpty ? "Age: --" : "Age: \(playerAge)"
+
         cell.roleBadgeLabel.text = sectionType.badgeText
         cell.roleBadgeLabel.backgroundColor = sectionType.badgeColor
 
         if let image = player.playerImage, !image.isEmpty, let url = URL(string: image) {
-            cell.avatarImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "avatar"))
+            cell.avatarImageView.sd_setImage(with: url, placeholderImage: placeholder)
         } else {
-            cell.avatarImageView.image = UIImage(named: "avatar")
+            cell.avatarImageView.image = placeholder
         }
 
         return cell
@@ -158,13 +167,21 @@ final class TeamTableViewController: UITableViewController, TeamView {
     
 
     func reloadData() {
-        teamNameLabel.text = presenter.getTeamName()
+        let teamName = presenter.getTeamName().trimmingCharacters(in: .whitespacesAndNewlines)
+        teamNameLabel.text = teamName.isEmpty ? "Unknown Team" : teamName
+
+        let placeholderName: String
+        if presenter.baseURL.contains("basketball") { placeholderName = "basketPlaceholder" }
+        else if presenter.baseURL.contains("cricket") { placeholderName = "ckrichetPlaceholder" }
+        else if presenter.baseURL.contains("tennis") { placeholderName = "tennisPlaceholder" }
+        else { placeholderName = "footballPlaceholder" }
+        let placeholder = UIImage(named: placeholderName)
 
         let logo = presenter.getTeamLogo()
         if let url = URL(string: logo), !logo.isEmpty {
-            teamLogoImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "football"))
+            teamLogoImageView.sd_setImage(with: url, placeholderImage: placeholder)
         } else {
-            teamLogoImageView.image = UIImage(named: "football")
+            teamLogoImageView.image = placeholder
         }
 
         tableView.reloadData()
@@ -177,8 +194,28 @@ final class TeamTableViewController: UITableViewController, TeamView {
           }
 
     func showError(message: String) {
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        let alert = UIAlertController(
+            title: "⚠️  Something Went Wrong",
+            message: "\n" + message,
+            preferredStyle: .actionSheet
+        )
+        let titleAttr = NSAttributedString(
+            string: "⚠️  Something Went Wrong",
+            attributes: [
+                .font: UIFont.systemFont(ofSize: 17, weight: .bold),
+                .foregroundColor: UIColor.systemOrange
+            ]
+        )
+        let msgAttr = NSAttributedString(
+            string: "\n" + message,
+            attributes: [
+                .font: UIFont.systemFont(ofSize: 14),
+                .foregroundColor: UIColor.secondaryLabel
+            ]
+        )
+        alert.setValue(titleAttr, forKey: "attributedTitle")
+        alert.setValue(msgAttr,   forKey: "attributedMessage")
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
         present(alert, animated: true)
     }
 }
