@@ -9,7 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Leagues-->
         <scene sceneID="1v1-p7-OtX">
             <objects>
                 <tableViewController storyboardIdentifier="LeaguesViewTable" id="8CW-ck-DtJ" customClass="LeaguesViewTable" customModule="SportFolio" customModuleProvider="target" sceneMemberID="viewController">
@@ -28,7 +27,40 @@
             </objects>
             <point key="canvasLocation" x="2103" y="-308"/>
         </scene>
-        <!--View Controller-->
+        <scene sceneID="WZx-ql-GhX">
+            <objects>
+                <tableViewController id="5F4-3Q-L5I" userLabel="favorites" customClass="FavoritesTableView" customModule="SportFolio" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="1fs-JG-fTu" userLabel="favorites Table View">
+                        <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="5F4-3Q-L5I" id="Cwi-iy-PPW"/>
+                            <outlet property="delegate" destination="5F4-3Q-L5I" id="IfB-Ad-ii8"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EvV-GZ-AOv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1094" y="-857"/>
+        </scene>
+        <scene sceneID="oUh-sZ-wW6">
+            <objects>
+                <tableViewController id="v3Z-pB-sxl" customClass="TeamTableViewController" customModule="SportFolio" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="a0d-8E-hfO">
+                        <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="v3Z-pB-sxl" id="R4f-Wl-duW"/>
+                            <outlet property="delegate" destination="v3Z-pB-sxl" id="jXa-gA-ouX"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6fO-Ai-0od" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1934" y="-857"/>
+        </scene>
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SportFolio" customModuleProvider="target" sceneMemberID="viewController">
@@ -148,7 +180,6 @@
             </objects>
             <point key="canvasLocation" x="1221.818181818182" y="-308.15899581589957"/>
         </scene>
-        <!--Tab Bar Controller-->
         <scene sceneID="Fuo-Xv-5Cg">
             <objects>
                 <tabBarController id="nhE-mr-inQ" sceneMemberID="viewController">
@@ -166,7 +197,6 @@
             </objects>
             <point key="canvasLocation" x="-20" y="319"/>
         </scene>
-        <!--Item-->
         <scene sceneID="oIv-3C-pfs">
             <objects>
                 <tableViewController id="dBT-Gg-Lyb" sceneMemberID="viewController">
@@ -195,7 +225,6 @@
             </objects>
             <point key="canvasLocation" x="903" y="411"/>
         </scene>
-        <!--Leagues Details Collection View Controller-->
         <scene sceneID="qLf-8E-sdc">
             <objects>
                 <collectionViewController storyboardIdentifier="LeaguesDetailsCollectionViewController" id="dva-qi-raZ" customClass="LeaguesDetailsCollectionViewController" customModule="SportFolio" customModuleProvider="target" sceneMemberID="viewController">
@@ -245,7 +274,6 @@
             </objects>
             <point key="canvasLocation" x="2879" y="-299"/>
         </scene>
-        <!--Item-->
         <scene sceneID="wyl-DW-GNo">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4CY-ld-zOC" sceneMemberID="viewController">

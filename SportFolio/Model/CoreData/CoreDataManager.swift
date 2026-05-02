@@ -91,9 +91,16 @@ class CoreDataManager {
             return false
         }
     }
+    
+    func getFavoriteGroupedBySport() -> [String: [FavoriteLeague]] {
+        let all = getAllFavorites()
+        return Dictionary(grouping: all) { $0.sportType ?? "" }
+    }
+    
 }
 extension CoreDataManager: FavoritesDataSource {
    
     
    
 }
+ 

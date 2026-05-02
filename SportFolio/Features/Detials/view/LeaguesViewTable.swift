@@ -40,6 +40,8 @@ class LeaguesViewTable: UITableViewController, LeaguesView {
         tableView.backgroundColor = .black
     }
     
+
+    
     private func setupActivityIndicator() {
         activityIndicator.center = view.center
         activityIndicator.hidesWhenStopped = true
