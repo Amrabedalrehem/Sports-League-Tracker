@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4CY-ld-zOC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24127" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YqR-qH-OGH">
     <device id="retina6_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -26,7 +26,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mu6-s3-LnY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2103" y="-308"/>
+            <point key="canvasLocation" x="3886.3636363636365" y="-308.15899581589957"/>
         </scene>
         <!--favorites-->
         <scene sceneID="WZx-ql-GhX">
@@ -45,7 +45,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EvV-GZ-AOv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="979" y="427"/>
+            <point key="canvasLocation" x="2761.3636363636365" y="426.77824267782427"/>
         </scene>
         <!--Team Table View Controller-->
         <scene sceneID="oUh-sZ-wW6">
@@ -63,7 +63,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6fO-Ai-0od" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3641" y="-308"/>
+            <point key="canvasLocation" x="5424.545454545455" y="-308.15899581589957"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -74,7 +74,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bannerCollectionView">
-                                <rect key="frame" x="22" y="184" width="396" height="180"/>
+                                <rect key="frame" x="22" y="140" width="396" height="180"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="bannerLayout">
                                     <size key="itemSize" width="396" height="180"/>
@@ -112,7 +112,7 @@
                                 </connections>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sportsCollectionView">
-                                <rect key="frame" x="55" y="388" width="330" height="382.33333333333326"/>
+                                <rect key="frame" x="55" y="344" width="330" height="382.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="20" sectionInsetReference="safeArea" id="sportsLayout">
                                     <size key="itemSize" width="128" height="128"/>
@@ -184,12 +184,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1221.818181818182" y="-308.15899581589957"/>
+            <point key="canvasLocation" x="3005.4545454545455" y="-308.15899581589957"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="Tu3-lD-ifw">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="6vl-eZ-QGc" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Zz5-TE-OQ3"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mlu-TD-1Bw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="88.63636363636364" y="194.56066945606696"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Fuo-Xv-5Cg">
             <objects>
-                <tabBarController id="nhE-mr-inQ" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabBarController" id="nhE-mr-inQ" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="yAo-cx-MhQ"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3s8-Bo-aAs">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
@@ -203,7 +213,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zPd-2d-A9O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-494" y="206"/>
+            <point key="canvasLocation" x="1288.6363636363637" y="205.85774058577405"/>
         </scene>
         <!--Leagues Details Collection View Controller-->
         <scene sceneID="qLf-8E-sdc">
@@ -253,26 +263,25 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="64f-XI-w6B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2879" y="-299"/>
+            <point key="canvasLocation" x="4662.2727272727279" y="-299.37238493723851"/>
         </scene>
-        <!--Item-->
-        <scene sceneID="wyl-DW-GNo">
+        <!--Onboarding Page View Controller-->
+        <scene sceneID="lbs-2Q-m79">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4CY-ld-zOC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="78n-Su-4D4"/>
+                <navigationController storyboardIdentifier="OnboardingPageViewController" automaticallyAdjustsScrollViewInsets="NO" id="YqR-qH-OGH" customClass="OnboardingPageViewController" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qcm-aF-n58">
-                        <rect key="frame" x="0.0" y="124" width="440" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dgg-RN-hKI">
+                        <rect key="frame" x="0.0" y="124" width="440" height="54"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="nhE-mr-inQ" kind="relationship" relationship="rootViewController" id="oKN-iZ-G7O"/>
+                        <segue destination="6vl-eZ-QGc" kind="relationship" relationship="rootViewController" id="aZS-qL-xDq"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tlL-go-XRX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pT2-OA-Biz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1372" y="206"/>
+            <point key="canvasLocation" x="-803.18181818181824" y="194.56066945606696"/>
         </scene>
     </scenes>
     <resources>
