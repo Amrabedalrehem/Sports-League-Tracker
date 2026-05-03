@@ -26,3 +26,19 @@ extension SportType {
         }
     }
 }
+
+extension SportType {
+
+    var placeholderImageName: String {
+        switch self {
+        case .football:
+            return "footballPlaceholder"
+        case .basketball:
+            return "basketPlaceholder"
+        case .cricket:
+            return "ckrichetPlaceholder"
+        case .tennis:
+            return "tennisPlaceholder"
+        }
+    }
+}

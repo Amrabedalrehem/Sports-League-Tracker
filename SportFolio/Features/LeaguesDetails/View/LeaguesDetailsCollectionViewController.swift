@@ -1,7 +1,7 @@
 //
 //  LeaguesDetailsCollectionViewController.swift
 //  SportFolio
-//
+// created by shahudaaaa
 
 import UIKit
 import SDWebImage
@@ -346,11 +346,13 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
                 cell.teamLabel.text = player.playerName ?? "–"
                 if leaguesDetailsPresenter.getSportType() == .tennis
                 {
+                   
                     cell.teamImageView.sd_setImage(
                         with: URL(string: player.playerLogo ?? ""),
                         placeholderImage: playerPlaceholder)
                 }else
                 {
+                
                     cell.teamImageView.sd_setImage(
                         with: URL(string: player.playerImage ?? ""),
                         placeholderImage: playerPlaceholder)
@@ -457,7 +459,6 @@ extension LeaguesDetailsCollectionViewController: SectionHeaderDelegate {
     func sectionHeader(_ header: SectionHeaderView, didSelectSegmentAt index: Int) {
         guard currentItemSegment != index else { return }
         currentItemSegment = index
-        // Recreate layout so section-2 switches between scroll and full-width empty layouts
         collectionView.setCollectionViewLayout(createLayout(), animated: false)
         collectionView.reloadSections(IndexSet(integer: 2))
     }
@@ -482,7 +483,6 @@ extension LeaguesDetailsCollectionViewController: LeaguesDetailsView {
 
     func showData() {
         animatedCells.removeAll()
-        // Recreate layout so section-0 switches from full-width empty to paging cards
         collectionView.setCollectionViewLayout(createLayout(), animated: false)
         collectionView.reloadData()
     }

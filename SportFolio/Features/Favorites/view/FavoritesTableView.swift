@@ -33,12 +33,12 @@ class FavoritesTableView: UITableViewController {
      
     private func setupTableView() {
         tableView.register(
-            UINib(nibName: "FavoritesViewCell", bundle: nil),
-            forCellReuseIdentifier: "FavoriteCell"
+            UINib(nibName: "cellDetials", bundle: nil),
+            forCellReuseIdentifier: "LeagueCell"
         )
         tableView.rowHeight       = 90
         tableView.separatorStyle  = .none
-        tableView.backgroundColor = .systemGroupedBackground
+        tableView.backgroundColor = UIColor(red: 0.95, green: 0.96, blue: 0.98, alpha: 1)
     }
     
    
@@ -136,12 +136,12 @@ extension FavoritesTableView {
     override func tableView(_ tableView: UITableView,
                             viewForHeaderInSection section: Int) -> UIView? {
         let header = UIView()
-        header.backgroundColor = .systemGroupedBackground
+        header.backgroundColor = UIColor(red: 0.95, green: 0.96, blue: 0.98, alpha: 1)
         
         let label = UILabel()
-        label.text      = presenter.getSectionTitle(at: section).capitalized
-        label.font      = .boldSystemFont(ofSize: 13)
-        label.textColor = .secondaryLabel
+        label.text      = presenter.getSectionTitle(at: section).uppercased()
+        label.font      = UIFont.systemFont(ofSize: 12, weight: .semibold)
+        label.textColor = UIColor(red: 0.18, green: 0.42, blue: 0.92, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
         
         header.addSubview(label)
@@ -160,44 +160,33 @@ extension FavoritesTableView {
   
     override func tableView(_ tableView: UITableView,
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: "FavoriteCell",
+            withIdentifier: "LeagueCell",
             for: indexPath
-        ) as? FavoritesViewCell else {
+        ) as? cellDetialsTableViewCell else {
             return UITableViewCell()
         }
-        
+
         guard let favorite = presenter.getFavorite(
             section: indexPath.section,
             row: indexPath.row
         ) else { return UITableViewCell() }
-        
 
-        if let logoStr = favorite.leagueLogo,
-           let url = URL(string: logoStr) {
-            SDWebImageManager.shared.loadImage(
-                with: url,
-                options: .continueInBackground,
-                progress: nil
-            ) { [weak cell] image, _, _, _, _, _ in
-                cell?.configure(
-                    leagueKey:  favorite.leagueKey,
-                    leagueName: favorite.leagueName ?? "",
-                    leagueLogo: image,
-                    
-                    sportType:  favorite.leagueCountry ?? ""
-                )
-            }
-        } else {
-            cell.configure(
-                leagueKey:  favorite.leagueKey,
-                leagueName: favorite.leagueName ?? "",
-                leagueLogo: nil,
-                sportType:  favorite.leagueCountry ?? ""
-            )
-        }
-        
+        cell.leagueNameLabel.text  = favorite.leagueName ?? ""
+        cell.countryNameLabel.text = favorite.leagueCountry ?? ""
+
+        let sport = SportType(rawValue: favorite.sportType ?? "") ?? .football
+
+    
+
+
+        cell.leagueImageView.sd_setImage(
+            with: URL(string: favorite.leagueLogo ?? ""),
+            placeholderImage: UIImage(named: sport.placeholderImageName)
+        )
+
+        cell.selectionStyle = .none
         return cell
     }
 }
