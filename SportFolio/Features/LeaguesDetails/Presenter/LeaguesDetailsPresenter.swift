@@ -9,6 +9,10 @@ protocol LeaguesDetailsPresenterProtocol {
     func getItems()
     func getNumberOfItems() -> Int
     func getItem(at index: Int) -> LeagueItem
+    func getNumberOfTeams() -> Int
+    func getNumberOfPlayers() -> Int
+    func getTeamItem(at index: Int) -> LeagueItem
+    func getPlayerItem(at index: Int) -> LeagueItem
     func getEvents()
     func getNumberOfUpcomingEvents() -> Int
     func getNumberOfLatestEvents() -> Int
@@ -20,6 +24,7 @@ protocol LeaguesDetailsPresenterProtocol {
     func isFavorite() -> Bool
     func toggleFavorite() -> Bool
     func getBaseURL() -> String
+    func getSportType () -> SportType
 }
 class LeaguesDetailsPresenter: LeaguesDetailsPresenterProtocol {
 
@@ -43,48 +48,39 @@ class LeaguesDetailsPresenter: LeaguesDetailsPresenterProtocol {
 extension LeaguesDetailsPresenter {
 
     func getItems() {
-        
         guard let leagueId = league?.leagueKey else {
             view?.showEmptyState()
             return
         }
 
         view?.showLoading()
-        if sportType == .tennis {
-            network.getPlayers(baseURL: sportType.baseURL, leagueId: leagueId) { [weak self] result in
-                guard let self = self else { return }
-                DispatchQueue.main.async {
-                    self.view?.hideLoading()
+        let group = DispatchGroup()
 
-                    switch result {
-                    case .success(let response):
-                        self.players = response.result ?? []
-                        self.players.isEmpty ? self.view?.showEmptyState() : self.view?.showData()
-
-                    case .failure(let error):
-                        self.view?.showError(message: error.localizedDescription)
-                    }
-                }
+        group.enter()
+        network.getTeams(baseURL: sportType.baseURL, leagueId: leagueId) { [weak self] result in
+            guard let self = self else { group.leave(); return }
+            if case .success(let response) = result {
+                self.teams = response.result ?? []
             }
+            group.leave()
+        }
 
-        } else {
-            
-            network.getTeams(baseURL: sportType.baseURL, leagueId: leagueId) { [weak self] result in
-                
-                guard let self = self else { return }
+        group.enter()
+        network.getPlayers(baseURL: sportType.baseURL, leagueId: leagueId) { [weak self] result in
+            guard let self = self else { group.leave(); return }
+            if case .success(let response) = result {
+                self.players = response.result ?? []
+            }
+            group.leave()
+        }
 
-                DispatchQueue.main.async {
-                    self.view?.hideLoading()
-
-                    switch result {
-                    case .success(let response):
-                        self.teams = response.result ?? []
-                        self.teams.isEmpty ? self.view?.showEmptyState() : self.view?.showData()
-
-                    case .failure(let error):
-                        self.view?.showError(message: error.localizedDescription)
-                    }
-                }
+        group.notify(queue: .main) { [weak self] in
+            guard let self = self else { return }
+            self.view?.hideLoading()
+            if self.teams.isEmpty && self.players.isEmpty {
+                self.view?.showEmptyState()
+            } else {
+                self.view?.showData()
             }
         }
     }
@@ -101,8 +97,18 @@ extension LeaguesDetailsPresenter {
         }
     }
 
+    func getNumberOfTeams() -> Int { return teams.count }
+    func getNumberOfPlayers() -> Int { return players.count }
+
+    func getTeamItem(at index: Int) -> LeagueItem { return .team(teams[index]) }
+    func getPlayerItem(at index: Int) -> LeagueItem { return .player(players[index]) }
+
     func getBaseURL() -> String {
         return sportType.baseURL
+    }
+    
+    func getSportType () -> SportType{
+        return sportType
     }
 }
 

@@ -2,8 +2,6 @@
 //  UpcomingEventCollectionViewCell.swift
 //  SportFolio
 //
-//  Created by ITI_JETS on 30/04/2026.
-//
 
 import UIKit
 
@@ -15,10 +13,59 @@ class UpcomingEventCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var awayTeamImageView: UIImageView!
-    @IBOutlet weak var awayTeamNameLabel: UILabel!       
+    @IBOutlet weak var awayTeamNameLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        homeTeamImageView.clipsToBounds = true
+        awayTeamImageView.clipsToBounds = true
+        setupCell()
     }
 
+    private func setupCell() {
+        
+        contentView.backgroundColor = .white
+        contentView.layer.cornerRadius = 20
+        contentView.layer.masksToBounds = true
+        layer.cornerRadius = 20
+        layer.masksToBounds = false
+        layer.shadowColor = UIColor(red: 0.08, green: 0.10, blue: 0.30, alpha: 1).cgColor
+        layer.shadowOpacity = 0.13
+        layer.shadowOffset = CGSize(width: 0, height: 6)
+        layer.shadowRadius = 14
+        
+        for imageView in [homeTeamImageView, awayTeamImageView] {
+            guard let iv = imageView else { continue }
+            iv.layer.cornerRadius = 35
+            iv.layer.masksToBounds = true
+            iv.contentMode = .scaleAspectFit
+            iv.backgroundColor = UIColor(red: 0.95, green: 0.96, blue: 0.98, alpha: 1)
+            iv.layer.borderWidth = 1
+            iv.layer.borderColor = UIColor(red: 0.18, green: 0.42, blue: 0.92, alpha: 0.15).cgColor
+        }
+
+       
+        vsLabel?.font = UIFont.systemFont(ofSize: 22, weight: .heavy)
+        vsLabel?.textColor = UIColor(red: 0.18, green: 0.42, blue: 0.92, alpha: 1)
+
+       
+        for label in [homeTeamNameLabel, awayTeamNameLabel] {
+            label?.font = UIFont.systemFont(ofSize: 13, weight: .semibold)
+            label?.textColor = UIColor(red: 0.07, green: 0.09, blue: 0.20, alpha: 1)
+            label?.textAlignment = .center
+            label?.numberOfLines = 2
+        }
+        for label in [dateLabel, timeLabel] {
+            label?.font = UIFont.systemFont(ofSize: 12, weight: .medium)
+            label?.textColor = UIColor.secondaryLabel
+        }
+    }
+
+    func configure(homeName: String?, awayName: String?, date: String?, time: String?) {
+        homeTeamNameLabel.text = homeName ?? "TBD"
+        awayTeamNameLabel.text = awayName ?? "TBD"
+        dateLabel.text = date ?? "Date N/A"
+        timeLabel.text = time ?? "Time N/A"
+        vsLabel.text = "VS"
+    }
 }
