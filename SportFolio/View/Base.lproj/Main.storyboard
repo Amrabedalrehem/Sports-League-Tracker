@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24127" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YqR-qH-OGH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VGg-iM-fCQ">
     <device id="retina6_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -26,7 +26,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mu6-s3-LnY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3886.3636363636365" y="-308.15899581589957"/>
+            <point key="canvasLocation" x="4778.1818181818189" y="-308.15899581589957"/>
         </scene>
         <!--favorites-->
         <scene sceneID="WZx-ql-GhX">
@@ -45,7 +45,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EvV-GZ-AOv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2761.3636363636365" y="426.77824267782427"/>
+            <point key="canvasLocation" x="3593" y="445"/>
         </scene>
         <!--Team Table View Controller-->
         <scene sceneID="oUh-sZ-wW6">
@@ -63,9 +63,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6fO-Ai-0od" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5424.545454545455" y="-308.15899581589957"/>
+            <point key="canvasLocation" x="6316.3636363636369" y="-308.15899581589957"/>
         </scene>
-        <!--View Controller-->
+        <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SportFolio" customModuleProvider="target" sceneMemberID="viewController">
@@ -175,7 +175,7 @@
                             <constraint firstItem="sportsCollectionView" firstAttribute="top" secondItem="bannerCollectionView" secondAttribute="bottom" constant="24" id="sportsTop"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" id="zOe-so-7dh"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="3by-HO-Vrb"/>
                     <navigationItem key="navigationItem" id="aNk-GO-cKJ"/>
                     <connections>
                         <outlet property="bannerCollectionView" destination="bannerCollectionView" id="mainBannerOutlet"/>
@@ -184,7 +184,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3005.4545454545455" y="-308.15899581589957"/>
+            <point key="canvasLocation" x="3897.2727272727275" y="-308.15899581589957"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="Tu3-lD-ifw">
@@ -207,8 +207,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Go2-5f-ecJ"/>
-                        <segue destination="5F4-3Q-L5I" kind="relationship" relationship="viewControllers" id="GAf-VD-lLJ"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="LHQ-Ue-cGO"/>
+                        <segue destination="5F4-3Q-L5I" kind="relationship" relationship="viewControllers" id="rTP-ja-f97"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zPd-2d-A9O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -263,15 +263,16 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="64f-XI-w6B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4662.2727272727279" y="-299.37238493723851"/>
+            <point key="canvasLocation" x="5554.0909090909099" y="-299.37238493723851"/>
         </scene>
         <!--Onboarding Page View Controller-->
         <scene sceneID="lbs-2Q-m79">
             <objects>
-                <navigationController storyboardIdentifier="OnboardingPageViewController" automaticallyAdjustsScrollViewInsets="NO" id="YqR-qH-OGH" customClass="OnboardingPageViewController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="OnboardingPageViewController" automaticallyAdjustsScrollViewInsets="NO" id="YqR-qH-OGH" customClass="OnboardingPageViewController" customModule="SportFolio" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="1Rz-70-ZZf"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dgg-RN-hKI">
-                        <rect key="frame" x="0.0" y="124" width="440" height="54"/>
+                        <rect key="frame" x="0.0" y="124" width="440" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -283,12 +284,123 @@
             </objects>
             <point key="canvasLocation" x="-803.18181818181824" y="194.56066945606696"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="14H-xx-xMX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VGg-iM-fCQ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" id="zOe-so-7dh"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="woy-dO-jkY">
+                        <rect key="frame" x="0.0" y="124" width="440" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="YqR-qH-OGH" kind="relationship" relationship="rootViewController" id="jJq-6g-s9W"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qRI-UB-g0P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1831" y="195"/>
+        </scene>
+        <!--Onboarding ContentVC-->
+        <scene sceneID="onboardingContentScene">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingContentVC" id="onboardingContentVC" customClass="OnboardingContentVC" customModule="SportFolio" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="onbView">
+                        <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="onbImg">
+                                <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="onbTitle">
+                                <rect key="frame" x="24" y="680.66666666666663" width="392" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="onbDesc">
+                                <rect key="frame" x="32" y="716.66666666666663" width="376" height="19.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="onbPageCtrl">
+                                <rect key="frame" x="183.66666666666666" y="756" width="72.999999999999972" height="26"/>
+                                <color key="pageIndicatorTintColor" systemColor="systemGray4Color"/>
+                                <color key="currentPageIndicatorTintColor" systemColor="systemBlueColor"/>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onbBtn">
+                                <rect key="frame" x="32" y="802" width="376" height="54"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="btnHeight"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="14"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="actionTapped:" destination="onboardingContentVC" eventType="touchUpInside" id="btnAction"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="onbSafeArea"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="onbSafeArea" firstAttribute="trailing" secondItem="onbTitle" secondAttribute="trailing" constant="24" id="c10t"/>
+                            <constraint firstItem="onbTitle" firstAttribute="leading" secondItem="onbSafeArea" secondAttribute="leading" constant="24" id="c11t"/>
+                            <constraint firstItem="onbDesc" firstAttribute="top" secondItem="onbTitle" secondAttribute="bottom" constant="12" id="c12d"/>
+                            <constraint firstItem="onbSafeArea" firstAttribute="trailing" secondItem="onbDesc" secondAttribute="trailing" constant="32" id="c13d"/>
+                            <constraint firstItem="onbDesc" firstAttribute="leading" secondItem="onbSafeArea" secondAttribute="leading" constant="32" id="c14d"/>
+                            <constraint firstItem="onbPageCtrl" firstAttribute="top" secondItem="onbDesc" secondAttribute="bottom" constant="20" id="c15"/>
+                            <constraint firstItem="onbTitle" firstAttribute="top" relation="greaterThanOrEqual" secondItem="onbSafeArea" secondAttribute="top" constant="20" id="c16t"/>
+                            <constraint firstItem="onbImg" firstAttribute="leading" secondItem="onbView" secondAttribute="leading" id="c1i"/>
+                            <constraint firstItem="onbImg" firstAttribute="top" secondItem="onbView" secondAttribute="top" id="c2i"/>
+                            <constraint firstAttribute="bottom" secondItem="onbImg" secondAttribute="bottom" id="c3i"/>
+                            <constraint firstAttribute="trailing" secondItem="onbImg" secondAttribute="trailing" id="c4i"/>
+                            <constraint firstItem="onbBtn" firstAttribute="leading" secondItem="onbSafeArea" secondAttribute="leading" constant="32" id="c5b"/>
+                            <constraint firstItem="onbSafeArea" firstAttribute="trailing" secondItem="onbBtn" secondAttribute="trailing" constant="32" id="c6b"/>
+                            <constraint firstItem="onbSafeArea" firstAttribute="bottom" secondItem="onbBtn" secondAttribute="bottom" constant="32" id="c7b"/>
+                            <constraint firstItem="onbBtn" firstAttribute="top" secondItem="onbPageCtrl" secondAttribute="bottom" constant="20" id="c8p"/>
+                            <constraint firstItem="onbPageCtrl" firstAttribute="centerX" secondItem="onbView" secondAttribute="centerX" id="c9p"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="actionButton" destination="onbBtn" id="oBtn"/>
+                        <outlet property="descLabel" destination="onbDesc" id="oDesc"/>
+                        <outlet property="imageView" destination="onbImg" id="oImg"/>
+                        <outlet property="pageControl" destination="onbPageCtrl" id="oPage"/>
+                        <outlet property="titleLabel" destination="onbTitle" id="oTitle"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="onbFirstResp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-803" y="-500"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Basketball" width="500" height="500"/>
         <image name="banner1" width="1600" height="800"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

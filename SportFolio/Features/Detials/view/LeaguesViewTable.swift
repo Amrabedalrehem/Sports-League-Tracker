@@ -107,7 +107,7 @@ class LeaguesViewTable: UITableViewController, LeaguesView {
         case .none:       placeholderName = "footballPlaceholder"
         }
         let placeholder = UIImage(named: placeholderName)
-
+            print(league.leagueLogo ?? "")
         cell.leagueImageView.sd_setImage(
             with: URL(string: league.leagueLogo ?? ""),
             placeholderImage: placeholder
