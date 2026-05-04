@@ -14,21 +14,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        
+
         let window = UIWindow(windowScene: windowScene)
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        if UserDefaults.standard.bool(forKey: "hasSeenOnboarding") {
-            let tabBar = storyboard.instantiateViewController(withIdentifier: "MainTabBarController")
-            let navController = UINavigationController(rootViewController: tabBar)
-            window.rootViewController = navController
-        } else {
-            
-            if let initialVC = storyboard.instantiateInitialViewController() {
-                window.rootViewController = initialVC
-            }
-        }
-        
+        // Always start with the Splash screen.
+        // SplashViewController decides where to go next (onboarding vs main tab bar)
+        // once the Lottie animation finishes.
+        window.rootViewController = SplashViewController()
         self.window = window
         window.makeKeyAndVisible()
     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6827E32B2FA8EF75007DC1ED /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 6827E32A2FA8EF75007DC1ED /* Lottie */; };
 		686B98C12FA6077B00043D99 /* FavoriteLeague+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686B98BF2FA6077B00043D99 /* FavoriteLeague+CoreDataClass.swift */; };
 		686B98C22FA6077B00043D99 /* FavoriteLeague+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686B98C02FA6077B00043D99 /* FavoriteLeague+CoreDataProperties.swift */; };
 		6DB9DC052FA156BE00EC05A2 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 6DB9DC042FA156BE00EC05A2 /* Reachability */; };
@@ -78,6 +79,7 @@
 				6DB9DC0B2FA158A200EC05A2 /* Alamofire in Frameworks */,
 				6DB9DC082FA156E000EC05A2 /* SDWebImageSwiftUI in Frameworks */,
 				6DB9DC052FA156BE00EC05A2 /* Reachability in Frameworks */,
+				6827E32B2FA8EF75007DC1ED /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +145,7 @@
 				6DB9DC042FA156BE00EC05A2 /* Reachability */,
 				6DB9DC072FA156E000EC05A2 /* SDWebImageSwiftUI */,
 				6DB9DC0A2FA158A200EC05A2 /* Alamofire */,
+				6827E32A2FA8EF75007DC1ED /* Lottie */,
 			);
 			productName = SportFolio;
 			productReference = 68E153B32FA098CE00C886DF /* SportFolio.app */;
@@ -230,6 +233,7 @@
 				6DB9DC032FA156BE00EC05A2 /* XCRemoteSwiftPackageReference "Reachability" */,
 				6DB9DC062FA156E000EC05A2 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				6DB9DC092FA158A200EC05A2 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				6827E3292FA8EF75007DC1ED /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 68E153B42FA098CE00C886DF /* Products */;
@@ -590,6 +594,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		6827E3292FA8EF75007DC1ED /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.6.0;
+			};
+		};
 		6DB9DC032FA156BE00EC05A2 /* XCRemoteSwiftPackageReference "Reachability" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ashleymills/Reachability.swift";
@@ -617,6 +629,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		6827E32A2FA8EF75007DC1ED /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6827E3292FA8EF75007DC1ED /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
 		6DB9DC042FA156BE00EC05A2 /* Reachability */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6DB9DC032FA156BE00EC05A2 /* XCRemoteSwiftPackageReference "Reachability" */;
