@@ -41,7 +41,7 @@
                             <outlet property="delegate" destination="5F4-3Q-L5I" id="IfB-Ad-ii8"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="zje-ip-GMo"/>
+                    <tabBarItem key="tabBarItem" image="heart" id="zje-ip-GMo"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EvV-GZ-AOv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -65,7 +65,7 @@
             </objects>
             <point key="canvasLocation" x="6316.3636363636369" y="-308.15899581589957"/>
         </scene>
-        <!--Item-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SportFolio" customModuleProvider="target" sceneMemberID="viewController">
@@ -175,7 +175,7 @@
                             <constraint firstItem="sportsCollectionView" firstAttribute="top" secondItem="bannerCollectionView" secondAttribute="bottom" constant="24" id="sportsTop"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="3by-HO-Vrb"/>
+                    <tabBarItem key="tabBarItem" title="" image="home3" id="3by-HO-Vrb"/>
                     <navigationItem key="navigationItem" id="aNk-GO-cKJ"/>
                     <connections>
                         <outlet property="bannerCollectionView" destination="bannerCollectionView" id="mainBannerOutlet"/>
@@ -204,7 +204,8 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3s8-Bo-aAs">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" systemColor="systemBlueColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="LHQ-Ue-cGO"/>
@@ -390,6 +391,8 @@
     <resources>
         <image name="Basketball" width="500" height="500"/>
         <image name="banner1" width="1600" height="800"/>
+        <image name="heart" width="32" height="32"/>
+        <image name="home3" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
