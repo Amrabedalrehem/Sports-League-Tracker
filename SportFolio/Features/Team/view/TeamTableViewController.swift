@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+
 protocol TeamView: AnyObject {
     func reloadData()
     func startAnimating()
@@ -16,8 +17,27 @@ protocol TeamView: AnyObject {
 
 final class TeamTableViewController: UITableViewController, TeamView {
 
+ 
     private let teamLogoImageView = UIImageView()
-    private let teamNameLabel = UILabel()
+    private let teamNameLabel     = UILabel()
+
+ 
+    private let loadingOverlay: UIView = {
+        let v = UIView()
+        v.backgroundColor = UIColor(red: 0.95, green: 0.96, blue: 0.98, alpha: 0.85)
+        v.translatesAutoresizingMaskIntoConstraints = false
+        v.alpha = 0
+        return v
+    }()
+    private let spinner: UIActivityIndicatorView = {
+        let s = UIActivityIndicatorView(style: .large)
+        s.color = UIColor(red: 0.18, green: 0.42, blue: 0.92, alpha: 1)
+        s.translatesAutoresizingMaskIntoConstraints = false
+        return s
+    }()
+
+   
+    private lazy var emptyStateView: UIView = buildEmptyStateView()
 
     var presenter : TeamPresenter!
     private let sections = TeamSection.allCases
@@ -28,11 +48,12 @@ final class TeamTableViewController: UITableViewController, TeamView {
         presenter.attachView(self)
         configureTableView()
         setupTableHeader()
+        setupLoadingOverlay()
         presenter.fetchTeamDetails()
     }
     
     private func setupTableHeader() {
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 220))
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 250))
         headerView.backgroundColor = .clear
 
         teamLogoImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -79,6 +100,118 @@ final class TeamTableViewController: UITableViewController, TeamView {
 
         tableView.rowHeight = 104
         tableView.sectionHeaderHeight = 30
+    }
+
+ 
+    private func setupLoadingOverlay() {
+        guard let window = view else { return }
+        view.addSubview(loadingOverlay)
+        loadingOverlay.addSubview(spinner)
+
+        NSLayoutConstraint.activate([
+            loadingOverlay.topAnchor.constraint(equalTo: view.topAnchor),
+            loadingOverlay.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            loadingOverlay.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            loadingOverlay.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            spinner.centerXAnchor.constraint(equalTo: loadingOverlay.centerXAnchor),
+            spinner.centerYAnchor.constraint(equalTo: loadingOverlay.centerYAnchor)
+        ])
+        _ = window
+    }
+
+  
+    private func buildEmptyStateView() -> UIView {
+        let container = UIView()
+        container.translatesAutoresizingMaskIntoConstraints = false
+
+   
+        let card = UIView()
+        card.translatesAutoresizingMaskIntoConstraints = false
+        card.backgroundColor = .white
+        card.layer.cornerRadius = 24
+        card.layer.shadowColor  = UIColor(red: 0.08, green: 0.10, blue: 0.30, alpha: 1).cgColor
+        card.layer.shadowOpacity = 0.12
+        card.layer.shadowOffset  = CGSize(width: 0, height: 6)
+        card.layer.shadowRadius  = 16
+
+  
+        let iconLabel = UILabel()
+        iconLabel.translatesAutoresizingMaskIntoConstraints = false
+        iconLabel.text      = "🏟️"
+        iconLabel.font      = .systemFont(ofSize: 64)
+        iconLabel.textAlignment = .center
+
+      
+        let titleLabel = UILabel()
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.text          = "No Squad Available"
+        titleLabel.font          = .systemFont(ofSize: 22, weight: .bold)
+        titleLabel.textColor     = UIColor(red: 0.07, green: 0.09, blue: 0.20, alpha: 1)
+        titleLabel.textAlignment = .center
+        titleLabel.numberOfLines = 0
+ 
+        let subtitleLabel = UILabel()
+        subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        subtitleLabel.text          = "Player data for this team\nisn't available right now."
+        subtitleLabel.font          = .systemFont(ofSize: 15, weight: .regular)
+        subtitleLabel.textColor     = .secondaryLabel
+        subtitleLabel.textAlignment = .center
+        subtitleLabel.numberOfLines = 0
+ 
+        let stack = UIStackView(arrangedSubviews: [iconLabel, titleLabel, subtitleLabel])
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis    = .vertical
+        stack.spacing = 12
+        stack.alignment = .center
+
+        card.addSubview(stack)
+        container.addSubview(card)
+
+        NSLayoutConstraint.activate([
+            stack.topAnchor.constraint(equalTo: card.topAnchor, constant: 36),
+            stack.bottomAnchor.constraint(equalTo: card.bottomAnchor, constant: -36),
+            stack.leadingAnchor.constraint(equalTo: card.leadingAnchor, constant: 28),
+            stack.trailingAnchor.constraint(equalTo: card.trailingAnchor, constant: -28),
+
+            card.centerXAnchor.constraint(equalTo: container.centerXAnchor),
+            card.centerYAnchor.constraint(equalTo: container.centerYAnchor),
+            card.leadingAnchor.constraint(greaterThanOrEqualTo: container.leadingAnchor, constant: 32),
+            card.trailingAnchor.constraint(lessThanOrEqualTo: container.trailingAnchor, constant: -32)
+        ])
+
+        return container
+    }
+
+   
+    private func updateEmptyState() {
+        let isEmpty = visibleSections().isEmpty
+
+        if isEmpty {
+            if emptyStateView.superview == nil {
+                tableView.addSubview(emptyStateView)
+                NSLayoutConstraint.activate([
+                    emptyStateView.centerXAnchor.constraint(equalTo: tableView.centerXAnchor),
+                    emptyStateView.centerYAnchor.constraint(equalTo: tableView.centerYAnchor,
+                                                             constant: 60),
+                    emptyStateView.widthAnchor.constraint(equalTo: tableView.widthAnchor)
+                ])
+            }
+            emptyStateView.isHidden = false
+            UIView.animate(withDuration: 0.35,
+                           delay: 0,
+                           usingSpringWithDamping: 0.75,
+                           initialSpringVelocity: 0.4,
+                           options: .curveEaseOut) {
+                self.emptyStateView.alpha = 1
+                self.emptyStateView.transform = .identity
+            }
+        } else {
+            UIView.animate(withDuration: 0.2) {
+                self.emptyStateView.alpha = 0
+            } completion: { _ in
+                self.emptyStateView.isHidden = true
+            }
+        }
     }
 
      
@@ -185,13 +318,21 @@ final class TeamTableViewController: UITableViewController, TeamView {
         }
 
         tableView.reloadData()
+        updateEmptyState()
     }
 
     func startAnimating() {
-       }
+        spinner.startAnimating()
+        UIView.animate(withDuration: 0.2) { self.loadingOverlay.alpha = 1 }
+    }
 
     func stopAnimating() {
-          }
+        UIView.animate(withDuration: 0.2) {
+            self.loadingOverlay.alpha = 0
+        } completion: { _ in
+            self.spinner.stopAnimating()
+        }
+    }
 
     func showError(message: String) {
         let alert = UIAlertController(
