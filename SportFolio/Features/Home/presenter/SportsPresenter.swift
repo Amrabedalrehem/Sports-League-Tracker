@@ -34,7 +34,7 @@ class SportsPresenter {
         sports[index]
     }
     func isOnline() -> Bool {
-        return NetworkReachabilityManager()?.isReachable ?? false
+        return NetworkMonitor.shared.isConnected
     }
     
     

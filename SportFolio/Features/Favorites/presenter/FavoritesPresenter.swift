@@ -63,6 +63,6 @@ class FavoritesPresenter {
     }
  
     func isOnline() -> Bool {
-        return NetworkReachabilityManager()?.isReachable ?? false
+        return NetworkMonitor.shared.isConnected
     }
 }

@@ -23,14 +23,16 @@ class LeaguesPresenter {
     func attachView(_ view: LeaguesView) {
         self.view = view
     }
- 
+  
     func fetchLeagues() {
-        view?.startAnimating()
+          if !isOnline() {
+            view?.showNoInternet()
+            return
+        }
+
+          view?.startAnimating()
         
-        NetworkServiceImpl.shared.getLeagues(
-            baseURL: sportType!.baseURL
-        ) { [weak self] result in
-            
+        NetworkServiceImpl.shared.getLeagues(baseURL: sportType!.baseURL) { [weak self] result in
             guard let self = self else { return }
             
             DispatchQueue.main.async {
@@ -40,7 +42,6 @@ class LeaguesPresenter {
                 case .success(let response):
                     self.leagues = response.result ?? []
                     self.view?.reloadData()
-                    
                 case .failure(let error):
                     self.view?.showError(message: error.localizedDescription)
                 }
@@ -56,7 +57,9 @@ class LeaguesPresenter {
         return leagues[index]
     }
     
-    
+    func isOnline() -> Bool {
+        return NetworkMonitor.shared.isConnected
+    }
     
  
     

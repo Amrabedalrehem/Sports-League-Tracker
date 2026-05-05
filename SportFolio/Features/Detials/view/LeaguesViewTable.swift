@@ -12,6 +12,7 @@ protocol LeaguesView: AnyObject {
     func startAnimating()
     func stopAnimating()
     func showError(message: String)
+    func showNoInternet()
    
 }
 
@@ -68,25 +69,26 @@ class LeaguesViewTable: UITableViewController, LeaguesView {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter.getLeaguesCount()
     }
-
-   
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+          if !presenter.isOnline() {
+            showNoInternet()
+            return
+        }
 
         let league = presenter.getLeague(at: indexPath.row)
+        let detailsVC = storyboard?.instantiateViewController(withIdentifier: "LeaguesDetailsCollectionViewController") as! LeaguesDetailsCollectionViewController
 
-        let detailsVC = storyboard?
-            .instantiateViewController(withIdentifier: "LeaguesDetailsCollectionViewController")
-            as! LeaguesDetailsCollectionViewController
-
-   
         let detailsPresenter = LeaguesDetailsPresenter(
             sportType: presenter.sportType!,
             league: league
         )
+        
         detailsPresenter.view = detailsVC
         detailsVC.leaguesDetailsPresenter = detailsPresenter
         navigationController?.pushViewController(detailsVC, animated: true)
     }
+   
+     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "LeagueCell", for: indexPath) as? cellDetialsTableViewCell else {
@@ -158,7 +160,10 @@ extension LeaguesViewTable {
     }
     
     
-    
+    func showNoInternet() {
+            stopAnimating()  
+            NetworkMonitor.shared.showNoInternet(on: self)
+        }
     
 }
 
