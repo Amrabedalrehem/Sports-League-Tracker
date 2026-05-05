@@ -47,8 +47,7 @@ final class TeamViewCell: UITableViewCell {
         cardView.layer.shadowOpacity = 0.10
         cardView.layer.shadowOffset = CGSize(width: 0, height: 4)
         cardView.layer.shadowRadius = 10
-        // Remove any border that might have been there
-        cardView.layer.borderWidth = 0
+           cardView.layer.borderWidth = 0
 
         numberLabel.backgroundColor = UIColor(red: 0.93, green: 0.95, blue: 0.98, alpha: 1)
         numberLabel.textColor = UIColor(red: 0.18, green: 0.42, blue: 0.92, alpha: 1)
