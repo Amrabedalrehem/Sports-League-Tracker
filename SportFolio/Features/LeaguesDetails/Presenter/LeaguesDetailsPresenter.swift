@@ -213,7 +213,9 @@ extension LeaguesDetailsPresenter {
 
 extension LeaguesDetailsPresenter {
     
-   
+    func isOnline() -> Bool {
+        return NetworkMonitor.shared.isConnected
+    }
 
     func addToFavorites() {
 

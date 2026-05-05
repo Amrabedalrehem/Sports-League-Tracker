@@ -18,6 +18,7 @@ protocol LeaguesDetailsView: AnyObject {
     func showEmptyState()
     func showError(message: String)
     func updateFavoriteButton(isFavorite: Bool)
+    func showNoInternet()
 }
 
 class LeaguesDetailsCollectionViewController: UICollectionViewController {
@@ -213,7 +214,6 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
             alignment: .top
         )
     }
-
    
     override func collectionView(_ collectionView: UICollectionView,
                                  viewForSupplementaryElementOfKind kind: String,
@@ -389,10 +389,13 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
         }
     }
 
-    
-    override func collectionView(_ collectionView: UICollectionView,
-                                 didSelectItemAt indexPath: IndexPath) {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard indexPath.section == 2 else { return }
+
+         if !NetworkMonitor.shared.isConnected {
+            showNoInternet()
+            return
+        }
 
         let count = currentItemSegment == 0
             ? leaguesDetailsPresenter.getNumberOfTeams()
@@ -404,8 +407,7 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
             : leaguesDetailsPresenter.getPlayerItem(at: indexPath.row)
 
         if case .team(let team) = item, let teamId = team.teamKey {
-            let vc = storyboard?
-                .instantiateViewController(withIdentifier: "TeamTableViewController") as! TeamTableViewController
+            let vc = storyboard?.instantiateViewController(withIdentifier: "TeamTableViewController") as! TeamTableViewController
             let presenter = TeamPresenter(
                 baseURL: leaguesDetailsPresenter.getBaseURL(),
                 teamId: teamId
@@ -499,4 +501,9 @@ extension LeaguesDetailsCollectionViewController: LeaguesDetailsView {
         guard let button = favoriteButton?.customView as? UIButton else { return }
         updateFavoriteButtonIcon(button, isFavorite: isFavorite)
     }
+    func showNoInternet() {
+            
+            NetworkMonitor.shared.showNoInternet(on: self)
+        }
+    
 }
