@@ -8,7 +8,6 @@ protocol LeaguesDetailsPresenterProtocol {
     
     func getItems()
     func getNumberOfItems() -> Int
-    func getItem(at index: Int) -> LeagueItem
     func getNumberOfTeams() -> Int
     func getNumberOfPlayers() -> Int
     func getTeamItem(at index: Int) -> LeagueItem
@@ -25,23 +24,26 @@ protocol LeaguesDetailsPresenterProtocol {
     func toggleFavorite() -> Bool
     func getBaseURL() -> String
     func getSportType () -> SportType
+    func getLeagueName() ->String
 }
 class LeaguesDetailsPresenter: LeaguesDetailsPresenterProtocol {
 
-    private let network: NetworkService = NetworkServiceImpl.shared
-    private let coreData: CoreDataManager = CoreDataManager.shared
-
+    private let network: NetworkService
+    private let coreData: CoreDataManager
     weak var view: LeaguesDetailsView?
     var league: LeagueModel?
-
     private let sportType: SportType
     private var allEvents: [EventModel] = []
     private var teams: [TeamModel] = []
     private var players: [PlayerModel] = []
-
-    init(sportType: SportType, league: LeagueModel? = nil) {
+  
+     
+    init(sportType: SportType, league: LeagueModel? = nil,network: NetworkService, coreData: CoreDataManager) {
         self.sportType = sportType
         self.league = league
+        self.network = network
+        self.coreData = coreData
+        
     }
 }
 
@@ -55,7 +57,7 @@ extension LeaguesDetailsPresenter {
 
         view?.showLoading()
         let group = DispatchGroup()
-
+        
         group.enter()
         network.getTeams(baseURL: sportType.baseURL, leagueId: leagueId) { [weak self] result in
             guard let self = self else { group.leave(); return }
@@ -89,13 +91,7 @@ extension LeaguesDetailsPresenter {
         return sportType == .tennis ? players.count : teams.count
     }
 
-    func getItem(at index: Int) -> LeagueItem {
-        if sportType == .tennis {
-            return .player(players[index])
-        } else {
-            return .team(teams[index])
-        }
-    }
+   
 
     func getNumberOfTeams() -> Int { return teams.count }
     func getNumberOfPlayers() -> Int { return players.count }
@@ -213,10 +209,7 @@ extension LeaguesDetailsPresenter {
 
 extension LeaguesDetailsPresenter {
     
-    func isOnline() -> Bool {
-        return NetworkMonitor.shared.isConnected
-    }
-
+  
     func addToFavorites() {
 
         guard let league = league else { return }
@@ -241,6 +234,11 @@ extension LeaguesDetailsPresenter {
     
     
 
+    
+
+}
+
+extension LeaguesDetailsPresenter{
     func toggleFavorite() -> Bool {
         
         if isFavorite() {
@@ -251,5 +249,13 @@ extension LeaguesDetailsPresenter {
             return true
         }
     }
+    
+    
+    func isOnline() -> Bool {
+        return NetworkMonitor.shared.isConnected
+    }
+    
+    func getLeagueName() ->String{
+        return league?.leagueName ?? ""
+    }
 }
-

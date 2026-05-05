@@ -54,7 +54,7 @@ class FavoritesTableView: UITableViewController {
         stack.alignment = .center
         stack.translatesAutoresizingMaskIntoConstraints = false
         let icon       = UILabel()
-        icon.text       = "⭐"
+        icon.text       = "♥️"
         icon.font       = .systemFont(ofSize: 60)
         let title       = UILabel()
         title.text       = "No Favorites Yet"
@@ -202,7 +202,9 @@ extension FavoritesTableView {
         
         let detailsPresenter = LeaguesDetailsPresenter(
             sportType: sportType,
-            league: leagueModel
+            league: leagueModel,
+            network: NetworkServiceImpl.shared,
+            coreData: CoreDataManager.shared
         )
         detailsPresenter.view = detailsVC
         detailsVC.leaguesDetailsPresenter = detailsPresenter

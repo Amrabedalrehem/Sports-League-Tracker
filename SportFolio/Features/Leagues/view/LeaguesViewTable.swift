@@ -18,20 +18,18 @@ protocol LeaguesView: AnyObject {
 
 class LeaguesViewTable: UITableViewController, LeaguesView {
    
-    
+    private let searchController = UISearchController(searchResultsController: nil)
     var sportType :SportType?
     var presenter = LeaguesPresenter()
     private let activityIndicator = UIActivityIndicatorView(style: .large)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         title = "Leagues"
         setupTableView()
+        setupSearchBar()
         setupActivityIndicator()
-        
         presenter.attachView(self)
-               
         presenter.fetchLeagues()
     }
     private func setupTableView() {
@@ -53,8 +51,7 @@ class LeaguesViewTable: UITableViewController, LeaguesView {
         navigationController?.navigationBar.compactAppearance    = appearance
         navigationController?.navigationBar.tintColor = UIColor(red: 0.18, green: 0.42, blue: 0.92, alpha: 1)
     }
-    
-
+   
     
     private func setupActivityIndicator() {
         activityIndicator.center = view.center
@@ -80,7 +77,9 @@ class LeaguesViewTable: UITableViewController, LeaguesView {
 
         let detailsPresenter = LeaguesDetailsPresenter(
             sportType: presenter.sportType!,
-            league: league
+            league: league,
+            network: NetworkServiceImpl.shared,
+            coreData: CoreDataManager.shared
         )
         
         detailsPresenter.view = detailsVC

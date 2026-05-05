@@ -25,11 +25,8 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
 
     var leaguesDetailsPresenter: LeaguesDetailsPresenterProtocol!
     private var favoriteButton: UIBarButtonItem?
-
-    
     private var currentItemSegment: Int = 0
     private var shimmerOverlay: ShimmerOverlayView?
-
     private var animatedCells: Set<IndexPath> = []
 
   
@@ -50,20 +47,7 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
 
     
     private func setupNavigationBar() {
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .white
-        appearance.shadowColor = UIColor.black.withAlphaComponent(0.06)
-        appearance.titleTextAttributes = [
-            .foregroundColor: UIColor(red: 0.07, green: 0.09, blue: 0.20, alpha: 1),
-            .font: UIFont.systemFont(ofSize: 17, weight: .bold)
-        ]
-        navigationController?.navigationBar.standardAppearance   = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        navigationController?.navigationBar.compactAppearance    = appearance
-        navigationController?.navigationBar.tintColor = UIColor(red: 0.18, green: 0.42, blue: 0.92, alpha: 1)
-
-       
+    
         let button = UIButton(type: .system)
         button.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         button.tintColor = .systemRed
@@ -74,6 +58,7 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
 
         favoriteButton = UIBarButtonItem(customView: button)
         navigationItem.rightBarButtonItem = favoriteButton
+        navigationItem.title = leaguesDetailsPresenter.getLeagueName()
     }
 
     @objc private func favoriteButtonTapped() {
