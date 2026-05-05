@@ -1,32 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VGg-iM-fCQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24127" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VGg-iM-fCQ">
     <device id="retina6_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Leagues-->
-        <scene sceneID="1v1-p7-OtX">
+        <!--Leagues View Table-->
+        <scene sceneID="NEk-q0-mwE">
             <objects>
-                <tableViewController storyboardIdentifier="LeaguesViewTable" id="8CW-ck-DtJ" customClass="LeaguesViewTable" customModule="SportFolio" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="90" estimatedRowHeight="90" sectionHeaderHeight="0.0" sectionFooterHeight="0.0" id="iS8-Pm-jMy">
+                <viewController storyboardIdentifier="LeaguesViewTable" id="Y8d-op-dZp" customClass="LeaguesViewTable" customModule="SportFolio" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BMb-mM-ELT">
                         <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.1215686275" green="0.1215686275" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <connections>
-                            <outlet property="dataSource" destination="8CW-ck-DtJ" id="HsH-98-r54"/>
-                            <outlet property="delegate" destination="8CW-ck-DtJ" id="YVS-fn-dMN"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Leagues" id="nav-leagues-item"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Mu6-s3-LnY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5mz-VN-nT3">
+                                <rect key="frame" x="0.0" y="172" width="440" height="784"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Serach For Leagues ..." translatesAutoresizingMaskIntoConstraints="NO" id="QLb-6n-aT0">
+                                <rect key="frame" x="0.0" y="108" width="440" height="64"/>
+                                <color key="barTintColor" name="BorderColor"/>
+                                <textInputTraits key="textInputTraits" spellCheckingType="yes" smartInsertDeleteType="yes"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Y8d-op-dZp" id="rDJ-Zo-oCW"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="YZx-ly-rG6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YZx-ly-rG6" firstAttribute="top" secondItem="QLb-6n-aT0" secondAttribute="top" constant="16" id="FB5-8I-G7i"/>
+                            <constraint firstItem="5mz-VN-nT3" firstAttribute="leading" secondItem="YZx-ly-rG6" secondAttribute="leading" id="Imh-r7-FQp"/>
+                            <constraint firstAttribute="bottom" secondItem="5mz-VN-nT3" secondAttribute="bottom" id="Otg-i8-oNy"/>
+                            <constraint firstItem="5mz-VN-nT3" firstAttribute="trailing" secondItem="YZx-ly-rG6" secondAttribute="trailing" id="nmD-iV-5dQ"/>
+                            <constraint firstItem="QLb-6n-aT0" firstAttribute="trailing" secondItem="YZx-ly-rG6" secondAttribute="trailing" id="r3w-hQ-pwt"/>
+                            <constraint firstItem="QLb-6n-aT0" firstAttribute="leading" secondItem="YZx-ly-rG6" secondAttribute="leading" id="wtc-Hs-tfd"/>
+                            <constraint firstItem="5mz-VN-nT3" firstAttribute="top" secondItem="QLb-6n-aT0" secondAttribute="bottom" id="x4K-js-k4W"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="searchBar" destination="QLb-6n-aT0" id="qkc-v6-vgM"/>
+                        <outlet property="tableView" destination="5mz-VN-nT3" id="pp7-H8-p1d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ue6-uB-tTQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4778.1818181818189" y="-308.15899581589957"/>
+            <point key="canvasLocation" x="4709" y="-308"/>
         </scene>
         <!--favorites-->
         <scene sceneID="WZx-ql-GhX">
@@ -271,7 +295,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="1Rz-70-ZZf"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dgg-RN-hKI">
-                        <rect key="frame" x="0.0" y="124" width="440" height="44"/>
+                        <rect key="frame" x="0.0" y="124" width="440" height="54"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -290,7 +314,7 @@
                     <tabBarItem key="tabBarItem" id="zOe-so-7dh"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="woy-dO-jkY">
-                        <rect key="frame" x="0.0" y="124" width="440" height="44"/>
+                        <rect key="frame" x="0.0" y="124" width="440" height="54"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -391,17 +415,20 @@
         <image name="banner1" width="1600" height="800"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
+        <namedColor name="BorderColor">
+            <color red="0.94901960784313721" green="0.96078431372549022" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

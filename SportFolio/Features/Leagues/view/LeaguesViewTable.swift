@@ -13,11 +13,15 @@ protocol LeaguesView: AnyObject {
     func stopAnimating()
     func showError(message: String)
     func showNoInternet()
+    func showEmptyState()
+    func hideEmptyState()  
    
 }
 
-class LeaguesViewTable: UITableViewController, LeaguesView {
-   
+class LeaguesViewTable:  UIViewController, UISearchBarDelegate {
+    
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     private let searchController = UISearchController(searchResultsController: nil)
     var sportType :SportType?
     var presenter = LeaguesPresenter()
@@ -27,11 +31,34 @@ class LeaguesViewTable: UITableViewController, LeaguesView {
         super.viewDidLoad()
         title = "Leagues"
         setupTableView()
-        setupSearchBar()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        searchBar.delegate = self
+        tableView.register(UINib(nibName: "cellDetials", bundle: nil),forCellReuseIdentifier: "LeagueCell")
+        
+        
+        tableView.separatorStyle = .none
         setupActivityIndicator()
         presenter.attachView(self)
         presenter.fetchLeagues()
     }
+    
+    
+    private func setupActivityIndicator() {
+        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = true
+        view.addSubview(activityIndicator)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        presenter.searchLeagues(text: searchText)
+    }
+    
+}
+
+
+extension LeaguesViewTable :  UITableViewDataSource, UITableViewDelegate {
     private func setupTableView() {
         tableView.register(UINib(nibName: "cellDetials", bundle: nil), forCellReuseIdentifier: "LeagueCell")
         tableView.rowHeight       = 90
@@ -52,21 +79,17 @@ class LeaguesViewTable: UITableViewController, LeaguesView {
         navigationController?.navigationBar.tintColor = UIColor(red: 0.18, green: 0.42, blue: 0.92, alpha: 1)
     }
    
+  
     
-    private func setupActivityIndicator() {
-        activityIndicator.center = view.center
-        activityIndicator.hidesWhenStopped = true
-        view.addSubview(activityIndicator)
-    }
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+   func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter.getLeaguesCount()
     }
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
           if !presenter.isOnline() {
             showNoInternet()
             return
@@ -89,7 +112,7 @@ class LeaguesViewTable: UITableViewController, LeaguesView {
    
      
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "LeagueCell", for: indexPath) as? cellDetialsTableViewCell else {
             return UITableViewCell()
         }
@@ -119,7 +142,9 @@ class LeaguesViewTable: UITableViewController, LeaguesView {
     }
 }
 
-extension LeaguesViewTable {
+extension LeaguesViewTable : LeaguesView{
+    
+    
     func reloadData() {
         tableView.reloadData()
     }
@@ -163,6 +188,14 @@ extension LeaguesViewTable {
             stopAnimating()  
             NetworkMonitor.shared.showNoInternet(on: self)
         }
+    
+    func showEmptyState() {
+        tableView.backgroundView = showWhenEmpty(iconText: "🔎", titleText: "Try another Search", subtitleText: "No leagues found for this search")
+    }
+    
+    func hideEmptyState() {
+        tableView.backgroundView = nil
+    }
     
 }
 
