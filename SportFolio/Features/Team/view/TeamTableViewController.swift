@@ -16,7 +16,8 @@ protocol TeamView: AnyObject {
 }
 
 final class TeamTableViewController: UITableViewController, TeamView {
-
+    private let activityIndicator = UIActivityIndicatorView(style: .large)
+  
  
     private let teamLogoImageView = UIImageView()
     private let teamNameLabel     = UILabel()
@@ -50,6 +51,16 @@ final class TeamTableViewController: UITableViewController, TeamView {
         setupTableHeader()
         setupLoadingOverlay()
         presenter.fetchTeamDetails()
+        setupActivityIndicator()
+            startAnimating()
+   
+     
+    }
+    
+    private func setupActivityIndicator() {
+        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = true
+        view.addSubview(activityIndicator)
     }
     
     private func setupTableHeader() {
@@ -322,16 +333,19 @@ final class TeamTableViewController: UITableViewController, TeamView {
     }
 
     func startAnimating() {
+        UIView.animate(withDuration: 0.3) {
+            self.loadingOverlay.alpha = 1
+        }
         spinner.startAnimating()
-        UIView.animate(withDuration: 0.2) { self.loadingOverlay.alpha = 1 }
+              tableView.tableHeaderView?.isHidden = true
     }
 
     func stopAnimating() {
-        UIView.animate(withDuration: 0.2) {
+        UIView.animate(withDuration: 0.3) {
             self.loadingOverlay.alpha = 0
-        } completion: { _ in
-            self.spinner.stopAnimating()
         }
+        spinner.stopAnimating()
+            tableView.tableHeaderView?.isHidden = false
     }
 
     func showError(message: String) {
