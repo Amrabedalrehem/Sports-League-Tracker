@@ -444,7 +444,6 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
 
 extension LeaguesDetailsCollectionViewController: SectionHeaderDelegate {
     func sectionHeader(_ header: SectionHeaderView, didSelectSegmentAt index: Int) {
-        guard currentItemSegment != index else { return }
         currentItemSegment = index
         collectionView.setCollectionViewLayout(createLayout(), animated: false)
         collectionView.reloadSections(IndexSet(integer: 2))
@@ -487,7 +486,7 @@ extension LeaguesDetailsCollectionViewController: LeaguesDetailsView {
         updateFavoriteButtonIcon(button, isFavorite: isFavorite)
     }
     func showNoInternet() {
-            
+
             NetworkMonitor.shared.showNoInternet(on: self)
         }
     
