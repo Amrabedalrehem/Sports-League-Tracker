@@ -60,7 +60,7 @@ class FavoritesTableView: UITableViewController {
         )
         tableView.rowHeight       = 90
         tableView.separatorStyle  = .none
-        tableView.backgroundColor = UIColor(red: 0.95, green: 0.96, blue: 0.98, alpha: 1)
+        tableView.backgroundColor = .appBackground
     }
     
     private func showEmptyStateIfNeeded() {
@@ -102,12 +102,12 @@ extension FavoritesTableView {
     override func tableView(_ tableView: UITableView,
                             viewForHeaderInSection section: Int) -> UIView? {
         let header = UIView()
-        header.backgroundColor = UIColor(red: 0.95, green: 0.96, blue: 0.98, alpha: 1)
+        header.backgroundColor = .appBackground
         
         let label = UILabel()
         label.text      = presenter.getSectionTitle(at: section).uppercased()
         label.font      = UIFont.systemFont(ofSize: 12, weight: .semibold)
-        label.textColor = UIColor(red: 0.18, green: 0.42, blue: 0.92, alpha: 1)
+        label.textColor = .primaryBlue
         label.translatesAutoresizingMaskIntoConstraints = false
         
         header.addSubview(label)

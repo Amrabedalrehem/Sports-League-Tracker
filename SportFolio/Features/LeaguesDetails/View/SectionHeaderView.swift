@@ -33,26 +33,26 @@ class SectionHeaderView: UICollectionReusableView {
         backgroundColor = .clear
 
       
-        accentBar.backgroundColor = UIColor(red: 0.18, green: 0.42, blue: 0.92, alpha: 1)
+        accentBar.backgroundColor = .primaryBlue
         accentBar.layer.cornerRadius = 2
         accentBar.translatesAutoresizingMaskIntoConstraints = false
         addSubview(accentBar)
         iconImageView.contentMode = .scaleAspectFit
-        iconImageView.tintColor = UIColor(red: 0.18, green: 0.42, blue: 0.92, alpha: 1)
+        iconImageView.tintColor = .primaryBlue
         iconImageView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(iconImageView)
         titleLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-        titleLabel.textColor = UIColor(red: 0.07, green: 0.09, blue: 0.20, alpha: 1)
+        titleLabel.textColor = .mainText
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(titleLabel)
         segmentedControl.selectedSegmentIndex = 0
-        segmentedControl.selectedSegmentTintColor = UIColor(red: 0.18, green: 0.42, blue: 0.92, alpha: 1)
+        segmentedControl.selectedSegmentTintColor = .primaryBlue
         segmentedControl.setTitleTextAttributes(
             [.foregroundColor: UIColor.white, .font: UIFont.systemFont(ofSize: 13, weight: .semibold)],
             for: .selected
         )
         segmentedControl.setTitleTextAttributes(
-            [.foregroundColor: UIColor(red: 0.18, green: 0.42, blue: 0.92, alpha: 1),
+            [.foregroundColor: UIColor.primaryBlue,
              .font: UIFont.systemFont(ofSize: 13, weight: .medium)],
             for: .normal
         )

@@ -24,7 +24,7 @@ class TeamCollectionViewCell: UICollectionViewCell {
 
         layer.cornerRadius = 16
         layer.masksToBounds = false
-        layer.shadowColor = UIColor(red: 0.08, green: 0.10, blue: 0.30, alpha: 1).cgColor
+        layer.shadowColor = UIColor.shadowColorApp.cgColor
         layer.shadowOpacity = 0.12
         layer.shadowOffset = CGSize(width: 0, height: 5)
         layer.shadowRadius = 12
@@ -32,13 +32,13 @@ class TeamCollectionViewCell: UICollectionViewCell {
         teamImageView.layer.cornerRadius = 30
         teamImageView.layer.masksToBounds = true
         teamImageView.contentMode = .scaleAspectFit
-        teamImageView.backgroundColor = UIColor(red: 0.95, green: 0.96, blue: 0.98, alpha: 1)
+        teamImageView.backgroundColor = .appBackground
         teamImageView.layer.borderWidth = 1
-        teamImageView.layer.borderColor = UIColor(red: 0.18, green: 0.42, blue: 0.92, alpha: 0.15).cgColor
+        teamImageView.layer.borderColor = UIColor.primaryBlueBorder.cgColor
 
       
         teamLabel.font = UIFont.systemFont(ofSize: 11, weight: .semibold)
-        teamLabel.textColor = UIColor(red: 0.07, green: 0.09, blue: 0.20, alpha: 1)
+        teamLabel.textColor = .mainText
         teamLabel.textAlignment = .center
         teamLabel.numberOfLines = 2
         teamLabel.adjustsFontSizeToFitWidth = true

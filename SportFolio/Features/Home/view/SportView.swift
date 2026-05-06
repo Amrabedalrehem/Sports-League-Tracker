@@ -123,7 +123,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     
     private func polishBackground() {
-        view.backgroundColor = UIColor(red: 0.95, green: 0.96, blue: 0.98, alpha: 1)
+        view.backgroundColor = .appBackground
         sportsCollectionView.backgroundColor = .clear
     }
     
@@ -133,13 +133,13 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         appearance.backgroundColor = .white
         appearance.shadowColor = UIColor.black.withAlphaComponent(0.06)
         appearance.titleTextAttributes = [
-            .foregroundColor: UIColor(red: 0.07, green: 0.09, blue: 0.20, alpha: 1),
+            .foregroundColor: UIColor.mainText,
             .font: UIFont.systemFont(ofSize: 17, weight: .bold)
         ]
         navigationController?.navigationBar.standardAppearance   = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationController?.navigationBar.compactAppearance    = appearance
-        navigationController?.navigationBar.tintColor = UIColor(red: 0.18, green: 0.42, blue: 0.92, alpha: 1)
+        navigationController?.navigationBar.tintColor = .primaryBlue
     }
     
     private func polishBanner() {
@@ -149,7 +149,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         bannerCollectionView.showsHorizontalScrollIndicator = false
         
         
-        bannerCollectionView.layer.shadowColor = UIColor(red: 0.1, green: 0.1, blue: 0.3, alpha: 1).cgColor
+        bannerCollectionView.layer.shadowColor = UIColor.shadowColorApp.cgColor
         bannerCollectionView.layer.shadowOpacity = 0.14
         bannerCollectionView.layer.shadowOffset = CGSize(width: 0, height: 5)
         bannerCollectionView.layer.shadowRadius = 12

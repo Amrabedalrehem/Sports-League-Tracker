@@ -35,17 +35,17 @@ class cellDetialsTableViewCell: UITableViewCell {
         contentView.layer.masksToBounds = true
         layer.cornerRadius  = 16
         layer.masksToBounds = false
-        layer.shadowColor   = UIColor(red: 0.08, green: 0.10, blue: 0.30, alpha: 1).cgColor
+        layer.shadowColor   = UIColor.shadowColorApp.cgColor
         layer.shadowOpacity = 0.10
         layer.shadowOffset  = CGSize(width: 0, height: 4)
         layer.shadowRadius  = 10
         leagueNameLabel.font      = UIFont.systemFont(ofSize: 16, weight: .bold)
-        leagueNameLabel.textColor = UIColor(red: 0.07, green: 0.09, blue: 0.20, alpha: 1)
+        leagueNameLabel.textColor = .mainText
 
         countryNameLabel.font      = UIFont.systemFont(ofSize: 13, weight: .regular)
         countryNameLabel.textColor = .secondaryLabel
 
-        arrowLabel.textColor = UIColor(red: 0.18, green: 0.42, blue: 0.92, alpha: 1)
+        arrowLabel.textColor = .primaryBlue
     }
 
     override func layoutSubviews() {
@@ -54,12 +54,12 @@ class cellDetialsTableViewCell: UITableViewCell {
         leagueImageView.layer.cornerRadius  = leagueImageView.frame.width / 2
         leagueImageView.layer.masksToBounds = true
         leagueImageView.contentMode         = .scaleAspectFit
-        leagueImageView.backgroundColor     = UIColor(red: 0.93, green: 0.95, blue: 0.98, alpha: 1)
+        leagueImageView.backgroundColor     = .imageBG
 
         if let iconContainer = leagueImageView.superview {
             iconContainer.layer.cornerRadius  = iconContainer.frame.width / 2
             iconContainer.layer.masksToBounds = true
-            iconContainer.backgroundColor     = UIColor(red: 0.93, green: 0.95, blue: 0.98, alpha: 1)
+            iconContainer.backgroundColor     = .imageBG
         }
     }
 }

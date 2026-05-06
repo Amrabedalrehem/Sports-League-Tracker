@@ -3,8 +3,8 @@ import UIKit
 class MainTabBarController: UITabBarController {
 
    
-    private let gradientStart = UIColor(red: 0.043, green: 0.239, blue: 0.812, alpha: 1.0)
-    private let gradientEnd   = UIColor(red: 0.196, green: 0.620, blue: 0.965, alpha: 1.0)
+    private var gradientStart: UIColor { .tabBarGradientStart }
+    private var gradientEnd:   UIColor { .tabBarGradientEnd   }
 
     private var gradientImageSize: CGSize = .zero
     override func viewDidLoad() {

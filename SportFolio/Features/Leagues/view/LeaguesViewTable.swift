@@ -68,20 +68,20 @@ extension LeaguesViewTable :  UITableViewDataSource, UITableViewDelegate {
         tableView.register(UINib(nibName: "cellDetials", bundle: nil), forCellReuseIdentifier: "LeagueCell")
         tableView.rowHeight       = 90
         tableView.separatorStyle  = .none
-        tableView.backgroundColor = UIColor(red: 0.95, green: 0.96, blue: 0.98, alpha: 1)
+        tableView.backgroundColor = .appBackground
 
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .white
+        appearance.backgroundColor = .cardBG
         appearance.shadowColor = UIColor.black.withAlphaComponent(0.06)
         appearance.titleTextAttributes = [
-            .foregroundColor: UIColor(red: 0.07, green: 0.09, blue: 0.20, alpha: 1),
+            .foregroundColor: UIColor.mainText,
             .font: UIFont.systemFont(ofSize: 17, weight: .bold)
         ]
         navigationController?.navigationBar.standardAppearance   = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationController?.navigationBar.compactAppearance    = appearance
-        navigationController?.navigationBar.tintColor = UIColor(red: 0.18, green: 0.42, blue: 0.92, alpha: 1)
+        navigationController?.navigationBar.tintColor = .primaryBlue
     }
    
   

@@ -12,7 +12,7 @@ class ShimmerOverlayView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor(red: 0.95, green: 0.96, blue: 0.98, alpha: 1)
+        backgroundColor = .appBackground
         buildSkeleton()
     }
 

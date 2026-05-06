@@ -42,7 +42,7 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
 
    
     private func setupBackground() {
-        collectionView.backgroundColor = UIColor(red: 0.95, green: 0.96, blue: 0.98, alpha: 1)
+        collectionView.backgroundColor = .appBackground
     }
 
     
@@ -414,7 +414,7 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
 
         let config = UIImage.SymbolConfiguration(pointSize: 32, weight: .light)
         let iconView = UIImageView(image: UIImage(systemName: icon, withConfiguration: config))
-        iconView.tintColor = UIColor(red: 0.18, green: 0.42, blue: 0.92, alpha: 0.35)
+        iconView.tintColor = .primaryBlueLight
         iconView.contentMode = .scaleAspectFit
 
         let label = UILabel()

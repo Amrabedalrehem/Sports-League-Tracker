@@ -43,7 +43,7 @@ enum TeamSection: Int, CaseIterable {
 
     var badgeColor: UIColor {
         switch self {
-        case .goalkeepers: return UIColor(red: 0.72, green: 0.49, blue: 0.10, alpha: 1.0)
+        case .goalkeepers: return .goalkeeperBadge
         case .defenders: return UIColor.systemGreen
         case .midfielders: return UIColor.systemBlue
         case .forwards: return UIColor.systemRed
