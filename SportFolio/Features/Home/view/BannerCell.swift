@@ -26,8 +26,8 @@ class BannerCell: UICollectionViewCell {
         layer.cornerRadius = 16
         layer.masksToBounds = false
         layer.shadowColor = UIColor(red: 0.1, green: 0.1, blue: 0.3, alpha: 1).cgColor
-        layer.shadowOpacity = 0.12
-        layer.shadowOffset = CGSize(width: 0, height: 4)
+        layer.shadowOpacity = 0.18
+        layer.shadowOffset = CGSize(width: 0, height:6)
         layer.shadowRadius = 10
     }
 }

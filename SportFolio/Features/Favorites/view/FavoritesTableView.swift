@@ -6,19 +6,18 @@
 //
 
 import UIKit
+ import UIKit
+import SDWebImage
 
- 
-import SDWebImage
-import UIKit
-import SDWebImage
 protocol FavoritesView: AnyObject {
     func reloadData()
     func showNoInternet()
 }
+
 class FavoritesTableView: UITableViewController {
- 
+    
     private let presenter = FavoritesPresenter()
-     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
@@ -30,7 +29,30 @@ class FavoritesTableView: UITableViewController {
         super.viewWillAppear(animated)
         presenter.loadFavorites()
     }
-     
+    
+    private func showDeleteConfirmation(for indexPath: IndexPath) {
+        let alert = UIAlertController(
+            title: "Remove Favorite",
+            message: "Are you sure you want to delete this league from your favorites?",
+            preferredStyle: .alert
+        )
+
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self] _ in
+            guard let self = self,
+                  let favorite = self.presenter.getFavorite(section: indexPath.section, row: indexPath.row) else { return }
+            
+            CoreDataManager.shared.removeFavorite(leagueKey: favorite.leagueKey)
+            self.presenter.loadFavorites()
+        }
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+
+        present(alert, animated: true, completion: nil)
+    }
+    
     private func setupTableView() {
         tableView.register(
             UINib(nibName: "cellDetials", bundle: nil),
@@ -41,18 +63,19 @@ class FavoritesTableView: UITableViewController {
         tableView.backgroundColor = UIColor(red: 0.95, green: 0.96, blue: 0.98, alpha: 1)
     }
     
-   
     private func showEmptyStateIfNeeded() {
         guard presenter.getSectionsCount() == 0 else {
             tableView.backgroundView = nil
             return
         }
         
-        tableView.backgroundView = showWhenEmpty(iconText: "♥️", titleText: "No Favorites Yet", subtitleText: "Add leagues from the Leagues screen")
+        tableView.backgroundView = showWhenEmpty(
+            iconText: "♥️",
+            titleText: "No Favorites Yet",
+            subtitleText: "Add leagues from the Leagues screen"
+        )
     }
 }
-
-
 extension FavoritesTableView: FavoritesView {
     
     func reloadData() {
@@ -65,7 +88,6 @@ extension FavoritesTableView: FavoritesView {
     }
 }
 
-
 extension FavoritesTableView {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -76,7 +98,7 @@ extension FavoritesTableView {
                             numberOfRowsInSection section: Int) -> Int {
         return presenter.getRowsCount(in: section)
     }
-  
+    
     override func tableView(_ tableView: UITableView,
                             viewForHeaderInSection section: Int) -> UIView? {
         let header = UIView()
@@ -93,6 +115,7 @@ extension FavoritesTableView {
             label.leadingAnchor.constraint(equalTo: header.leadingAnchor, constant: 16),
             label.centerYAnchor.constraint(equalTo: header.centerYAnchor)
         ])
+        
         return header
     }
     
@@ -101,10 +124,8 @@ extension FavoritesTableView {
         return 36
     }
     
-  
     override func tableView(_ tableView: UITableView,
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: "LeagueCell",
             for: indexPath
@@ -122,9 +143,6 @@ extension FavoritesTableView {
 
         let sport = SportType(rawValue: favorite.sportType ?? "") ?? .football
 
-    
-
-
         cell.leagueImageView.sd_setImage(
             with: URL(string: favorite.leagueLogo ?? ""),
             placeholderImage: UIImage(named: sport.placeholderImageName)
@@ -135,14 +153,21 @@ extension FavoritesTableView {
     }
 }
 
-
 extension FavoritesTableView {
-   
+    
+    override func tableView(_ tableView: UITableView,
+                            commit editingStyle: UITableViewCell.EditingStyle,
+                            forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            showDeleteConfirmation(for: indexPath)
+        }
+    }
     
     override func tableView(_ tableView: UITableView,
                             didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-          guard presenter.isOnline() else {
+        
+        guard presenter.isOnline() else {
             showNoInternet()
             return
         }
@@ -152,11 +177,11 @@ extension FavoritesTableView {
             row: indexPath.row
         ) else { return }
         
-              guard let sportType = SportType(rawValue: favorite.sportType ?? "") else {
-                return
+        guard let sportType = SportType(rawValue: favorite.sportType ?? "") else {
+            return
         }
         
-          let leagueModel = LeagueModel(
+        let leagueModel = LeagueModel(
             leagueKey:   Int(favorite.leagueKey),
             leagueName:  favorite.leagueName,
             leagueLogo:  favorite.leagueLogo,
@@ -165,7 +190,7 @@ extension FavoritesTableView {
             countryLogo: nil
         )
         
-           guard let detailsVC = storyboard?.instantiateViewController(
+        guard let detailsVC = storyboard?.instantiateViewController(
             withIdentifier: "LeaguesDetailsCollectionViewController"
         ) as? LeaguesDetailsCollectionViewController else { return }
         
@@ -175,23 +200,10 @@ extension FavoritesTableView {
             network: NetworkServiceImpl.shared,
             coreData: CoreDataManager.shared
         )
+        
         detailsPresenter.view = detailsVC
         detailsVC.leaguesDetailsPresenter = detailsPresenter
         
         navigationController?.pushViewController(detailsVC, animated: true)
-    }
-   
-
-    override func tableView(_ tableView: UITableView,
-                            commit editingStyle: UITableViewCell.EditingStyle,
-                            forRowAt indexPath: IndexPath) {
-        guard editingStyle == .delete,
-              let favorite = presenter.getFavorite(
-                section: indexPath.section,
-                row: indexPath.row
-              ) else { return }
-        
-        CoreDataManager.shared.removeFavorite(leagueKey: (favorite.leagueKey))
-        presenter.loadFavorites()
     }
 }
