@@ -5,13 +5,6 @@
 //  Created by JETSMobileLabMini2 on 01/05/2026.
 //
 
-//
-//  TeamViewCell.swift
-//  SportsApp
-//
-//  Created by Codex on 01/05/2026.
-//
-
 import UIKit
 
 final class TeamViewCell: UITableViewCell {

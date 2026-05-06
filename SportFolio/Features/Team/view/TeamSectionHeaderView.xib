@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="tsh-root" customClass="TeamSectionHeaderView" customModule="SportFolio" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="440" height="30"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Section Title" textAlignment="natural" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tsh-label">
+                    <rect key="frame" x="16" y="5" width="200" height="20"/>
+                    <fontDescription key="fontDescription" type="system" weight="bold" pointSize="18"/>
+                    <color key="textColor" red="0.07058823529411765" green="0.09019607843137255" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0" green="0" blue="0" alpha="0" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="tsh-label" firstAttribute="leading" secondItem="tsh-root" secondAttribute="leading" constant="16" id="tsh-c1"/>
+                <constraint firstItem="tsh-label" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="tsh-root" secondAttribute="trailing" constant="-16" id="tsh-c2"/>
+                <constraint firstItem="tsh-label" firstAttribute="top" secondItem="tsh-root" secondAttribute="top" constant="2" id="tsh-c3"/>
+                <constraint firstItem="tsh-root" firstAttribute="bottom" secondItem="tsh-label" secondAttribute="bottom" constant="2" id="tsh-c4"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="sectionLabel" destination="tsh-label" id="tsh-label-outlet"/>
+            </connections>
+        </view>
+    </objects>
+</document>

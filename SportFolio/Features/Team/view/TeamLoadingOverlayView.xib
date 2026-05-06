@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="tlov-root" customClass="TeamLoadingOverlayView" customModule="SportFolio" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <color key="backgroundColor" red="0.95294117647058818" green="0.96078431372549022" blue="0.97647058823529413" alpha="0.85" colorSpace="custom" customColorSpace="sRGB"/>
+            <!-- alpha=0 set at runtime so overlay starts hidden -->
+            <subviews>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="tlov-spinner">
+                    <rect key="frame" x="195" y="453" width="50" height="50"/>
+                    <color key="color" red="0.17647058823529413" green="0.41960784313725488" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </activityIndicatorView>
+            </subviews>
+            <constraints>
+                <!-- spinner.centerX == overlay.centerX -->
+                <constraint firstItem="tlov-spinner" firstAttribute="centerX" secondItem="tlov-root" secondAttribute="centerX" id="tlov-c1"/>
+                <!-- spinner.centerY == overlay.centerY -->
+                <constraint firstItem="tlov-spinner" firstAttribute="centerY" secondItem="tlov-root" secondAttribute="centerY" id="tlov-c2"/>
+            </constraints>
+            <connections>
+                <outlet property="spinner" destination="tlov-spinner" id="tlov-spinner-outlet"/>
+            </connections>
+        </view>
+    </objects>
+</document>
