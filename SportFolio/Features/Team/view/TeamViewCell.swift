@@ -36,19 +36,21 @@ final class TeamViewCell: UITableViewCell {
         cardView.backgroundColor = .white
         cardView.layer.cornerRadius = 16
         cardView.layer.masksToBounds = false
-        cardView.layer.shadowColor = UIColor.shadowColorApp.cgColor
+        if let shadowColor = UIColor(named: "ShadowColor") {
+            cardView.layer.shadowColor = shadowColor.cgColor
+        }
         cardView.layer.shadowOpacity = 0.10
         cardView.layer.shadowOffset = CGSize(width: 0, height: 4)
         cardView.layer.shadowRadius = 10
            cardView.layer.borderWidth = 0
 
-        numberLabel.backgroundColor = .imageBG
+        numberLabel.backgroundColor = .imageBackground
         numberLabel.textColor = .primaryBlue
         numberLabel.font = .systemFont(ofSize: 16, weight: .bold)
         numberLabel.textAlignment = .center
         numberLabel.clipsToBounds = true
 
-        avatarImageView.backgroundColor = .imageBG
+        avatarImageView.backgroundColor = .imageBackground
         avatarImageView.contentMode = .scaleAspectFill
         avatarImageView.clipsToBounds = true
 

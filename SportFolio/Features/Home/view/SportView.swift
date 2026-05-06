@@ -41,7 +41,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         polishBackground()
         polishNavigationBar()
         polishBanner()
-        print(navigationController) // should NOT be nil
+      
     }
     func reloadData() {
         sportsCollectionView.reloadData()

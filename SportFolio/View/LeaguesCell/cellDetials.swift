@@ -35,7 +35,11 @@ class cellDetialsTableViewCell: UITableViewCell {
         contentView.layer.masksToBounds = true
         layer.cornerRadius  = 16
         layer.masksToBounds = false
-        layer.shadowColor   = UIColor.shadowColorApp.cgColor
+        if let shadowColor = UIColor(named: "ShadowColor") {
+            layer.shadowColor = shadowColor.cgColor
+        }
+        
+        
         layer.shadowOpacity = 0.10
         layer.shadowOffset  = CGSize(width: 0, height: 4)
         layer.shadowRadius  = 10
@@ -54,12 +58,12 @@ class cellDetialsTableViewCell: UITableViewCell {
         leagueImageView.layer.cornerRadius  = leagueImageView.frame.width / 2
         leagueImageView.layer.masksToBounds = true
         leagueImageView.contentMode         = .scaleAspectFit
-        leagueImageView.backgroundColor     = .imageBG
+        leagueImageView.backgroundColor     = .imageBackground
 
         if let iconContainer = leagueImageView.superview {
             iconContainer.layer.cornerRadius  = iconContainer.frame.width / 2
             iconContainer.layer.masksToBounds = true
-            iconContainer.backgroundColor     = .imageBG
+            iconContainer.backgroundColor     = .imageBackground
         }
     }
 }
