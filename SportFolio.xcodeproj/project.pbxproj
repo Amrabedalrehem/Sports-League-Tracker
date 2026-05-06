@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09C423822FAB487B007D9A1F /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 09C423812FAB487B007D9A1F /* SkeletonView */; };
 		6827E32B2FA8EF75007DC1ED /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 6827E32A2FA8EF75007DC1ED /* Lottie */; };
 		686B98C12FA6077B00043D99 /* FavoriteLeague+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686B98BF2FA6077B00043D99 /* FavoriteLeague+CoreDataClass.swift */; };
 		686B98C22FA6077B00043D99 /* FavoriteLeague+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686B98C02FA6077B00043D99 /* FavoriteLeague+CoreDataProperties.swift */; };
@@ -80,6 +81,7 @@
 				6DB9DC082FA156E000EC05A2 /* SDWebImageSwiftUI in Frameworks */,
 				6DB9DC052FA156BE00EC05A2 /* Reachability in Frameworks */,
 				6827E32B2FA8EF75007DC1ED /* Lottie in Frameworks */,
+				09C423822FAB487B007D9A1F /* SkeletonView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +148,7 @@
 				6DB9DC072FA156E000EC05A2 /* SDWebImageSwiftUI */,
 				6DB9DC0A2FA158A200EC05A2 /* Alamofire */,
 				6827E32A2FA8EF75007DC1ED /* Lottie */,
+				09C423812FAB487B007D9A1F /* SkeletonView */,
 			);
 			productName = SportFolio;
 			productReference = 68E153B32FA098CE00C886DF /* SportFolio.app */;
@@ -234,6 +237,7 @@
 				6DB9DC062FA156E000EC05A2 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				6DB9DC092FA158A200EC05A2 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				6827E3292FA8EF75007DC1ED /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				09C423802FAB487B007D9A1F /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 68E153B42FA098CE00C886DF /* Products */;
@@ -594,6 +598,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		09C423802FAB487B007D9A1F /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.31.0;
+			};
+		};
 		6827E3292FA8EF75007DC1ED /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
@@ -629,6 +641,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		09C423812FAB487B007D9A1F /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 09C423802FAB487B007D9A1F /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
+		};
 		6827E32A2FA8EF75007DC1ED /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6827E3292FA8EF75007DC1ED /* XCRemoteSwiftPackageReference "lottie-ios" */;

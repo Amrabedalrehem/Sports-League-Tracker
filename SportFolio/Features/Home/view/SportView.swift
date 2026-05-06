@@ -24,25 +24,24 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        title = "Home"
         if let layout = bannerCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
         }
         
+        navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationItem.titleView = nil
+        navigationItem.title = "Home"
         bannerCollectionView.dataSource = self
         bannerCollectionView.delegate = self
-        
         sportsCollectionView.dataSource = self
         sportsCollectionView.delegate = self
-        
         presenter.attachView(self)
         startBannerTimer()
-        
         polishBackground()
-        
         polishNavigationBar()
         polishBanner()
-        
+        print(navigationController) // should NOT be nil
     }
     func reloadData() {
         sportsCollectionView.reloadData()

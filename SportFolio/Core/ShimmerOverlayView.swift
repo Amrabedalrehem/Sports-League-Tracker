@@ -60,7 +60,7 @@ class ShimmerOverlayView: UIView {
                              width: CGFloat, height: CGFloat,
                              cornerRadius: CGFloat) -> UIView {
         let v = UIView(frame: CGRect(x: x, y: y, width: width, height: height))
-        v.backgroundColor = UIColor(white: 0.88, alpha: 1)
+        v.backgroundColor = UIColor(white: 0.5, alpha: 1)
         v.layer.cornerRadius = cornerRadius
         v.layer.masksToBounds = true
         addSubview(v)

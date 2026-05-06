@@ -17,6 +17,12 @@ class cellDetialsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
+        isSkeletonable = true
+           contentView.isSkeletonable = true
+
+           leagueNameLabel.isSkeletonable = true
+           countryNameLabel.isSkeletonable = true
+           leagueImageView.isSkeletonable = true
     }
 
     private func setupUI() {

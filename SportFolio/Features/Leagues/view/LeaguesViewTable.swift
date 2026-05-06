@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import SkeletonView
 protocol LeaguesView: AnyObject {
     func reloadData()
     func startAnimating()
@@ -31,17 +32,20 @@ class LeaguesViewTable:  UIViewController, UISearchBarDelegate {
         super.viewDidLoad()
         title = "Leagues"
         setupTableView()
-        
-        tableView.delegate = self
+        tableView.isSkeletonable = true
         tableView.dataSource = self
+        tableView.delegate = self
+       
         searchBar.delegate = self
         tableView.register(UINib(nibName: "cellDetials", bundle: nil),forCellReuseIdentifier: "LeagueCell")
-        
+        self.tableView.isSkeletonable = true
         
         tableView.separatorStyle = .none
         setupActivityIndicator()
         presenter.attachView(self)
         presenter.fetchLeagues()
+      
+       
     }
     
     
@@ -54,6 +58,7 @@ class LeaguesViewTable:  UIViewController, UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         presenter.searchLeagues(text: searchText)
     }
+    
     
 }
 
@@ -131,18 +136,19 @@ extension LeaguesViewTable :  UITableViewDataSource, UITableViewDelegate {
         case .none:       placeholderName = "footballPlaceholder"
         }
         let placeholder = UIImage(named: placeholderName)
-            print(league.leagueLogo ?? "")
         cell.leagueImageView.sd_setImage(
             with: URL(string: league.leagueLogo ?? ""),
             placeholderImage: placeholder
         )
 
         cell.selectionStyle = .none
+        cell.contentView.isSkeletonable = true
+        cell.isSkeletonable = true
         return cell
     }
 }
 
-extension LeaguesViewTable : LeaguesView{
+extension LeaguesViewTable : LeaguesView {
     
     
     func reloadData() {
@@ -150,11 +156,11 @@ extension LeaguesViewTable : LeaguesView{
     }
     
     func startAnimating() {
-        activityIndicator.startAnimating()
+        tableView.showAnimatedGradientSkeleton()
     }
-    
+
     func stopAnimating() {
-        activityIndicator.stopAnimating()
+        tableView.hideSkeleton()
     }
     
     func showError(message: String) {
@@ -200,3 +206,19 @@ extension LeaguesViewTable : LeaguesView{
 }
 
 
+extension LeaguesViewTable: SkeletonTableViewDataSource {
+
+    func numSections(in collectionSkeletonView: UITableView) -> Int {
+        return 1
+    }
+
+    func collectionSkeletonView(_ skeletonView: UITableView,
+                                numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+
+    func collectionSkeletonView(_ skeletonView: UITableView,
+                                cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return "LeagueCell"
+    }
+}

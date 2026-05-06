@@ -32,7 +32,7 @@ class LeaguesPresenter {
             return
         }
 
-          view?.startAnimating()
+        view?.startAnimating()
         
         NetworkServiceImpl.shared.getLeagues(baseURL: sportType!.baseURL) { [weak self] result in
             guard let self = self else { return }
