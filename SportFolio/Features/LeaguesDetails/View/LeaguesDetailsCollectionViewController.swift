@@ -35,8 +35,8 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
         setupNavigationBar()
         setupCollectionView()
         collectionView.setCollectionViewLayout(createLayout(), animated: false)
-        leaguesDetailsPresenter.getItems()
-        leaguesDetailsPresenter.getEvents()
+        leaguesDetailsPresenter.loadAllData()
+       
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
