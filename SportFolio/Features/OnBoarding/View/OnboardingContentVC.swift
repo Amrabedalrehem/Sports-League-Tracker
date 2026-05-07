@@ -1,8 +1,3 @@
-//
-//  OnboardingContentVC.swift
-//  SportFolio
-//
-
 import UIKit
 
 class OnboardingContentVC: UIViewController {
@@ -11,6 +6,7 @@ class OnboardingContentVC: UIViewController {
     var onFinish: (() -> Void)?
     private var isLastPage = false
     private let gradientLayer = CAGradientLayer()
+
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
@@ -19,7 +15,7 @@ class OnboardingContentVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .black
         setupGradient()
     }
 
@@ -33,10 +29,14 @@ class OnboardingContentVC: UIViewController {
         imageView.image = UIImage(named: page.imageName)
         titleLabel.text = page.title
         descLabel.text = page.description
+        
+        titleLabel.textColor = .white
+        descLabel.textColor = .white
+        
         pageControl.numberOfPages = total
         pageControl.currentPage = index
         isLastPage = (index == total - 1)
-        actionButton.setTitle(isLastPage ? "Get Started" : "Next",for: .normal)
+        actionButton.setTitle(isLastPage ? "Get Started" : "Next", for: .normal)
     }
 
     @IBAction private func actionTapped(_ sender: UIButton) {
@@ -48,12 +48,12 @@ class OnboardingContentVC: UIViewController {
     }
 
     private func setupGradient() {
-
         gradientLayer.colors = [
             UIColor.clear.cgColor,
-            UIColor.black.withAlphaComponent(0.9).cgColor
+            UIColor.black.withAlphaComponent(0.7).cgColor,
+            UIColor.black.cgColor
         ]
-        gradientLayer.locations = [0.0, 1.0]
-        view.layer.insertSublayer(gradientLayer, at: 0)
+        gradientLayer.locations = [0.0, 0.5, 1.0]
+        view.layer.insertSublayer(gradientLayer, above: imageView.layer)
     }
 }

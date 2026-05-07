@@ -19,7 +19,7 @@ class SportCell : UICollectionViewCell {
 
     private func setupUI() {
         
-        contentView.backgroundColor = .white
+        contentView.backgroundColor = .cardBackground
         backgroundColor = .clear
         contentView.layer.cornerRadius = 20
         contentView.layer.masksToBounds = true

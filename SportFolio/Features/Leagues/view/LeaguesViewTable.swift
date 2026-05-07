@@ -27,7 +27,29 @@ class LeaguesViewTable:  UIViewController, UISearchBarDelegate {
     var sportType :SportType?
     var presenter = LeaguesPresenter()
     private let activityIndicator = UIActivityIndicatorView(style: .large)
-    
+  
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+          applyNavBarAppearance()
+    }
+
+    private func applyNavBarAppearance() {
+     let appearance = UINavigationBarAppearance()
+     appearance.configureWithOpaqueBackground()
+     appearance.backgroundColor   = .tabBarGradientStart
+     appearance.shadowColor       = .clear
+
+     let titleAttrs: [NSAttributedString.Key: Any] = [
+         .foregroundColor: UIColor.white,
+         .font: UIFont.systemFont(ofSize: 18, weight: .bold)
+     ]
+     appearance.titleTextAttributes = titleAttrs
+
+     navigationController?.navigationBar.standardAppearance    = appearance
+     navigationController?.navigationBar.scrollEdgeAppearance  = appearance
+     navigationController?.navigationBar.compactAppearance     = appearance
+     navigationController?.navigationBar.tintColor             = .white
+ }
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Leagues"

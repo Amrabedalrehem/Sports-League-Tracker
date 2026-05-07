@@ -42,6 +42,28 @@ final class TeamTableViewController: UITableViewController, TeamView {
 
     
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+          applyNavBarAppearance()
+    }
+
+    private func applyNavBarAppearance() {
+     let appearance = UINavigationBarAppearance()
+     appearance.configureWithOpaqueBackground()
+     appearance.backgroundColor   = .tabBarGradientStart
+     appearance.shadowColor       = .clear
+
+     let titleAttrs: [NSAttributedString.Key: Any] = [
+         .foregroundColor: UIColor.white,
+         .font: UIFont.systemFont(ofSize: 18, weight: .bold)
+     ]
+     appearance.titleTextAttributes = titleAttrs
+
+     navigationController?.navigationBar.standardAppearance    = appearance
+     navigationController?.navigationBar.scrollEdgeAppearance  = appearance
+     navigationController?.navigationBar.compactAppearance     = appearance
+     navigationController?.navigationBar.tintColor             = .white
+ }
 
     private func setupTableHeader() {
         teamHeaderView.frame = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 250)

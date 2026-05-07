@@ -15,7 +15,7 @@ class ViewController: UIViewController,
                       UICollectionViewDelegate,
                       UICollectionViewDelegateFlowLayout,
                       SportViewProtocol {
-    @IBOutlet weak var navBar: UINavigationItem!
+        @IBOutlet weak var navBar: UINavigationItem!
     
    
     @IBOutlet weak var sportsCollectionView: UICollectionView!
@@ -32,16 +32,16 @@ class ViewController: UIViewController,
     private var currentBannerIndex = 0
     private var bannerTimer: Timer?
 
-   
-    private var themeButton: UIBarButtonItem!
-    private var themeButtonView: UIButton!
 
-   
+    private var themeButton: UIBarButtonItem!
+    private var floatingThemeBtn: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupNavigationButton()
-
+        setupBannerLayout()
+        setupFloatingThemeButton()
         bannerCollectionView.dataSource = self
         bannerCollectionView.delegate = self
         sportsCollectionView.dataSource = self
@@ -53,75 +53,116 @@ class ViewController: UIViewController,
         setupUI()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+          applyNavBarAppearance()
+    }
+
+     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+            applyNavBarAppearance()
+        }
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
         
     }
 
+       private func applyNavBarAppearance() {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor   = .tabBarGradientStart
+        appearance.shadowColor       = .clear
+
+        let titleAttrs: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.white,
+            .font: UIFont.systemFont(ofSize: 18, weight: .bold)
+        ]
+        appearance.titleTextAttributes = titleAttrs
+
+        navigationController?.navigationBar.standardAppearance    = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance  = appearance
+        navigationController?.navigationBar.compactAppearance     = appearance
+        navigationController?.navigationBar.tintColor             = .white
+    }
+
     func setupNavigationButton() {
-
         let isDark = ThemeManager.shared.currentTheme == .dark
-
-        themeButtonView = UIButton(type: .system)
-        themeButtonView.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        navigationItem.title = "SportFolio"
 
         let imageName = isDark ? "lightbulb.fill" : "lightbulb"
-        themeButtonView.setImage(UIImage(systemName: imageName), for: .normal)
-        themeButtonView.tintColor = .label
+        let config    = UIImage.SymbolConfiguration(pointSize: 18, weight: .semibold)
+        let image     = UIImage(systemName: imageName, withConfiguration: config)
+        themeButton   = UIBarButtonItem(image: image, style: .plain,
+                                       target: self, action: #selector(themeTapped))
+        navigationItem.rightBarButtonItem = themeButton
+    }
 
-        themeButtonView.addTarget(
-            self,
-            action: #selector(themeTapped),
-            for: .touchUpInside
-        )
+      private func setupFloatingThemeButton() {
+        let isDark   = ThemeManager.shared.currentTheme == .dark
+        let iconName = isDark ? "moon.fill" : "sun.max.fill"
+        let config   = UIImage.SymbolConfiguration(pointSize: 16, weight: .semibold)
 
-        themeButton = UIBarButtonItem(customView: themeButtonView)
-      
-        navBar.rightBarButtonItem = themeButton
+        floatingThemeBtn = UIButton(type: .system)
+        floatingThemeBtn.setImage(UIImage(systemName: iconName, withConfiguration: config), for: .normal)
+        floatingThemeBtn.tintColor            = .white
+        floatingThemeBtn.backgroundColor      = .tabBarGradientStart
+        floatingThemeBtn.layer.cornerRadius   = 22
+        floatingThemeBtn.layer.shadowColor    = UIColor.black.cgColor
+        floatingThemeBtn.layer.shadowOpacity  = 0.25
+        floatingThemeBtn.layer.shadowOffset   = CGSize(width: 0, height: 4)
+        floatingThemeBtn.layer.shadowRadius   = 8
+        floatingThemeBtn.translatesAutoresizingMaskIntoConstraints = false
+        floatingThemeBtn.addTarget(self, action: #selector(themeTapped), for: .touchUpInside)
 
-        if isDark {
-            addGlow()
-        }
+        view.addSubview(floatingThemeBtn)
+        NSLayoutConstraint.activate([
+            floatingThemeBtn.widthAnchor.constraint(equalToConstant: 44),
+            floatingThemeBtn.heightAnchor.constraint(equalToConstant: 44),
+            floatingThemeBtn.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            floatingThemeBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8)
+        ])
+    }
+
+      private func setupBannerLayout() {
+        guard let layout = bannerCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+        layout.scrollDirection  = .horizontal
+        layout.minimumLineSpacing = 0
+        bannerCollectionView.isPagingEnabled = true
+        bannerCollectionView.showsHorizontalScrollIndicator = false
     }
 
     @objc func themeTapped() {
+        let isDark = presenter.toggleTheme()
+     let navIconName = isDark ? "lightbulb.fill" : "lightbulb"
+        let config      = UIImage.SymbolConfiguration(pointSize: 18, weight: .semibold)
+        themeButton.image = UIImage(systemName: navIconName, withConfiguration: config)
 
-        UIView.animate(withDuration: 0.15) {
-            self.themeButtonView.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
-        } completion: { _ in
-            UIView.animate(withDuration: 0.15) {
-                self.themeButtonView.transform = .identity
+          let floatIconName = isDark ? "moon.fill" : "sun.max.fill"
+        let floatConfig   = UIImage.SymbolConfiguration(pointSize: 16, weight: .semibold)
+        floatingThemeBtn.setImage(UIImage(systemName: floatIconName, withConfiguration: floatConfig), for: .normal)
+     UIView.animate(withDuration: 0.12, animations: {
+            self.floatingThemeBtn.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
+        }) { _ in
+            UIView.animate(withDuration: 0.15,
+                           delay: 0,
+                           usingSpringWithDamping: 0.5,
+                           initialSpringVelocity: 6) {
+                self.floatingThemeBtn.transform = .identity
             }
         }
 
-        let isDark = presenter.toggleTheme()
-
-        let imageName = isDark ? "lightbulb.fill" : "lightbulb"
-        themeButtonView.setImage(UIImage(systemName: imageName), for: .normal)
-
-        if isDark {
-            addGlow()
-        } else {
-            removeGlow()
-        }
-
-        UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        UIImpactFeedbackGenerator(style: .medium).impactOccurred()
     }
 
-    func addGlow() {
-        themeButtonView.layer.shadowColor = UIColor.systemYellow.cgColor
-        themeButtonView.layer.shadowRadius = 12
-        themeButtonView.layer.shadowOpacity = 0.9
-        themeButtonView.layer.shadowOffset = .zero
-    }
-
-    func removeGlow() {
-        themeButtonView.layer.shadowOpacity = 0
-    }
+    func addGlow() { }
+    func removeGlow() { }
 
     func setupUI() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .appBackground
     }
 
    
@@ -241,13 +282,12 @@ class ViewController: UIViewController,
     }
 
     func updateThemeButton(isDark: Bool) {
-        let imageName = isDark ? "lightbulb.fill" : "lightbulb"
-        themeButtonView.setImage(UIImage(systemName: imageName), for: .normal)
+        let navIconName = isDark ? "lightbulb.fill" : "lightbulb"
+        let config      = UIImage.SymbolConfiguration(pointSize: 18, weight: .semibold)
+        themeButton.image = UIImage(systemName: navIconName, withConfiguration: config)
 
-        if isDark {
-            addGlow()
-        } else {
-            removeGlow()
-        }
+        let floatIconName = isDark ? "moon.fill" : "sun.max.fill"
+        let floatConfig   = UIImage.SymbolConfiguration(pointSize: 16, weight: .semibold)
+        floatingThemeBtn?.setImage(UIImage(systemName: floatIconName, withConfiguration: floatConfig), for: .normal)
     }
 }
