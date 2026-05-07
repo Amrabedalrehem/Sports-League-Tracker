@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SkeletonView
 final class TeamViewCell: UITableViewCell {
     static let reuseIdentifier = "TeamViewCell"
 
@@ -19,9 +19,30 @@ final class TeamViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        [cardView, nameLabel, numberLabel, subtitleLabel, roleBadgeLabel, avatarImageView].forEach {
+            $0?.skeletonCornerRadius = 8
+        }
+        isSkeletonable = true
+        contentView.isSkeletonable = true
+        cardView.isSkeletonable = true
+
+        nameLabel.isSkeletonable = true
+        numberLabel.isSkeletonable = true
+        subtitleLabel.isSkeletonable = true
+        roleBadgeLabel.isSkeletonable = true
+        avatarImageView.isSkeletonable = true
+
         configureAppearance()
     }
+    override func prepareForReuse() {
+        super.prepareForReuse()
 
+        nameLabel.text = ""
+        numberLabel.text = ""
+        subtitleLabel.text = ""
+        avatarImageView.image = nil
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         numberLabel.layer.cornerRadius = numberLabel.bounds.height / 2

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SkeletonView
 class TeamTableHeaderView: UIView {
 
     @IBOutlet weak var teamLogoImageView: UIImageView!
@@ -14,6 +14,8 @@ class TeamTableHeaderView: UIView {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        teamLogoImageView.isSkeletonable = true
+        teamNameLabel.isSkeletonable = true
            teamLogoImageView.layer.borderColor = UIColor(white: 0, alpha: 0.1).cgColor
     }
 

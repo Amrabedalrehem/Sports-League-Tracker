@@ -2,11 +2,10 @@
 //  TeamTableViewController.swift
 //  SportFolio
 //
-//  Created by JETSMobileLabMini2 on 01/05/2026.
-//
 
 import UIKit
 import SDWebImage
+import SkeletonView
 
 protocol TeamView: AnyObject {
     func reloadData()
@@ -16,61 +15,79 @@ protocol TeamView: AnyObject {
 }
 
 final class TeamTableViewController: UITableViewController, TeamView {
-     private lazy var teamHeaderView     = TeamTableHeaderView.loadFromNib()
-    private lazy var loadingOverlayView = TeamLoadingOverlayView.loadFromNib()
 
-   
+    private lazy var teamHeaderView = TeamTableHeaderView.loadFromNib()
+    private lazy var loadingOverlayView = TeamLoadingOverlayView.loadFromNib()
     private lazy var emptyStateView = TeamEmptyStateView.loadFromNib()
 
-    var presenter : TeamPresenter!
+    var presenter: TeamPresenter!
     private let sections = TeamSection.allCases
+
+  
+    private var cachedSections: [TeamSection] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        tableView.isSkeletonable = true
+        tableView.dataSource = self
+        tableView.delegate = self
+
         presenter.attachView(self)
+
         configureTableView()
         setupTableHeader()
         setupLoadingOverlay()
+
         presenter.fetchTeamDetails()
         startAnimating()
+
         tableView.register(
             UINib(nibName: "TeamSectionHeaderView", bundle: nil),
             forHeaderFooterViewReuseIdentifier: TeamSectionHeaderView.reuseIdentifier
         )
     }
+
     
+
     private func setupTableHeader() {
         teamHeaderView.frame = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 250)
         tableView.tableHeaderView = teamHeaderView
+
+        teamHeaderView.isSkeletonable = true
+        teamHeaderView.teamNameLabel.isSkeletonable = true
+        teamHeaderView.teamLogoImageView.isSkeletonable = true
     }
 
     private func configureTableView() {
-         tableView.register(
+        tableView.register(
             UINib(nibName: "TeamViewCell", bundle: nil),
             forCellReuseIdentifier: TeamViewCell.reuseIdentifier
         )
+
         tableView.register(
             UINib(nibName: "TeamSectionHeaderView", bundle: nil),
             forHeaderFooterViewReuseIdentifier: TeamSectionHeaderView.reuseIdentifier
         )
+
+        tableView.isSkeletonable = true
     }
 
- 
     private func setupLoadingOverlay() {
-           loadingOverlayView.frame = view.bounds
+        loadingOverlayView.frame = view.bounds
         loadingOverlayView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         loadingOverlayView.alpha = 0
         view.addSubview(loadingOverlayView)
     }
 
-
    
+
     private func updateEmptyState() {
-        let isEmpty = visibleSections().isEmpty
+        let isEmpty = cachedSections.isEmpty
 
         if isEmpty {
             if emptyStateView.superview == nil {
-                   emptyStateView.frame = CGRect(
+                emptyStateView.frame = CGRect(
                     x: 0,
                     y: tableView.contentOffset.y + 60,
                     width: tableView.bounds.width,
@@ -79,15 +96,17 @@ final class TeamTableViewController: UITableViewController, TeamView {
                 emptyStateView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
                 tableView.addSubview(emptyStateView)
             }
+
             emptyStateView.isHidden = false
+
             UIView.animate(withDuration: 0.35,
                            delay: 0,
                            usingSpringWithDamping: 0.75,
                            initialSpringVelocity: 0.4,
                            options: .curveEaseOut) {
                 self.emptyStateView.alpha = 1
-                self.emptyStateView.transform = .identity
             }
+
         } else {
             UIView.animate(withDuration: 0.2) {
                 self.emptyStateView.alpha = 0
@@ -97,7 +116,7 @@ final class TeamTableViewController: UITableViewController, TeamView {
         }
     }
 
-     
+    
 
     private func players(for section: TeamSection) -> [PlayerModel] {
         switch section {
@@ -108,56 +127,73 @@ final class TeamTableViewController: UITableViewController, TeamView {
         }
     }
 
+   
     private func visibleSections() -> [TeamSection] {
-        sections.filter { !players(for: $0).isEmpty }
+        return cachedSections
     }
 
+
     override func numberOfSections(in tableView: UITableView) -> Int {
-        visibleSections().count
+        cachedSections.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let sectionType = visibleSections()[section]
+        guard section < cachedSections.count else { return 0 }
+        let sectionType = cachedSections[section]
         return players(for: sectionType).count
     }
 
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let sectionType = visibleSections()[section]
+    override func tableView(_ tableView: UITableView,
+                            viewForHeaderInSection section: Int) -> UIView? {
+
+        guard section < cachedSections.count else { return nil }
+
+        let sectionType = cachedSections[section]
+
         guard let header = tableView.dequeueReusableHeaderFooterView(
             withIdentifier: TeamSectionHeaderView.reuseIdentifier
         ) as? TeamSectionHeaderView else { return nil }
+
         header.sectionLabel.text = "\(sectionType.icon)  \(sectionType.title)"
         return header
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard
-            let cell = tableView.dequeueReusableCell(
-                withIdentifier: TeamViewCell.reuseIdentifier,
-                for: indexPath
-            ) as? TeamViewCell
-        else {
+    override func tableView(_ tableView: UITableView,
+                            cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: TeamViewCell.reuseIdentifier,
+            for: indexPath
+        ) as? TeamViewCell else {
             return UITableViewCell()
         }
 
-        let sectionType = visibleSections()[indexPath.section]
-        let player = players(for: sectionType)[indexPath.row]
+        guard indexPath.section < cachedSections.count else { return cell }
+
+        let sectionType = cachedSections[indexPath.section]
+        let playersList = players(for: sectionType)
+
+        guard indexPath.row < playersList.count else { return cell }
+
+        let player = playersList[indexPath.row]
 
         let placeholder = UIImage(named: "playerPlaceholder")
 
-        let playerName = player.playerName?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        cell.nameLabel.text = playerName.isEmpty ? "Unknown Player" : playerName
+        let name = player.playerName?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        cell.nameLabel.text = name.isEmpty ? "Unknown Player" : name
 
-        let playerNumber = player.playerNumber?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        cell.numberLabel.text = playerNumber.isEmpty ? "-" : playerNumber
+        let number = player.playerNumber?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        cell.numberLabel.text = number.isEmpty ? "-" : number
 
-        let playerAge = player.playerAge?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        cell.subtitleLabel.text = playerAge.isEmpty ? "Age: --" : "Age: \(playerAge)"
+        let age = player.playerAge?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        cell.subtitleLabel.text = age.isEmpty ? "Age: --" : "Age: \(age)"
 
         cell.roleBadgeLabel.text = sectionType.badgeText
         cell.roleBadgeLabel.backgroundColor = sectionType.badgeColor
 
-        if let image = player.playerImage, !image.isEmpty, let url = URL(string: image) {
+        if let image = player.playerImage,
+           !image.isEmpty,
+           let url = URL(string: image) {
             cell.avatarImageView.sd_setImage(with: url, placeholderImage: placeholder)
         } else {
             cell.avatarImageView.image = placeholder
@@ -165,9 +201,13 @@ final class TeamTableViewController: UITableViewController, TeamView {
 
         return cell
     }
-    
+
+   
 
     func reloadData() {
+
+        cachedSections = sections.filter { !players(for: $0).isEmpty }
+
         let teamName = presenter.getTeamName().trimmingCharacters(in: .whitespacesAndNewlines)
         teamHeaderView.teamNameLabel.text = teamName.isEmpty ? "Unknown Team" : teamName
 
@@ -176,6 +216,7 @@ final class TeamTableViewController: UITableViewController, TeamView {
         else if presenter.baseURL.contains("cricket") { placeholderName = "ckrichetPlaceholder" }
         else if presenter.baseURL.contains("tennis") { placeholderName = "tennisPlaceholder" }
         else { placeholderName = "footballPlaceholder" }
+
         let placeholder = UIImage(named: placeholderName)
 
         let logo = presenter.getTeamLogo()
@@ -185,47 +226,51 @@ final class TeamTableViewController: UITableViewController, TeamView {
             teamHeaderView.teamLogoImageView.image = placeholder
         }
 
+        stopAnimating()
         tableView.reloadData()
         updateEmptyState()
     }
 
     func startAnimating() {
-        UIView.animate(withDuration: 0.3) { self.loadingOverlayView.alpha = 1 }
-        loadingOverlayView.spinner.startAnimating()
-        tableView.tableHeaderView?.isHidden = true
+        tableView.isSkeletonable = true
+        tableView.showAnimatedSkeleton(usingColor: .clouds, transition: .crossDissolve(0.25))
+
+        teamHeaderView.isSkeletonable = true
+        teamHeaderView.showAnimatedSkeleton(usingColor: .clouds, transition: .crossDissolve(0.25))
     }
 
     func stopAnimating() {
-        UIView.animate(withDuration: 0.3) { self.loadingOverlayView.alpha = 0 }
-        loadingOverlayView.spinner.stopAnimating()
-        tableView.tableHeaderView?.isHidden = false
+        tableView.hideSkeleton(reloadDataAfter: false)
+        teamHeaderView.hideSkeleton()
     }
 
     func showError(message: String) {
         let alert = UIAlertController(
-            title: "⚠️  Something Went Wrong",
-            message: "\n" + message,
+            title: "⚠️ Something Went Wrong",
+            message: message,
             preferredStyle: .actionSheet
         )
-        let titleAttr = NSAttributedString(
-            string: "⚠️  Something Went Wrong",
-            attributes: [
-                .font: UIFont.systemFont(ofSize: 17, weight: .bold),
-                .foregroundColor: UIColor.systemOrange
-            ]
-        )
-        let msgAttr = NSAttributedString(
-            string: "\n" + message,
-            attributes: [
-                .font: UIFont.systemFont(ofSize: 14),
-                .foregroundColor: UIColor.secondaryLabel
-            ]
-        )
-        alert.setValue(titleAttr, forKey: "attributedTitle")
-        alert.setValue(msgAttr,   forKey: "attributedMessage")
+
         alert.addAction(UIAlertAction(title: "OK", style: .cancel))
         present(alert, animated: true)
     }
-    
-    
+}
+
+
+
+extension TeamTableViewController: SkeletonTableViewDataSource {
+
+    func numSections(in collectionSkeletonView: UITableView) -> Int {
+        return 1
+    }
+
+    func collectionSkeletonView(_ skeletonView: UITableView,
+                                numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+
+    func collectionSkeletonView(_ skeletonView: UITableView,
+                                cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return "TeamViewCell"
+    }
 }
