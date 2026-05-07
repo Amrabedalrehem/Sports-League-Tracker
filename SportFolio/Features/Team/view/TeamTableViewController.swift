@@ -17,13 +17,12 @@ protocol TeamView: AnyObject {
 final class TeamTableViewController: UITableViewController, TeamView {
 
     private lazy var teamHeaderView = TeamTableHeaderView.loadFromNib()
-    private lazy var loadingOverlayView = TeamLoadingOverlayView.loadFromNib()
+
     private lazy var emptyStateView = TeamEmptyStateView.loadFromNib()
 
     var presenter: TeamPresenter!
     private let sections = TeamSection.allCases
 
-  
     private var cachedSections: [TeamSection] = []
 
     override func viewDidLoad() {
@@ -37,18 +36,12 @@ final class TeamTableViewController: UITableViewController, TeamView {
 
         configureTableView()
         setupTableHeader()
-        setupLoadingOverlay()
 
         presenter.fetchTeamDetails()
         startAnimating()
 
-        tableView.register(
-            UINib(nibName: "TeamSectionHeaderView", bundle: nil),
-            forHeaderFooterViewReuseIdentifier: TeamSectionHeaderView.reuseIdentifier
-        )
-    }
-
     
+    }
 
     private func setupTableHeader() {
         teamHeaderView.frame = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 250)
@@ -72,15 +65,6 @@ final class TeamTableViewController: UITableViewController, TeamView {
 
         tableView.isSkeletonable = true
     }
-
-    private func setupLoadingOverlay() {
-        loadingOverlayView.frame = view.bounds
-        loadingOverlayView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        loadingOverlayView.alpha = 0
-        view.addSubview(loadingOverlayView)
-    }
-
-   
 
     private func updateEmptyState() {
         let isEmpty = cachedSections.isEmpty
@@ -116,8 +100,6 @@ final class TeamTableViewController: UITableViewController, TeamView {
         }
     }
 
-    
-
     private func players(for section: TeamSection) -> [PlayerModel] {
         switch section {
         case .goalkeepers: return presenter.getGoalkeepers()
@@ -127,11 +109,9 @@ final class TeamTableViewController: UITableViewController, TeamView {
         }
     }
 
-   
     private func visibleSections() -> [TeamSection] {
         return cachedSections
     }
-
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         cachedSections.count
@@ -154,7 +134,12 @@ final class TeamTableViewController: UITableViewController, TeamView {
             withIdentifier: TeamSectionHeaderView.reuseIdentifier
         ) as? TeamSectionHeaderView else { return nil }
 
+        header.isSkeletonable = true
+        header.contentView.isSkeletonable = true
+        header.sectionLabel.isSkeletonable = true
+
         header.sectionLabel.text = "\(sectionType.icon)  \(sectionType.title)"
+
         return header
     }
 
@@ -201,8 +186,6 @@ final class TeamTableViewController: UITableViewController, TeamView {
 
         return cell
     }
-
-   
 
     func reloadData() {
 
@@ -256,12 +239,10 @@ final class TeamTableViewController: UITableViewController, TeamView {
     }
 }
 
-
-
-extension TeamTableViewController: SkeletonTableViewDataSource {
+extension TeamTableViewController: SkeletonTableViewDataSource, SkeletonTableViewDelegate {
 
     func numSections(in collectionSkeletonView: UITableView) -> Int {
-        return 1
+        return 4
     }
 
     func collectionSkeletonView(_ skeletonView: UITableView,
@@ -272,5 +253,10 @@ extension TeamTableViewController: SkeletonTableViewDataSource {
     func collectionSkeletonView(_ skeletonView: UITableView,
                                 cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
         return "TeamViewCell"
+    }
+
+    func collectionSkeletonView(_ skeletonView: UITableView,
+                                identifierForHeaderInSection section: Int) -> ReusableHeaderFooterIdentifier? {
+        return TeamSectionHeaderView.reuseIdentifier
     }
 }

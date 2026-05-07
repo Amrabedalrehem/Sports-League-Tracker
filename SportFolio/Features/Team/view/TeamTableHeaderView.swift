@@ -16,7 +16,8 @@ class TeamTableHeaderView: UIView {
         super.awakeFromNib()
         teamLogoImageView.isSkeletonable = true
         teamNameLabel.isSkeletonable = true
-           teamLogoImageView.layer.borderColor = UIColor(white: 0, alpha: 0.1).cgColor
+        teamLogoImageView.layer.borderColor = UIColor(white: 0, alpha: 0.1).cgColor
+    
     }
 
     static func loadFromNib() -> TeamTableHeaderView {

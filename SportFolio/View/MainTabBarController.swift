@@ -5,7 +5,6 @@ class MainTabBarController: UITabBarController {
    
     private var gradientStart: UIColor { .tabBarGradientStart }
     private var gradientEnd:   UIColor { .tabBarGradientEnd   }
-
     private var gradientImageSize: CGSize = .zero
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -13,19 +12,14 @@ class MainTabBarController: UITabBarController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-    
         guard tabBar.bounds.size != gradientImageSize else { return }
         gradientImageSize = tabBar.bounds.size
         applyTabBarAppearance()
     }
 
-    
-
     private func applyTabBarAppearance() {
         let size      = tabBar.bounds.size
         let gradient  = makeGradientImage(size: size)
-
-       
         let selectedColor   = UIColor.white
         let unselectedColor = UIColor.white.withAlphaComponent(0.50)
 
@@ -51,8 +45,8 @@ class MainTabBarController: UITabBarController {
                 .font: UIFont.systemFont(ofSize: 10, weight: .regular)
             ]
 
-            appearance.stackedLayoutAppearance        = item
-            appearance.inlineLayoutAppearance         = item
+            appearance.stackedLayoutAppearance    = item
+            appearance.inlineLayoutAppearance  = item
             appearance.compactInlineLayoutAppearance  = item
 
             tabBar.standardAppearance   = appearance
@@ -87,20 +81,15 @@ class MainTabBarController: UITabBarController {
     private func addTopSeparator() {
      
         tabBar.subviews
-            .filter { $0.tag == 9_001 }
+            .filter { $0.tag == 1}
             .forEach { $0.removeFromSuperview() }
 
-        let separator              = UIView()
-        separator.tag              = 9_001
+        let separator   = UIView()
+        separator.tag = 1
         separator.backgroundColor  = UIColor.white.withAlphaComponent(0.25)
         separator.translatesAutoresizingMaskIntoConstraints = false
         tabBar.addSubview(separator)
 
-        NSLayoutConstraint.activate([
-            separator.topAnchor.constraint(equalTo: tabBar.topAnchor),
-            separator.leadingAnchor.constraint(equalTo: tabBar.leadingAnchor),
-            separator.trailingAnchor.constraint(equalTo: tabBar.trailingAnchor),
-            separator.heightAnchor.constraint(equalToConstant: 0.5)
-        ])
+      
     }
 }
