@@ -54,7 +54,7 @@ final class TeamViewCell: UITableViewCell {
         contentView.backgroundColor = .clear
         selectionStyle = .none
 
-        cardView.backgroundColor = .white
+        cardView.backgroundColor = .cardBG    
         cardView.layer.cornerRadius = 16
         cardView.layer.masksToBounds = false
         if let shadowColor = UIColor(named: "ShadowColor") {

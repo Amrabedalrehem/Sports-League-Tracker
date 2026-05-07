@@ -31,6 +31,15 @@ class LeaguesViewTable:  UIViewController, UISearchBarDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
           applyNavBarAppearance()
+        setupSearchBar()
+    }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+            applyNavBarAppearance()
+            setupSearchBar()
+        }
     }
 
     private func applyNavBarAppearance() {
@@ -57,17 +66,32 @@ class LeaguesViewTable:  UIViewController, UISearchBarDelegate {
         tableView.isSkeletonable = true
         tableView.dataSource = self
         tableView.delegate = self
-       
+
         searchBar.delegate = self
-        tableView.register(UINib(nibName: "cellDetials", bundle: nil),forCellReuseIdentifier: "LeagueCell")
+        setupSearchBar()
+        tableView.register(UINib(nibName: "cellDetials", bundle: nil), forCellReuseIdentifier: "LeagueCell")
         self.tableView.isSkeletonable = true
-        
+
         tableView.separatorStyle = .none
         setupActivityIndicator()
         presenter.attachView(self)
         presenter.fetchLeagues()
-      
-       
+    }
+
+    private func setupSearchBar() {
+        searchBar.backgroundColor     = .appBackground
+        searchBar.backgroundImage     = UIImage()   // removes default border line
+        searchBar.barTintColor        = .appBackground
+        searchBar.tintColor           = .primaryBlue
+
+        let tf = searchBar.searchTextField
+        tf.backgroundColor = .cardBackground
+        tf.textColor       = .mainText
+        tf.tintColor       = .primaryBlue
+        tf.font            = UIFont.systemFont(ofSize: 15, weight: .regular)
+        if let icon = tf.leftView as? UIImageView {
+            icon.tintColor = .secondaryLabel
+        }
     }
     
     
@@ -91,20 +115,7 @@ extension LeaguesViewTable :  UITableViewDataSource, UITableViewDelegate {
         tableView.rowHeight       = 90
         tableView.separatorStyle  = .none
         tableView.backgroundColor = .appBackground
-
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .cardBG
-        appearance.shadowColor = UIColor.black.withAlphaComponent(0.06)
-        appearance.titleTextAttributes = [
-            .foregroundColor: UIColor.mainText,
-            .font: UIFont.systemFont(ofSize: 17, weight: .bold)
-        ]
-        navigationController?.navigationBar.standardAppearance   = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        navigationController?.navigationBar.compactAppearance    = appearance
-        navigationController?.navigationBar.tintColor = .primaryBlue
-    }
+          }
    
   
     
@@ -116,7 +127,22 @@ extension LeaguesViewTable :  UITableViewDataSource, UITableViewDelegate {
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter.getLeaguesCount()
     }
-     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) else { return }
+        UIView.animate(withDuration: 0.12, delay: 0, options: .curveEaseInOut) {
+            cell.contentView.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        }
+    }
+
+    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) else { return }
+        UIView.animate(withDuration: 0.2, delay: 0,
+                       usingSpringWithDamping: 0.6, initialSpringVelocity: 0.4) {
+            cell.contentView.transform = .identity
+        }
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
           if !presenter.isOnline() {
             showNoInternet()
             return

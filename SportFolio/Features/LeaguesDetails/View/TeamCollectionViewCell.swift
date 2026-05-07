@@ -18,7 +18,7 @@ class TeamCollectionViewCell: UICollectionViewCell {
 
     private func setupCell() {
        
-        contentView.backgroundColor = .white
+        contentView.backgroundColor = .cardBG   
         contentView.layer.cornerRadius = 16
         contentView.layer.masksToBounds = true
 

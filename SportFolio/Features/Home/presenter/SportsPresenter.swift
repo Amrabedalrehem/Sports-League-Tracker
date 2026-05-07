@@ -37,15 +37,12 @@ class SportsPresenter {
         return NetworkMonitor.shared.isConnected
     }
     
-    func toggleTheme() -> Bool {
-            let current = ThemeManager.shared.currentTheme
-            
-            let newTheme: AppTheme = (current == .dark) ? .light : .dark
+    func toggleTheme() {
+        let current = ThemeManager.shared.currentTheme
+        let newTheme: AppTheme = (current == .dark) ? .light : .dark
+
             ThemeManager.shared.currentTheme = newTheme
-            
-            let isDark = (newTheme == .dark)
-            view?.updateThemeButton(isDark: isDark)
-            
-            return isDark
-        }
+
+           view?.updateThemeButton(isDark: newTheme == .dark)
+    }
 }

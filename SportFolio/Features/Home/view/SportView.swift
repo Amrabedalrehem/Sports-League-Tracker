@@ -1,7 +1,5 @@
 //
-//  ViewController.swift
-//  SportFolio
-//
+ 
 
 import UIKit
 
@@ -93,7 +91,7 @@ class ViewController: UIViewController,
         let isDark = ThemeManager.shared.currentTheme == .dark
         navigationItem.title = "SportFolio"
 
-        let imageName = isDark ? "lightbulb.fill" : "lightbulb"
+        let imageName = isDark ? "lightbulb.fil" :"lightbulb"
         let config    = UIImage.SymbolConfiguration(pointSize: 18, weight: .semibold)
         let image     = UIImage(systemName: imageName, withConfiguration: config)
         themeButton   = UIBarButtonItem(image: image, style: .plain,
@@ -103,7 +101,7 @@ class ViewController: UIViewController,
 
       private func setupFloatingThemeButton() {
         let isDark   = ThemeManager.shared.currentTheme == .dark
-        let iconName = isDark ? "moon.fill" : "sun.max.fill"
+          let iconName = isDark ? "sun.max.fill" :"moon.fill"
         let config   = UIImage.SymbolConfiguration(pointSize: 16, weight: .semibold)
 
         floatingThemeBtn = UIButton(type: .system)
@@ -136,15 +134,9 @@ class ViewController: UIViewController,
     }
 
     @objc func themeTapped() {
-        let isDark = presenter.toggleTheme()
-     let navIconName = isDark ? "lightbulb.fill" : "lightbulb"
-        let config      = UIImage.SymbolConfiguration(pointSize: 18, weight: .semibold)
-        themeButton.image = UIImage(systemName: navIconName, withConfiguration: config)
+            presenter.toggleTheme()
 
-          let floatIconName = isDark ? "moon.fill" : "sun.max.fill"
-        let floatConfig   = UIImage.SymbolConfiguration(pointSize: 16, weight: .semibold)
-        floatingThemeBtn.setImage(UIImage(systemName: floatIconName, withConfiguration: floatConfig), for: .normal)
-     UIView.animate(withDuration: 0.12, animations: {
+           UIView.animate(withDuration: 0.12, animations: {
             self.floatingThemeBtn.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
         }) { _ in
             UIView.animate(withDuration: 0.15,
@@ -282,11 +274,11 @@ class ViewController: UIViewController,
     }
 
     func updateThemeButton(isDark: Bool) {
-        let navIconName = isDark ? "lightbulb.fill" : "lightbulb"
+        let navIconName = isDark ?   "lightbulb" :"lightbulb.fill"
         let config      = UIImage.SymbolConfiguration(pointSize: 18, weight: .semibold)
         themeButton.image = UIImage(systemName: navIconName, withConfiguration: config)
 
-        let floatIconName = isDark ? "moon.fill" : "sun.max.fill"
+        let floatIconName = isDark ?  "sun.max.fill" :"moon.fill"
         let floatConfig   = UIImage.SymbolConfiguration(pointSize: 16, weight: .semibold)
         floatingThemeBtn?.setImage(UIImage(systemName: floatIconName, withConfiguration: floatConfig), for: .normal)
     }

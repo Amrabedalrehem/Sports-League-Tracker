@@ -24,7 +24,7 @@ class UpcomingEventCollectionViewCell: UICollectionViewCell {
 
     private func setupCell() {
         
-        contentView.backgroundColor = .white
+        contentView.backgroundColor = .cardBG
         contentView.layer.cornerRadius = 20
         contentView.layer.masksToBounds = true
         layer.cornerRadius = 20

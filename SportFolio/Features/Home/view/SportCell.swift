@@ -26,9 +26,9 @@ class SportCell : UICollectionViewCell {
         layer.cornerRadius = 20
         layer.masksToBounds = false
         layer.shadowColor = UIColor.shadowColorApp.cgColor
-        layer.shadowOpacity = 0.03
+        layer.shadowOpacity = 0.13
         layer.shadowRadius = 6
-        layer.shadowOffset = CGSize(width: 0, height: 2)
+        layer.shadowOffset = CGSize(width: 0, height: 3)
         sportImage.contentMode = .scaleAspectFit
         sportImage.clipsToBounds = true
         sportName.font = UIFont.systemFont(ofSize: 17, weight: .bold)
