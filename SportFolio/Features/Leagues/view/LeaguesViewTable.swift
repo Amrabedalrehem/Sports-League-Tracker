@@ -30,35 +30,19 @@ class LeaguesViewTable:  UIViewController, UISearchBarDelegate {
   
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-          applyNavBarAppearance()
+          applyNavBarAppearance(navigationController: navigationController)
         setupSearchBar()
     }
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
-            applyNavBarAppearance()
+            applyNavBarAppearance(navigationController: navigationController)
             setupSearchBar()
         }
     }
 
-    private func applyNavBarAppearance() {
-     let appearance = UINavigationBarAppearance()
-     appearance.configureWithOpaqueBackground()
-     appearance.backgroundColor   = .tabBarGradientStart
-     appearance.shadowColor       = .clear
-
-     let titleAttrs: [NSAttributedString.Key: Any] = [
-         .foregroundColor: UIColor.white,
-         .font: UIFont.systemFont(ofSize: 18, weight: .bold)
-     ]
-     appearance.titleTextAttributes = titleAttrs
-
-     navigationController?.navigationBar.standardAppearance    = appearance
-     navigationController?.navigationBar.scrollEdgeAppearance  = appearance
-     navigationController?.navigationBar.compactAppearance     = appearance
-     navigationController?.navigationBar.tintColor             = .white
- }
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         title = L10n.navLeagues
@@ -73,7 +57,7 @@ class LeaguesViewTable:  UIViewController, UISearchBarDelegate {
         self.tableView.isSkeletonable = true
 
         tableView.separatorStyle = .none
-        setupActivityIndicator()
+      
         presenter.attachView(self)
         presenter.fetchLeagues()
     }
@@ -96,11 +80,7 @@ class LeaguesViewTable:  UIViewController, UISearchBarDelegate {
     }
     
     
-    private func setupActivityIndicator() {
-        activityIndicator.center = view.center
-        activityIndicator.hidesWhenStopped = true
-        view.addSubview(activityIndicator)
-    }
+ 
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         presenter.searchLeagues(text: searchText)

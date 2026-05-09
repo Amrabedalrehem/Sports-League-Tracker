@@ -19,7 +19,54 @@ final class NetworkMonitor {
     var isConnected: Bool {
         return NetworkReachabilityManager()?.isReachable ?? false
     }
-    
+    /*
+     static let shared = NetworkMonitor()
+     private let reachability = try? Reachability()
+
+     private init() {
+         startMonitoring()
+     }
+
+     // MARK: - Connection Status
+     var isConnected: Bool {
+         return reachability?.connection != .unavailable
+     }
+
+     // MARK: - Start Monitoring
+     private func startMonitoring() {
+
+         reachability?.whenReachable = { reachability in
+             DispatchQueue.main.async {
+                 switch reachability.connection {
+                 case .wifi:
+                     print(" Connected via WiFi")
+                 case .cellular:
+                     print("  Connected via Cellular")
+                 default:
+                     break
+                 }
+             }
+         }
+
+         reachability?.whenUnreachable = { _ in
+             DispatchQueue.main.async {
+                 print("  No Internet Connection")
+             }
+         }
+
+         do {
+             try reachability?.startNotifier()
+         } catch {
+             print("Unable to start notifier")
+         }
+     }
+
+     // MARK: - Stop Monitoring
+     func stopMonitoring() {
+         reachability?.stopNotifier()
+     }
+  
+     */
  
     func showNoInternet(on viewController: UIViewController) {
         let titleStr = "📡  " + L10n.noInternetTitle
@@ -53,3 +100,5 @@ final class NetworkMonitor {
         viewController.present(alert, animated: true)
     }
 }
+ 
+

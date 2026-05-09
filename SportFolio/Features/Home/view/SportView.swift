@@ -53,13 +53,13 @@ class ViewController: UIViewController,
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-          applyNavBarAppearance()
+          applyNavBarAppearance(navigationController: navigationController)
     }
 
      override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
-            applyNavBarAppearance()
+            applyNavBarAppearance(navigationController: navigationController)
         }
     }
 
@@ -69,24 +69,7 @@ class ViewController: UIViewController,
         
     }
 
-       private func applyNavBarAppearance() {
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor   = .tabBarGradientStart
-        appearance.shadowColor       = .clear
-
-        let titleAttrs: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor.white,
-            .font: UIFont.systemFont(ofSize: 18, weight: .bold)
-        ]
-        appearance.titleTextAttributes = titleAttrs
-
-        navigationController?.navigationBar.standardAppearance    = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance  = appearance
-        navigationController?.navigationBar.compactAppearance     = appearance
-        navigationController?.navigationBar.tintColor             = .white
-    }
-
+     
     func setupNavigationButton() {
         let isDark = ThemeManager.shared.currentTheme == .dark
         navigationItem.title = L10n.navSportfolio
@@ -150,9 +133,7 @@ class ViewController: UIViewController,
         UIImpactFeedbackGenerator(style: .medium).impactOccurred()
     }
 
-    func addGlow() { }
-    func removeGlow() { }
-
+   
     func setupUI() {
         view.backgroundColor = .appBackground
     }
@@ -204,9 +185,7 @@ class ViewController: UIViewController,
 
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
-
-        // Ignore taps on the banner to prevent "Index out of range" crash
-        // since banner items don't map to presenter.getSport()
+ 
         guard collectionView == sportsCollectionView else { return }
 
         guard presenter.isOnline() else {

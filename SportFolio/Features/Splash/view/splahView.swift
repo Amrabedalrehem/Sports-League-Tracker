@@ -12,8 +12,6 @@ import Lottie
 final class SplashViewController: UIViewController {
  
     private let presenter = SplashPresenter()
-
-    
     private let gradientLayer = CAGradientLayer()
 
  
