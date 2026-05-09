@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="esv-root" customClass="TeamEmptyStateView" customModule="SportFolio" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="esv-card">
+                    <rect key="frame" x="93.333333333333329" y="360.66666666666669" width="253.33333333333337" height="235.00000000000006"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="esv-stack">
+                            <rect key="frame" x="28" y="36" width="197.33333333333334" height="163"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="🏟️" textAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="esv-icon">
+                                    <rect key="frame" x="64.333333333333329" y="0.0" width="68.999999999999986" height="76.666666666666671"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="No Squad Available" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="esv-title">
+                                    <rect key="frame" x="0.0" y="88.666666666666629" width="197.33333333333334" height="26.333333333333329"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                    <color key="textColor" name="MainText"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="esv-subtitle">
+                                    <rect key="frame" x="15.333333333333329" y="126.99999999999994" width="166.66666666666669" height="36"/>
+                                    <string key="text">Player data for this team
+isn't available right now.</string>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <color key="textColor" name="SecondaryText"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" name="CardBackground"/>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" name="CardBackground"/>
+                    <constraints>
+                        <constraint firstItem="esv-stack" firstAttribute="top" secondItem="esv-card" secondAttribute="top" constant="36" id="esv-c1"/>
+                        <constraint firstAttribute="bottom" secondItem="esv-stack" secondAttribute="bottom" constant="36" id="esv-c2"/>
+                        <constraint firstItem="esv-stack" firstAttribute="leading" secondItem="esv-card" secondAttribute="leading" constant="28" id="esv-c3"/>
+                        <constraint firstAttribute="trailing" secondItem="esv-stack" secondAttribute="trailing" constant="28" id="esv-c4"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="24"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                            <real key="value" value="0.12"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                            <real key="value" value="16"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="esv-card" firstAttribute="centerX" secondItem="esv-root" secondAttribute="centerX" id="esv-c5"/>
+                <constraint firstItem="esv-card" firstAttribute="centerY" secondItem="esv-root" secondAttribute="centerY" id="esv-c6"/>
+                <constraint firstItem="esv-card" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="esv-root" secondAttribute="leading" constant="32" id="esv-c7"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="esv-card" secondAttribute="trailing" constant="32" id="esv-c8"/>
+            </constraints>
+            <connections>
+                <outlet property="titleLabel" destination="esv-title" id="esv-outlet-title"/>
+                <outlet property="subtitleLabel" destination="esv-subtitle" id="esv-outlet-subtitle"/>
+            </connections>
+            <point key="canvasLocation" x="15" y="13"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="CardBackground">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MainText">
+            <color red="0.070588235294117646" green="0.090196078431372548" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondaryText">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

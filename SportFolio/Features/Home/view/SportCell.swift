@@ -19,21 +19,22 @@ class SportCell : UICollectionViewCell {
 
     private func setupUI() {
         
-        contentView.backgroundColor = .white
+        contentView.backgroundColor = .cardBackground
         backgroundColor = .clear
         contentView.layer.cornerRadius = 20
         contentView.layer.masksToBounds = true
         layer.cornerRadius = 20
         layer.masksToBounds = false
-        layer.shadowColor = UIColor(red: 0.08, green: 0.10, blue: 0.30, alpha: 1).cgColor
+        layer.shadowColor = UIColor.shadowColorApp.cgColor
         layer.shadowOpacity = 0.13
-        layer.shadowOffset = CGSize(width: 0, height: 6)
-        layer.shadowRadius = 14
+        
+        layer.shadowRadius = 6
+        layer.shadowOffset = CGSize(width: 0, height: 3)
         sportImage.contentMode = .scaleAspectFit
         sportImage.clipsToBounds = true
         sportName.font = UIFont.systemFont(ofSize: 17, weight: .bold)
         sportName.textAlignment = .center
-        sportName.textColor = UIColor(red: 0.07, green: 0.10, blue: 0.28, alpha: 1)
+        sportName.textColor = .mainText
         sportName.numberOfLines = 1
         sportName.adjustsFontSizeToFitWidth = true
         sportName.minimumScaleFactor = 0.8

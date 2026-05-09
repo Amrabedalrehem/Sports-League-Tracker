@@ -35,15 +35,22 @@ final class TeamPresenter {
             guard let self = self else { return }
 
             DispatchQueue.main.async {
-                self.view?.stopAnimating()
-
                 switch result {
                 case .success(let response):
-                    self.team = response.result?.first
-                    self.players = self.team?.players ?? []
-                    self.view?.reloadData()
+                 
+                    if let firstTeam = response.result?.first {
+                        self.team    = firstTeam
+                        self.players = firstTeam.players ?? []
+                    } else {
+                      
+                        self.team    = nil
+                        self.players = []
+                    }
+                    self.view?.reloadData()   
 
                 case .failure(let error):
+                
+                    self.view?.stopAnimating()
                     self.view?.showError(message: error.localizedDescription)
                 }
             }

@@ -16,10 +16,10 @@ enum TeamSection: Int, CaseIterable {
 
     var title: String {
         switch self {
-        case .goalkeepers: return "GOALKEEPERS"
-        case .defenders: return "DEFENDERS"
-        case .midfielders: return "MIDFIELDERS"
-        case .forwards: return "FORWARDS"
+        case .goalkeepers: return L10n.teamSectionGoalkeepers
+        case .defenders:   return L10n.teamSectionDefenders
+        case .midfielders: return L10n.teamSectionMidfielders
+        case .forwards:    return L10n.teamSectionForwards
         }
     }
 
@@ -43,7 +43,7 @@ enum TeamSection: Int, CaseIterable {
 
     var badgeColor: UIColor {
         switch self {
-        case .goalkeepers: return UIColor(red: 0.72, green: 0.49, blue: 0.10, alpha: 1.0)
+        case .goalkeepers: return .goalkeeperBadge
         case .defenders: return UIColor.systemGreen
         case .midfielders: return UIColor.systemBlue
         case .forwards: return UIColor.systemRed

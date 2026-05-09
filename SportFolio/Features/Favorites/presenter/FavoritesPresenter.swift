@@ -35,7 +35,14 @@ class FavoritesPresenter {
     }
     
     func getSectionTitle(at section: Int) -> String {
-        return sections[section]
+        let rawKey = sections[section]
+        switch rawKey {
+        case SportType.football.rawValue:   return L10n.sportFootball
+        case SportType.basketball.rawValue: return L10n.sportBasketball
+        case SportType.cricket.rawValue:    return L10n.sportCricket
+        case SportType.tennis.rawValue:     return L10n.sportTennis
+        default:                            return rawKey
+        }
     }
     
    
@@ -63,6 +70,6 @@ class FavoritesPresenter {
     }
  
     func isOnline() -> Bool {
-        return NetworkReachabilityManager()?.isReachable ?? false
+        return NetworkMonitor.shared.isConnected
     }
 }

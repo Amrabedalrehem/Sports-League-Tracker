@@ -24,12 +24,12 @@ class UpcomingEventCollectionViewCell: UICollectionViewCell {
 
     private func setupCell() {
         
-        contentView.backgroundColor = .white
+        contentView.backgroundColor = .cardBG
         contentView.layer.cornerRadius = 20
         contentView.layer.masksToBounds = true
         layer.cornerRadius = 20
         layer.masksToBounds = false
-        layer.shadowColor = UIColor(red: 0.08, green: 0.10, blue: 0.30, alpha: 1).cgColor
+        layer.shadowColor = UIColor.shadowColorApp.cgColor
         layer.shadowOpacity = 0.13
         layer.shadowOffset = CGSize(width: 0, height: 6)
         layer.shadowRadius = 14
@@ -39,19 +39,19 @@ class UpcomingEventCollectionViewCell: UICollectionViewCell {
             iv.layer.cornerRadius = 35
             iv.layer.masksToBounds = true
             iv.contentMode = .scaleAspectFit
-            iv.backgroundColor = UIColor(red: 0.95, green: 0.96, blue: 0.98, alpha: 1)
+            iv.backgroundColor = .appBackground
             iv.layer.borderWidth = 1
-            iv.layer.borderColor = UIColor(red: 0.18, green: 0.42, blue: 0.92, alpha: 0.15).cgColor
+            iv.layer.borderColor = UIColor.primaryBlueBorder.cgColor
         }
 
        
         vsLabel?.font = UIFont.systemFont(ofSize: 22, weight: .heavy)
-        vsLabel?.textColor = UIColor(red: 0.18, green: 0.42, blue: 0.92, alpha: 1)
+        vsLabel?.textColor = .primaryBlue
 
        
         for label in [homeTeamNameLabel, awayTeamNameLabel] {
             label?.font = UIFont.systemFont(ofSize: 13, weight: .semibold)
-            label?.textColor = UIColor(red: 0.07, green: 0.09, blue: 0.20, alpha: 1)
+            label?.textColor = .mainText
             label?.textAlignment = .center
             label?.numberOfLines = 2
         }

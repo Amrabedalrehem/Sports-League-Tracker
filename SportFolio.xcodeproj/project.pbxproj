@@ -10,6 +10,7 @@
 		6827E32B2FA8EF75007DC1ED /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 6827E32A2FA8EF75007DC1ED /* Lottie */; };
 		686B98C12FA6077B00043D99 /* FavoriteLeague+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686B98BF2FA6077B00043D99 /* FavoriteLeague+CoreDataClass.swift */; };
 		686B98C22FA6077B00043D99 /* FavoriteLeague+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686B98C02FA6077B00043D99 /* FavoriteLeague+CoreDataProperties.swift */; };
+		6DB26FF22FABEE34005EA90A /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 6DB26FF12FABEE34005EA90A /* SkeletonView */; };
 		6DB9DC052FA156BE00EC05A2 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 6DB9DC042FA156BE00EC05A2 /* Reachability */; };
 		6DB9DC082FA156E000EC05A2 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 6DB9DC072FA156E000EC05A2 /* SDWebImageSwiftUI */; };
 		6DB9DC0B2FA158A200EC05A2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 6DB9DC0A2FA158A200EC05A2 /* Alamofire */; };
@@ -80,6 +81,7 @@
 				6DB9DC082FA156E000EC05A2 /* SDWebImageSwiftUI in Frameworks */,
 				6DB9DC052FA156BE00EC05A2 /* Reachability in Frameworks */,
 				6827E32B2FA8EF75007DC1ED /* Lottie in Frameworks */,
+				6DB26FF22FABEE34005EA90A /* SkeletonView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +148,7 @@
 				6DB9DC072FA156E000EC05A2 /* SDWebImageSwiftUI */,
 				6DB9DC0A2FA158A200EC05A2 /* Alamofire */,
 				6827E32A2FA8EF75007DC1ED /* Lottie */,
+				6DB26FF12FABEE34005EA90A /* SkeletonView */,
 			);
 			productName = SportFolio;
 			productReference = 68E153B32FA098CE00C886DF /* SportFolio.app */;
@@ -226,6 +229,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
 			);
 			mainGroup = 68E153AA2FA098CE00C886DF;
 			minimizedProjectReferenceProxies = 1;
@@ -234,6 +238,7 @@
 				6DB9DC062FA156E000EC05A2 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				6DB9DC092FA158A200EC05A2 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				6827E3292FA8EF75007DC1ED /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				6DB26FF02FABEE34005EA90A /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 68E153B42FA098CE00C886DF /* Products */;
@@ -602,6 +607,14 @@
 				minimumVersion = 4.6.0;
 			};
 		};
+		6DB26FF02FABEE34005EA90A /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.31.0;
+			};
+		};
 		6DB9DC032FA156BE00EC05A2 /* XCRemoteSwiftPackageReference "Reachability" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ashleymills/Reachability.swift";
@@ -633,6 +646,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6827E3292FA8EF75007DC1ED /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		6DB26FF12FABEE34005EA90A /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6DB26FF02FABEE34005EA90A /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
 		};
 		6DB9DC042FA156BE00EC05A2 /* Reachability */ = {
 			isa = XCSwiftPackageProductDependency;

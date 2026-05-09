@@ -6,31 +6,50 @@
 //
 
 import UIKit
+ import UIKit
+import SDWebImage
 
- 
-import SDWebImage
-import UIKit
-import SDWebImage
 protocol FavoritesView: AnyObject {
     func reloadData()
     func showNoInternet()
 }
+
 class FavoritesTableView: UITableViewController {
- 
+    
     private let presenter = FavoritesPresenter()
-     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         presenter.attachView(self)
-        title = "Favorites"
+        title = L10n.navFavorites
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presenter.loadFavorites()
     }
-     
+    
+    private func showDeleteConfirmation(for indexPath: IndexPath) {
+        let alert = UIAlertController(
+            title: L10n.alertRemoveFavoriteTitle,
+            message: L10n.alertRemoveFavoriteMessage,
+            preferredStyle: .alert
+        )
+
+        let deleteAction = UIAlertAction(title: L10n.alertDelete, style: .destructive) { [weak self] _ in
+            guard let self = self,
+                  let favorite = self.presenter.getFavorite(section: indexPath.section, row: indexPath.row) else { return }
+            CoreDataManager.shared.removeFavorite(leagueKey: favorite.leagueKey)
+            self.presenter.loadFavorites()
+        }
+
+        let cancelAction = UIAlertAction(title: L10n.alertCancel, style: .cancel, handler: nil)
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
     private func setupTableView() {
         tableView.register(
             UINib(nibName: "cellDetials", bundle: nil),
@@ -38,52 +57,22 @@ class FavoritesTableView: UITableViewController {
         )
         tableView.rowHeight       = 90
         tableView.separatorStyle  = .none
-        tableView.backgroundColor = UIColor(red: 0.95, green: 0.96, blue: 0.98, alpha: 1)
+        tableView.backgroundColor = .appBackground
     }
     
-   
     private func showEmptyStateIfNeeded() {
         guard presenter.getSectionsCount() == 0 else {
             tableView.backgroundView = nil
             return
         }
         
-        let stack = UIStackView()
-        stack.axis  = .vertical
-        stack.spacing   = 12
-        stack.alignment = .center
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        let icon       = UILabel()
-        icon.text       = "⭐"
-        icon.font       = .systemFont(ofSize: 60)
-        let title       = UILabel()
-        title.text       = "No Favorites Yet"
-        title.font       = .boldSystemFont(ofSize: 18)
-        title.textColor  = .label
-      let subtitle       = UILabel()
-        subtitle.text       = "Add leagues from the Leagues screen"
-        subtitle.font       = .systemFont(ofSize: 13)
-        subtitle.textColor  = .secondaryLabel
-        subtitle.textAlignment = .center
-        subtitle.numberOfLines = 2
-              stack.addArrangedSubview(icon)
-        stack.addArrangedSubview(title)
-        stack.addArrangedSubview(subtitle)
-        
-        let container = UIView()
-        container.addSubview(stack)
-        NSLayoutConstraint.activate([
-            stack.centerXAnchor.constraint(equalTo: container.centerXAnchor),
-            stack.centerYAnchor.constraint(equalTo: container.centerYAnchor),
-            stack.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 32),
-            stack.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -32)
-        ])
-        
-        tableView.backgroundView = container
+        tableView.backgroundView = showWhenEmpty(
+            iconText: "♥️",
+            titleText: L10n.emptyFavoritesTitle,
+            subtitleText: L10n.emptyFavoritesSubtitle
+        )
     }
 }
-
-
 extension FavoritesTableView: FavoritesView {
     
     func reloadData() {
@@ -92,35 +81,9 @@ extension FavoritesTableView: FavoritesView {
     }
     
     func showNoInternet() {
-        let alert = UIAlertController(
-            title: "📡  No Internet Connection",
-            message: "\nIt looks like you're offline.\nPlease check your Wi-Fi or mobile data and try again.",
-            preferredStyle: .actionSheet
-        )
-
-    
-        let titleFont = UIFont.systemFont(ofSize: 17, weight: .bold)
-        let msgFont   = UIFont.systemFont(ofSize: 14, weight: .regular)
-        let titleAttr = NSAttributedString(
-            string: "📡  No Internet Connection",
-            attributes: [.font: titleFont,
-                         .foregroundColor: UIColor.systemRed]
-        )
-        let msgAttr = NSAttributedString(
-            string: "\nIt looks like you're offline.\nPlease check your Wi-Fi or mobile data and try again.",
-            attributes: [.font: msgFont,
-                         .foregroundColor: UIColor.secondaryLabel]
-        )
-        alert.setValue(titleAttr, forKey: "attributedTitle")
-        alert.setValue(msgAttr,   forKey: "attributedMessage")
- 
-        let okAction = UIAlertAction(title: "OK", style: .cancel)
-        alert.addAction(okAction)
-
-        present(alert, animated: true)
+        NetworkMonitor.shared.showNoInternet(on: self)
     }
 }
-
 
 extension FavoritesTableView {
     
@@ -132,23 +95,25 @@ extension FavoritesTableView {
                             numberOfRowsInSection section: Int) -> Int {
         return presenter.getRowsCount(in: section)
     }
-  
+    
     override func tableView(_ tableView: UITableView,
                             viewForHeaderInSection section: Int) -> UIView? {
         let header = UIView()
-        header.backgroundColor = UIColor(red: 0.95, green: 0.96, blue: 0.98, alpha: 1)
+        header.backgroundColor = .appBackground
         
         let label = UILabel()
-        label.text      = presenter.getSectionTitle(at: section).uppercased()
+        label.text      = presenter.getSectionTitle(at: section)
         label.font      = UIFont.systemFont(ofSize: 12, weight: .semibold)
-        label.textColor = UIColor(red: 0.18, green: 0.42, blue: 0.92, alpha: 1)
+        label.textColor = .primaryBlue
         label.translatesAutoresizingMaskIntoConstraints = false
         
         header.addSubview(label)
         NSLayoutConstraint.activate([
             label.leadingAnchor.constraint(equalTo: header.leadingAnchor, constant: 16),
+            label.trailingAnchor.constraint(equalTo: header.trailingAnchor, constant: -16),
             label.centerYAnchor.constraint(equalTo: header.centerYAnchor)
         ])
+        
         return header
     }
     
@@ -157,10 +122,8 @@ extension FavoritesTableView {
         return 36
     }
     
-  
     override func tableView(_ tableView: UITableView,
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: "LeagueCell",
             for: indexPath
@@ -178,9 +141,6 @@ extension FavoritesTableView {
 
         let sport = SportType(rawValue: favorite.sportType ?? "") ?? .football
 
-    
-
-
         cell.leagueImageView.sd_setImage(
             with: URL(string: favorite.leagueLogo ?? ""),
             placeholderImage: UIImage(named: sport.placeholderImageName)
@@ -191,14 +151,21 @@ extension FavoritesTableView {
     }
 }
 
-
 extension FavoritesTableView {
-   
+    
+    override func tableView(_ tableView: UITableView,
+                            commit editingStyle: UITableViewCell.EditingStyle,
+                            forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            showDeleteConfirmation(for: indexPath)
+        }
+    }
     
     override func tableView(_ tableView: UITableView,
                             didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-          guard presenter.isOnline() else {
+        
+        guard presenter.isOnline() else {
             showNoInternet()
             return
         }
@@ -208,11 +175,11 @@ extension FavoritesTableView {
             row: indexPath.row
         ) else { return }
         
-              guard let sportType = SportType(rawValue: favorite.sportType ?? "") else {
-                return
+        guard let sportType = SportType(rawValue: favorite.sportType ?? "") else {
+            return
         }
         
-          let leagueModel = LeagueModel(
+        let leagueModel = LeagueModel(
             leagueKey:   Int(favorite.leagueKey),
             leagueName:  favorite.leagueName,
             leagueLogo:  favorite.leagueLogo,
@@ -221,31 +188,20 @@ extension FavoritesTableView {
             countryLogo: nil
         )
         
-           guard let detailsVC = storyboard?.instantiateViewController(
+        guard let detailsVC = storyboard?.instantiateViewController(
             withIdentifier: "LeaguesDetailsCollectionViewController"
         ) as? LeaguesDetailsCollectionViewController else { return }
         
         let detailsPresenter = LeaguesDetailsPresenter(
             sportType: sportType,
-            league: leagueModel
+            league: leagueModel,
+            network: NetworkServiceImpl.shared,
+            coreData: CoreDataManager.shared
         )
+        
         detailsPresenter.view = detailsVC
         detailsVC.leaguesDetailsPresenter = detailsPresenter
         
         navigationController?.pushViewController(detailsVC, animated: true)
-    }
-   
-
-    override func tableView(_ tableView: UITableView,
-                            commit editingStyle: UITableViewCell.EditingStyle,
-                            forRowAt indexPath: IndexPath) {
-        guard editingStyle == .delete,
-              let favorite = presenter.getFavorite(
-                section: indexPath.section,
-                row: indexPath.row
-              ) else { return }
-        
-        CoreDataManager.shared.removeFavorite(leagueKey: (favorite.leagueKey))
-        presenter.loadFavorites()
     }
 }

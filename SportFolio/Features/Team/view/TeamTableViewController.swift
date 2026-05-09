@@ -2,11 +2,12 @@
 //  TeamTableViewController.swift
 //  SportFolio
 //
-//  Created by JETSMobileLabMini2 on 01/05/2026.
 //
 
 import UIKit
 import SDWebImage
+import SkeletonView
+
 protocol TeamView: AnyObject {
     func reloadData()
     func startAnimating()
@@ -16,72 +17,111 @@ protocol TeamView: AnyObject {
 
 final class TeamTableViewController: UITableViewController, TeamView {
 
-    private let teamLogoImageView = UIImageView()
-    private let teamNameLabel = UILabel()
+    private lazy var teamHeaderView = TeamTableHeaderView.loadFromNib()
 
-    var presenter : TeamPresenter!
+    private lazy var emptyStateView = TeamEmptyStateView.loadFromNib()
+
+    var presenter: TeamPresenter!
     private let sections = TeamSection.allCases
+
+    private var cachedSections: [TeamSection] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.isSkeletonable = true
+        tableView.dataSource = self
+        tableView.delegate = self
+
         presenter.attachView(self)
+
         configureTableView()
         setupTableHeader()
+
         presenter.fetchTeamDetails()
-    }
+        startAnimating()
+
     
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+          applyNavBarAppearance()
+    }
+
+    private func applyNavBarAppearance() {
+     let appearance = UINavigationBarAppearance()
+     appearance.configureWithOpaqueBackground()
+     appearance.backgroundColor   = .tabBarGradientStart
+     appearance.shadowColor       = .clear
+
+     let titleAttrs: [NSAttributedString.Key: Any] = [
+         .foregroundColor: UIColor.white,
+         .font: UIFont.systemFont(ofSize: 18, weight: .bold)
+     ]
+     appearance.titleTextAttributes = titleAttrs
+
+     navigationController?.navigationBar.standardAppearance    = appearance
+     navigationController?.navigationBar.scrollEdgeAppearance  = appearance
+     navigationController?.navigationBar.compactAppearance     = appearance
+     navigationController?.navigationBar.tintColor             = .white
+ }
+
     private func setupTableHeader() {
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 220))
-        headerView.backgroundColor = .clear
+        teamHeaderView.frame = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 250)
+        tableView.tableHeaderView = teamHeaderView
 
-        teamLogoImageView.translatesAutoresizingMaskIntoConstraints = false
-        teamNameLabel.translatesAutoresizingMaskIntoConstraints = false
-
-        teamLogoImageView.contentMode = .scaleAspectFit
-        teamLogoImageView.clipsToBounds = true
-        teamLogoImageView.layer.cornerRadius = 48
-        teamLogoImageView.layer.borderWidth = 1
-        teamLogoImageView.layer.borderColor = UIColor(white: 0, alpha: 0.1).cgColor
-        teamLogoImageView.backgroundColor = .white
-
-        teamNameLabel.textAlignment = .center
-        teamNameLabel.textColor = UIColor(red: 0.07, green: 0.09, blue: 0.20, alpha: 1)
-        teamNameLabel.font = .systemFont(ofSize: 28, weight: .bold)
-        teamNameLabel.numberOfLines = 2
-
-        headerView.addSubview(teamLogoImageView)
-        headerView.addSubview(teamNameLabel)
-
-        NSLayoutConstraint.activate([
-            teamLogoImageView.centerXAnchor.constraint(equalTo: headerView.centerXAnchor),
-            teamLogoImageView.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 32),
-            teamLogoImageView.widthAnchor.constraint(equalToConstant: 96),
-            teamLogoImageView.heightAnchor.constraint(equalToConstant: 96),
-
-            teamNameLabel.topAnchor.constraint(equalTo: teamLogoImageView.bottomAnchor, constant: 16),
-            teamNameLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 16),
-            teamNameLabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -16)
-        ])
-
-        tableView.tableHeaderView = headerView
+        teamHeaderView.isSkeletonable = true
+        teamHeaderView.teamNameLabel.isSkeletonable = true
+        teamHeaderView.teamLogoImageView.isSkeletonable = true
     }
 
     private func configureTableView() {
-        tableView.separatorStyle = .none
-        tableView.backgroundColor = UIColor(red: 0.95, green: 0.96, blue: 0.98, alpha: 1)
-        tableView.showsVerticalScrollIndicator = false
-
         tableView.register(
             UINib(nibName: "TeamViewCell", bundle: nil),
             forCellReuseIdentifier: TeamViewCell.reuseIdentifier
         )
 
-        tableView.rowHeight = 104
-        tableView.sectionHeaderHeight = 30
+        tableView.register(
+            UINib(nibName: "TeamSectionHeaderView", bundle: nil),
+            forHeaderFooterViewReuseIdentifier: TeamSectionHeaderView.reuseIdentifier
+        )
+
+        tableView.isSkeletonable = true
     }
 
-     
+    private func updateEmptyState() {
+        let isEmpty = cachedSections.isEmpty
+
+        if isEmpty {
+            if emptyStateView.superview == nil {
+                emptyStateView.frame = CGRect(
+                    x: 0,
+                    y: tableView.contentOffset.y + 60,
+                    width: tableView.bounds.width,
+                    height: tableView.bounds.height
+                )
+                emptyStateView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                tableView.addSubview(emptyStateView)
+            }
+
+            emptyStateView.isHidden = false
+
+            UIView.animate(withDuration: 0.35,
+                           delay: 0,
+                           usingSpringWithDamping: 0.75,
+                           initialSpringVelocity: 0.4,
+                           options: .curveEaseOut) {
+                self.emptyStateView.alpha = 1
+            }
+
+        } else {
+            UIView.animate(withDuration: 0.2) {
+                self.emptyStateView.alpha = 0
+            } completion: { _ in
+                self.emptyStateView.isHidden = true
+            }
+        }
+    }
 
     private func players(for section: TeamSection) -> [PlayerModel] {
         switch section {
@@ -93,70 +133,75 @@ final class TeamTableViewController: UITableViewController, TeamView {
     }
 
     private func visibleSections() -> [TeamSection] {
-        sections.filter { !players(for: $0).isEmpty }
+        return cachedSections
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        visibleSections().count
+        cachedSections.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let sectionType = visibleSections()[section]
+        guard section < cachedSections.count else { return 0 }
+        let sectionType = cachedSections[section]
         return players(for: sectionType).count
     }
 
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let sectionType = visibleSections()[section]
+    override func tableView(_ tableView: UITableView,
+                            viewForHeaderInSection section: Int) -> UIView? {
 
-        let container = UIView()
-        container.backgroundColor = UIColor.clear
+        guard section < cachedSections.count else { return nil }
 
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "\(sectionType.icon)  \(sectionType.title)"
-        label.textColor = UIColor(red: 0.07, green: 0.09, blue: 0.20, alpha: 1)
-        label.font = .systemFont(ofSize: 18, weight: .bold)
+        let sectionType = cachedSections[section]
 
-        container.addSubview(label)
+        guard let header = tableView.dequeueReusableHeaderFooterView(
+            withIdentifier: TeamSectionHeaderView.reuseIdentifier
+        ) as? TeamSectionHeaderView else { return nil }
 
-        NSLayoutConstraint.activate([
-            label.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 16),
-            label.trailingAnchor.constraint(lessThanOrEqualTo: container.trailingAnchor, constant: -16),
-            label.topAnchor.constraint(equalTo: container.topAnchor, constant: 2),
-            label.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -2)
-        ])
+        header.isSkeletonable = true
+        header.contentView.isSkeletonable = true
+        header.sectionLabel.isSkeletonable = true
 
-        return container
+        header.sectionLabel.text = "\(sectionType.icon)  \(sectionType.title)"
+
+        return header
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard
-            let cell = tableView.dequeueReusableCell(
-                withIdentifier: TeamViewCell.reuseIdentifier,
-                for: indexPath
-            ) as? TeamViewCell
-        else {
+    override func tableView(_ tableView: UITableView,
+                            cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: TeamViewCell.reuseIdentifier,
+            for: indexPath
+        ) as? TeamViewCell else {
             return UITableViewCell()
         }
 
-        let sectionType = visibleSections()[indexPath.section]
-        let player = players(for: sectionType)[indexPath.row]
+        guard indexPath.section < cachedSections.count else { return cell }
+
+        let sectionType = cachedSections[indexPath.section]
+        let playersList = players(for: sectionType)
+
+        guard indexPath.row < playersList.count else { return cell }
+
+        let player = playersList[indexPath.row]
 
         let placeholder = UIImage(named: "playerPlaceholder")
 
-        let playerName = player.playerName?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        cell.nameLabel.text = playerName.isEmpty ? "Unknown Player" : playerName
+        let name = player.playerName?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        cell.nameLabel.text = name.isEmpty ? L10n.playerNameUnknown : name
 
-        let playerNumber = player.playerNumber?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        cell.numberLabel.text = playerNumber.isEmpty ? "-" : playerNumber
+        let number = player.playerNumber?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        cell.numberLabel.text = number.isEmpty ? "-" : number
 
-        let playerAge = player.playerAge?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        cell.subtitleLabel.text = playerAge.isEmpty ? "Age: --" : "Age: \(playerAge)"
+        let age = player.playerAge?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        cell.subtitleLabel.text = age.isEmpty ? L10n.playerAgeUnknown : L10n.playerAgePrefix + age
 
         cell.roleBadgeLabel.text = sectionType.badgeText
         cell.roleBadgeLabel.backgroundColor = sectionType.badgeColor
 
-        if let image = player.playerImage, !image.isEmpty, let url = URL(string: image) {
+        if let image = player.playerImage,
+           !image.isEmpty,
+           let url = URL(string: image) {
             cell.avatarImageView.sd_setImage(with: url, placeholderImage: placeholder)
         } else {
             cell.avatarImageView.image = placeholder
@@ -164,58 +209,77 @@ final class TeamTableViewController: UITableViewController, TeamView {
 
         return cell
     }
-    
 
     func reloadData() {
-        let teamName = presenter.getTeamName().trimmingCharacters(in: .whitespacesAndNewlines)
-        teamNameLabel.text = teamName.isEmpty ? "Unknown Team" : teamName
 
+        
+        stopAnimating()
+        cachedSections = sections.filter { !players(for: $0).isEmpty }
+        let teamName  = presenter.getTeamName().trimmingCharacters(in: .whitespacesAndNewlines)
+        let displayName = teamName.isEmpty ? L10n.teamNameUnknown : teamName
+        teamHeaderView.teamNameLabel.text = displayName
+        title = displayName
         let placeholderName: String
         if presenter.baseURL.contains("basketball") { placeholderName = "basketPlaceholder" }
         else if presenter.baseURL.contains("cricket") { placeholderName = "ckrichetPlaceholder" }
         else if presenter.baseURL.contains("tennis") { placeholderName = "tennisPlaceholder" }
         else { placeholderName = "footballPlaceholder" }
+
         let placeholder = UIImage(named: placeholderName)
 
         let logo = presenter.getTeamLogo()
         if let url = URL(string: logo), !logo.isEmpty {
-            teamLogoImageView.sd_setImage(with: url, placeholderImage: placeholder)
+            teamHeaderView.teamLogoImageView.sd_setImage(with: url, placeholderImage: placeholder)
         } else {
-            teamLogoImageView.image = placeholder
+            teamHeaderView.teamLogoImageView.image = placeholder
         }
 
         tableView.reloadData()
+        updateEmptyState()
     }
 
     func startAnimating() {
-       }
+        tableView.isSkeletonable = true
+        tableView.showAnimatedSkeleton(usingColor: .clouds, transition: .crossDissolve(0.25))
+
+        teamHeaderView.isSkeletonable = true
+        teamHeaderView.showAnimatedSkeleton(usingColor: .clouds, transition: .crossDissolve(0.25))
+    }
 
     func stopAnimating() {
-          }
+        tableView.hideSkeleton(reloadDataAfter: false)
+        teamHeaderView.hideSkeleton()
+    }
 
     func showError(message: String) {
         let alert = UIAlertController(
-            title: "⚠️  Something Went Wrong",
-            message: "\n" + message,
+            title: L10n.alertErrorTitle,
+            message: message,
             preferredStyle: .actionSheet
         )
-        let titleAttr = NSAttributedString(
-            string: "⚠️  Something Went Wrong",
-            attributes: [
-                .font: UIFont.systemFont(ofSize: 17, weight: .bold),
-                .foregroundColor: UIColor.systemOrange
-            ]
-        )
-        let msgAttr = NSAttributedString(
-            string: "\n" + message,
-            attributes: [
-                .font: UIFont.systemFont(ofSize: 14),
-                .foregroundColor: UIColor.secondaryLabel
-            ]
-        )
-        alert.setValue(titleAttr, forKey: "attributedTitle")
-        alert.setValue(msgAttr,   forKey: "attributedMessage")
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+        alert.addAction(UIAlertAction(title: L10n.alertOK, style: .cancel))
         present(alert, animated: true)
+    }
+}
+
+extension TeamTableViewController: SkeletonTableViewDataSource, SkeletonTableViewDelegate {
+
+    func numSections(in collectionSkeletonView: UITableView) -> Int {
+        return 4
+    }
+
+    func collectionSkeletonView(_ skeletonView: UITableView,
+                                numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+
+    func collectionSkeletonView(_ skeletonView: UITableView,
+                                cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return "TeamViewCell"
+    }
+
+    func collectionSkeletonView(_ skeletonView: UITableView,
+                                identifierForHeaderInSection section: Int) -> ReusableHeaderFooterIdentifier? {
+        return TeamSectionHeaderView.reuseIdentifier
     }
 }

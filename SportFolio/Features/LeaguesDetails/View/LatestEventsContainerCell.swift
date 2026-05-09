@@ -52,11 +52,11 @@ class LatestEventsContainerCell: UICollectionViewCell {
 
         let config = UIImage.SymbolConfiguration(pointSize: 40, weight: .light)
         emptyIcon.image = UIImage(systemName: "calendar.badge.exclamationmark", withConfiguration: config)
-        emptyIcon.tintColor = UIColor(red: 0.18, green: 0.42, blue: 0.92, alpha: 0.35)
+        emptyIcon.tintColor = .primaryBlueLight
         emptyIcon.contentMode = .scaleAspectFit
         emptyIcon.translatesAutoresizingMaskIntoConstraints = false
 
-        emptyLabel.text = "No recent matches"
+        emptyLabel.text = L10n.emptyLatestMatches
         emptyLabel.font = UIFont.systemFont(ofSize: 15, weight: .medium)
         emptyLabel.textColor = UIColor.tertiaryLabel
         emptyLabel.textAlignment = .center

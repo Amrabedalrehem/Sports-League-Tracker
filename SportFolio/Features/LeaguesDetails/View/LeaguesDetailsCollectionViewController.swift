@@ -5,7 +5,7 @@
 
 import UIKit
 import SDWebImage
-
+  
 private let teamCellId     = "TeamCollectionViewCell"
 private let upComingCellId = "UpcomingEventCollectionViewCell"
 private let latestCellId   = "LatestEventCollectionViewCell"
@@ -18,51 +18,56 @@ protocol LeaguesDetailsView: AnyObject {
     func showEmptyState()
     func showError(message: String)
     func updateFavoriteButton(isFavorite: Bool)
+    func showNoInternet()
 }
 
 class LeaguesDetailsCollectionViewController: UICollectionViewController {
 
     var leaguesDetailsPresenter: LeaguesDetailsPresenterProtocol!
     private var favoriteButton: UIBarButtonItem?
-
-    
     private var currentItemSegment: Int = 0
     private var shimmerOverlay: ShimmerOverlayView?
-
     private var animatedCells: Set<IndexPath> = []
 
-  
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBackground()
         setupNavigationBar()
         setupCollectionView()
         collectionView.setCollectionViewLayout(createLayout(), animated: false)
-        leaguesDetailsPresenter.getItems()
-        leaguesDetailsPresenter.getEvents()
+        leaguesDetailsPresenter.loadAllData()
+       
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+          applyNavBarAppearance()
     }
 
+    private func applyNavBarAppearance() {
+     let appearance = UINavigationBarAppearance()
+     appearance.configureWithOpaqueBackground()
+     appearance.backgroundColor   = .tabBarGradientStart
+     appearance.shadowColor       = .clear
+
+     let titleAttrs: [NSAttributedString.Key: Any] = [
+         .foregroundColor: UIColor.white,
+         .font: UIFont.systemFont(ofSize: 18, weight: .bold)
+     ]
+     appearance.titleTextAttributes = titleAttrs
+
+     navigationController?.navigationBar.standardAppearance    = appearance
+     navigationController?.navigationBar.scrollEdgeAppearance  = appearance
+     navigationController?.navigationBar.compactAppearance     = appearance
+     navigationController?.navigationBar.tintColor             = .white
+ }
    
     private func setupBackground() {
-        collectionView.backgroundColor = UIColor(red: 0.95, green: 0.96, blue: 0.98, alpha: 1)
+        collectionView.backgroundColor = .appBackground
     }
 
     
     private func setupNavigationBar() {
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .white
-        appearance.shadowColor = UIColor.black.withAlphaComponent(0.06)
-        appearance.titleTextAttributes = [
-            .foregroundColor: UIColor(red: 0.07, green: 0.09, blue: 0.20, alpha: 1),
-            .font: UIFont.systemFont(ofSize: 17, weight: .bold)
-        ]
-        navigationController?.navigationBar.standardAppearance   = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        navigationController?.navigationBar.compactAppearance    = appearance
-        navigationController?.navigationBar.tintColor = UIColor(red: 0.18, green: 0.42, blue: 0.92, alpha: 1)
-
-       
+    
         let button = UIButton(type: .system)
         button.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         button.tintColor = .systemRed
@@ -73,6 +78,7 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
 
         favoriteButton = UIBarButtonItem(customView: button)
         navigationItem.rightBarButtonItem = favoriteButton
+        navigationItem.title = leaguesDetailsPresenter.getLeagueName()
     }
 
     @objc private func favoriteButtonTapped() {
@@ -213,7 +219,6 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
             alignment: .top
         )
     }
-
    
     override func collectionView(_ collectionView: UICollectionView,
                                  viewForSupplementaryElementOfKind kind: String,
@@ -229,11 +234,11 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
 
         switch indexPath.section {
         case 0:
-            header.configure(title: "Upcoming Matches", systemIcon: "calendar.badge.clock")
+            header.configure(title: L10n.sectionUpcomingMatches, systemIcon: "calendar.badge.clock")
         case 1:
-            header.configure(title: "Latest Matches", systemIcon: "flag.checkered")
+            header.configure(title: L10n.sectionLatestMatches, systemIcon: "flag.checkered")
         case 2:
-            let title = currentItemSegment == 0 ? "Teams" : "Players"
+            let title = currentItemSegment == 0 ? L10n.sectionTeams : L10n.sectionPlayers
             header.configure(
                 title: title,
                 systemIcon: currentItemSegment == 0 ? "person.3.fill" : "figure.run",
@@ -281,7 +286,7 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
                 return makeEmptyCell(
                     collectionView, indexPath: indexPath,
                     icon: "calendar.badge.exclamationmark",
-                    message: "No upcoming matches"
+                    message: L10n.emptyUpcomingMatches
                 )
             }
             let cell = collectionView.dequeueReusableCell(
@@ -322,7 +327,7 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
 
             if count == 0 {
                 let iconName = currentItemSegment == 0 ? "person.3" : "figure.run"
-                let message  = currentItemSegment == 0 ? "No teams available" : "No players available"
+                let message  = currentItemSegment == 0 ? L10n.emptyTeams : L10n.emptyPlayers
                 return makeEmptyCell(collectionView, indexPath: indexPath, icon: iconName, message: message)
             }
 
@@ -389,10 +394,13 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
         }
     }
 
-    
-    override func collectionView(_ collectionView: UICollectionView,
-                                 didSelectItemAt indexPath: IndexPath) {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard indexPath.section == 2 else { return }
+
+         if !NetworkMonitor.shared.isConnected {
+            showNoInternet()
+            return
+        }
 
         let count = currentItemSegment == 0
             ? leaguesDetailsPresenter.getNumberOfTeams()
@@ -404,13 +412,14 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
             : leaguesDetailsPresenter.getPlayerItem(at: indexPath.row)
 
         if case .team(let team) = item, let teamId = team.teamKey {
-            let vc = storyboard?
-                .instantiateViewController(withIdentifier: "TeamTableViewController") as! TeamTableViewController
+            let vc = storyboard?.instantiateViewController(withIdentifier: "TeamTableViewController") as! TeamTableViewController
             let presenter = TeamPresenter(
                 baseURL: leaguesDetailsPresenter.getBaseURL(),
                 teamId: teamId
             )
             vc.presenter = presenter
+          
+            vc.title = team.teamName ?? L10n.teamNameUnknown
             navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -427,7 +436,7 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
 
         let config = UIImage.SymbolConfiguration(pointSize: 32, weight: .light)
         let iconView = UIImageView(image: UIImage(systemName: icon, withConfiguration: config))
-        iconView.tintColor = UIColor(red: 0.18, green: 0.42, blue: 0.92, alpha: 0.35)
+        iconView.tintColor = .primaryBlueLight
         iconView.contentMode = .scaleAspectFit
 
         let label = UILabel()
@@ -457,7 +466,6 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
 
 extension LeaguesDetailsCollectionViewController: SectionHeaderDelegate {
     func sectionHeader(_ header: SectionHeaderView, didSelectSegmentAt index: Int) {
-        guard currentItemSegment != index else { return }
         currentItemSegment = index
         collectionView.setCollectionViewLayout(createLayout(), animated: false)
         collectionView.reloadSections(IndexSet(integer: 2))
@@ -499,4 +507,9 @@ extension LeaguesDetailsCollectionViewController: LeaguesDetailsView {
         guard let button = favoriteButton?.customView as? UIButton else { return }
         updateFavoriteButtonIcon(button, isFavorite: isFavorite)
     }
+    func showNoInternet() {
+
+            NetworkMonitor.shared.showNoInternet(on: self)
+        }
+    
 }
