@@ -2,35 +2,168 @@
 //  SportFolioTests.swift
 //  SportFolioTests
 //
-//  Created by JETSMobileLabMini2 on 28/04/2026.
+//  Created by JETSMobileLabMini2 on 30/04/2026.
 //
 
 import XCTest
 @testable import SportFolio
 
-final class SportFolioTests: XCTestCase {
+final class NetworkServiceTests: XCTestCase {
 
+    var networkService: NetworkService!
+    var sportType : SportType!
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        networkService = NetworkServiceImpl.shared
+        sportType = .football
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        networkService = nil
+        sportType = nil
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
+    
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testGetLeagues_ShouldReturnLeagues() {
+
+        let expectation = expectation(description: "Leagues API Call")
+      
+        networkService.getLeagues(
+            baseURL: sportType.baseURL
+        ) { result in
+
+            switch result {
+
+            case .success(let response):
+
+                XCTAssertNotNil(response.result)
+                XCTAssertFalse(response.result!.isEmpty)
+
+            case .failure(let error):
+
+                XCTFail("API Failed with error: \(error.localizedDescription)")
+            }
+
+            expectation.fulfill()
         }
+
+        waitForExpectations(timeout: 10)
     }
 
+    
+
+    func testGetEvents_ShouldReturnEvents() {
+
+        let expectation = expectation(description: "Events API Call")
+
+        networkService.getEvents(
+            baseURL: sportType.baseURL,
+            leagueId: 152,
+            from: "2025-01-01",
+            to: "2025-12-31"
+        ) { result in
+
+            switch result {
+
+            case .success(let response):
+
+                XCTAssertNotNil(response.result)
+
+            case .failure(let error):
+
+                XCTFail("API Failed with error: \(error.localizedDescription)")
+            }
+
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout:20 )
+    }
+
+   
+
+    func testGetTeams_ShouldReturnTeams() {
+
+        let expectation = expectation(description: "Teams API Call")
+
+        networkService.getTeams(
+            baseURL: sportType.baseURL,
+            leagueId: 152
+        ) { result in
+
+            switch result {
+
+            case .success(let response):
+
+                XCTAssertNotNil(response.result)
+                XCTAssertFalse(response.result!.isEmpty)
+
+            case .failure(let error):
+
+                XCTFail("API Failed with error: \(error.localizedDescription)")
+            }
+
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: 10)
+    }
+
+   
+
+    func testGetTeamDetails_ShouldReturnTeam() {
+
+        let expectation = expectation(description: "Team Details API Call")
+
+        networkService.getTeamDetails(
+            baseURL: sportType.baseURL,
+            teamId: 96
+        ) { result in
+
+            switch result {
+
+            case .success(let response):
+
+                XCTAssertNotNil(response.result)
+                XCTAssertFalse(response.result!.isEmpty)
+
+            case .failure(let error):
+
+                XCTFail("API Failed with error: \(error.localizedDescription)")
+            }
+
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: 10)
+    }
+
+   
+
+    func testGetPlayers_ShouldReturnPlayers() {
+
+        let expectation = expectation(description: "Players API Call")
+
+        networkService.getPlayers(
+            baseURL: sportType.baseURL,
+            leagueId: 152
+        ) { result in
+
+            switch result {
+
+            case .success(let response):
+
+                XCTAssertNotNil(response.result)
+                XCTAssertFalse(response.result!.isEmpty)
+
+            case .failure(let error):
+
+                XCTFail("API Failed with error: \(error.localizedDescription)")
+            }
+
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: 10)
+    }
 }
