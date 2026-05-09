@@ -29,10 +29,8 @@ class OnboardingContentVC: UIViewController {
         imageView.image = UIImage(named: page.imageName)
         titleLabel.text = page.title
         descLabel.text = page.description
-        
         titleLabel.textColor = .white
         descLabel.textColor = .white
-        
         pageControl.numberOfPages = total
         pageControl.currentPage = index
         isLastPage = (index == total - 1)
