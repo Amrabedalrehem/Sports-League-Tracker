@@ -56,7 +56,7 @@ class LatestEventsContainerCell: UICollectionViewCell {
         emptyIcon.contentMode = .scaleAspectFit
         emptyIcon.translatesAutoresizingMaskIntoConstraints = false
 
-        emptyLabel.text = "No recent matches"
+        emptyLabel.text = L10n.emptyLatestMatches
         emptyLabel.font = UIFont.systemFont(ofSize: 15, weight: .medium)
         emptyLabel.textColor = UIColor.tertiaryLabel
         emptyLabel.textAlignment = .center

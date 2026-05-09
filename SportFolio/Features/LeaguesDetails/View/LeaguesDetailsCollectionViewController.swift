@@ -5,7 +5,7 @@
 
 import UIKit
 import SDWebImage
-
+  
 private let teamCellId     = "TeamCollectionViewCell"
 private let upComingCellId = "UpcomingEventCollectionViewCell"
 private let latestCellId   = "LatestEventCollectionViewCell"
@@ -234,11 +234,11 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
 
         switch indexPath.section {
         case 0:
-            header.configure(title: "Upcoming Matches", systemIcon: "calendar.badge.clock")
+            header.configure(title: L10n.sectionUpcomingMatches, systemIcon: "calendar.badge.clock")
         case 1:
-            header.configure(title: "Latest Matches", systemIcon: "flag.checkered")
+            header.configure(title: L10n.sectionLatestMatches, systemIcon: "flag.checkered")
         case 2:
-            let title = currentItemSegment == 0 ? "Teams" : "Players"
+            let title = currentItemSegment == 0 ? L10n.sectionTeams : L10n.sectionPlayers
             header.configure(
                 title: title,
                 systemIcon: currentItemSegment == 0 ? "person.3.fill" : "figure.run",
@@ -286,7 +286,7 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
                 return makeEmptyCell(
                     collectionView, indexPath: indexPath,
                     icon: "calendar.badge.exclamationmark",
-                    message: "No upcoming matches"
+                    message: L10n.emptyUpcomingMatches
                 )
             }
             let cell = collectionView.dequeueReusableCell(
@@ -327,7 +327,7 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
 
             if count == 0 {
                 let iconName = currentItemSegment == 0 ? "person.3" : "figure.run"
-                let message  = currentItemSegment == 0 ? "No teams available" : "No players available"
+                let message  = currentItemSegment == 0 ? L10n.emptyTeams : L10n.emptyPlayers
                 return makeEmptyCell(collectionView, indexPath: indexPath, icon: iconName, message: message)
             }
 
@@ -418,6 +418,8 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
                 teamId: teamId
             )
             vc.presenter = presenter
+          
+            vc.title = team.teamName ?? L10n.teamNameUnknown
             navigationController?.pushViewController(vc, animated: true)
         }
     }

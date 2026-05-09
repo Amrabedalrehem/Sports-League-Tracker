@@ -71,7 +71,7 @@ final class SplashViewController: UIViewController {
 
     private let appNameLabel: UILabel = {
         let lbl = UILabel()
-        lbl.text = "SportFolio"
+        lbl.text = L10n.navSportfolio
         if let descriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .largeTitle)
             .withDesign(.rounded) {
             lbl.font = UIFont(descriptor: descriptor.withSymbolicTraits(.traitBold) ?? descriptor,
@@ -86,7 +86,7 @@ final class SplashViewController: UIViewController {
 
     private let taglineLabel: UILabel = {
         let lbl = UILabel()
-        lbl.text = "Your Sports Universe"
+        lbl.text = L10n.splashTagline
         lbl.font = UIFont.systemFont(ofSize: 15, weight: .medium)
         lbl.textColor = UIColor.white.withAlphaComponent(0.65)
         lbl.textAlignment = .center

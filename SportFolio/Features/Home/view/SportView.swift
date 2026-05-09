@@ -89,7 +89,7 @@ class ViewController: UIViewController,
 
     func setupNavigationButton() {
         let isDark = ThemeManager.shared.currentTheme == .dark
-        navigationItem.title = "SportFolio"
+        navigationItem.title = L10n.navSportfolio
 
         let imageName = isDark ? "lightbulb.fil" :"lightbulb"
         let config    = UIImage.SymbolConfiguration(pointSize: 18, weight: .semibold)
@@ -204,6 +204,10 @@ class ViewController: UIViewController,
 
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
+
+        // Ignore taps on the banner to prevent "Index out of range" crash
+        // since banner items don't map to presenter.getSport()
+        guard collectionView == sportsCollectionView else { return }
 
         guard presenter.isOnline() else {
             showNoInternet()

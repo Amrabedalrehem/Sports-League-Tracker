@@ -11,10 +11,10 @@ class SportsPresenter {
     weak var view: ViewController?
 
     private let sports: [SportModel] = [
-        SportModel(name: "Football", image: "Football", baseURL: APIConstants.BaseURL.football,sportType: .football),
-        SportModel(name: "Basketball", image: "Basketball", baseURL: APIConstants.BaseURL.basketball,sportType: .basketball),
-        SportModel(name: "Cricket", image: "Cricket", baseURL: APIConstants.BaseURL.cricket,sportType: .cricket),
-        SportModel(name: "Tennis", image: "Tennis", baseURL: APIConstants.BaseURL.tennis,sportType: .tennis)
+        SportModel(name: L10n.sportFootball,   image: "Football",    baseURL: APIConstants.BaseURL.football,   sportType: .football),
+        SportModel(name: L10n.sportBasketball, image: "Basketball",  baseURL: APIConstants.BaseURL.basketball, sportType: .basketball),
+        SportModel(name: L10n.sportCricket,    image: "Cricket",     baseURL: APIConstants.BaseURL.cricket,    sportType: .cricket),
+        SportModel(name: L10n.sportTennis,     image: "Tennis",      baseURL: APIConstants.BaseURL.tennis,     sportType: .tennis)
     ]
 
     func attachView(_ view: ViewController) {

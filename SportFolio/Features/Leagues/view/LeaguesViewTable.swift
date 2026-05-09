@@ -61,7 +61,7 @@ class LeaguesViewTable:  UIViewController, UISearchBarDelegate {
  }
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Leagues"
+        title = L10n.navLeagues
         setupTableView()
         tableView.isSkeletonable = true
         tableView.dataSource = self
@@ -80,7 +80,7 @@ class LeaguesViewTable:  UIViewController, UISearchBarDelegate {
 
     private func setupSearchBar() {
         searchBar.backgroundColor     = .appBackground
-        searchBar.backgroundImage     = UIImage()   // removes default border line
+        searchBar.backgroundImage     = UIImage()   
         searchBar.barTintColor        = .appBackground
         searchBar.tintColor           = .primaryBlue
 
@@ -88,6 +88,7 @@ class LeaguesViewTable:  UIViewController, UISearchBarDelegate {
         tf.backgroundColor = .cardBackground
         tf.textColor       = .mainText
         tf.tintColor       = .primaryBlue
+        tf.placeholder     = L10n.searchPlaceholder
         tf.font            = UIFont.systemFont(ofSize: 15, weight: .regular)
         if let icon = tf.leftView as? UIImageView {
             icon.tintColor = .secondaryLabel
@@ -213,12 +214,12 @@ extension LeaguesViewTable : LeaguesView {
     
     func showError(message: String) {
         let alert = UIAlertController(
-            title: "⚠️  Something Went Wrong",
+            title: L10n.alertErrorTitle,
             message: "\n" + message,
             preferredStyle: .actionSheet
         )
         let titleAttr = NSAttributedString(
-            string: "⚠️  Something Went Wrong",
+            string: L10n.alertErrorTitle,
             attributes: [
                 .font: UIFont.systemFont(ofSize: 17, weight: .bold),
                 .foregroundColor: UIColor.systemOrange
@@ -233,7 +234,7 @@ extension LeaguesViewTable : LeaguesView {
         )
         alert.setValue(titleAttr, forKey: "attributedTitle")
         alert.setValue(msgAttr,   forKey: "attributedMessage")
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+        alert.addAction(UIAlertAction(title: L10n.alertOK, style: .cancel))
         present(alert, animated: true)
     }
     
@@ -244,7 +245,11 @@ extension LeaguesViewTable : LeaguesView {
         }
     
     func showEmptyState() {
-        tableView.backgroundView = showWhenEmpty(iconText: "🔎", titleText: "Try another Search", subtitleText: "No leagues found for this search")
+        tableView.backgroundView = showWhenEmpty(
+            iconText: "🔎",
+            titleText: L10n.emptyLeaguesTitle,
+            subtitleText: L10n.emptyLeaguesSubtitle
+        )
     }
     
     func hideEmptyState() {

@@ -16,10 +16,10 @@ enum TeamSection: Int, CaseIterable {
 
     var title: String {
         switch self {
-        case .goalkeepers: return "GOALKEEPERS"
-        case .defenders: return "DEFENDERS"
-        case .midfielders: return "MIDFIELDERS"
-        case .forwards: return "FORWARDS"
+        case .goalkeepers: return L10n.teamSectionGoalkeepers
+        case .defenders:   return L10n.teamSectionDefenders
+        case .midfielders: return L10n.teamSectionMidfielders
+        case .forwards:    return L10n.teamSectionForwards
         }
     }
 

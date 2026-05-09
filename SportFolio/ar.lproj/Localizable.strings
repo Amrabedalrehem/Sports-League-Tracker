@@ -1,0 +1,74 @@
+
+// MARK: – Navigation Titles — عناوين الشاشات
+"nav.sportfolio"   = "سبورت فوليو";
+"nav.home"         = "الرئيسية";
+"nav.favorites"    = "المفضلة";
+"nav.leagues"      = "الدوريات";
+"nav.team"         = "الفريق";
+
+// MARK: – Search — البحث
+"search.placeholder" = "ابحث عن دوري...";
+
+// MARK: – Alerts — General — تنبيهات عامة
+"alert.ok"     = "حسناً";
+"alert.cancel" = "إلغاء";
+"alert.delete" = "حذف";
+
+"alert.error.title" = "⚠️  حدث خطأ";
+
+// MARK: – Alerts — Favorites — تنبيهات المفضلة
+"alert.removeFavorite.title"   = "حذف من المفضلة";
+"alert.removeFavorite.message" = "هل تريد حذف هذه الدوري من قائمة المفضلة؟";
+
+// MARK: – Empty States — حالات الفراغ
+"empty.leagues.title"    = "جرّب بحثاً آخر";
+"empty.leagues.subtitle" = "لم يتم العثور على دوريات";
+
+"empty.favorites.title"    = "لا توجد مفضلة بعد";
+"empty.favorites.subtitle" = "أضف دوريات من شاشة الدوريات";
+
+"empty.team.title"    = "لا يوجد لاعبون";
+"empty.team.subtitle" = "لا تتوفر بيانات للاعبين في هذا الفريق";
+
+// MARK: – Section Headers — League Details — عناوين الأقسام
+"section.upcomingMatches" = "المباريات القادمة";
+"section.latestMatches"   = "آخر المباريات";
+"section.teams"           = "الفرق";
+"section.players"         = "اللاعبون";
+
+// MARK: – Empty States — League Details — حالات الفراغ
+"empty.upcomingMatches" = "لا توجد مباريات قادمة";
+"empty.latestMatches"   = "لا توجد مباريات حديثة";
+"empty.teams"           = "لا تتوفر فرق";
+"empty.players"         = "لا يتوفر لاعبون";
+
+// MARK: – Splash Screen — شاشة البداية
+"splash.tagline" = "عالمك الرياضي";
+
+// MARK: – Sport Names — أسماء الرياضات
+"sport.football"   = "كرة القدم";
+"sport.basketball" = "كرة السلة";
+"sport.cricket"    = "كريكيت";
+"sport.tennis"     = "تنس";
+
+// MARK: – Team Sections — أقسام الفريق
+"team.section.goalkeepers" = "حراس المرمى";
+"team.section.defenders"   = "المدافعون";
+"team.section.midfielders" = "لاعبو الوسط";
+"team.section.forwards"    = "المهاجمون";
+
+// MARK: – Player Card — بيانات اللاعب
+"player.age.prefix"   = "العمر: ";
+"player.age.unknown"  = "العمر: --";
+"player.name.unknown" = "لاعب غير معروف";
+"team.name.unknown"   = "فريق غير معروف";
+
+// MARK: – Empty State — Team Squad — حالة فراغ التشكيلة
+"empty.squad.title"    = "لا تتوفر تشكيلة";
+"empty.squad.subtitle" = "بيانات اللاعبين غير متاحة لهذا الفريق حالياً.";
+
+// MARK: – No Internet — لا يوجد إنترنت
+"noInternet.title"   = "لا يوجد اتصال بالإنترنت";
+"noInternet.message" = "تحقق من إعدادات الشبكة وحاول مجدداً.";
+"noInternet.retry"   = "إعادة المحاولة";
+"noInternet.dismiss" = "إغلاق";

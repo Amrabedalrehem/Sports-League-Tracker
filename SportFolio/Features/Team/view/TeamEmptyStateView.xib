@@ -70,6 +70,10 @@ isn't available right now.</string>
                 <constraint firstItem="esv-card" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="esv-root" secondAttribute="leading" constant="32" id="esv-c7"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="esv-card" secondAttribute="trailing" constant="32" id="esv-c8"/>
             </constraints>
+            <connections>
+                <outlet property="titleLabel" destination="esv-title" id="esv-outlet-title"/>
+                <outlet property="subtitleLabel" destination="esv-subtitle" id="esv-outlet-subtitle"/>
+            </connections>
             <point key="canvasLocation" x="15" y="13"/>
         </view>
     </objects>

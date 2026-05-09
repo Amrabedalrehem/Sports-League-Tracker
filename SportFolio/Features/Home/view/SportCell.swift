@@ -27,6 +27,7 @@ class SportCell : UICollectionViewCell {
         layer.masksToBounds = false
         layer.shadowColor = UIColor.shadowColorApp.cgColor
         layer.shadowOpacity = 0.13
+        
         layer.shadowRadius = 6
         layer.shadowOffset = CGSize(width: 0, height: 3)
         sportImage.contentMode = .scaleAspectFit

@@ -22,7 +22,7 @@ class FavoritesTableView: UITableViewController {
         super.viewDidLoad()
         setupTableView()
         presenter.attachView(self)
-        title = "Favorites"
+        title = L10n.navFavorites
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,24 +32,21 @@ class FavoritesTableView: UITableViewController {
     
     private func showDeleteConfirmation(for indexPath: IndexPath) {
         let alert = UIAlertController(
-            title: "Remove Favorite",
-            message: "Are you sure you want to delete this league from your favorites?",
+            title: L10n.alertRemoveFavoriteTitle,
+            message: L10n.alertRemoveFavoriteMessage,
             preferredStyle: .alert
         )
 
-        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self] _ in
+        let deleteAction = UIAlertAction(title: L10n.alertDelete, style: .destructive) { [weak self] _ in
             guard let self = self,
                   let favorite = self.presenter.getFavorite(section: indexPath.section, row: indexPath.row) else { return }
-            
             CoreDataManager.shared.removeFavorite(leagueKey: favorite.leagueKey)
             self.presenter.loadFavorites()
         }
 
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-
+        let cancelAction = UIAlertAction(title: L10n.alertCancel, style: .cancel, handler: nil)
         alert.addAction(deleteAction)
         alert.addAction(cancelAction)
-
         present(alert, animated: true, completion: nil)
     }
     
@@ -71,8 +68,8 @@ class FavoritesTableView: UITableViewController {
         
         tableView.backgroundView = showWhenEmpty(
             iconText: "♥️",
-            titleText: "No Favorites Yet",
-            subtitleText: "Add leagues from the Leagues screen"
+            titleText: L10n.emptyFavoritesTitle,
+            subtitleText: L10n.emptyFavoritesSubtitle
         )
     }
 }
@@ -105,7 +102,7 @@ extension FavoritesTableView {
         header.backgroundColor = .appBackground
         
         let label = UILabel()
-        label.text      = presenter.getSectionTitle(at: section).uppercased()
+        label.text      = presenter.getSectionTitle(at: section)
         label.font      = UIFont.systemFont(ofSize: 12, weight: .semibold)
         label.textColor = .primaryBlue
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -113,6 +110,7 @@ extension FavoritesTableView {
         header.addSubview(label)
         NSLayoutConstraint.activate([
             label.leadingAnchor.constraint(equalTo: header.leadingAnchor, constant: 16),
+            label.trailingAnchor.constraint(equalTo: header.trailingAnchor, constant: -16),
             label.centerYAnchor.constraint(equalTo: header.centerYAnchor)
         ])
         

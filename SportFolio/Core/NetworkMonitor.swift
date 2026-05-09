@@ -22,31 +22,34 @@ final class NetworkMonitor {
     
  
     func showNoInternet(on viewController: UIViewController) {
+        let titleStr = "📡  " + L10n.noInternetTitle
+        let msgStr   = "\n" + L10n.noInternetMessage
+
         let alert = UIAlertController(
-            title: "📡  No Internet Connection",
-            message: "\nIt looks like you're offline.\nPlease check your Wi-Fi or mobile data and try again.",
+            title: titleStr,
+            message: msgStr,
             preferredStyle: .actionSheet
         )
-        
+
         let titleAttr = NSAttributedString(
-            string: "📡  No Internet Connection",
+            string: titleStr,
             attributes: [
                 .font: UIFont.systemFont(ofSize: 17, weight: .bold),
                 .foregroundColor: UIColor.systemRed
             ]
         )
         let msgAttr = NSAttributedString(
-            string: "\nIt looks like you're offline.\nPlease check your Wi-Fi or mobile data and try again.",
+            string: msgStr,
             attributes: [
                 .font: UIFont.systemFont(ofSize: 14, weight: .regular),
                 .foregroundColor: UIColor.secondaryLabel
             ]
         )
-        
+
         alert.setValue(titleAttr, forKey: "attributedTitle")
         alert.setValue(msgAttr,   forKey: "attributedMessage")
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
-        
+        alert.addAction(UIAlertAction(title: L10n.alertOK, style: .cancel))
+
         viewController.present(alert, animated: true)
     }
 }

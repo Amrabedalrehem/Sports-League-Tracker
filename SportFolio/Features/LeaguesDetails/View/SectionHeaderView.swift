@@ -15,7 +15,7 @@ class SectionHeaderView: UICollectionReusableView {
     private let accentBar     = UIView()
     private let iconImageView = UIImageView()
     private let titleLabel    = UILabel()
-    let segmentedControl      = UISegmentedControl(items: ["Teams", "Players"])
+    let segmentedControl      = UISegmentedControl(items: [L10n.sectionTeams, L10n.sectionPlayers])
 
     weak var delegate: SectionHeaderDelegate?
     override init(frame: CGRect) {

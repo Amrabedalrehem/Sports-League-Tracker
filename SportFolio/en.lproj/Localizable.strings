@@ -1,0 +1,74 @@
+
+// MARK: – Navigation Titles
+"nav.sportfolio"   = "SportFolio";
+"nav.home"         = "Home";
+"nav.favorites"    = "Favorites";
+"nav.leagues"      = "Leagues";
+"nav.team"         = "Team";
+
+// MARK: – Search
+"search.placeholder" = "Search for leagues...";
+
+// MARK: – Alerts — General
+"alert.ok"     = "OK";
+"alert.cancel" = "Cancel";
+"alert.delete" = "Delete";
+
+"alert.error.title" = "⚠️  Something Went Wrong";
+
+// MARK: – Alerts — Favorites
+"alert.removeFavorite.title"   = "Remove Favorite";
+"alert.removeFavorite.message" = "Are you sure you want to remove this league from your favorites?";
+
+// MARK: – Empty States
+"empty.leagues.title"    = "Try Another Search";
+"empty.leagues.subtitle" = "No leagues found for this search";
+
+"empty.favorites.title"    = "No Favorites Yet";
+"empty.favorites.subtitle" = "Add leagues from the Leagues screen";
+
+"empty.team.title"    = "No Players Found";
+"empty.team.subtitle" = "This team has no available player data";
+
+// MARK: – Section Headers — League Details
+"section.upcomingMatches" = "Upcoming Matches";
+"section.latestMatches"   = "Latest Matches";
+"section.teams"           = "Teams";
+"section.players"         = "Players";
+
+// MARK: – Empty States — League Details — حالات الفراغ
+"empty.upcomingMatches" = "No upcoming matches";
+"empty.latestMatches"   = "No recent matches";
+"empty.teams"           = "No teams available";
+"empty.players"         = "No players available";
+
+// MARK: – Splash Screen
+"splash.tagline" = "Your Sports Universe";
+
+// MARK: – Sport Names
+"sport.football"   = "Football";
+"sport.basketball" = "Basketball";
+"sport.cricket"    = "Cricket";
+"sport.tennis"     = "Tennis";
+
+// MARK: – Team Sections
+"team.section.goalkeepers" = "GOALKEEPERS";
+"team.section.defenders"   = "DEFENDERS";
+"team.section.midfielders" = "MIDFIELDERS";
+"team.section.forwards"    = "FORWARDS";
+
+// MARK: – Player Card
+"player.age.prefix"  = "Age: ";
+"player.age.unknown" = "Age: --";
+"player.name.unknown" = "Unknown Player";
+"team.name.unknown"   = "Unknown Team";
+
+// MARK: – Empty State — Team Squad
+"empty.squad.title"    = "No Squad Available";
+"empty.squad.subtitle" = "Player data for this team isn't available right now.";
+
+// MARK: – No Internet
+"noInternet.title"   = "No Internet Connection";
+"noInternet.message" = "Please check your network settings and try again.";
+"noInternet.retry"   = "Retry";
+"noInternet.dismiss" = "Dismiss";

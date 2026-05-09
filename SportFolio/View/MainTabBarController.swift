@@ -8,7 +8,25 @@ class MainTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        localizeTabBarItems()
     }
+
+    private func localizeTabBarItems() {
+        guard let navControllers = viewControllers else { return }
+        for nav in navControllers {
+            let rootVC = (nav as? UINavigationController)?.viewControllers.first ?? nav
+            switch rootVC {
+            case is ViewController:        nav.tabBarItem.title = L10n.navHome
+            case is FavoritesTableView:    nav.tabBarItem.title = L10n.navFavorites
+            case is LeaguesViewTable:      nav.tabBarItem.title = L10n.navLeagues
+            default: break
+            }
+        }
+
+      
+        tabBar.semanticContentAttribute = .unspecified
+    }
+
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()

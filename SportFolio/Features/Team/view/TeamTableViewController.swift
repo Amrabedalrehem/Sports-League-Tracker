@@ -2,6 +2,7 @@
 //  TeamTableViewController.swift
 //  SportFolio
 //
+//
 
 import UIKit
 import SDWebImage
@@ -187,13 +188,13 @@ final class TeamTableViewController: UITableViewController, TeamView {
         let placeholder = UIImage(named: "playerPlaceholder")
 
         let name = player.playerName?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        cell.nameLabel.text = name.isEmpty ? "Unknown Player" : name
+        cell.nameLabel.text = name.isEmpty ? L10n.playerNameUnknown : name
 
         let number = player.playerNumber?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         cell.numberLabel.text = number.isEmpty ? "-" : number
 
         let age = player.playerAge?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        cell.subtitleLabel.text = age.isEmpty ? "Age: --" : "Age: \(age)"
+        cell.subtitleLabel.text = age.isEmpty ? L10n.playerAgeUnknown : L10n.playerAgePrefix + age
 
         cell.roleBadgeLabel.text = sectionType.badgeText
         cell.roleBadgeLabel.backgroundColor = sectionType.badgeColor
@@ -211,11 +212,13 @@ final class TeamTableViewController: UITableViewController, TeamView {
 
     func reloadData() {
 
+        
+        stopAnimating()
         cachedSections = sections.filter { !players(for: $0).isEmpty }
-
-        let teamName = presenter.getTeamName().trimmingCharacters(in: .whitespacesAndNewlines)
-        teamHeaderView.teamNameLabel.text = teamName.isEmpty ? "Unknown Team" : teamName
-
+        let teamName  = presenter.getTeamName().trimmingCharacters(in: .whitespacesAndNewlines)
+        let displayName = teamName.isEmpty ? L10n.teamNameUnknown : teamName
+        teamHeaderView.teamNameLabel.text = displayName
+        title = displayName
         let placeholderName: String
         if presenter.baseURL.contains("basketball") { placeholderName = "basketPlaceholder" }
         else if presenter.baseURL.contains("cricket") { placeholderName = "ckrichetPlaceholder" }
@@ -231,7 +234,6 @@ final class TeamTableViewController: UITableViewController, TeamView {
             teamHeaderView.teamLogoImageView.image = placeholder
         }
 
-        stopAnimating()
         tableView.reloadData()
         updateEmptyState()
     }
@@ -251,12 +253,11 @@ final class TeamTableViewController: UITableViewController, TeamView {
 
     func showError(message: String) {
         let alert = UIAlertController(
-            title: "⚠️ Something Went Wrong",
+            title: L10n.alertErrorTitle,
             message: message,
             preferredStyle: .actionSheet
         )
-
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+        alert.addAction(UIAlertAction(title: L10n.alertOK, style: .cancel))
         present(alert, animated: true)
     }
 }
