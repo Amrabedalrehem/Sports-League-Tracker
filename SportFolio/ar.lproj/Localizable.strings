@@ -72,3 +72,16 @@
 "noInternet.message" = "تحقق من إعدادات الشبكة وحاول مجدداً.";
 "noInternet.retry"   = "إعادة المحاولة";
 "noInternet.dismiss" = "إغلاق";
+
+// MARK:  onboarding 
+"onboarding.page1.title" = "اكتشف رياضاتك المفضلة";
+"onboarding.page1.description" = "استكشف كرة القدم وكرة السلة والتنس والكريكيت في مكان واحد. تابع أحدث الدوريات والمباريات والفرق بسهولة.";
+
+"onboarding.page2.title" = "كل الدوريات والفرق بين يديك";
+"onboarding.page2.description" = "احصل على معلومات تفصيلية عن الدوريات والفرق، بما في ذلك الإحصائيات والنتائج والمباريات القادمة — كل ما تحتاجه في لحظة.";
+
+"onboarding.page3.title" = "تابع ما تحب";
+"onboarding.page3.description" = "احفظ دورياتك المفضلة للوصول السريع والحصول على تحديثات مخصصة تناسب اهتماماتك.";
+
+"onboarding.next" = "التالي";
+"onboarding.getStarted" = "ابدأ الآن";

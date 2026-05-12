@@ -10,7 +10,7 @@
 		6827E32B2FA8EF75007DC1ED /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 6827E32A2FA8EF75007DC1ED /* Lottie */; };
 		686B98C12FA6077B00043D99 /* FavoriteLeague+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686B98BF2FA6077B00043D99 /* FavoriteLeague+CoreDataClass.swift */; };
 		686B98C22FA6077B00043D99 /* FavoriteLeague+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686B98C02FA6077B00043D99 /* FavoriteLeague+CoreDataProperties.swift */; };
-		6DB26FF22FABEE34005EA90A /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 6DB26FF12FABEE34005EA90A /* SkeletonView */; };
+		6DB281BB2FB1127B009F2538 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 6DB281BA2FB1127B009F2538 /* SkeletonView */; };
 		6DB9DC052FA156BE00EC05A2 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 6DB9DC042FA156BE00EC05A2 /* Reachability */; };
 		6DB9DC082FA156E000EC05A2 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 6DB9DC072FA156E000EC05A2 /* SDWebImageSwiftUI */; };
 		6DB9DC0B2FA158A200EC05A2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 6DB9DC0A2FA158A200EC05A2 /* Alamofire */; };
@@ -24,6 +24,13 @@
 			remoteGlobalIDString = 68E153B22FA098CE00C886DF;
 			remoteInfo = SportFolio;
 		};
+		68E153D72FA098CF00C886DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 68E153AB2FA098CE00C886DF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 68E153B22FA098CE00C886DF;
+			remoteInfo = SportFolio;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +38,7 @@
 		686B98C02FA6077B00043D99 /* FavoriteLeague+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteLeague+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		68E153B32FA098CE00C886DF /* SportFolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportFolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68E153CC2FA098CF00C886DF /* SportFolioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SportFolioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		68E153D62FA098CF00C886DF /* SportFolioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SportFolioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -68,11 +76,18 @@
 				6DB9DC082FA156E000EC05A2 /* SDWebImageSwiftUI in Frameworks */,
 				6DB9DC052FA156BE00EC05A2 /* Reachability in Frameworks */,
 				6827E32B2FA8EF75007DC1ED /* Lottie in Frameworks */,
-				6DB26FF22FABEE34005EA90A /* SkeletonView in Frameworks */,
+				6DB281BB2FB1127B009F2538 /* SkeletonView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		68E153C92FA098CF00C886DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68E153D32FA098CF00C886DF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -98,6 +113,7 @@
 			children = (
 				68E153B32FA098CE00C886DF /* SportFolio.app */,
 				68E153CC2FA098CF00C886DF /* SportFolioTests.xctest */,
+				68E153D62FA098CF00C886DF /* SportFolioUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -126,7 +142,7 @@
 				6DB9DC072FA156E000EC05A2 /* SDWebImageSwiftUI */,
 				6DB9DC0A2FA158A200EC05A2 /* Alamofire */,
 				6827E32A2FA8EF75007DC1ED /* Lottie */,
-				6DB26FF12FABEE34005EA90A /* SkeletonView */,
+				6DB281BA2FB1127B009F2538 /* SkeletonView */,
 			);
 			productName = SportFolio;
 			productReference = 68E153B32FA098CE00C886DF /* SportFolio.app */;
@@ -155,6 +171,26 @@
 			productReference = 68E153CC2FA098CF00C886DF /* SportFolioTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		68E153D52FA098CF00C886DF /* SportFolioUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68E153E72FA098CF00C886DF /* Build configuration list for PBXNativeTarget "SportFolioUITests" */;
+			buildPhases = (
+				68E153D22FA098CF00C886DF /* Sources */,
+				68E153D32FA098CF00C886DF /* Frameworks */,
+				68E153D42FA098CF00C886DF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				68E153D82FA098CF00C886DF /* PBXTargetDependency */,
+			);
+			name = SportFolioUITests;
+			packageProductDependencies = (
+			);
+			productName = SportFolioUITests;
+			productReference = 68E153D62FA098CF00C886DF /* SportFolioUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -169,6 +205,10 @@
 						CreatedOnToolsVersion = 16.3;
 					};
 					68E153CB2FA098CF00C886DF = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = 68E153B22FA098CE00C886DF;
+					};
+					68E153D52FA098CF00C886DF = {
 						CreatedOnToolsVersion = 16.3;
 						TestTargetID = 68E153B22FA098CE00C886DF;
 					};
@@ -189,7 +229,7 @@
 				6DB9DC062FA156E000EC05A2 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				6DB9DC092FA158A200EC05A2 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				6827E3292FA8EF75007DC1ED /* XCRemoteSwiftPackageReference "lottie-ios" */,
-				6DB26FF02FABEE34005EA90A /* XCRemoteSwiftPackageReference "SkeletonView" */,
+				6DB281B92FB1127B009F2538 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 68E153B42FA098CE00C886DF /* Products */;
@@ -198,6 +238,7 @@
 			targets = (
 				68E153B22FA098CE00C886DF /* SportFolio */,
 				68E153CB2FA098CF00C886DF /* SportFolioTests */,
+				68E153D52FA098CF00C886DF /* SportFolioUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -211,6 +252,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		68E153CA2FA098CF00C886DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68E153D42FA098CF00C886DF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -236,6 +284,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		68E153D22FA098CF00C886DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -243,6 +298,11 @@
 			isa = PBXTargetDependency;
 			target = 68E153B22FA098CE00C886DF /* SportFolio */;
 			targetProxy = 68E153CD2FA098CF00C886DF /* PBXContainerItemProxy */;
+		};
+		68E153D82FA098CF00C886DF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 68E153B22FA098CE00C886DF /* SportFolio */;
+			targetProxy = 68E153D72FA098CF00C886DF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -456,6 +516,38 @@
 			};
 			name = Release;
 		};
+		68E153E82FA098CF00C886DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = iti.SportFolioUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SportFolio;
+			};
+			name = Debug;
+		};
+		68E153E92FA098CF00C886DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = iti.SportFolioUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SportFolio;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -486,6 +578,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		68E153E72FA098CF00C886DF /* Build configuration list for PBXNativeTarget "SportFolioUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68E153E82FA098CF00C886DF /* Debug */,
+				68E153E92FA098CF00C886DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -497,7 +598,7 @@
 				minimumVersion = 4.6.0;
 			};
 		};
-		6DB26FF02FABEE34005EA90A /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+		6DB281B92FB1127B009F2538 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
 			requirement = {
@@ -537,9 +638,9 @@
 			package = 6827E3292FA8EF75007DC1ED /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
 		};
-		6DB26FF12FABEE34005EA90A /* SkeletonView */ = {
+		6DB281BA2FB1127B009F2538 /* SkeletonView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6DB26FF02FABEE34005EA90A /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			package = 6DB281B92FB1127B009F2538 /* XCRemoteSwiftPackageReference "SkeletonView" */;
 			productName = SkeletonView;
 		};
 		6DB9DC042FA156BE00EC05A2 /* Reachability */ = {

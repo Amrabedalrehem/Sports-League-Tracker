@@ -16,6 +16,9 @@ class OnboardingContentVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
+        view.semanticContentAttribute = .forceRightToLeft
+        titleLabel.textAlignment = .natural
+        descLabel.textAlignment = .natural
         setupGradient()
     }
 
@@ -34,7 +37,11 @@ class OnboardingContentVC: UIViewController {
         pageControl.numberOfPages = total
         pageControl.currentPage = index
         isLastPage = (index == total - 1)
-        actionButton.setTitle(isLastPage ? "Get Started" : "Next", for: .normal)
+        actionButton.setTitle(
+            isLastPage ? L10n.onboardingGetStarted : L10n.onboardingNext,
+            for: .normal
+        )
+        
     }
 
     @IBAction private func actionTapped(_ sender: UIButton) {

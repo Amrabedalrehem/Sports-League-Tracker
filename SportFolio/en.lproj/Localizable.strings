@@ -72,3 +72,17 @@
 "noInternet.message" = "Please check your network settings and try again.";
 "noInternet.retry"   = "Retry";
 "noInternet.dismiss" = "Dismiss";
+
+// MARK:  onboarding
+
+"onboarding.page1.title" = "Discover Your Favorite Sports";
+"onboarding.page1.description" = "Explore football, basketball, tennis, and cricket in one place. Stay updated with the latest leagues, matches, and teams.";
+
+"onboarding.page2.title" = "All Leagues & Teams in Your Pocket";
+"onboarding.page2.description" = "Get detailed information about leagues and teams, including stats, results, and upcoming matches—everything you need, instantly.";
+
+"onboarding.page3.title" = "Follow What You Love";
+"onboarding.page3.description" = "Save your favorite leagues to get quick access and personalized updates tailored just for you.";
+
+"onboarding.next" = "Next";
+"onboarding.getStarted" = "Get Started";

@@ -87,4 +87,18 @@ enum L10n {
     static let noInternetMessage = l("noInternet.message")
     static let noInternetRetry   = l("noInternet.retry")
     static let noInternetDismiss = l("noInternet.dismiss")
+    
+    
+    // MARK: Onboarding
+    static let onboardingPage1Title       = l("onboarding.page1.title")
+    static let onboardingPage1Description = l("onboarding.page1.description")
+
+    static let onboardingPage2Title       = l("onboarding.page2.title")
+    static let onboardingPage2Description = l("onboarding.page2.description")
+
+    static let onboardingPage3Title       = l("onboarding.page3.title")
+    static let onboardingPage3Description = l("onboarding.page3.description")
+    
+    static let onboardingNext = l("onboarding.next")
+    static let onboardingGetStarted = l("onboarding.getStarted")
 }
