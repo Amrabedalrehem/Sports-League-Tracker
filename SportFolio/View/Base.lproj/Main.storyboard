@@ -18,10 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5mz-VN-nT3">
-                                <rect key="frame" x="0.0" y="188" width="440" height="768"/>
-                                <color key="backgroundColor" name="AppBackground"/>
-                            </tableView>
                             <searchBar contentMode="redraw" placeholder="Serach For Leagues ..." translatesAutoresizingMaskIntoConstraints="NO" id="QLb-6n-aT0">
                                 <rect key="frame" x="0.0" y="124" width="440" height="64"/>
                                 <textInputTraits key="textInputTraits" spellCheckingType="yes" smartInsertDeleteType="yes"/>
@@ -29,6 +25,10 @@
                                     <outlet property="delegate" destination="Y8d-op-dZp" id="rDJ-Zo-oCW"/>
                                 </connections>
                             </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5mz-VN-nT3">
+                                <rect key="frame" x="0.0" y="188" width="440" height="768"/>
+                                <color key="backgroundColor" name="AppBackground"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YZx-ly-rG6"/>
                         <color key="backgroundColor" name="AppBackground"/>
@@ -137,32 +137,32 @@
                                 </connections>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sportsCollectionView">
-                                <rect key="frame" x="55" y="344" width="330" height="382.33333333333326"/>
+                                <rect key="frame" x="22" y="384" width="396" height="430.33333333333326"/>
                                 <color key="backgroundColor" name="AppBackground"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="20" sectionInsetReference="safeArea" id="sportsLayout">
-                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="itemSize" width="128" height="132"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="sportCell" id="sportCellId" customClass="SportCell" customModule="SportFolio" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="138.33333333333334"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="sportCellContent">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="138.33333333333334"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Basketball" translatesAutoresizingMaskIntoConstraints="NO" id="sportImage">
-                                                    <rect key="frame" x="28" y="14" width="72" height="72"/>
+                                                    <rect key="frame" x="24" y="16" width="80" height="80"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="72" id="imgH"/>
-                                                        <constraint firstAttribute="width" constant="72" id="imgW"/>
+                                                        <constraint firstAttribute="height" constant="80" id="imgH"/>
+                                                        <constraint firstAttribute="width" constant="80" id="imgW"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sportName">
-                                                    <rect key="frame" x="43.666666666666657" y="93" width="41" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="38" y="96" width="52" height="26.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -170,9 +170,9 @@
                                             <constraints>
                                                 <constraint firstItem="sportImage" firstAttribute="centerX" secondItem="sportCellContent" secondAttribute="centerX" id="c1"/>
                                                 <constraint firstItem="sportName" firstAttribute="centerX" secondItem="sportCellContent" secondAttribute="centerX" id="c2"/>
-                                                <constraint firstItem="sportName" firstAttribute="top" secondItem="sportImage" secondAttribute="bottom" constant="7" id="c3"/>
-                                                <constraint firstAttribute="bottom" secondItem="sportName" secondAttribute="bottom" constant="14" id="c4"/>
-                                                <constraint firstItem="sportImage" firstAttribute="top" secondItem="sportCellContent" secondAttribute="top" constant="14" id="c5"/>
+                                                <constraint firstItem="sportName" firstAttribute="top" secondItem="sportImage" secondAttribute="bottom" id="c3"/>
+                                                <constraint firstAttribute="bottom" secondItem="sportName" secondAttribute="bottom" constant="16" id="c4"/>
+                                                <constraint firstItem="sportImage" firstAttribute="top" secondItem="sportCellContent" secondAttribute="top" constant="16" id="c5"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
@@ -186,13 +186,6 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="delegateOutlet"/>
                                 </connections>
                             </collectionView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8O1-wr-q0I">
-                                <rect key="frame" x="0.0" y="55" width="440" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Title" id="1PF-n5-ngs"/>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="AppBackground"/>
@@ -203,16 +196,15 @@
                             <constraint firstItem="bannerCollectionView" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="bannerTop"/>
                             <constraint firstAttribute="trailing" secondItem="bannerCollectionView" secondAttribute="trailing" constant="22" id="bannerTrailing"/>
                             <constraint firstItem="sportsCollectionView" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="cv1"/>
-                            <constraint firstItem="sportsCollectionView" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.75" id="cv3"/>
-                            <constraint firstItem="sportsCollectionView" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.4" id="cv4"/>
-                            <constraint firstItem="sportsCollectionView" firstAttribute="top" secondItem="bannerCollectionView" secondAttribute="bottom" constant="24" id="sportsTop"/>
+                            <constraint firstItem="sportsCollectionView" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="9:10" id="cv3"/>
+                            <constraint firstItem="sportsCollectionView" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.45" id="cv4"/>
+                            <constraint firstItem="sportsCollectionView" firstAttribute="top" secondItem="bannerCollectionView" secondAttribute="bottom" constant="64" id="sportsTop"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="3by-HO-Vrb"/>
                     <navigationItem key="navigationItem" id="aNk-GO-cKJ"/>
                     <connections>
                         <outlet property="bannerCollectionView" destination="bannerCollectionView" id="mainBannerOutlet"/>
-                        <outlet property="navBar" destination="1PF-n5-ngs" id="dyS-pd-s9p"/>
                         <outlet property="sportsCollectionView" destination="sportsCollectionView" id="mainCollectionOutlet"/>
                     </connections>
                 </viewController>
@@ -362,18 +354,18 @@
                             </label>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="onbPageCtrl">
                                 <rect key="frame" x="183.66666666666666" y="756" width="72.999999999999972" height="26"/>
-                                <color key="tintColor" name="PrimaryBlue"/>
+                                <color key="tintColor" name="TabBarGradientStart"/>
                                 <color key="pageIndicatorTintColor" systemColor="systemGray4Color"/>
-                                <color key="currentPageIndicatorTintColor" name="PrimaryBlue"/>
+                                <color key="currentPageIndicatorTintColor" name="TabBarGradientStart"/>
                             </pageControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onbBtn">
                                 <rect key="frame" x="32" y="802" width="376" height="54"/>
-                                <color key="backgroundColor" name="PrimaryBlue"/>
+                                <color key="backgroundColor" name="TabBarGradientStart"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="btnHeight"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <color key="tintColor" name="PrimaryBlue"/>
+                                <color key="tintColor" name="TabBarGradientStart"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -430,17 +422,17 @@
         <namedColor name="AppBackground">
             <color red="0.94901960784313721" green="0.96078431372549022" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="PrimaryBlue">
-            <color red="0.1803921568627451" green="0.41960784313725491" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="TabBarGradientStart">
+            <color red="0.043137254901960784" green="0.23921568627450981" blue="0.81176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray4Color">
-            <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

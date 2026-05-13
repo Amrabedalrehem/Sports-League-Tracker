@@ -32,28 +32,26 @@ class ViewController: UIViewController,
 
 
     private var themeButton: UIBarButtonItem!
-    private var floatingThemeBtn: UIButton!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setupNavigationButton()
+      
         setupBannerLayout()
-        setupFloatingThemeButton()
         bannerCollectionView.dataSource = self
         bannerCollectionView.delegate = self
         sportsCollectionView.dataSource = self
         sportsCollectionView.delegate = self
-
         presenter.attachView(self)
-
         startBannerTimer()
-        setupUI()
+       
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
           applyNavBarAppearance(navigationController: navigationController)
+        setupNavigationButton()
+        
     }
 
      override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -74,39 +72,15 @@ class ViewController: UIViewController,
         let isDark = ThemeManager.shared.currentTheme == .dark
         navigationItem.title = L10n.navSportfolio
 
-        let imageName = isDark ? "lightbulb.fil" :"lightbulb"
-        let config    = UIImage.SymbolConfiguration(pointSize: 18, weight: .semibold)
+        let imageName = isDark ? "lightbulb.fill" :"lightbulb"
+        let config    = UIImage.SymbolConfiguration(pointSize: 16, weight: .semibold)
         let image     = UIImage(systemName: imageName, withConfiguration: config)
         themeButton   = UIBarButtonItem(image: image, style: .plain,
                                        target: self, action: #selector(themeTapped))
         navigationItem.rightBarButtonItem = themeButton
+        navigationController?.navigationBar.topItem?.rightBarButtonItem = themeButton
     }
 
-      private func setupFloatingThemeButton() {
-        let isDark   = ThemeManager.shared.currentTheme == .dark
-          let iconName = isDark ? "sun.max.fill" :"moon.fill"
-        let config   = UIImage.SymbolConfiguration(pointSize: 16, weight: .semibold)
-
-        floatingThemeBtn = UIButton(type: .system)
-        floatingThemeBtn.setImage(UIImage(systemName: iconName, withConfiguration: config), for: .normal)
-        floatingThemeBtn.tintColor            = .white
-        floatingThemeBtn.backgroundColor      = .tabBarGradientStart
-        floatingThemeBtn.layer.cornerRadius   = 22
-        floatingThemeBtn.layer.shadowColor    = UIColor.black.cgColor
-        floatingThemeBtn.layer.shadowOpacity  = 0.25
-        floatingThemeBtn.layer.shadowOffset   = CGSize(width: 0, height: 4)
-        floatingThemeBtn.layer.shadowRadius   = 8
-        floatingThemeBtn.translatesAutoresizingMaskIntoConstraints = false
-        floatingThemeBtn.addTarget(self, action: #selector(themeTapped), for: .touchUpInside)
-
-        view.addSubview(floatingThemeBtn)
-        NSLayoutConstraint.activate([
-            floatingThemeBtn.widthAnchor.constraint(equalToConstant: 44),
-            floatingThemeBtn.heightAnchor.constraint(equalToConstant: 44),
-            floatingThemeBtn.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            floatingThemeBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8)
-        ])
-    }
 
       private func setupBannerLayout() {
         guard let layout = bannerCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
@@ -118,25 +92,11 @@ class ViewController: UIViewController,
 
     @objc func themeTapped() {
             presenter.toggleTheme()
-
-           UIView.animate(withDuration: 0.12, animations: {
-            self.floatingThemeBtn.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
-        }) { _ in
-            UIView.animate(withDuration: 0.15,
-                           delay: 0,
-                           usingSpringWithDamping: 0.5,
-                           initialSpringVelocity: 6) {
-                self.floatingThemeBtn.transform = .identity
-            }
-        }
-
         UIImpactFeedbackGenerator(style: .medium).impactOccurred()
     }
 
    
-    func setupUI() {
-        view.backgroundColor = .appBackground
-    }
+   
 
    
     func reloadData() {
@@ -209,21 +169,30 @@ class ViewController: UIViewController,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         if collectionView == bannerCollectionView {
+
             return CGSize(width: collectionView.frame.width,
                           height: collectionView.frame.height)
+
         } else {
 
-            let spacing: CGFloat = 10
             let itemsPerRow: CGFloat = 2
-            let total = (itemsPerRow + 1) * spacing
 
-            let width = (collectionView.bounds.width - total) / itemsPerRow
-
-            return CGSize(width: width, height: width)
+            let width = (collectionView.bounds.width / itemsPerRow)-16
+            return CGSize(width: width , height: width + 100)
         }
     }
-
    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+
+        if collectionView == bannerCollectionView {
+            return 0
+        }
+
+        return 24
+    }
+  
     func startBannerTimer() {
 
         bannerTimer = Timer.scheduledTimer(
@@ -258,11 +227,8 @@ class ViewController: UIViewController,
 
     func updateThemeButton(isDark: Bool) {
         let navIconName = isDark ?   "lightbulb" :"lightbulb.fill"
-        let config      = UIImage.SymbolConfiguration(pointSize: 18, weight: .semibold)
+        let config      = UIImage.SymbolConfiguration(pointSize: 16, weight: .semibold)
         themeButton.image = UIImage(systemName: navIconName, withConfiguration: config)
 
-        let floatIconName = isDark ?  "sun.max.fill" :"moon.fill"
-        let floatConfig   = UIImage.SymbolConfiguration(pointSize: 16, weight: .semibold)
-        floatingThemeBtn?.setImage(UIImage(systemName: floatIconName, withConfiguration: floatConfig), for: .normal)
     }
 }
