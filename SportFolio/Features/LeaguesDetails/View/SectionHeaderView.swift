@@ -31,8 +31,6 @@ class SectionHeaderView: UICollectionReusableView {
     
     private func setupUI() {
         backgroundColor = .clear
-
-      
         accentBar.backgroundColor = .primaryBlue
         accentBar.layer.cornerRadius = 2
         accentBar.translatesAutoresizingMaskIntoConstraints = false
@@ -85,11 +83,15 @@ class SectionHeaderView: UICollectionReusableView {
     }
 
     
-    func configure(title: String, systemIcon: String, showSegmentControl: Bool = false, selectedSegment: Int = 0) {
+    func configure(title: String, systemIcon: String, showSegmentControl: Bool = false, selectedSegment: Int = 0, isTennis : Bool = false) {
         titleLabel.text = title
         let config = UIImage.SymbolConfiguration(pointSize: 13, weight: .semibold)
         iconImageView.image = UIImage(systemName: systemIcon, withConfiguration: config)
         segmentedControl.isHidden = !showSegmentControl
+        if isTennis
+        {
+            segmentedControl.isHidden = true
+        }
         if showSegmentControl {
             segmentedControl.selectedSegmentIndex = selectedSegment
         }

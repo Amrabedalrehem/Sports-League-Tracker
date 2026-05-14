@@ -82,15 +82,47 @@ class LeaguesDetailsCollectionViewController: UICollectionViewController {
     }
 
     @objc private func favoriteButtonTapped() {
+
         guard let button = favoriteButton?.customView as? UIButton else { return }
-        UIView.animate(withDuration: 0.2) {
-            button.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
-        } completion: { _ in
-            UIView.animate(withDuration: 0.2) { button.transform = .identity }
+
+        let isCurrentlyFavorite = leaguesDetailsPresenter.isFavorite()
+
+        if isCurrentlyFavorite {
+
+            AlertManager.showDeleteConfirmation(on: self) { [weak self] in
+                guard let self = self else { return }
+
+                UIView.animate(withDuration: 0.2) {
+                    button.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
+                } completion: { _ in
+                    UIView.animate(withDuration: 0.2) {
+                        button.transform = .identity
+                    }
+                }
+
+                let isFavorite = self.leaguesDetailsPresenter.toggleFavorite()
+
+                self.updateFavoriteButtonIcon(button, isFavorite: isFavorite)
+
+                UIImpactFeedbackGenerator(style: .light).impactOccurred()
+            }
+
+        } else {
+
+            UIView.animate(withDuration: 0.2) {
+                button.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
+            } completion: { _ in
+                UIView.animate(withDuration: 0.2) {
+                    button.transform = .identity
+                }
+            }
+
+            let isFavorite = leaguesDetailsPresenter.toggleFavorite()
+
+            updateFavoriteButtonIcon(button, isFavorite: isFavorite)
+
+            UIImpactFeedbackGenerator(style: .light).impactOccurred()
         }
-        let isFavorite = leaguesDetailsPresenter.toggleFavorite()
-        updateFavoriteButtonIcon(button, isFavorite: isFavorite)
-        UIImpactFeedbackGenerator(style: .light).impactOccurred()
     }
 
     func updateFavoriteButtonIcon(_ button: UIButton, isFavorite: Bool) {

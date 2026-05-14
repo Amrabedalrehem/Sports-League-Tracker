@@ -26,13 +26,27 @@ extension LeaguesDetailsCollectionViewController {
         case 1:
             header.configure(title: L10n.sectionLatestMatches, systemIcon: "flag.checkered")
         case 2:
-            let title = currentItemSegment == 0 ? L10n.sectionTeams : L10n.sectionPlayers
-            header.configure(
-                title: title,
-                systemIcon: currentItemSegment == 0 ? "person.3.fill" : "figure.run",
-                showSegmentControl: true,
-                selectedSegment: currentItemSegment
-            )
+            if leaguesDetailsPresenter.getSportType() != .tennis
+            {
+                let title = currentItemSegment == 0 ? L10n.sectionTeams : L10n.sectionPlayers
+                header.configure(
+                    title: title,
+                    systemIcon: currentItemSegment == 0 ? "person.3.fill" : "figure.run",
+                    showSegmentControl: true,
+                    selectedSegment: currentItemSegment
+                )
+            }else{
+                currentItemSegment = 1
+                let title =  L10n.sectionPlayers
+                header.configure(
+                    title: title,
+                    systemIcon:  "figure.run",
+                    showSegmentControl: true,
+                    selectedSegment: currentItemSegment,
+                    isTennis: true
+                    
+                )
+            }
         default:
             header.configure(title: "", systemIcon: "")
         }
