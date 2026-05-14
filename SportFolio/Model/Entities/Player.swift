@@ -23,6 +23,10 @@ struct PlayerModel: Codable {
     let playerMinutes:   String?
     let playerBirthdate: String?
     let playerIsCaptain: String?
+	let playerMatchPlayed: String?
+	let playerGoalsConceded: String?
+	let playerSaves: String?
+	let playerRating: String?
 
     enum CodingKeys: String, CodingKey {
         case playerKey       = "player_key"
@@ -38,5 +42,9 @@ struct PlayerModel: Codable {
         case playerMinutes   = "player_minutes"
         case playerBirthdate = "player_birthdate"
         case playerIsCaptain = "player_is_captain"
+		case playerMatchPlayed = "player_match_played"
+		case playerGoalsConceded = "player_goals_conceded"
+		case playerSaves = "player_saves"
+		case playerRating = "player_rating"
     }
 }

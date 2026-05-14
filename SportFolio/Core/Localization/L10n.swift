@@ -101,4 +101,16 @@ enum L10n {
     
     static let onboardingNext = l("onboarding.next")
     static let onboardingGetStarted = l("onboarding.getStarted")
+
+
+	// MARK: player
+	static let playerAge = l("player.age")
+	static let captain = l("player.captain")
+	static let unknown = l("common.unknown")
+	static let playerStatRating = l("player.stat.rating")
+	static let playerStatMinutes = l("player.stat.minutes")
+	static let playerStatPlayed = l("player.stat.played")
+	static let playerStatGConc = l("player.stat.gconc")
+	static let playerStatSaves = l("player.stat.saves")
+
 }

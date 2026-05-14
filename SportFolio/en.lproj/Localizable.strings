@@ -86,3 +86,9 @@
 
 "onboarding.next" = "Next";
 "onboarding.getStarted" = "Get Started";
+
+// MARK: player
+"player.age" = "age";
+"player.captain"  = "© Captain";
+"common.unknown"  = "--";
+

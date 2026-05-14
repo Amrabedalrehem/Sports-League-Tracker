@@ -85,3 +85,17 @@
 
 "onboarding.next" = "التالي";
 "onboarding.getStarted" = "ابدأ الآن";
+
+
+// MARK: player
+"player.age" = "العمر";
+"player.captain"  = "© قائد";
+"common.unknown"  = "--";
+
+// MARK: – Player Details — عناوين الإحصائيات
+"player.stat.rating"  = "التقييم";
+"player.stat.minutes" = "الدقائق";
+"player.stat.played"  = "مباريات";
+"player.stat.gconc"   = "أهداف مسجلة";
+"player.stat.saves"   = "التصديات";
+
