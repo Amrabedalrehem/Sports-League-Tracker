@@ -10,7 +10,7 @@ import Foundation
 
 struct APIConstants {
     
-    static let apiKey = "d8ac069ebc43e11124af0fee2e8fb82b4a99118799c5f43fec33cfd7c382dc1d"
+    static let apiKey = "461d44772f3080859d35ecaa733f35c295f4eacbbea318188a89aa927a037ee9"
     static let baseUrl = "https://apiv2.allsportsapi.com/"
     struct BaseURL {
         static let football   = "\(baseUrl)football/"

@@ -54,7 +54,7 @@
                                                     <constraint firstAttribute="height" constant="70" id="sP1-7A-dzT"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Team" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ljg-O5-OuV">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Team" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="YES" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="ljg-O5-OuV">
                                                 <rect key="frame" x="7.6666666666666643" y="78" width="74.666666666666686" height="15.666666666666671"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                 <nil key="highlightedColor"/>
@@ -108,7 +108,7 @@
                                                     <constraint firstAttribute="height" constant="70" id="qLm-Gj-P2O"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Away Team" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kiD-Ab-6NI">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Away Team" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="YES" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="kiD-Ab-6NI">
                                                 <rect key="frame" x="9.6666666666666572" y="78" width="70.666666666666671" height="15.666666666666671"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                 <nil key="highlightedColor"/>

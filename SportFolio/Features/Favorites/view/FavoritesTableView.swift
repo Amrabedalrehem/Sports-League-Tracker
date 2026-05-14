@@ -11,6 +11,7 @@ import SDWebImage
 
 protocol FavoritesView: AnyObject {
     func reloadData()
+    func showDeleteConfirmation( indexPath :IndexPath)
     func showNoInternet()
 }
 
@@ -30,25 +31,7 @@ class FavoritesTableView: UITableViewController {
         presenter.loadFavorites()
     }
     
-    private func showDeleteConfirmation(for indexPath: IndexPath) {
-        let alert = UIAlertController(
-            title: L10n.alertRemoveFavoriteTitle,
-            message: L10n.alertRemoveFavoriteMessage,
-            preferredStyle: .alert
-        )
-
-        let deleteAction = UIAlertAction(title: L10n.alertDelete, style: .destructive) { [weak self] _ in
-            guard let self = self,
-                  let favorite = self.presenter.getFavorite(section: indexPath.section, row: indexPath.row) else { return }
-            CoreDataManager.shared.removeFavorite(leagueKey: favorite.leagueKey)
-            self.presenter.loadFavorites()
-        }
-
-        let cancelAction = UIAlertAction(title: L10n.alertCancel, style: .cancel, handler: nil)
-        alert.addAction(deleteAction)
-        alert.addAction(cancelAction)
-        present(alert, animated: true, completion: nil)
-    }
+  
     
     private func setupTableView() {
         tableView.register(
@@ -82,6 +65,24 @@ extension FavoritesTableView: FavoritesView {
     
     func showNoInternet() {
         NetworkMonitor.shared.showNoInternet(on: self)
+    }
+    
+    func showDeleteConfirmation( indexPath :IndexPath)
+    {
+        AlertManager.showDeleteConfirmation(on: self) { [weak self] in
+            
+            guard let self = self,
+                  let favorite = self.presenter.getFavorite(
+                    section: indexPath.section,
+                    row: indexPath.row
+                  ) else { return }
+            
+            CoreDataManager.shared.removeFavorite(
+                leagueKey: favorite.leagueKey
+            )
+            
+            self.presenter.loadFavorites()
+        }
     }
 }
 
@@ -152,12 +153,12 @@ extension FavoritesTableView {
 }
 
 extension FavoritesTableView {
-    
+   
     override func tableView(_ tableView: UITableView,
                             commit editingStyle: UITableViewCell.EditingStyle,
                             forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            showDeleteConfirmation(for: indexPath)
+            showDeleteConfirmation(indexPath:  indexPath)
         }
     }
     

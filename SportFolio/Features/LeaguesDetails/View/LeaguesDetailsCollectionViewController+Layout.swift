@@ -33,7 +33,7 @@ extension LeaguesDetailsCollectionViewController {
                     layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
                 item.contentInsets = NSDirectionalEdgeInsets(top: 6, leading: 8, bottom: 6, trailing: 8)
                 let group = NSCollectionLayoutGroup.horizontal(
-                    layoutSize: .init(widthDimension: .fractionalWidth(0.88), heightDimension: .absolute(200)),
+                    layoutSize: .init(widthDimension: .fractionalWidth(0.89), heightDimension: .absolute(220)),
                     subitems: [item])
                 let section = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .groupPaging
@@ -54,11 +54,11 @@ extension LeaguesDetailsCollectionViewController {
 
             case 2:
                 let segCount = self.currentItemSegment == 0
-                    ? (self.leaguesDetailsPresenter?.getNumberOfTeams() ?? 0)
+                       ? (self.leaguesDetailsPresenter?.getNumberOfTeams() ?? 0)
                     : (self.leaguesDetailsPresenter?.getNumberOfPlayers() ?? 0)
 
                 if segCount == 0 {
-                  
+
                     let item = NSCollectionLayoutItem(
                         layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
                     let group = NSCollectionLayoutGroup.horizontal(
@@ -87,7 +87,7 @@ extension LeaguesDetailsCollectionViewController {
             }
         }
     }
-
+    
     func createHeader(height: CGFloat) -> NSCollectionLayoutBoundarySupplementaryItem {
         return NSCollectionLayoutBoundarySupplementaryItem(
             layoutSize: NSCollectionLayoutSize(

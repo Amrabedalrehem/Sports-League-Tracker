@@ -44,7 +44,9 @@ class ViewController: UIViewController,
         sportsCollectionView.delegate = self
         presenter.attachView(self)
         startBannerTimer()
-       
+        navigationController?.navigationBar.topItem?.title = L10n.navSportfolio
+        
+      
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -66,6 +68,14 @@ class ViewController: UIViewController,
 
         
     }
+    
+    private func setupBannerLayout() {
+      guard let layout = bannerCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+      layout.scrollDirection  = .horizontal
+      layout.minimumLineSpacing = 0
+      bannerCollectionView.isPagingEnabled = true
+      bannerCollectionView.showsHorizontalScrollIndicator = false
+  }
 
      
     func setupNavigationButton() {
@@ -77,18 +87,12 @@ class ViewController: UIViewController,
         let image     = UIImage(systemName: imageName, withConfiguration: config)
         themeButton   = UIBarButtonItem(image: image, style: .plain,
                                        target: self, action: #selector(themeTapped))
-        navigationItem.rightBarButtonItem = themeButton
+        
         navigationController?.navigationBar.topItem?.rightBarButtonItem = themeButton
+       
     }
 
 
-      private func setupBannerLayout() {
-        guard let layout = bannerCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
-        layout.scrollDirection  = .horizontal
-        layout.minimumLineSpacing = 0
-        bannerCollectionView.isPagingEnabled = true
-        bannerCollectionView.showsHorizontalScrollIndicator = false
-    }
 
     @objc func themeTapped() {
             presenter.toggleTheme()
@@ -96,7 +100,12 @@ class ViewController: UIViewController,
     }
 
    
-   
+    func updateThemeButton(isDark: Bool) {
+        let navIconName = isDark ?   "lightbulb" :"lightbulb.fill"
+        let config      = UIImage.SymbolConfiguration(pointSize: 16, weight: .semibold)
+        themeButton.image = UIImage(systemName: navIconName, withConfiguration: config)
+
+    }
 
    
     func reloadData() {
@@ -160,7 +169,7 @@ class ViewController: UIViewController,
         leaguesVC.presenter = LeaguesPresenter(
             sportType: presenter.getSport(at: indexPath.row).sportType
         )
-
+       
         navigationController?.pushViewController(leaguesVC, animated: true)
     }
 
@@ -225,10 +234,5 @@ class ViewController: UIViewController,
         NetworkMonitor.shared.showNoInternet(on: self)
     }
 
-    func updateThemeButton(isDark: Bool) {
-        let navIconName = isDark ?   "lightbulb" :"lightbulb.fill"
-        let config      = UIImage.SymbolConfiguration(pointSize: 16, weight: .semibold)
-        themeButton.image = UIImage(systemName: navIconName, withConfiguration: config)
-
-    }
+    
 }
