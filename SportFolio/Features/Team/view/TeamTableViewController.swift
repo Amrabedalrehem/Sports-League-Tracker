@@ -210,6 +210,23 @@ final class TeamTableViewController: UITableViewController, TeamView {
         return cell
     }
 
+
+	override func tableView(_ tableView: UITableView,didSelectRowAt indexPath: IndexPath) {
+		let playerVC = storyboard?.instantiateViewController(
+			withIdentifier: "PlayerCollectionViewController"
+		) as! PlayerCollectionViewController
+
+		let player = presenter.getPlayer(indexPath: indexPath.row)
+		playerVC.presnter = PlayerPresenter(
+			network: NetworkServiceImpl.shared,
+			baseURL: presenter.getBaseURL(),
+			playerKey: player.playerKey!,
+			view: playerVC
+		)
+		playerVC.title = player.playerName ?? L10n.playerNameUnknown
+		navigationController?.pushViewController(playerVC, animated: true)
+	}
+
     func reloadData() {
 
         

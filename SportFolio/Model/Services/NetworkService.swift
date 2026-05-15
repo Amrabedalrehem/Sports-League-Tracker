@@ -43,7 +43,7 @@ protocol NetworkService {
 	func getPlayerDetails
 	(
 		baseURL: String,
-		playerKey: Int,
+		playerId: Int,
 		completion: @escaping (Result<PlayerResponse, Error>) -> Void
 	)
 }
@@ -144,13 +144,16 @@ class NetworkServiceImpl : NetworkService{
 
 	func getPlayerDetails(
 		baseURL: String,
-		playerKey: Int,
+		playerId: Int,
 		completion: @escaping (Result<PlayerResponse, any Error>) -> Void
 	) {
 		APIClient.shared
 			.request(
 				baseURL: baseURL,
-				params: ["met": "Players"],
+				params: [
+					"met": "Players",
+					"playerId" : playerId
+				],
 				responseType: PlayerResponse.self,
 				completion:completion
 			)

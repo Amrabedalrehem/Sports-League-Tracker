@@ -91,4 +91,6 @@
 "player.age" = "age";
 "player.captain"  = "© Captain";
 "common.unknown"  = "--";
+"empty.player.title" = "No Available Data";
+"empty.player.subtitle" = "Player details could not be loaded.";
 

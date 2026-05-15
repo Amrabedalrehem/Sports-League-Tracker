@@ -55,7 +55,16 @@ final class TeamPresenter {
                 }
             }
         }
+
     }
+
+	func getPlayer(indexPath:Int )->PlayerModel{
+		return players[indexPath]
+	}
+
+	func getBaseURL() ->String{
+		return baseURL
+	}
 
     func getTeamName() -> String {
         team?.teamName ?? ""

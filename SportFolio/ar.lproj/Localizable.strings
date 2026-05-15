@@ -98,4 +98,5 @@
 "player.stat.played"  = "مباريات";
 "player.stat.gconc"   = "أهداف مسجلة";
 "player.stat.saves"   = "التصديات";
-
+"empty.player.title" = "لا توجد بيانات";
+"empty.player.subtitle" = "تعذر تحميل بيانات اللاعب";

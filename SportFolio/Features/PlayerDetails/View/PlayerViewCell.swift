@@ -5,7 +5,7 @@
 
 import UIKit
 import SkeletonView
-final class PlayerViewCell: UITableViewCell {
+final class PlayerViewCell: UICollectionViewCell {
 
 
 
@@ -145,7 +145,4 @@ final class PlayerViewCell: UITableViewCell {
 
 
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
 }

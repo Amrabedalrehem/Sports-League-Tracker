@@ -112,5 +112,7 @@ enum L10n {
 	static let playerStatPlayed = l("player.stat.played")
 	static let playerStatGConc = l("player.stat.gconc")
 	static let playerStatSaves = l("player.stat.saves")
+	static let emptyPlayerTitle = l("empty.player.title")
+	static let emptyPlayerSubtitle = l("empty.player.subtitle")
 
 }
