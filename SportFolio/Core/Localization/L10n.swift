@@ -142,4 +142,7 @@ enum L10n {
 	static let emptyPlayerTitle    = l("empty_player_title")
 	static let emptyPlayerSubtitle = l("empty_player_subtitle")
 
+	static let emptyPlayerStats = l("empty.player.stats")
+	static let emptyPlayerTournaments = l("empty.player.tournaments")
+
 }

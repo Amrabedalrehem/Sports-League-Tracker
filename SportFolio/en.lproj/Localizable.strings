@@ -113,4 +113,5 @@
 "tournament_prize"   = "Prize";
 "empty_player_title"    = "Player Not Found";
 "empty_player_subtitle" = "We couldn't load this player's details.";
-
+"empty.player.stats" = "No statistics available";
+"empty.player.tournaments" = "No tournaments available";

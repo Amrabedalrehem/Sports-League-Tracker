@@ -127,7 +127,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
-                <color key="backgroundColor" name="CardBackground"/>
+                <color key="backgroundColor" name="AppBackground"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="CARD-view" secondAttribute="bottom" constant="5" id="card-bot"/>
                     <constraint firstItem="CARD-view" firstAttribute="leading" secondItem="CV-content" secondAttribute="leading" id="card-lead"/>
@@ -135,7 +135,7 @@
                     <constraint firstAttribute="trailing" secondItem="CARD-view" secondAttribute="trailing" id="card-trail"/>
                 </constraints>
             </collectionViewCellContentView>
-            <color key="backgroundColor" name="CardBackground"/>
+            <color key="backgroundColor" name="AppBackground"/>
             <connections>
                 <outlet property="cardView" destination="CARD-view" id="out-card"/>
                 <outlet property="nameLabel" destination="NAME-label" id="out-name"/>
@@ -151,6 +151,9 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <namedColor name="AppBackground">
+            <color red="0.94901960784313721" green="0.96078431372549022" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="CardBackground">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

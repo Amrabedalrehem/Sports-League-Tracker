@@ -29,11 +29,12 @@ final class PlayerViewCell: UICollectionViewCell {
 	@IBOutlet weak var gConcTitleLabel:    UILabel!
 	@IBOutlet weak var savesTitleLabel:    UILabel!
 
-		// MARK: - Lifecycle
+
 
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		setupSkeletonSupport()
+		prepareForReuse()
 		styleCard()
 		styleAvatar()
 		styleRoleBadge()
@@ -41,49 +42,52 @@ final class PlayerViewCell: UICollectionViewCell {
 		applyRTLIfNeeded()
 		localizeStatTitles()
 	}
+	override func prepareForReuse() {
+		super.prepareForReuse()
 
-		// MARK: - Skeleton
-		// ─────────────────────────────────────────────────────────────────────────
-		// SkeletonView rule: shimmer only reaches a view when EVERY ancestor
-		// between it and the skeletonable root is also isSkeletonable = true.
-		//
-		// XIB hierarchy:
-		//   Cell → contentView → cardView
-		//     ├─ numberLabel          (direct child ✓)
-		//     ├─ avatarImageView      (direct child ✓)
-		//     ├─ INFO-stack           ← stack view, must be marked
-		//     │    ├─ nameLabel
-		//     │    └─ metaLabel
-		//     ├─ roleBadgeLabel       (direct child ✓)
-		//     ├─ STATS-hstack         ← must be marked
-		//     │    ├─ STAT1-vstack    ← must be marked
-		//     │    │    ├─ ratingLabel
-		//     │    │    └─ ratingTitleLabel
-		//     │    ├─ STAT2-vstack … (same pattern)
-		//     ├─ ageLabel             (direct child ✓)
-		//     └─ captainLabel         (direct child ✓)
-		// ─────────────────────────────────────────────────────────────────────────
+		avatarImageView.image = UIImage(named: "playerPlaceholder")
+
+		numberLabel.text = nil
+		nameLabel.text = nil
+		metaLabel.text = nil
+
+		roleBadgeLabel.text = nil
+		roleBadgeLabel.isHidden = true
+
+		ratingLabel.text = "-"
+		minutesLabel.text = "-"
+		matchPlayedLabel.text = "-"
+
+		goalsConcededLabel.text = "-"
+		savesLabel.text = "-"
+
+		ageLabel.text = nil
+		ageLabel.isHidden = true
+
+		captainLabel.isHidden = true
+	}
+
 	private func setupSkeletonSupport() {
 		isSkeletonable             = true
 		contentView.isSkeletonable = true
 		cardView.isSkeletonable    = true
 
-			// Avatar – circular placeholder
+
 		avatarImageView.isSkeletonable      = true
 		avatarImageView.skeletonCornerRadius = 28
 
-			// Direct children of cardView
+
 		numberLabel.isSkeletonable    = true
 		roleBadgeLabel.isSkeletonable = true
 		ageLabel.isSkeletonable       = true
 		captainLabel.isSkeletonable   = true
 
-			// INFO stack (nameLabel.superview = UIStackView)
+
 		nameLabel.superview?.isSkeletonable = true
 		nameLabel.isSkeletonable            = true
 		metaLabel.isSkeletonable            = true
 
-			// STATS hstack → 5 vStacks → labels
+
 		markStatStack(value: ratingLabel,        title: ratingTitleLabel)
 		markStatStack(value: minutesLabel,       title: minutesTitleLabel)
 		markStatStack(value: matchPlayedLabel,   title: playedTitleLabel)
@@ -96,11 +100,11 @@ final class PlayerViewCell: UICollectionViewCell {
 		title.isSkeletonable = true
 		if let vStack = value.superview {
 			vStack.isSkeletonable            = true
-			vStack.superview?.isSkeletonable = true   // hStack
+			vStack.superview?.isSkeletonable = true
 		}
 	}
 
-		// MARK: - Configure
+
 
 	func configure(with player: PlayerModel) {
 		numberLabel.text = player.playerNumber ?? L10n.unknown
@@ -108,34 +112,46 @@ final class PlayerViewCell: UICollectionViewCell {
 
 		let meta = [player.playerCountry ?? "", player.playerBirthdate ?? ""]
 			.filter { !$0.isEmpty }.joined(separator: " · ")
-		metaLabel.text     = meta.isEmpty ? nil : meta
-		metaLabel.isHidden = meta.isEmpty
+		metaLabel.text = meta.isEmpty ? L10n.unknown : meta
+		metaLabel.isHidden = false
 
 		avatarImageView.sd_setImage(
 			with: URL(string: player.avatarURL ?? ""),
 			placeholderImage: UIImage(named: "playerPlaceholder")
 		)
 
-		if let type = player.playerType, !type.isEmpty {
-			roleBadgeLabel.text     = type.uppercased()
+		if let type = player.playerType?.trimmingCharacters(in: .whitespacesAndNewlines),
+		   !type.isEmpty {
+
+			roleBadgeLabel.text = type.uppercased()
 			roleBadgeLabel.isHidden = false
+
 		} else {
+
+			roleBadgeLabel.text = nil
 			roleBadgeLabel.isHidden = true
 		}
-
+		roleBadgeLabel.isHidden = false
 		ratingLabel.text      = player.playerRating      ?? "-"
 		minutesLabel.text     = player.playerMinutes     ?? "-"
 		matchPlayedLabel.text = player.playerMatchPlayed ?? "-"
 
-		bind(value: goalsConcededLabel, title: gConcTitleLabel,  text: player.playerGoalsConceded)
-		bind(value: savesLabel,         title: savesTitleLabel,   text: player.playerSaves)
+		let isGoalKeeper =
+		player.playerType?.lowercased().contains("goalkeeper") == true
 
-		if let age = player.playerAge, !age.isEmpty {
-			ageLabel.text     = "\(L10n.playerAge): \(age)"
-			ageLabel.isHidden = false
-		} else {
-			ageLabel.isHidden = true
-		}
+		bind(
+			value: goalsConcededLabel,
+			title: gConcTitleLabel,
+			text: isGoalKeeper ? player.playerGoalsConceded : nil
+		)
+
+		bind(
+			value: savesLabel,
+			title: savesTitleLabel,
+			text: isGoalKeeper ? player.playerSaves : nil
+		)
+		ageLabel.text = "\(L10n.playerAge): \(player.playerAge ?? "-")"
+		ageLabel.isHidden = false
 
 		captainLabel.text     = L10n.captain
 		captainLabel.isHidden = player.playerIsCaptain != "1"
@@ -172,7 +188,7 @@ final class PlayerViewCell: UICollectionViewCell {
 		ageLabel.textAlignment               = .right
 	}
 
-		// MARK: - Styling
+
 
 	private func styleCard() {
 		cardView.layer.cornerRadius  = 16

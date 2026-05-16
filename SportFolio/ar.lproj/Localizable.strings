@@ -116,3 +116,5 @@
 "tournament_prize"   = "جائزة مالية";
 "empty_player_title"    = "اللاعب غير موجود";
 "empty_player_subtitle" = "تعذّر تحميل بيانات هذا اللاعب.";
+"empty.player.stats" = "لا توجد إحصائيات متاحة";
+"empty.player.tournaments" = "لا توجد بطولات متاحة";

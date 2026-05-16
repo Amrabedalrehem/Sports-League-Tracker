@@ -23,7 +23,7 @@ final class TournamentCell: UICollectionViewCell {
 
     @IBOutlet weak var surfaceIconLabel:  UILabel!
 
-  
+
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -48,19 +48,18 @@ final class TournamentCell: UICollectionViewCell {
 
 
         let surface = tournament.surface
-        surfaceValueLabel.text = surface ?? "-"
+		surfaceValueLabel.text = (surface?.isEmpty == false) ? surface : "-"
         surfaceIconLabel.text  = surfaceEmoji(for: surface)
-        let hasSurface = surface != nil && !surface!.isEmpty
-        surfaceTitleLabel.isHidden = !hasSurface
-        surfaceValueLabel.isHidden = !hasSurface
-        surfaceIconLabel.isHidden  = !hasSurface
+		surfaceTitleLabel.isHidden = false
+		surfaceValueLabel.isHidden = false
+		surfaceIconLabel.isHidden  = false
 
 
         let prize = tournament.prize
-        prizeValueLabel.text = prize ?? "-"
+		prizeValueLabel.text = (prize?.isEmpty == false) ? prize : "-"
         let hasPrize = prize != nil && !prize!.isEmpty
-        prizeTitleLabel.isHidden = !hasPrize
-        prizeValueLabel.isHidden = !hasPrize
+		prizeTitleLabel.isHidden = false
+		prizeValueLabel.isHidden = false
     }
 
 

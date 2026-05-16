@@ -64,13 +64,20 @@ final class PlayerCollectionViewController: UICollectionViewController {
 			forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
 			withReuseIdentifier: ReuseID.header
 		)
+
+		collectionView.register(
+			UICollectionViewCell.self,
+			forCellWithReuseIdentifier: emptyCellId
+		)
 	}
 
 
 
 	private func makeLayout() -> UICollectionViewCompositionalLayout {
 
-		UICollectionViewCompositionalLayout { [weak self] sectionIndex, _ in
+		UICollectionViewCompositionalLayout {
+ [weak self] sectionIndex,
+ _ in
 
 			guard let section = PlayerSection(rawValue: sectionIndex) else { return nil }
 
@@ -91,16 +98,17 @@ final class PlayerCollectionViewController: UICollectionViewController {
 
 
 				case .seasonStats:
-					let itemCount = self?.presenter.getStats().count ?? 1
-					guard itemCount > 0 else { return nil }
+					let itemCount = max(self?.presenter.getStats().count ?? 0, 1)
 
 					let item  = NSCollectionLayoutItem(
 						layoutSize: .init(widthDimension: .fractionalWidth(1),
 										  heightDimension: .fractionalHeight(1))
 					)
 					let group = NSCollectionLayoutGroup.horizontal(
-						layoutSize: .init(widthDimension: .absolute(260),
-										  heightDimension: .absolute(230)),
+						layoutSize: .init(
+							widthDimension: .fractionalWidth(0.9),
+										  heightDimension: .absolute(itemCount == 0 ? 120 : 230)
+),
 						subitems: [item]
 					)
 					let section = NSCollectionLayoutSection(group: group)
@@ -112,8 +120,8 @@ final class PlayerCollectionViewController: UICollectionViewController {
 
 
 				case .tournaments:
-					let itemCount = self?.presenter.getTournaments().count ?? 1
-					guard itemCount > 0 else { return nil }
+
+					let itemCount = max(self?.presenter.getTournaments().count ?? 0, 1)
 
 					let item  = NSCollectionLayoutItem(
 						layoutSize: .init(widthDimension: .fractionalWidth(1),
@@ -121,7 +129,9 @@ final class PlayerCollectionViewController: UICollectionViewController {
 					)
 					let group = NSCollectionLayoutGroup.vertical(
 						layoutSize: .init(widthDimension: .fractionalWidth(1),
-										  heightDimension: .absolute(110)),
+										  heightDimension: .absolute(
+											itemCount == 0 ? 120 : 110
+										  )),
 						subitems: [item]
 					)
 					group.contentInsets = .init(top: 0, leading: 16, bottom: 0, trailing: 16)
@@ -152,11 +162,28 @@ final class PlayerCollectionViewController: UICollectionViewController {
 		_ collectionView: UICollectionView,
 		numberOfItemsInSection section: Int
 	) -> Int {
-		guard let s = PlayerSection(rawValue: section) else { return 0 }
-		if presenter.getPlayerData() == nil {
-			return s == .hero ? 1 : 0
+
+		guard let s = PlayerSection(rawValue: section) else {
+			return 0
 		}
-		return presenter.numberOfItems(in: s)
+
+		if presenter.getPlayerData() == nil {
+
+			switch s {
+				case .hero:
+					return 1
+
+				case .seasonStats:
+					return 3
+
+				case .tournaments:
+					return 4
+			}
+		}
+
+		let count = presenter.numberOfItems(in: s)
+
+		return count == 0 ? 1 : count
 	}
 
 	override func collectionView(
@@ -181,21 +208,47 @@ final class PlayerCollectionViewController: UICollectionViewController {
 				return cell
 
 			case .seasonStats:
+
+				if presenter.getStats().isEmpty {
+
+					return makeEmptyCell(
+						collectionView,
+						indexPath: indexPath,
+						icon: "chart.bar.xaxis",
+						message: L10n.emptyPlayerStats
+					)
+				}
+
 				let cell = collectionView.dequeueReusableCell(
-					withReuseIdentifier: ReuseID.stat, for: indexPath
+					withReuseIdentifier: ReuseID.stat,
+					for: indexPath
 				) as! PlayerStatCell
 
 				let stat = presenter.getStats()[indexPath.item]
 				cell.configure(with: stat)
+
 				return cell
 
 			case .tournaments:
+
+				if presenter.getTournaments().isEmpty {
+
+					return makeEmptyCell(
+						collectionView,
+						indexPath: indexPath,
+						icon: "trophy",
+						message: L10n.emptyPlayerTournaments
+					)
+				}
+
 				let cell = collectionView.dequeueReusableCell(
-					withReuseIdentifier: ReuseID.tournament, for: indexPath
+					withReuseIdentifier: ReuseID.tournament,
+					for: indexPath
 				) as! TournamentCell
 
 				let tournament = presenter.getTournaments()[indexPath.item]
 				cell.configure(with: tournament)
+
 				return cell
 		}
 	}
@@ -254,7 +307,7 @@ extension PlayerCollectionViewController: PlayerView {
 	}
 
 	func showPlayer() {
-
+		collectionView.backgroundView = nil
 		collectionView.reloadData()
 	}
 
@@ -280,21 +333,48 @@ extension PlayerCollectionViewController: PlayerView {
 extension PlayerCollectionViewController: SkeletonCollectionViewDataSource {
 
 	func numSections(in collectionSkeletonView: UICollectionView) -> Int {
-
-		return 1
+		return PlayerSection.allCases.count
 	}
 
 	func collectionSkeletonView(
 		_ skeletonView: UICollectionView,
 		numberOfItemsInSection section: Int
 	) -> Int {
-		return 1
+
+		guard let playerSection = PlayerSection(rawValue: section) else {
+			return 0
+		}
+
+		switch playerSection {
+			case .hero:
+				return 1
+
+			case .seasonStats:
+				return 3
+
+			case .tournaments:
+				return 4
+		}
 	}
 
 	func collectionSkeletonView(
 		_ skeletonView: UICollectionView,
 		cellIdentifierForItemAt indexPath: IndexPath
 	) -> ReusableCellIdentifier {
-		return ReuseID.hero
+
+		guard let section = PlayerSection(rawValue: indexPath.section) else {
+			return ReuseID.hero
+		}
+
+		switch section {
+			case .hero:
+				return ReuseID.hero
+
+			case .seasonStats:
+				return ReuseID.stat
+
+			case .tournaments:
+				return ReuseID.tournament
+		}
 	}
 }

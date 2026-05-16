@@ -211,16 +211,26 @@ final class TeamTableViewController: UITableViewController, TeamView {
     }
 
 
-	override func tableView(_ tableView: UITableView,didSelectRowAt indexPath: IndexPath) {
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		guard indexPath.section < cachedSections.count else { return }
+
+		let sectionType = cachedSections[indexPath.section]
+		let playersList = players(for: sectionType)
+
+		guard indexPath.row < playersList.count else { return }
+
+		let player = playersList[indexPath.row]
+
+		guard let playerKey = player.playerKey else { return }
+
 		let playerVC = storyboard?.instantiateViewController(
 			withIdentifier: "PlayerCollectionViewController"
 		) as! PlayerCollectionViewController
 
-		let player = presenter.getPlayer(indexPath: indexPath.row)
 		playerVC.presenter = PlayerPresenter(
 			network: NetworkServiceImpl.shared,
 			baseURL: presenter.getBaseURL(),
-			playerKey: player.playerKey!,
+			playerKey: playerKey,
 			view: playerVC
 		)
 		playerVC.title = player.playerName ?? L10n.playerNameUnknown
