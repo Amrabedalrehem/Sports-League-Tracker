@@ -93,10 +93,26 @@
 "common.unknown"  = "--";
 
 // MARK: – Player Details — عناوين الإحصائيات
-"player.stat.rating"  = "التقييم";
-"player.stat.minutes" = "الدقائق";
-"player.stat.played"  = "مباريات";
-"player.stat.gconc"   = "أهداف مسجلة";
-"player.stat.saves"   = "التصديات";
-"empty.player.title" = "لا توجد بيانات";
-"empty.player.subtitle" = "تعذر تحميل بيانات اللاعب";
+
+"player_stat_rating"  = "التقييم";
+"player_stat_minutes" = "الدقائق";
+"player_stat_played"  = "المباريات";
+"player_stat_g_conc"  = "أهداف استقبلها";
+"player_stat_saves"   = "تصديات";
+"player_age"          = "العمر";
+"player_name_unknown" = "لاعب غير معروف";
+"captain"             = "© القائد";
+"unknown"             = "–";
+"player_age_unknown"  = "–";
+"player_section_stats"       = "إحصائيات الموسم";
+"player_section_tournaments" = "البطولات";
+"player_stat_rank"    = "الترتيب";
+"player_stat_titles"  = "الألقاب";
+"player_stat_overall" = "الإجمالي";
+"player_stat_hard"    = "أرضية صلبة";
+"player_stat_clay"    = "أرضية ترابية";
+"player_stat_grass"   = "أرضية عشبية";
+"tournament_surface" = "نوع الأرضية";
+"tournament_prize"   = "جائزة مالية";
+"empty_player_title"    = "اللاعب غير موجود";
+"empty_player_subtitle" = "تعذّر تحميل بيانات هذا اللاعب.";

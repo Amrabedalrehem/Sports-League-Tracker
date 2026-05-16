@@ -228,7 +228,7 @@ extension LeaguesDetailsCollectionViewController {
 		if case .player(let player) = item, let playerKey = player.playerKey {
 			let playerVC = storyboard?.instantiateViewController(withIdentifier: "PlayerCollectionViewController") as! PlayerCollectionViewController
 
-			playerVC.presnter = PlayerPresenter(
+			playerVC.presenter = PlayerPresenter(
 				network: NetworkServiceImpl.shared,
 				baseURL:leaguesDetailsPresenter.getBaseURL(),
 				playerKey: playerKey,

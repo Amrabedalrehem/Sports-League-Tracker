@@ -217,7 +217,7 @@ final class TeamTableViewController: UITableViewController, TeamView {
 		) as! PlayerCollectionViewController
 
 		let player = presenter.getPlayer(indexPath: indexPath.row)
-		playerVC.presnter = PlayerPresenter(
+		playerVC.presenter = PlayerPresenter(
 			network: NetworkServiceImpl.shared,
 			baseURL: presenter.getBaseURL(),
 			playerKey: player.playerKey!,

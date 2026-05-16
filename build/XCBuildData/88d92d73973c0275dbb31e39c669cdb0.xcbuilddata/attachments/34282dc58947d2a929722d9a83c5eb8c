@@ -1,0 +1,346 @@
+{
+  "" : {
+    "const-values" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/SportFolio-primary.swiftconstvalues",
+    "dependencies" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/SportFolio-primary.d",
+    "diagnostics" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/SportFolio-primary.dia",
+    "emit-module-dependencies" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/SportFolio-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/SportFolio-primary-emit-module.dia",
+    "pch" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/SportFolio-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/SportFolio-primary.swiftdeps"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/FavoriteLeague+CoreDataClass.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/FavoriteLeague+CoreDataClass.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/FavoriteLeague+CoreDataClass.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/FavoriteLeague+CoreDataClass.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/FavoriteLeague+CoreDataProperties.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/FavoriteLeague+CoreDataProperties.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/FavoriteLeague+CoreDataProperties.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/FavoriteLeague+CoreDataProperties.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/AppDelegate.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/AppDelegate.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/AppDelegate.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/AppDelegate.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Core/AppTheme.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/AppTheme.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/AppTheme.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/AppTheme.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Core/ColorsHelper.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/ColorsHelper.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/ColorsHelper.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/ColorsHelper.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Core/DeletingMessage.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/DeletingMessage.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/DeletingMessage.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/DeletingMessage.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Core/EmptyMessage.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/EmptyMessage.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/EmptyMessage.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/EmptyMessage.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Core/Localization/AppLanguage.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/AppLanguage.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/AppLanguage.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/AppLanguage.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Core/Localization/L10n.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/L10n.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/L10n.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/L10n.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Core/NetworkMonitor.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/NetworkMonitor.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/NetworkMonitor.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/NetworkMonitor.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Core/navBar.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/navBar.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/navBar.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/navBar.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/Favorites/presenter/FavoritesPresenter.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/FavoritesPresenter.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/FavoritesPresenter.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/FavoritesPresenter.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/Favorites/view/FavoritesSectionHeaderView.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/FavoritesSectionHeaderView.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/FavoritesSectionHeaderView.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/FavoritesSectionHeaderView.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/Favorites/view/FavoritesTableView.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/FavoritesTableView.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/FavoritesTableView.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/FavoritesTableView.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/Home/presenter/SportsPresenter.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/SportsPresenter.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/SportsPresenter.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/SportsPresenter.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/Home/view/BannerCell.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/BannerCell.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/BannerCell.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/BannerCell.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/Home/view/SportCell.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/SportCell.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/SportCell.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/SportCell.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/Home/view/SportView.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/SportView.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/SportView.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/SportView.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/Leagues/presenter/LeaguesPresenter.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/LeaguesPresenter.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/LeaguesPresenter.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/LeaguesPresenter.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/Leagues/view/LeaguesViewTable.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/LeaguesViewTable.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/LeaguesViewTable.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/LeaguesViewTable.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/LeaguesDetails/Presenter/LeaguesDetailsPresenter.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/LeaguesDetailsPresenter.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/LeaguesDetailsPresenter.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/LeaguesDetailsPresenter.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/LeaguesDetails/View/LatestEventCollectionViewCell.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/LatestEventCollectionViewCell.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/LatestEventCollectionViewCell.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/LatestEventCollectionViewCell.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/LeaguesDetails/View/LatestEventsContainerCell.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/LatestEventsContainerCell.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/LatestEventsContainerCell.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/LatestEventsContainerCell.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/LeaguesDetails/View/LeaguesDetailsCollectionViewController+DataSource.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/LeaguesDetailsCollectionViewController+DataSource.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/LeaguesDetailsCollectionViewController+DataSource.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/LeaguesDetailsCollectionViewController+DataSource.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/LeaguesDetails/View/LeaguesDetailsCollectionViewController+Extensions.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/LeaguesDetailsCollectionViewController+Extensions.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/LeaguesDetailsCollectionViewController+Extensions.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/LeaguesDetailsCollectionViewController+Extensions.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/LeaguesDetails/View/LeaguesDetailsCollectionViewController+Layout.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/LeaguesDetailsCollectionViewController+Layout.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/LeaguesDetailsCollectionViewController+Layout.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/LeaguesDetailsCollectionViewController+Layout.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/LeaguesDetails/View/LeaguesDetailsCollectionViewController.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/LeaguesDetailsCollectionViewController.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/LeaguesDetailsCollectionViewController.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/LeaguesDetailsCollectionViewController.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/LeaguesDetails/View/SectionHeaderView.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/SectionHeaderView.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/SectionHeaderView.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/SectionHeaderView.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/LeaguesDetails/View/ShimmerOverlayView.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/ShimmerOverlayView.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/ShimmerOverlayView.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/ShimmerOverlayView.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/LeaguesDetails/View/TeamCollectionViewCell.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/TeamCollectionViewCell.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/TeamCollectionViewCell.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/TeamCollectionViewCell.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/LeaguesDetails/View/UpcomingEventCollectionViewCell.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/UpcomingEventCollectionViewCell.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/UpcomingEventCollectionViewCell.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/UpcomingEventCollectionViewCell.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/OnBoarding/Model/OnboardingPage.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/OnboardingPage.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/OnboardingPage.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/OnboardingPage.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/OnBoarding/Presenter/OnBoardingPresenter.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/OnBoardingPresenter.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/OnBoardingPresenter.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/OnBoardingPresenter.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/OnBoarding/View/OnboardingContentVC.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/OnboardingContentVC.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/OnboardingContentVC.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/OnboardingContentVC.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/OnBoarding/View/OnboardingView.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/OnboardingView.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/OnboardingView.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/OnboardingView.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/PlayerDetails/Presenter/PlayerPresnter.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/PlayerPresnter.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/PlayerPresnter.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/PlayerPresnter.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/PlayerDetails/View/PlayerCollectionViewController.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/PlayerCollectionViewController.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/PlayerCollectionViewController.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/PlayerCollectionViewController.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/PlayerDetails/View/PlayerStatCell.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/PlayerStatCell.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/PlayerStatCell.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/PlayerStatCell.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/PlayerDetails/View/PlayerViewCell.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/PlayerViewCell.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/PlayerViewCell.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/PlayerViewCell.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/PlayerDetails/View/PlyerView.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/PlyerView.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/PlyerView.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/PlyerView.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/PlayerDetails/View/TournamentCell.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/TournamentCell.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/TournamentCell.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/TournamentCell.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/Splash/presenter/splashPresenter.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/splashPresenter.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/splashPresenter.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/splashPresenter.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/Splash/view/splahView.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/splahView.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/splahView.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/splahView.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/Team/presenter/TeamPresenter.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/TeamPresenter.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/TeamPresenter.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/TeamPresenter.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/Team/presenter/TeamSection.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/TeamSection.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/TeamSection.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/TeamSection.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/Team/view/TeamEmptyStateView.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/TeamEmptyStateView.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/TeamEmptyStateView.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/TeamEmptyStateView.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/Team/view/TeamSectionHeaderView.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/TeamSectionHeaderView.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/TeamSectionHeaderView.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/TeamSectionHeaderView.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/Team/view/TeamTableHeaderView.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/TeamTableHeaderView.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/TeamTableHeaderView.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/TeamTableHeaderView.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/Team/view/TeamTableViewController.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/TeamTableViewController.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/TeamTableViewController.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/TeamTableViewController.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Features/Team/view/TeamViewCell.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/TeamViewCell.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/TeamViewCell.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/TeamViewCell.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Model/CoreData/CoreDataManager.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/CoreDataManager.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/CoreDataManager.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/CoreDataManager.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Model/CoreData/FavoritesDataSource.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/FavoritesDataSource.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/FavoritesDataSource.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/FavoritesDataSource.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Model/Entities/Event.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/Event.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/Event.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/Event.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Model/Entities/League.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/League.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/League.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/League.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Model/Entities/LeagueItem.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/LeagueItem.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/LeagueItem.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/LeagueItem.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Model/Entities/Player.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/Player.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/Player.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/Player.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Model/Entities/SportModel.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/SportModel.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/SportModel.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/SportModel.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Model/Entities/SportType.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/SportType.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/SportType.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/SportType.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Model/Entities/Standing.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/Standing.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/Standing.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/Standing.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Model/Entities/Team.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/Team.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/Team.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/Team.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Model/Services/APIClient.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/APIClient.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/APIClient.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/APIClient.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Model/Services/APIConstants.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/APIConstants.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/APIConstants.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/APIConstants.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/Model/Services/NetworkService.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/NetworkService.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/NetworkService.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/NetworkService.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/SceneDelegate.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/SceneDelegate.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/SceneDelegate.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/SceneDelegate.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/View/LeaguesCell/cellDetials.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/cellDetials.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/cellDetials.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/cellDetials.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/SportFolio/View/MainTabBarController.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/MainTabBarController.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/MainTabBarController.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/MainTabBarController.o"
+  },
+  "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "index-unit-output-path" : "/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/taqieallah/Desktop/Sports-League-Tracker/build/SportFolio.build/Release-iphoneos/SportFolio.build/Objects-normal/arm64/GeneratedAssetSymbols.o"
+  }
+}

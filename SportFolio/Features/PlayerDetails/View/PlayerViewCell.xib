@@ -40,17 +40,21 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="INFO-stack">
                                 <rect key="frame" x="114" y="10" width="119.66666666666669" height="56"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="David Raya" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAME-label">
-                                        <rect key="frame" x="0.0" y="0.0" width="119.66666666666667" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAME-label">
+                                        <rect key="frame" x="0.0" y="0.0" width="119.66666666666667" height="3"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <color key="textColor" name="MainText"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" text="Spain · 15 Sep 1995" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="META-label">
-                                        <rect key="frame" x="0.0" y="27" width="119.66666666666667" height="29"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="META-label">
+                                        <rect key="frame" x="0.0" y="6" width="119.66666666666667" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" name="SecondaryText"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isHiddenWhenSkeletonIsActive" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </label>
                                 </subviews>
+                                <color key="backgroundColor" name="CardBackground"/>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="GK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROLE-label">
                                 <rect key="frame" x="327" y="29" width="30" height="18"/>
@@ -63,9 +67,14 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DIV1-view">
                                 <rect key="frame" x="12" y="76" width="345" height="1"/>
+                                <color key="backgroundColor" name="CardBackground"/>
+                                <color key="tintColor" name="CardBackground"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="div1-h"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="STATS-hstack">
                                 <rect key="frame" x="12" y="85" width="345" height="56"/>
@@ -74,102 +83,161 @@
                                         <rect key="frame" x="0.0" y="0.0" width="64.333333333333329" height="56"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" text="★" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STAT1-icon">
-                                                <rect key="frame" x="24" y="0.0" width="16" height="22"/>
+                                                <rect key="frame" x="24" y="0.0" width="16" height="19.333333333333332"/>
+                                                <color key="backgroundColor" name="CardBackground"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="7.8" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTG-label">
-                                                <rect key="frame" x="21.666666666666664" y="24" width="21" height="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTG-label">
+                                                <rect key="frame" x="7" y="21.333333333333325" width="50" height="32.666666666666657"/>
+                                                <color key="backgroundColor" name="CardBackground"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                 <color key="textColor" name="MainText"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Rating" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STAT1-title">
-                                                <rect key="frame" x="16.666666666666664" y="44" width="31" height="12"/>
+                                                <rect key="frame" x="16.666666666666664" y="56" width="31" height="0.0"/>
+                                                <color key="backgroundColor" name="CardBackground"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                 <color key="textColor" name="SecondaryText"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" name="CardBackground"/>
+                                        <color key="tintColor" name="CardBackground"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="STAT2-vstack">
                                         <rect key="frame" x="70.333333333333329" y="0.0" width="63.999999999999986" height="56"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" text="⏱" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STAT2-icon">
-                                                <rect key="frame" x="20.333333333333343" y="0.0" width="23" height="22"/>
+                                                <rect key="frame" x="20.333333333333343" y="0.0" width="23" height="19.333333333333332"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="2430" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIN-label">
-                                                <rect key="frame" x="12.666666666666671" y="24" width="38.333333333333336" height="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIN-label">
+                                                <rect key="frame" x="7" y="21.333333333333325" width="50" height="32.666666666666657"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                 <color key="textColor" name="MainText"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Minutes" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STAT2-title">
-                                                <rect key="frame" x="12.666666666666671" y="44" width="38.333333333333336" height="12"/>
+                                                <rect key="frame" x="12.666666666666671" y="56" width="38.333333333333336" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                 <color key="textColor" name="SecondaryText"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                         </subviews>
+                                        <color key="backgroundColor" name="CardBackground"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="STAT3-vstack">
                                         <rect key="frame" x="140.33333333333334" y="0.0" width="64.333333333333343" height="56"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" text="🏆" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STAT3-icon">
-                                                <rect key="frame" x="20.666666666666657" y="0.0" width="23" height="22"/>
+                                                <rect key="frame" x="20.666666666666657" y="0.0" width="23" height="19.333333333333332"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="27" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLY-label">
-                                                <rect key="frame" x="23.333333333333314" y="24" width="18" height="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLY-label">
+                                                <rect key="frame" x="7.3333333333333144" y="21.333333333333325" width="50" height="32.666666666666657"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                 <color key="textColor" name="MainText"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Played" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STAT3-title">
-                                                <rect key="frame" x="16.333333333333314" y="44" width="32" height="12"/>
+                                                <rect key="frame" x="16.333333333333314" y="56" width="32" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                 <color key="textColor" name="SecondaryText"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHiddenWhenSkeletonIsActive" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                         </subviews>
+                                        <color key="backgroundColor" name="CardBackground"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="STAT4-vstack">
                                         <rect key="frame" x="210.66666666666666" y="0.0" width="63.999999999999972" height="56"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" text="⚽" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STAT4-icon">
-                                                <rect key="frame" x="20.666666666666686" y="0.0" width="23" height="22"/>
+                                                <rect key="frame" x="20.666666666666686" y="0.0" width="23" height="19.333333333333332"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="22" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GC-label">
-                                                <rect key="frame" x="22.666666666666657" y="24" width="18.666666666666671" height="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GC-label">
+                                                <rect key="frame" x="7" y="21.333333333333325" width="50" height="32.666666666666657"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                 <color key="textColor" name="MainText"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="G.Conc" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STAT4-title">
-                                                <rect key="frame" x="14.333333333333346" y="44" width="35.333333333333343" height="12"/>
+                                                <rect key="frame" x="14.333333333333346" y="56" width="35.333333333333343" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                 <color key="textColor" name="SecondaryText"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                         </subviews>
+                                        <color key="backgroundColor" name="CardBackground"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="STAT5-vstack">
                                         <rect key="frame" x="280.66666666666669" y="0.0" width="64.333333333333314" height="56"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" text="🧤" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STAT5-icon">
-                                                <rect key="frame" x="20.666666666666629" y="0.0" width="23" height="22"/>
+                                                <rect key="frame" x="20.666666666666629" y="0.0" width="23" height="19.333333333333332"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="98" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SAV-label">
-                                                <rect key="frame" x="22.333333333333314" y="24" width="19.666666666666671" height="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SAV-label">
+                                                <rect key="frame" x="7.3333333333333144" y="21.333333333333325" width="50" height="32.666666666666657"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                 <color key="textColor" name="MainText"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Saves" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STAT5-title">
-                                                <rect key="frame" x="18" y="44" width="28.666666666666671" height="12"/>
+                                                <rect key="frame" x="18" y="56" width="28.666666666666671" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                 <color key="textColor" name="SecondaryText"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                         </subviews>
+                                        <color key="backgroundColor" name="CardBackground"/>
                                     </stackView>
                                 </subviews>
+                                <color key="backgroundColor" name="CardBackground"/>
+                                <color key="tintColor" name="CardBackground"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DIV2-view">
                                 <rect key="frame" x="12" y="149" width="345" height="1"/>
+                                <color key="backgroundColor" name="CardBackground"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="div2-h"/>
                                 </constraints>
@@ -190,6 +258,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" name="CardBackground"/>
+                        <color key="tintColor" name="CardBackground"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="AGE-label" secondAttribute="bottom" constant="8" id="age-bot"/>
                             <constraint firstItem="AGE-label" firstAttribute="leading" secondItem="CARD-view" secondAttribute="leading" constant="12" id="age-lead"/>
@@ -217,9 +286,12 @@
                             <constraint firstItem="STATS-hstack" firstAttribute="top" secondItem="DIV1-view" secondAttribute="bottom" constant="8" id="stats-top"/>
                             <constraint firstAttribute="trailing" secondItem="STATS-hstack" secondAttribute="trailing" constant="12" id="stats-trail"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
-                <color key="backgroundColor" name="CardBackground"/>
+                <color key="backgroundColor" name="AppBackground"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="CARD-view" secondAttribute="bottom" constant="8" id="cv-card-bot"/>
                     <constraint firstItem="CARD-view" firstAttribute="leading" secondItem="CV-content" secondAttribute="leading" constant="12" id="cv-card-lead"/>
@@ -252,6 +324,9 @@
         </tableViewCell>
     </objects>
     <resources>
+        <namedColor name="AppBackground">
+            <color red="0.94901960784313721" green="0.96078431372549022" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="CardBackground">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

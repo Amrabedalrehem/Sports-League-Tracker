@@ -103,16 +103,43 @@ enum L10n {
     static let onboardingGetStarted = l("onboarding.getStarted")
 
 
-	// MARK: player
-	static let playerAge = l("player.age")
-	static let captain = l("player.captain")
-	static let unknown = l("common.unknown")
-	static let playerStatRating = l("player.stat.rating")
-	static let playerStatMinutes = l("player.stat.minutes")
-	static let playerStatPlayed = l("player.stat.played")
-	static let playerStatGConc = l("player.stat.gconc")
-	static let playerStatSaves = l("player.stat.saves")
-	static let emptyPlayerTitle = l("empty.player.title")
-	static let emptyPlayerSubtitle = l("empty.player.subtitle")
+		// MARK: - Player
+	static let playerAge            = l("player.age")
+	static let playerCaptain       = l("player.captain")
+	static let commonUnknown       = l("common.unknown")
+
+		// MARK: - Player Details
+	static let playerStatRating    = l("player_stat_rating")
+	static let playerStatMinutes   = l("player_stat_minutes")
+	static let playerStatPlayed    = l("player_stat_played")
+	static let playerStatGoalsConc = l("player_stat_g_conc")
+	static let playerStatSaves     = l("player_stat_saves")
+
+	static let playerAgeValue      = l("player_age")
+	static let playerNameUnknown2  = l("player_name_unknown")
+
+	static let captain             = l("captain")
+	static let unknown             = l("unknown")
+	static let playerAgeUnknown2   = l("player_age_unknown")
+
+		// MARK: - Player Sections
+	static let playerSectionStats       = l("player_section_stats")
+	static let playerSectionTournaments = l("player_section_tournaments")
+
+		// MARK: - Player Stats
+	static let playerStatRank     = l("player_stat_rank")
+	static let playerStatTitles   = l("player_stat_titles")
+	static let playerStatOverall  = l("player_stat_overall")
+	static let playerStatHard     = l("player_stat_hard")
+	static let playerStatClay     = l("player_stat_clay")
+	static let playerStatGrass    = l("player_stat_grass")
+
+		// MARK: - Tournament
+	static let tournamentSurface  = l("tournament_surface")
+	static let tournamentPrize    = l("tournament_prize")
+
+		// MARK: - Empty Player
+	static let emptyPlayerTitle    = l("empty_player_title")
+	static let emptyPlayerSubtitle = l("empty_player_subtitle")
 
 }

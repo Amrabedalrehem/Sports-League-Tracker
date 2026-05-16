@@ -1,0 +1,321 @@
+{
+  "" : {
+    "const-values" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonView-primary.swiftconstvalues",
+    "dependencies" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonView-primary.d",
+    "diagnostics" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonView-primary.dia",
+    "emit-module-dependencies" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonView-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonView-primary-emit-module.dia",
+    "pch" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonView-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonView-primary.swiftdeps"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/API/AnimationBuilder/SkeletonAnimationBuilder.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonAnimationBuilder.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonAnimationBuilder.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonAnimationBuilder.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/API/Appearance/SkeletonAppearance.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonAppearance.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonAppearance.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonAppearance.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/API/Collections/CollectionViews/SkeletonCollectionViewProtocols.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonCollectionViewProtocols.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonCollectionViewProtocols.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonCollectionViewProtocols.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/API/Collections/TableViews/SkeletonTableViewProtocols.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonTableViewProtocols.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonTableViewProtocols.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonTableViewProtocols.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/API/Deprecated.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/Deprecated.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/Deprecated.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/Deprecated.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/API/FoundationExtensions/Notification+SkeletonFlow.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/Notification+SkeletonFlow.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/Notification+SkeletonFlow.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/Notification+SkeletonFlow.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/API/Models/GradientDirection.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/GradientDirection.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/GradientDirection.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/GradientDirection.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/API/Models/SkeletonGradient.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonGradient.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonGradient.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonGradient.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/API/Models/SkeletonTextLineHeight.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonTextLineHeight.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonTextLineHeight.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonTextLineHeight.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/API/Models/SkeletonTextNumberOfLines.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonTextNumberOfLines.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonTextNumberOfLines.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonTextNumberOfLines.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/API/Models/SkeletonTransitionStyle.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonTransitionStyle.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonTransitionStyle.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonTransitionStyle.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/API/Models/SkeletonType.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonType.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonType.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonType.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/API/SkeletonExtended.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonExtended.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonExtended.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonExtended.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/API/SkeletonView.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonView.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonView.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonView.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/API/UIKitExtensions/CALayer+Animations.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/CALayer+Animations.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/CALayer+Animations.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/CALayer+Animations.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/API/UIKitExtensions/UICollectionView+Extensions.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UICollectionView+Extensions.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UICollectionView+Extensions.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UICollectionView+Extensions.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/API/UIKitExtensions/UILabel+IBInspectable.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UILabel+IBInspectable.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UILabel+IBInspectable.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UILabel+IBInspectable.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/API/UIKitExtensions/UILabel+SKExtensions.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UILabel+SKExtensions.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UILabel+SKExtensions.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UILabel+SKExtensions.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/API/UIKitExtensions/UITextView+IBInspectable.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UITextView+IBInspectable.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UITextView+IBInspectable.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UITextView+IBInspectable.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/API/UIKitExtensions/UITextView+SKExtensions.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UITextView+SKExtensions.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UITextView+SKExtensions.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UITextView+SKExtensions.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/API/UIKitExtensions/UIView+IBInspectable.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UIView+IBInspectable.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UIView+IBInspectable.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UIView+IBInspectable.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/API/UIKitExtensions/UIView+SKExtensions.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UIView+SKExtensions.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UIView+SKExtensions.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UIView+SKExtensions.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/Collections/CollectionSkeleton.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/CollectionSkeleton.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/CollectionSkeleton.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/CollectionSkeleton.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/Collections/SkeletonCollectionDataSource.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonCollectionDataSource.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonCollectionDataSource.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonCollectionDataSource.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/Collections/SkeletonCollectionDelegate.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonCollectionDelegate.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonCollectionDelegate.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonCollectionDelegate.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/Collections/SkeletonReusableCell.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonReusableCell.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonReusableCell.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonReusableCell.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/Debug/SkeletonDebug.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonDebug.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonDebug.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonDebug.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/FoundationExtensions/DispatchQueue+Extensions.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/DispatchQueue+Extensions.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/DispatchQueue+Extensions.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/DispatchQueue+Extensions.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/FoundationExtensions/Int+Extensions.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/Int+Extensions.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/Int+Extensions.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/Int+Extensions.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/FoundationExtensions/Notification+Extensions.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/Notification+Extensions.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/Notification+Extensions.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/Notification+Extensions.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/FoundationExtensions/ProcessInfo+Extensions.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/ProcessInfo+Extensions.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/ProcessInfo+Extensions.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/ProcessInfo+Extensions.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/Helpers/AssociationPolicy.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/AssociationPolicy.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/AssociationPolicy.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/AssociationPolicy.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/Helpers/Recursive.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/Recursive.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/Recursive.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/Recursive.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/Helpers/Swizzling.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/Swizzling.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/Swizzling.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/Swizzling.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/Models/RecoverableViewState.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/RecoverableViewState.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/RecoverableViewState.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/RecoverableViewState.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/Models/SkeletonLayer.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonLayer.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonLayer.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonLayer.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/SkeletonConfigs/SkeletonConfig.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonConfig.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonConfig.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonConfig.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/SkeletonConfigs/SkeletonMultilinesLayerConfig.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonMultilinesLayerConfig.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonMultilinesLayerConfig.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonMultilinesLayerConfig.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/SkeletonExtensions/GradientDirection+Animations.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/GradientDirection+Animations.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/GradientDirection+Animations.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/GradientDirection+Animations.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/SkeletonExtensions/PrepareViewForSkeleton.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/PrepareViewForSkeleton.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/PrepareViewForSkeleton.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/PrepareViewForSkeleton.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/SkeletonExtensions/Recoverable.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/Recoverable.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/Recoverable.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/Recoverable.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/SkeletonExtensions/SkeletonTextNode.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonTextNode.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonTextNode.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonTextNode.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/SkeletonExtensions/SubviewsSkeletonables.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SubviewsSkeletonables.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SubviewsSkeletonables.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SubviewsSkeletonables.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/SkeletonFlowHandler.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonFlowHandler.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonFlowHandler.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonFlowHandler.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/SkeletonLayerBuilders/SkeletonLayerBuilder.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonLayerBuilder.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonLayerBuilder.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonLayerBuilder.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/SkeletonLayerBuilders/SkeletonMultilineLayerBuilder.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonMultilineLayerBuilder.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonMultilineLayerBuilder.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonMultilineLayerBuilder.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/SkeletonTree/SkeletonTreeNode.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonTreeNode.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonTreeNode.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonTreeNode.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/UIKitExtensions/CALayer+Extensions.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/CALayer+Extensions.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/CALayer+Extensions.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/CALayer+Extensions.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/UIKitExtensions/SkeletonTreeNode+Extensions.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonTreeNode+Extensions.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonTreeNode+Extensions.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/SkeletonTreeNode+Extensions.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/UIKitExtensions/UICollectionView+CollectionSkeleton.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UICollectionView+CollectionSkeleton.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UICollectionView+CollectionSkeleton.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UICollectionView+CollectionSkeleton.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/UIKitExtensions/UIColor+Skeleton.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UIColor+Skeleton.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UIColor+Skeleton.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UIColor+Skeleton.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/UIKitExtensions/UILabel+Extensions.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UILabel+Extensions.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UILabel+Extensions.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UILabel+Extensions.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/UIKitExtensions/UITableView+CollectionSkeleton.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UITableView+CollectionSkeleton.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UITableView+CollectionSkeleton.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UITableView+CollectionSkeleton.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/UIKitExtensions/UITableView+Extensions.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UITableView+Extensions.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UITableView+Extensions.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UITableView+Extensions.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/UIKitExtensions/UIView+AppLifecycleNotifications.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UIView+AppLifecycleNotifications.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UIView+AppLifecycleNotifications.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UIView+AppLifecycleNotifications.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/UIKitExtensions/UIView+AssociatedObjects.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UIView+AssociatedObjects.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UIView+AssociatedObjects.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UIView+AssociatedObjects.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/UIKitExtensions/UIView+CollectionSkeleton.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UIView+CollectionSkeleton.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UIView+CollectionSkeleton.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UIView+CollectionSkeleton.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/UIKitExtensions/UIView+Extensions.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UIView+Extensions.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UIView+Extensions.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UIView+Extensions.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/UIKitExtensions/UIView+SkeletonView.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UIView+SkeletonView.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UIView+SkeletonView.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UIView+SkeletonView.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/UIKitExtensions/UIView+Swizzling.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UIView+Swizzling.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UIView+Swizzling.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UIView+Swizzling.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/SkeletonViewCore/Sources/Internal/UIKitExtensions/UIView+Transitions.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UIView+Transitions.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UIView+Transitions.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/UIView+Transitions.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/DerivedSources/resource_bundle_accessor.swift" : {
+    "index-unit-output-path" : "/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/resource_bundle_accessor.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/resource_bundle_accessor.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SkeletonView/build/SkeletonView.build/Release-iphoneos/SkeletonView.build/Objects-normal/arm64/resource_bundle_accessor.o"
+  }
+}
