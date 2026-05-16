@@ -1,0 +1,61 @@
+{
+  "" : {
+    "const-values" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/build/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/SDWebImageSwiftUI-primary.swiftconstvalues",
+    "dependencies" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/build/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/SDWebImageSwiftUI-primary.d",
+    "diagnostics" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/build/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/SDWebImageSwiftUI-primary.dia",
+    "emit-module-dependencies" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/build/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/SDWebImageSwiftUI-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/build/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/SDWebImageSwiftUI-primary-emit-module.dia",
+    "pch" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/build/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/SDWebImageSwiftUI-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/build/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/SDWebImageSwiftUI-primary.swiftdeps"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/SDWebImageSwiftUI/Classes/AnimatedImage.swift" : {
+    "index-unit-output-path" : "/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/AnimatedImage.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/build/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/AnimatedImage.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/build/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/AnimatedImage.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/SDWebImageSwiftUI/Classes/Image.swift" : {
+    "index-unit-output-path" : "/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/Image.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/build/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/Image.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/build/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/Image.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/SDWebImageSwiftUI/Classes/ImageManager.swift" : {
+    "index-unit-output-path" : "/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/ImageManager.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/build/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/ImageManager.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/build/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/ImageManager.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/SDWebImageSwiftUI/Classes/ImagePlayer.swift" : {
+    "index-unit-output-path" : "/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/ImagePlayer.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/build/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/ImagePlayer.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/build/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/ImagePlayer.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/SDWebImageSwiftUI/Classes/ImageViewWrapper.swift" : {
+    "index-unit-output-path" : "/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/ImageViewWrapper.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/build/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/ImageViewWrapper.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/build/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/ImageViewWrapper.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/SDWebImageSwiftUI/Classes/Indicator/Indicator.swift" : {
+    "index-unit-output-path" : "/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/Indicator.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/build/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/Indicator.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/build/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/Indicator.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/SDWebImageSwiftUI/Classes/SDWebImageSwiftUI.swift" : {
+    "index-unit-output-path" : "/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/SDWebImageSwiftUI.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/build/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/SDWebImageSwiftUI.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/build/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/SDWebImageSwiftUI.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/SDWebImageSwiftUI/Classes/Transition/Transition.swift" : {
+    "index-unit-output-path" : "/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/Transition.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/build/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/Transition.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/build/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/Transition.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/SDWebImageSwiftUI/Classes/WebImage.swift" : {
+    "index-unit-output-path" : "/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/WebImage.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/build/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/WebImage.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/build/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/WebImage.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/build/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/DerivedSources/resource_bundle_accessor.swift" : {
+    "index-unit-output-path" : "/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/resource_bundle_accessor.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/build/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/resource_bundle_accessor.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/SDWebImageSwiftUI/build/SDWebImageSwiftUI.build/Release-iphoneos/SDWebImageSwiftUI.build/Objects-normal/arm64/resource_bundle_accessor.o"
+  }
+}

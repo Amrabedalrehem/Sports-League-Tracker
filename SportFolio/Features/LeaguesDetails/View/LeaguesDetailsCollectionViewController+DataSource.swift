@@ -224,5 +224,18 @@ extension LeaguesDetailsCollectionViewController {
             vc.title = team.teamName ?? L10n.teamNameUnknown
             navigationController?.pushViewController(vc, animated: true)
         }
+
+		if case .player(let player) = item, let playerKey = player.playerKey {
+			let playerVC = storyboard?.instantiateViewController(withIdentifier: "PlayerCollectionViewController") as! PlayerCollectionViewController
+
+			playerVC.presenter = PlayerPresenter(
+				network: NetworkServiceImpl.shared,
+				baseURL:leaguesDetailsPresenter.getBaseURL(),
+				playerKey: playerKey,
+				view: playerVC
+			)
+			playerVC.title = player.playerName ?? L10n.playerNameUnknown
+			navigationController?.pushViewController(playerVC, animated: true)
+		}
     }
 }

@@ -39,9 +39,17 @@ protocol NetworkService {
         leagueId: Int,
         completion: @escaping (Result<PlayerResponse, Error>) -> Void
     )
+
+	func getPlayerDetails
+	(
+		baseURL: String,
+		playerId: Int,
+		completion: @escaping (Result<PlayerResponse, Error>) -> Void
+	)
 }
 class NetworkServiceImpl : NetworkService{
-   
+
+
     
     
     static let shared = NetworkServiceImpl()
@@ -133,4 +141,21 @@ class NetworkServiceImpl : NetworkService{
             completion: completion
         )
     }
+
+	func getPlayerDetails(
+		baseURL: String,
+		playerId: Int,
+		completion: @escaping (Result<PlayerResponse, any Error>) -> Void
+	) {
+		APIClient.shared
+			.request(
+				baseURL: baseURL,
+				params: [
+					"met": "Players",
+					"playerId" : playerId
+				],
+				responseType: PlayerResponse.self,
+				completion:completion
+			)
+	}
 }

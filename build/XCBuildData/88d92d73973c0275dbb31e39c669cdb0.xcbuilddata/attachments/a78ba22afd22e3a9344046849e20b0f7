@@ -1,0 +1,21 @@
+{
+  "" : {
+    "const-values" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/Reachability.swift/build/Reachability.build/Release-iphoneos/Reachability.build/Objects-normal/arm64/Reachability-primary.swiftconstvalues",
+    "dependencies" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/Reachability.swift/build/Reachability.build/Release-iphoneos/Reachability.build/Objects-normal/arm64/Reachability-primary.d",
+    "diagnostics" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/Reachability.swift/build/Reachability.build/Release-iphoneos/Reachability.build/Objects-normal/arm64/Reachability-primary.dia",
+    "emit-module-dependencies" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/Reachability.swift/build/Reachability.build/Release-iphoneos/Reachability.build/Objects-normal/arm64/Reachability-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/Reachability.swift/build/Reachability.build/Release-iphoneos/Reachability.build/Objects-normal/arm64/Reachability-primary-emit-module.dia",
+    "pch" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/Reachability.swift/build/Reachability.build/Release-iphoneos/Reachability.build/Objects-normal/arm64/Reachability-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/Reachability.swift/build/Reachability.build/Release-iphoneos/Reachability.build/Objects-normal/arm64/Reachability-primary.swiftdeps"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/Reachability.swift/Sources/Reachability.swift" : {
+    "index-unit-output-path" : "/Reachability.build/Release-iphoneos/Reachability.build/Objects-normal/arm64/Reachability.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/Reachability.swift/build/Reachability.build/Release-iphoneos/Reachability.build/Objects-normal/arm64/Reachability.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/Reachability.swift/build/Reachability.build/Release-iphoneos/Reachability.build/Objects-normal/arm64/Reachability.o"
+  },
+  "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/Reachability.swift/build/Reachability.build/Release-iphoneos/Reachability.build/DerivedSources/resource_bundle_accessor.swift" : {
+    "index-unit-output-path" : "/Reachability.build/Release-iphoneos/Reachability.build/Objects-normal/arm64/resource_bundle_accessor.o",
+    "llvm-bc" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/Reachability.swift/build/Reachability.build/Release-iphoneos/Reachability.build/Objects-normal/arm64/resource_bundle_accessor.bc",
+    "object" : "/Users/taqieallah/Library/Developer/Xcode/DerivedData/SportFolio-gmrrkjqlrrwwsycxkrmrgmdrqxbd/SourcePackages/checkouts/Reachability.swift/build/Reachability.build/Release-iphoneos/Reachability.build/Objects-normal/arm64/resource_bundle_accessor.o"
+  }
+}

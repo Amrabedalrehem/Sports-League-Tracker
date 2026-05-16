@@ -1,0 +1,4 @@
+module SkeletonView {
+header "SkeletonView-Swift.h"
+export *
+}

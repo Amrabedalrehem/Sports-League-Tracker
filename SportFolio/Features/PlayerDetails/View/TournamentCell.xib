@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24127" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="dark"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell clipsSubviews="YES" contentMode="scaleToFill" reuseIdentifier="TournamentCell" id="ROOT-cell" customClass="TournamentCell" customModule="SportFolio" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="110"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="CV-content">
+                <rect key="frame" x="0.0" y="0.0" width="393" height="110"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CARD-view">
+                        <rect key="frame" x="0.0" y="5" width="393" height="100"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="🎾" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ICON-label">
+                                <rect key="frame" x="16" y="32" width="36" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="icon-h"/>
+                                    <constraint firstAttribute="width" constant="36" id="icon-w"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" name="MainText"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="NAME-stack">
+                                <rect key="frame" x="62" y="11.999999999999996" width="83" height="52.666666666666657"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="100" text="Grand Slam" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAME-label">
+                                        <rect key="frame" x="0.0" y="0.0" width="83" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <color key="textColor" name="MainText"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="2024" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEASON-label">
+                                        <rect key="frame" x="0.0" y="37" width="83" height="15.666666666666664"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" name="SecondaryText"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isHiddenWhenSkeletonIsActive" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="CardBackground"/>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="GS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TYPE-label">
+                                <rect key="frame" x="345" y="12" width="36" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="type-h"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="36" id="type-minW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
+                                <color key="textColor" name="MainText"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DIV-view">
+                                <rect key="frame" x="62" y="70.666666666666671" width="319" height="1"/>
+                                <color key="backgroundColor" name="MainText"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="div-h"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="INFO-hstack">
+                                <rect key="frame" x="62" y="77.666666666666671" width="200" height="14.333333333333329"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="SURF-stack">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="14.333333333333334"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Surface:" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SURF-title">
+                                                <rect key="frame" x="0.0" y="0.0" width="47.666666666666664" height="14.333333333333334"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" name="SecondaryText"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Hard" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SURF-value">
+                                                <rect key="frame" x="51.666666666666679" y="0.0" width="28.333333333333336" height="14.333333333333334"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                <color key="textColor" name="MainText"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" name="CardBackground"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="PRIZE-stack">
+                                        <rect key="frame" x="96" y="0.0" width="104" height="14.333333333333334"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Prize:" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PRIZE-title">
+                                                <rect key="frame" x="0.0" y="0.0" width="32" height="14.333333333333334"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" name="SecondaryText"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="$2,000,000" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PRIZE-value">
+                                                <rect key="frame" x="36" y="0.0" width="68" height="14.333333333333334"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                <color key="textColor" name="MainText"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" name="CardBackground"/>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" name="CardBackground"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" name="CardBackground"/>
+                        <constraints>
+                            <constraint firstItem="DIV-view" firstAttribute="leading" secondItem="NAME-stack" secondAttribute="leading" id="div-lead"/>
+                            <constraint firstItem="DIV-view" firstAttribute="top" secondItem="NAME-stack" secondAttribute="bottom" constant="6" id="div-top"/>
+                            <constraint firstAttribute="trailing" secondItem="DIV-view" secondAttribute="trailing" constant="12" id="div-trail"/>
+                            <constraint firstItem="ICON-label" firstAttribute="centerY" secondItem="CARD-view" secondAttribute="centerY" id="icon-cy"/>
+                            <constraint firstItem="ICON-label" firstAttribute="leading" secondItem="CARD-view" secondAttribute="leading" constant="16" id="icon-lead"/>
+                            <constraint firstAttribute="bottom" secondItem="INFO-hstack" secondAttribute="bottom" constant="8" id="info-bot"/>
+                            <constraint firstItem="INFO-hstack" firstAttribute="leading" secondItem="NAME-stack" secondAttribute="leading" id="info-lead"/>
+                            <constraint firstItem="INFO-hstack" firstAttribute="top" secondItem="DIV-view" secondAttribute="bottom" constant="6" id="info-top"/>
+                            <constraint firstItem="NAME-stack" firstAttribute="leading" secondItem="ICON-label" secondAttribute="trailing" constant="10" id="name-lead"/>
+                            <constraint firstItem="NAME-stack" firstAttribute="top" secondItem="CARD-view" secondAttribute="top" constant="12" id="name-top"/>
+                            <constraint firstItem="TYPE-label" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="NAME-stack" secondAttribute="trailing" constant="8" id="type-name-space"/>
+                            <constraint firstItem="TYPE-label" firstAttribute="top" secondItem="CARD-view" secondAttribute="top" constant="12" id="type-top"/>
+                            <constraint firstAttribute="trailing" secondItem="TYPE-label" secondAttribute="trailing" constant="12" id="type-trail"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" name="AppBackground"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="CARD-view" secondAttribute="bottom" constant="5" id="card-bot"/>
+                    <constraint firstItem="CARD-view" firstAttribute="leading" secondItem="CV-content" secondAttribute="leading" id="card-lead"/>
+                    <constraint firstItem="CARD-view" firstAttribute="top" secondItem="CV-content" secondAttribute="top" constant="5" id="card-top"/>
+                    <constraint firstAttribute="trailing" secondItem="CARD-view" secondAttribute="trailing" id="card-trail"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <color key="backgroundColor" name="AppBackground"/>
+            <connections>
+                <outlet property="cardView" destination="CARD-view" id="out-card"/>
+                <outlet property="nameLabel" destination="NAME-label" id="out-name"/>
+                <outlet property="prizeTitleLabel" destination="PRIZE-title" id="out-prize-title"/>
+                <outlet property="prizeValueLabel" destination="PRIZE-value" id="out-prize-val"/>
+                <outlet property="seasonLabel" destination="SEASON-label" id="out-season"/>
+                <outlet property="surfaceIconLabel" destination="ICON-label" id="out-icon"/>
+                <outlet property="surfaceTitleLabel" destination="SURF-title" id="out-surf-title"/>
+                <outlet property="surfaceValueLabel" destination="SURF-value" id="out-surf-val"/>
+                <outlet property="typeBadgeLabel" destination="TYPE-label" id="out-type"/>
+            </connections>
+            <point key="canvasLocation" x="40" y="40"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="AppBackground">
+            <color red="0.94901960784313721" green="0.96078431372549022" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CardBackground">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MainText">
+            <color red="0.070588235294117646" green="0.090196078431372548" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondaryText">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

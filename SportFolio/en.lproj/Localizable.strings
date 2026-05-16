@@ -86,3 +86,32 @@
 
 "onboarding.next" = "Next";
 "onboarding.getStarted" = "Get Started";
+
+// MARK: player
+"player.age" = "age";
+"player.captain"  = "© Captain";
+"common.unknown"  = "--";
+"empty.player.title" = "No Available Data";
+"empty.player.subtitle" = "Player details could not be loaded.";
+"player_stat_rating"  = "Rating";
+"player_stat_minutes" = "Minutes";
+"player_stat_played"  = "Played";
+"player_stat_g_conc"  = "G.Conc";
+"player_stat_saves"   = "Saves";
+"player_name_unknown" = "Unknown Player";
+"unknown"             = "–";
+"player_age_unknown"  = "–";
+"player_section_stats"       = "Season Stats";
+"player_section_tournaments" = "Tournaments";
+"player_stat_rank"    = "Rank";
+"player_stat_titles"  = "Titles";
+"player_stat_overall" = "Overall";
+"player_stat_hard"    = "Hard";
+"player_stat_clay"    = "Clay";
+"player_stat_grass"   = "Grass";
+"tournament_surface" = "Surface";
+"tournament_prize"   = "Prize";
+"empty_player_title"    = "Player Not Found";
+"empty_player_subtitle" = "We couldn't load this player's details.";
+"empty.player.stats" = "No statistics available";
+"empty.player.tournaments" = "No tournaments available";
