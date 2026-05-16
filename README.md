@@ -12,6 +12,7 @@ The Sports App helps users:
 ✅ Explore leagues for each sport  
 ✅ View upcoming & latest events  
 ✅ Check teams details  
+✅ Check player details  
 ✅ Save favorite leagues locally using CoreData  
 ✅ Enjoy smooth and modern user experience
 
@@ -82,6 +83,8 @@ Horizontal CollectionView displaying:
 
 ### 👉 On Team Click
 Navigate to Team Details screen.
+### 👉 On Player Click
+Navigate to Player Details screen.
 
 ---
 
@@ -91,6 +94,20 @@ Displays:
 - 🖼 Team Logo
 - 🏷 Team Name
 - 📝 PLayers 
+
+
+---
+
+# 🧑‍💼 Player Details Screen
+
+Displays:
+
+* 🖼️ Player Photo
+* 🏷️ Player Name
+* 📋 Player Information
+* 📊 Season Statistics
+* 🏆 Tournaments
+
 
 ---
 
